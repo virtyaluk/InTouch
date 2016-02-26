@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 
 namespace ModernDev.InTouch.Helpers
 {
-    public class BoolConverter : JsonConverter
+    public class JsonBoolConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
