@@ -13,6 +13,7 @@
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace ModernDev.InTouch
 {
@@ -92,7 +93,8 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("genre_id")]
-        public int GenreId { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public AudioGenres GenreId { get; set; }
 
         #endregion
     }

@@ -16,10 +16,10 @@ using System.Runtime.Serialization;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// User deactivated statuses
+    /// Deactivated statuses
     /// </summary>
     [DebuggerDisplay("UserDeactivated")]
-    public enum UserDeactivated
+    public enum DeactivatedTypes
     {
         [EnumMember(Value = "deleted")]
         Deleted,
