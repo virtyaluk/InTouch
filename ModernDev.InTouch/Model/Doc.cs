@@ -17,13 +17,15 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// A <see cref="Doc"/> object describes a document.
+    /// A <see cref="Doc"/> class describes a document.
     /// </summary>
-    [DebuggerDisplay("")]
+    [DebuggerDisplay("Doc {Title}")]
     [DataContract]
     public partial class Doc
     {
         #region Properties
+
+        public string Type { get; } = "Doc";
 
         /// <summary>
         /// Document ID. 

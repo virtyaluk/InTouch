@@ -17,12 +17,17 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// An <see cref="Audio"/> object describes an audio file.
+    /// An <see cref="Audio"/> class describes an audio file.
     /// </summary>
     [DataContract]
-    [DebuggerDisplay("Audio {Artist}-{Title}")]
+    [DebuggerDisplay("Audio {Artist} - {Title}")]
     public partial class Audio
     {
+        #region Properties
+
+        [IgnoreDataMember]
+        public string Type { get; } = "Audio";
+
         /// <summary>
         /// Audio ID.
         /// </summary>
@@ -88,5 +93,7 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("genre_id")]
         public int GenreId { get; set; }
+
+        #endregion
     }
 }

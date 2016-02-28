@@ -18,8 +18,8 @@ namespace ModernDev.InTouch
     /// <summary>
     /// Occupation types
     /// </summary>
-    [DebuggerDisplay("OccupationType")]
-    public enum OccupationType
+    [DebuggerDisplay("OccupationTypes")]
+    public enum OccupationTypes
     {
         [EnumMember(Value = "work")]
         Work,

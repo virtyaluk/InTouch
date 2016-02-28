@@ -19,12 +19,14 @@ using ModernDev.InTouch.Helpers;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// <see cref="Video"/> object describes video file.
+    /// A <see cref="Video"/> class describes video file.
     /// </summary>
-    [DebuggerDisplay("Video}")]
+    [DebuggerDisplay("Video {Title}")]
     [DataContract]
     public partial class Video
     {
+        #region Properties
+
         [IgnoreDataMember]
         public string Type { get; } = "Video";
 
@@ -186,6 +188,7 @@ namespace ModernDev.InTouch
         [JsonProperty("privacy_comment")]
         public List<object> PrivacyComment { get; set; }
 
+        #endregion
         #endregion
     }
 }
