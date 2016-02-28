@@ -21,29 +21,8 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("UserCounters")]
-    public class UserCounters
+    public class UserCounters : Counters
     {
-        /// <summary>
-        /// Number of photo albums.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("albums")]
-        public int Albums { get; set; }
-
-        /// <summary>
-        /// Number of videos.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("videos")]
-        public int Videos { get; set; }
-
-        /// <summary>
-        /// Number of audios.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("audios")]
-        public int Audios { get; set; }
-
         /// <summary>
         /// Number of notes.
         /// </summary>
