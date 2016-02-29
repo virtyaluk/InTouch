@@ -74,7 +74,7 @@ namespace ModernDev.InTouch
         public int ReadComments { get; set; }
 
         /// <summary>
-        /// Note's url.
+        /// Address for page display.
         /// </summary>
         [DataMember]
         [JsonProperty("view_url")]

@@ -24,11 +24,17 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("Likes: {UserLikes}, {Count}")]
     public partial class Likes
     {
+        /// <summary>
+        /// Whether the current user likes the specified object.
+        /// </summary>
         [DataMember]
         [JsonConverter(typeof(JsonBoolConverter))]
         [JsonProperty("user_likes")]
         public bool UserLikes { get; set; }
 
+        /// <summary>
+        /// The total number of users who added the specified object to their Likes list.
+        /// </summary>
         [DataMember]
         [JsonProperty("count")]
         public int Count { get; set; }
