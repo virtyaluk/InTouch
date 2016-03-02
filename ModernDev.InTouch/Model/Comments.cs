@@ -12,6 +12,7 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -29,5 +30,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("count")]
         public int Count { get; set; }
+
+        /// <summary>
+        /// Whether the current user can leave comments to the post
+        /// </summary>
+        [DataMember]
+        [JsonProperty("can_posst")]
+        [JsonConverter(typeof(JsonBoolConverter))]
+        public bool CanPost { get; set; }
     }
 }
