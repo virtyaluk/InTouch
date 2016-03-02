@@ -33,10 +33,18 @@ namespace ModernDev.InTouch
         public bool UserLikes { get; set; }
 
         /// <summary>
-        /// The total number of users who added the specified object to their Likes list.
+        /// Number of users who liked the comment.
         /// </summary>
         [DataMember]
         [JsonProperty("count")]
         public int Count { get; set; }
+
+        /// <summary>
+        /// Whether the user can like the comment.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("can_like")]
+        [JsonConverter(typeof(JsonBoolConverter))]
+        public bool CanLike { get; set; }
     }
 }
