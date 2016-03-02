@@ -23,7 +23,8 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Video {Title}")]
     [DataContract]
-    public partial class Video
+    [APIVersion(Version = 5.45)]
+    public partial class Video : IMediaAttachment
     {
         #region Properties
 
@@ -122,19 +123,31 @@ namespace ModernDev.InTouch
         [JsonProperty("player")]
         public string Player { get; set; }
 
+        /// <summary>
+        /// The number of comments to the video.
+        /// </summary>
         [DataMember]
         [JsonProperty("comments")]
         public int Comments { get; set; }
 
+        /// <summary>
+        /// The key to access the content.
+        /// </summary>
         [DataMember]
         [JsonProperty("access_key")]
         public string AccessKey { get; set; }
 
+        /// <summary>
+        /// Whether the video is a live broadcast.
+        /// </summary>
         [DataMember]
         [JsonConverter(typeof(JsonBoolConverter))]
         [JsonProperty("live")]
         public bool Live { get; set; }
 
+        /// <summary>
+        /// Whether the video is being processed by a server.
+        /// </summary>
         [DataMember]
         [JsonConverter(typeof(JsonBoolConverter))]
         [JsonProperty("processing")]
@@ -149,7 +162,7 @@ namespace ModernDev.InTouch
         [JsonProperty("files")]
         public VideoFiles Files { get; set; }
 
-        #region Extended fields
+        #region Extended properties
 
         /// <summary>
         /// Information about likes.
@@ -189,6 +202,7 @@ namespace ModernDev.InTouch
         public List<object> PrivacyComment { get; set; }
 
         #endregion
+
         #endregion
     }
 }

@@ -13,6 +13,7 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -22,7 +23,8 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Note {Title}")]
-    public class Note
+    [APIVersion(Version = 5.45)]
+    public class Note : IMediaAttachment
     {
         /// <summary>
         /// Note ID.

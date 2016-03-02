@@ -12,6 +12,7 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -21,7 +22,8 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Doc {Title}")]
     [DataContract]
-    public partial class Doc
+    [APIVersion(Version = 5.45)]
+    public partial class Doc : IMediaAttachment
     {
         #region Properties
 
@@ -82,6 +84,17 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("photo_130")]
         public string Photo130 { get; set; }
+
+        #region Extra properties
+
+        /// <summary>
+        /// The key to access the content.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("access_key ")]
+        public string AccessKey { get; set; }
+
+        #endregion
 
         #endregion
     }

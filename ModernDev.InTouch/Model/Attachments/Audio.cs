@@ -12,6 +12,7 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -22,13 +23,11 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Audio {Artist} - {Title}")]
-    public partial class Audio
+    [APIVersion(Version = 5.45)]
+    public partial class Audio : IMediaAttachment
     {
         #region Properties
-
-        [IgnoreDataMember]
-        public string Type { get; } = "Audio";
-
+        
         /// <summary>
         /// Audio ID.
         /// </summary>
