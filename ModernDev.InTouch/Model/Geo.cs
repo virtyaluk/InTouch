@@ -44,6 +44,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("place")]
-        public PostGeoPlace Place { get; set; }
+        public GeoPlace Place { get; set; }
     }
 }

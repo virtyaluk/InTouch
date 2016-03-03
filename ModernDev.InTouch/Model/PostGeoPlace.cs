@@ -17,11 +17,11 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// A <see cref="PostGeoPlace"/> class describes an information about geo location.
+    /// A <see cref="GeoPlace"/> class describes an information about geo location.
     /// </summary>
     [DataContract]
-    [DebuggerDisplay("PostGeoPlace {Country}, {City}")]
-    public class PostGeoPlace : BasicPlace
+    [DebuggerDisplay("GeoPlace {Country}, {City}")]
+    public class GeoPlace : BasicPlace
     {
         /// <summary>
         /// The name of the country.
