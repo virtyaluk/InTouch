@@ -12,7 +12,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -94,6 +93,10 @@ namespace ModernDev.InTouch.Helpers
 
                     case "video":
                         list.Add(obj["video"].ToObject<Video>());
+                        break;
+
+                    case "posted_photo":
+                        list.Add(obj["posted_photo"].ToObject<PostedPhoto>());
                         break;
                 }
             }
