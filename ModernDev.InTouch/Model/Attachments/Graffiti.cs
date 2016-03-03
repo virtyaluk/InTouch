@@ -10,7 +10,6 @@
  * Licensed under the GPLv3 license.
  */
 
-using System;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using ModernDev.InTouch.Helpers;

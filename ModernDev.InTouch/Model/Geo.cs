@@ -18,7 +18,7 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// A <see cref="Geo"/> class describes an information about geo location attached to the <see cref="Post"/>.
+    /// A <see cref="Geo"/> class describes an information about geo location attached to the <see cref="Post"/> or a <see cref="Message"/>.
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Geo {Type}")]
