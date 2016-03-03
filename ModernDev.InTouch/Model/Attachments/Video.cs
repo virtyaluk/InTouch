@@ -28,9 +28,6 @@ namespace ModernDev.InTouch
     {
         #region Properties
 
-        [IgnoreDataMember]
-        public string Type { get; } = "Video";
-
         /// <summary>
         /// Video ID. 
         /// </summary>

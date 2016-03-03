@@ -24,7 +24,8 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Page {Title}")]
-    public partial class Page
+    [APIVersion(Version = 5.45)]
+    public partial class Page : IMediaAttachment
     {
         /// <summary>
         /// Page identifier.

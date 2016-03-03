@@ -14,7 +14,7 @@ using System;
 
 namespace ModernDev.InTouch.Helpers
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface)]
     public class APIVersion : Attribute
     {
         public double Version;
