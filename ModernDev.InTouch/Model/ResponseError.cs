@@ -13,9 +13,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.API;
 using Newtonsoft.Json;
 
-namespace ModernDev.InTouch.API
+namespace ModernDev.InTouch
 {
     /// <summary>
     /// A basic class for response error.
