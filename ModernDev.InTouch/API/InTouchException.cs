@@ -12,7 +12,7 @@
 
 using System;
 
-namespace ModernDev.InTouch.API
+namespace ModernDev.InTouch
 {
     public class InTouchException : Exception
     {

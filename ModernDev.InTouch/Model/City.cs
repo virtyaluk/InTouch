@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// A <see cref="City"/> class describes a city object.
+    /// A <see cref="City"/> class describes a city.
     /// </summary>
     [DebuggerDisplay("City {Title}")]
     [DataContract]
