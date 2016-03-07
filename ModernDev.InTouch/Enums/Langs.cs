@@ -12,6 +12,7 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.API;
 
 namespace ModernDev.InTouch
 {
@@ -67,6 +68,11 @@ namespace ModernDev.InTouch
         /// Italian
         /// </summary>
         [EnumMember(Value = "it")]
-        Italian
+        Italian,
+
+        /// <summary>
+        /// Use user's current language based on <see cref="Account.GetInfo"/>
+        /// </summary>
+        UsersCurrentLanguage
     }
 }
