@@ -50,5 +50,20 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("intro")]
         public int Intro { get; set; }
+
+        /// <summary>
+        /// True - only user's own posts will be displayed on the wall by default.
+        /// This corresponds to the site's "Show only my records" False - to display all posts on the wall.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("own_posts_default")]
+        public bool OwnPostsDefault { get; set; }
+
+        /// <summary>
+        /// True - the user has disabled commenting posts on the wall, False - commenting posts allowed.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("no_wall_replies")]
+        public bool NoWallReplies { get; set; }
     }
 }
