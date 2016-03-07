@@ -12,18 +12,33 @@
 
 using System;
 using System.Diagnostics;
+using ModernDev.InTouch.API;
 
-namespace ModernDev.InTouch.API
+namespace ModernDev.InTouch
 {
     /// <summary>
-    /// 
+    /// An <see cref="AuthorizationSettings"/> class describes an authorization parameters.
     /// </summary>
-    [DebuggerDisplay("AuthorizationOptions")]
-    public class AuthorizationData
+    [DebuggerDisplay("AuthorizationSettings")]
+    public class AuthorizationSettings
     {
-        public AuthorizationData() { }
+        #region Constructors
 
-        public AuthorizationData(int? clientId, AuthorizationDisplayTypes display, AccessPermissions scope, Uri redirectUri, bool revoke = false, bool ssoEnabled = false)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthorizationSettings"/> class.
+        /// </summary>
+        public AuthorizationSettings() { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthorizationSettings"/> class with the specified settings.
+        /// </summary>
+        /// <param name="clientId">Your application ID. Set to <code>null</code> if you want to use <c>clientId</c> from <see cref="InTouch"/> instance.</param>
+        /// <param name="display">Specifies how the authorization page is displayed.</param>
+        /// <param name="scope">Bit mask of application access settings which shall be checked during authorization and requested when unavailable.</param>
+        /// <param name="redirectUri">URL where user will be redirected to after authorization (domain of the specified URL shall correspond to the main domain in application settings).</param>
+        /// <param name="revoke">Whether the authorization dialog must revoke previously accessed application permissions.</param>
+        /// <param name="ssoEnabled">Whether the app supports single sign-on (SSO).</param>
+        public AuthorizationSettings(int? clientId, AuthorizationDisplayTypes display, AccessPermissions scope, Uri redirectUri, bool revoke = false, bool ssoEnabled = false)
         {
             ClientId = clientId;
             Display = display;
@@ -32,6 +47,10 @@ namespace ModernDev.InTouch.API
             Revoke = revoke;
             SSOEnabled = ssoEnabled;
         }
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// Your application ID.
@@ -66,5 +85,7 @@ namespace ModernDev.InTouch.API
         /// </remarks>
         /// </summary>
         public bool SSOEnabled { get; set; }
+
+        #endregion
     }
 }
