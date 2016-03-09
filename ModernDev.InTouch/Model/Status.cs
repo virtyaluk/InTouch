@@ -29,5 +29,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("text")]
         public string Text { get; set; }
+
+        /// <summary>
+        /// The current audio user listening to (if any).
+        /// </summary>
+        [DataMember]
+        [JsonProperty("audio")]
+        public Audio Audio { get; set; }
     }
 }
