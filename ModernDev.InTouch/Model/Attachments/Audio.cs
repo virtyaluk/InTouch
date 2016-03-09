@@ -10,6 +10,7 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using ModernDev.InTouch.Helpers;
@@ -94,6 +95,21 @@ namespace ModernDev.InTouch
         [JsonProperty("genre_id")]
         [JsonConverter(typeof(StringEnumConverter))]
         public AudioGenres GenreId { get; set; }
+
+        /// <summary>
+        /// Added date.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("data")]
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
+        public DateTime? Date { get; set; }
+
+        /// <summary>
+        /// True, if the option "Do not show in the search" is enabled.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("no_search")]
+        public bool NoSearch { get; set; }
 
         #endregion
     }
