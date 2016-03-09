@@ -56,7 +56,8 @@ namespace ModernDev.InTouch.Helpers
         /// <returns></returns>
         public static string ToEnumString<T>(T type)
         {
-            var enumType = typeof (T);
+            //var enumType = typeof (T);
+            var enumType = type.GetType();
             var name = Enum.GetName(enumType, type);
             var enumMemberAttribute = ((EnumMemberAttribute[]) enumType.GetField(name)
                 .GetCustomAttributes(typeof (EnumMemberAttribute), true)).Single();
@@ -90,6 +91,26 @@ namespace ModernDev.InTouch.Helpers
             return queryString.Split('&')
                 .Where(query => !string.IsNullOrEmpty(query))
                 .ToDictionary(query => query.Split('=')[0], query => query.Split('=')[1]);
+        }
+
+        /// <summary>
+        /// Determines whether the given object is a generic list.
+        /// <remarks>
+        /// Was taken from <a href="http://stackoverflow.com/a/794257/1191959">here</a>.
+        /// </remarks>
+        /// </summary>
+        /// <param name="o">An object to check.</param>
+        /// <returns>True, if the given object is a generic list; False, otherwise.</returns>
+        public static bool IsGenericList(this object o)
+        {
+            var isGenericList = false;
+
+            var oType = o.GetType();
+
+            if (oType.GetTypeInfo().IsGenericType && (oType.GetGenericTypeDefinition() == typeof(List<>)))
+                isGenericList = true;
+
+            return isGenericList;
         }
     }
 }
