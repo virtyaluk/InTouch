@@ -21,15 +21,8 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("University {Name} {FacultyName}'{Graduation}")]
     [DataContract]
-    public class University
+    public class University : TitledItem
     {
-        /// <summary>
-        /// University ID.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
         /// <summary>
         /// ID of the country the university is located in.
         /// </summary>

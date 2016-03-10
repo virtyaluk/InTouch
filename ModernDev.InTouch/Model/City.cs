@@ -12,7 +12,6 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
 {
@@ -21,20 +20,8 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("City {Title}")]
     [DataContract]
-    public class City
+    public class City : TitledItem
     {
-        /// <summary>
-        /// City ID.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("id")]
-        public int Id { get; set; }
 
-        /// <summary>
-        /// The name of the city.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("title")]
-        public string Title { get; set; }
     }
 }
