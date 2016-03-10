@@ -12,6 +12,7 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
 {
@@ -22,6 +23,22 @@ namespace ModernDev.InTouch
     [DataContract]
     public class City : TitledItem
     {
+        [DataMember]
+        [JsonProperty("important")]
+        public bool Important { get; set; }
 
+        /// <summary>
+        /// The area of the city.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("area")]
+        public string Area { get; set; }
+
+        /// <summary>
+        /// The region of the city.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("region")]
+        public string Region { get; set; }
     }
 }
