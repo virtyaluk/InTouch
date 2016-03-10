@@ -15,6 +15,9 @@ using System.Threading.Tasks;
 
 namespace ModernDev.InTouch
 {
+    /// <summary>
+    /// Provides a base class for managing user's gifts.
+    /// </summary>
     public class GiftsMethods : MethodsGroup
     {
         #region Constructor
