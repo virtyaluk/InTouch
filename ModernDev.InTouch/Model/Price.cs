@@ -17,28 +17,28 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// TODO: https://vk.com/dev/price
+    /// A <see cref="Price"/> class describes product's price.
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Price {Text}")]
     public class Price
     {
         /// <summary>
-        /// 
+        /// The price of the product.
         /// </summary>
         [DataMember]
         [JsonProperty("amount")]
         public int Amount { get; set; }
 
         /// <summary>
-        /// 
+        /// Currency.
         /// </summary>
         [DataMember]
         [JsonProperty("currency")]
         public Currency Currency { get; set; }
 
         /// <summary>
-        /// 
+        /// A string representation of the price.
         /// </summary>
         [DataMember]
         [JsonProperty("text")]

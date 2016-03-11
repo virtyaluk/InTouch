@@ -16,6 +16,9 @@ using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
 {
+    /// <summary>
+    /// Number of various objects the community has.
+    /// </summary>
     [DataContract]
     [DebuggerDisplay("CommunityCounters")]
     public class CommunityCounters : Counters
