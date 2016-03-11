@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -33,138 +34,88 @@ namespace ModernDev.InTouch
         public Price Price { get; set; }
 
         /// <summary>
-        /// 
+        /// Product Id.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("id")]
         public int Id { get; set; }
 
         /// <summary>
-        /// 
+        /// Product owner Id.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("owner_id")]
         public int OwnerId { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the product.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("title")]
         public string Title { get; set; }
 
         /// <summary>
-        /// 
+        /// Product description.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("description")]
         public string Description { get; set; }
 
         /// <summary>
-        /// 
+        /// Product category.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("category")]
         public Category Category { get; set; }
 
         /// <summary>
-        /// 
+        /// Url of the cover image of the product.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("thumb_photo")]
         public string ThumbPhoto { get; set; }
 
         /// <summary>
-        /// 
+        /// Date added.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("date")]
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// 
+        /// Product availability status.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("availability")]
         public ProductAvailability Availability { get; set; }
 
         /// <summary>
-        /// 
+        /// Product photos.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("photos")]
         public List<Photo> Photos { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the current user is able to comment the product.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("can_comment")]
         public bool CanComment { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the current user is able to repost the product.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("can_repost")]
         public bool CanRepost { get; set; }
 
         /// <summary>
-        /// 
+        /// An information about likes of the product.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("likes")]
         public Likes Likes { get; set; }
-    }
-
-    /// <summary>
-    /// A <see cref="Section"/> class describes a category section.
-    /// </summary>
-    [DataContract]
-    [DebuggerDisplay("Section {Name}")]
-    public class Section
-    {
-        /// <summary>
-        /// Section Id.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
-        /// <summary>
-        /// Section name.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("name")]
-        public string Name { get; set; }
-    }
-
-    /// <summary>
-    /// A <see cref="Category"/> class describes a product category.
-    /// </summary>
-    [DataContract]
-    [DebuggerDisplay("Category {Name}")]
-    public class Category
-    {
-        /// <summary>
-        /// Category Id.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
-        /// <summary>
-        /// Category name.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Category section.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("section")]
-        public Section Section { get; set; }
     }
 }
