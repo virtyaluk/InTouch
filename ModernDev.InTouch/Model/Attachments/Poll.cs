@@ -76,6 +76,13 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("answers")]
-        public List<Answer> Answers { get; set; } 
+        public List<Answer> Answers { get; set; }
+
+        /// <summary>
+        /// Whether the poll is anonymous.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("anonymous")]
+        public bool Anonymous { get; set; }
     }
 }
