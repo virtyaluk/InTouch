@@ -56,7 +56,7 @@ namespace ModernDev.InTouch
         /// <param name="needAll">True — to return a full list of all countries; False — to return a list of countries near the current user's country (default) </param>
         /// <param name="codes">A <see cref="List{T}"/> of country codes in <a href="https://vk.com/dev/country_codes">ISO 3166-1 alpha-2</a> standard.</param>
         /// <param name="offset">Offset needed to return a specific subset of countries.</param>
-        /// <param name="count">Number of countries to return. </param>
+        /// <param name="count">Number of countries to return.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="Country"/> objects.</returns>
         public async Task<Response<ItemsList<Country>>> GetCountries(bool needAll = false, List<string> codes = null,
             int? count = null, int offset = 100)
