@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace ModernDev.InTouch
 {
@@ -83,5 +84,61 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("size")]
         public int Size { get; set; }
+
+        /// <summary>
+        /// Photo Id of album's cover (0 if none).
+        /// </summary>
+        [DataMember]
+        [JsonProperty("thumb_id")]
+        public int ThumbId { get; set; }
+
+        /// <summary>
+        /// Privacy settings for album viewing (only for the album's owner).
+        /// </summary>
+        [DataMember]
+        [JsonProperty("privacy_view")]
+        public List<string> PrivacyView { get; set; }
+
+        /// <summary>
+        /// Privacy settings for album commenting (only for album's owner).
+        /// </summary>
+        [DataMember]
+        [JsonProperty("privacy_comment")]
+        public List<string> PrivacyComment { get; set; }
+
+        /// <summary>
+        /// Whether the admin only can upload to the album (only for album's owner).
+        /// </summary>
+        [DataMember]
+        [JsonProperty("upload_by_admins_only")]
+        public bool UploadByAdminsOnly { get; set; }
+
+        /// <summary>
+        /// Whether the album commenting is enabled.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("comments_disabled")]
+        public bool CommentsDisabled { get; set; }
+
+        /// <summary>
+        /// Whether the current user is able to upload photos to the album.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("can_upload")]
+        public bool CanUpload { get; set; }
+
+        /// <summary>
+        /// URL of the album's cover image.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("thumb_src")]
+        public string ThumbSrc { get; set; }
+
+        /// <summary>
+        /// A list of a <see cref="PhotoSize"/> objects containing an info about original cover photo copies with different sizes
+        /// </summary>
+        [DataMember]
+        [JsonProperty("sizes")]
+        public List<PhotoSize> Sizes { get; set; }
     }
 }
