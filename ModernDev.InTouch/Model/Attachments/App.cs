@@ -52,5 +52,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("photo_604")]
         public string Photo604 { get; set; }
+
+        /// <summary>
+        /// Id of the user or community that owns the app.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("owner_id")]
+        public int OwnerId { get; set; }
     }
 }

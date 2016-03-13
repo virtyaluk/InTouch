@@ -151,5 +151,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("view_url")]
         public string ViewUrl { get; set; }
+
+        /// <summary>
+        /// Id of the user or community that owns the page.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("owner_id")]
+        public int OwnerId { get; set; }
     }
 }

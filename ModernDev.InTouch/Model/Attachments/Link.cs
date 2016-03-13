@@ -112,5 +112,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("preview_url")]
         public string PreviewUrl { get; set; }
+
+        /// <summary>
+        /// Id of the user or community that owns the link.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("owner_id")]
+        public int OwnerId { get; set; }
     }
 }

@@ -59,5 +59,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("build_id")]
         public string BuildId { get; set; }
+
+        /// <summary>
+        /// Id of the user or community that owns the gift.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("owner_id")]
+        public int OwnerId { get; set; }
     }
 }

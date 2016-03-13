@@ -80,5 +80,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("height")]
         public int Height { get; set; }
+
+        /// <summary>
+        /// Id of the user or community that owns the sticker.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("owner_id")]
+        public int OwnerId { get; set; }
     }
 }
