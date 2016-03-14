@@ -36,5 +36,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("longitude")]
         public double Longitude { get; set; }
+
+        /// <summary>
+        /// Radius in meters.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("radius")]
+        public int Radius { get; set; }
     }
 }
