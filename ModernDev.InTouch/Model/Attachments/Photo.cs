@@ -226,10 +226,37 @@ namespace ModernDev.InTouch
         /// The key to access the content.
         /// </summary>
         [DataMember]
-        [JsonProperty("access_key ")]
+        [JsonProperty("access_key")]
         public string AccessKey { get; set; }
 
         #endregion
+
+        #region Tag properties
+
+        /// <summary>
+        /// ID of the user who added the tag.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("")]
+        public int PlacerId { get; set; }
+
+        /// <summary>
+        /// Tag creation date.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("tag_create")]
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
+        public DateTime? TagCreated { get; set; }
+
+        /// <summary>
+        /// Tag ID.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("tag_id")]
+        public int TagId { get; set; }
+
+        #endregion
+
         #endregion
     }
 }
