@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("User {FirstName} {LastName}")]
     [DataContract]
-    public partial class User
+    public partial class User : IProfileItem
     {
         #region Properties
 
