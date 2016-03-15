@@ -21,9 +21,9 @@ namespace ModernDev.InTouch
     /// <summary>
     /// Photo tag.
     /// </summary>
-    [DebuggerDisplay("PhotoTag {TaggedName}")]
+    [DebuggerDisplay("Tag {TaggedName}")]
     [DataContract]
-    public class PhotoTag
+    public class Tag
     {
         /// <summary>
         /// Tag Id.
@@ -31,6 +31,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("id")]
         public int Id { get; set; }
+
+        /// <summary>
+        /// Tag Id.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("tag_id")]
+        public int TagId { get; set; }
 
         /// <summary>
         /// ID of the user to whom the tag corresponds.

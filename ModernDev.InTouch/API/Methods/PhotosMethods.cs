@@ -654,9 +654,9 @@ namespace ModernDev.InTouch
         /// <param name="photoId">Photo ID.</param>
         /// <param name="ownerId">ID of the user or community that owns the photo.</param>
         /// <param name="accessKey">Photo access key.</param>
-        /// <returns>Returns a <see cref="List{T}"/> of <see cref="PhotoTag"/> objects.</returns>
-        public async Task<Response<List<PhotoTag>>> GetTags(int photoId, int? ownerId = null, string accessKey = null)
-            => await Request<List<PhotoTag>>("getTags", new MethodParams
+        /// <returns>Returns a <see cref="List{T}"/> of <see cref="Tag"/> objects.</returns>
+        public async Task<Response<List<Tag>>> GetTags(int photoId, int? ownerId = null, string accessKey = null)
+            => await Request<List<Tag>>("getTags", new MethodParams
             {
                 {"photo_id", photoId, true},
                 {"owner_id", ownerId},
