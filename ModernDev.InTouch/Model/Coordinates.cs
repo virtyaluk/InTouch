@@ -38,10 +38,13 @@ namespace ModernDev.InTouch
         public double Longitude { get; set; }
 
         /// <summary>
-        /// Radius in meters.
+        /// Radius in meters or in levels where: 1 - 300m, 2 - 2400m, 3 - 18km, 4 - 150km.
         /// </summary>
-        [DataMember]
-        [JsonProperty("radius")]
         public int Radius { get; set; }
+
+        /// <summary>
+        /// Accuracy in meters.
+        /// </summary>
+        public int Accuracy { get; set; }
     }
 }
