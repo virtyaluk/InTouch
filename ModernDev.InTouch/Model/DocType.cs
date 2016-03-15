@@ -17,11 +17,11 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// Type object.
+    /// Document type object.
     /// </summary>
-    [DebuggerDisplay("Type {Name} {Count}")]
+    [DebuggerDisplay("DocType {Name} {Count}")]
     [DataContract]
-    public class Type
+    public class DocType
     {
         /// <summary>
         /// Type Id.
