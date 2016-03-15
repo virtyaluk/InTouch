@@ -505,6 +505,10 @@ namespace ModernDev.InTouch
         [JsonProperty("online_app")]
         public int OnlineApp { get; set; }
 
+        [DataMember]
+        [JsonProperty("found_with")]
+        public string FoundWith { get; set; }
+
         #endregion
         #endregion
     }
