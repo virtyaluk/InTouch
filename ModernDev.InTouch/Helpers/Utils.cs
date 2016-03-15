@@ -41,9 +41,7 @@ namespace ModernDev.InTouch.Helpers
         /// <param name="dateTime">The <see cref="DateTime"/> object.</param>
         /// <returns></returns>
         public static long DateTimeToUnixTimeStamp(DateTime dateTime)
-        {
-            return new DateTimeOffset(dateTime).ToUnixTimeSeconds();
-        }
+            => new DateTimeOffset(dateTime).ToUnixTimeSeconds();
 
         /// <summary>
         /// 
@@ -74,9 +72,7 @@ namespace ModernDev.InTouch.Helpers
         /// <param name="this"></param>
         /// <returns></returns>
         public static string GetQueryString(this Dictionary<string, object> @this)
-        {
-            return string.Join("&", @this.Select(kvp => $"{kvp.Key}={WebUtility.UrlEncode(kvp.Value.ToString())}"));
-        }
+            => string.Join("&", @this.Select(kvp => $"{kvp.Key}={WebUtility.UrlEncode(kvp.Value.ToString())}"));
 
         /// <summary>
         /// Parses query string to a <see cref="Dictionary{String, String}"/>.
@@ -87,11 +83,8 @@ namespace ModernDev.InTouch.Helpers
         /// <param name="queryString">Query string.</param>
         /// <returns></returns>
         public static Dictionary<string, string> ParseQueryString(string queryString)
-        {
-            return queryString.Split('&')
-                .Where(query => !string.IsNullOrEmpty(query))
+            => queryString.Split('&').Where(query => !string.IsNullOrEmpty(query))
                 .ToDictionary(query => query.Split('=')[0], query => query.Split('=')[1]);
-        }
 
         /// <summary>
         /// Determines whether the given object is a generic list.
@@ -112,5 +105,29 @@ namespace ModernDev.InTouch.Helpers
 
             return isGenericList;
         }
+        
+        /// <summary>
+        /// Generates random string.
+        /// <remarks>
+        /// Was taken from <a href="http://stackoverflow.com/a/1344242/1191959">here</a>.
+        /// </remarks>
+        /// </summary>
+        /// <param name="length">The length of a new random string.</param>
+        /// <returns></returns>
+        public static string RandomString(int length)
+            => new string(Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", length)
+                .Select(s => s[new Random().Next(s.Length)]).ToArray());
+
+        /// <summary>
+        /// Checks whether the item is in the set.
+        /// <remarks>
+        /// Was taken from <a href="http://stackoverflow.com/a/8228973/1191959">here</a>.
+        /// </remarks>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this">An item to check.</param>
+        /// <param name="list">A set of items.</param>
+        /// <returns></returns>
+        public static bool IsInSet<T>(this T @this, params T[] list) => list.Contains(@this);
     }
 }
