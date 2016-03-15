@@ -236,7 +236,7 @@ namespace ModernDev.InTouch
         /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> EditComment(int commentId, int? ownerId = null, string text = null,
             List<IMediaAttachment> attachments = null)
-            => await EditComment(commentId, ownerId, text, attachments.GetCommentAttachments());
+            => await EditComment(commentId, ownerId, text, attachments?.GetCommentAttachments());
 
         /// <summary>
         /// Deletes a comment on a post on a user wall or community wall. 

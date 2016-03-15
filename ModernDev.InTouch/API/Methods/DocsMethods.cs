@@ -124,9 +124,9 @@ namespace ModernDev.InTouch
         /// Gets the available types of documents for the user.
         /// </summary>
         /// <param name="ownerId">User ID or community ID. Use a negative value to designate a community ID.</param>
-        /// <returns>Returns a <see cref="List{T}"/> of <see cref="Type"/> objects.</returns>
-        public async Task<Response<ItemsList<Type>>> GetTypes(int ownerId)
-            => await Request<ItemsList<Type>>("getTypes", new MethodParams {{"owner_id", ownerId, true}});
+        /// <returns>Returns a <see cref="List{T}"/> of <see cref="DocType"/> objects.</returns>
+        public async Task<Response<ItemsList<DocType>>> GetTypes(int ownerId)
+            => await Request<ItemsList<DocType>>("getTypes", new MethodParams {{"owner_id", ownerId, true}});
 
         /// <summary>
         /// Returns a list of documents matching the search criteria.
