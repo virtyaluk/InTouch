@@ -10,11 +10,13 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using ModernDev.InTouch.Helpers;
+using Newtonsoft.Json.Converters;
 
 namespace ModernDev.InTouch
 {
@@ -24,7 +26,7 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("Video {Title}")]
     [DataContract]
     [APIVersion(Version = 5.45)]
-    public partial class Video : IMediaAttachment
+    public partial class Video : IMediaAttachment, IVideoCatalogItem
     {
         #region Properties
 
@@ -197,6 +199,51 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("privacy_comment")]
         public List<object> PrivacyComment { get; set; }
+
+        /// <summary>
+        /// Whether the video is repeating.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("repeat")]
+        public bool Repeat { get; set; }
+
+        #endregion
+
+        #region Tags
+
+        /// <summary>
+        /// Tag placer Id.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("placer_id")]
+        public int PlacerId { get; set; }
+
+        /// <summary>
+        /// Tag Id.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("tag_id")]
+        public int TagId { get; set; }
+
+        /// <summary>
+        /// Date the tag was created.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("tag_created")]
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
+        public DateTime? TagCreated { get; set; }
+
+        #endregion
+
+        #region Video catalog properties
+
+        /// <summary>
+        /// The type of an item.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("type")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public VideoCatalogItemTypes Type { get; set; } = VideoCatalogItemTypes.Video;
 
         #endregion
 
