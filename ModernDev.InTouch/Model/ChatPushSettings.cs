@@ -20,8 +20,8 @@ namespace ModernDev.InTouch
     /// Chat notification settings.
     /// </summary>
     [DataContract]
-    [DebuggerDisplay("PushSettings")]
-    public class PushSettings
+    [DebuggerDisplay("ChatPushSettings")]
+    public class ChatPushSettings
     {
         /// <summary>
         /// Sounds status.

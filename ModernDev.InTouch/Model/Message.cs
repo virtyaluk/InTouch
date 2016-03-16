@@ -156,7 +156,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("push_settings")]
-        public PushSettings PushSettings { get; set; }
+        public ChatPushSettings PushSettings { get; set; }
 
         /// <summary>
         /// Number of chat participants. 
