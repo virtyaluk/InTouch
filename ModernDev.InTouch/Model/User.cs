@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("User {FirstName} {LastName}")]
     [DataContract]
-    public partial class User : IProfileItem
+    public partial class User : UserContact, IProfileItem
     {
         #region Properties
 
@@ -108,7 +108,7 @@ namespace ModernDev.InTouch
 
         /// <summary>
         /// ID of the city specified on user's page in "Contacts" section.
-        /// Returns city ID that can be used to get its name using <see cref="Places.GetCityById"/> method.
+        /// Returns city ID that can be used to get its name using <see cref="PlacesMethods.GetCityById"/> method.
         /// If no city is specified or main information on the page is hidden for in privacy settings, then it returns 0. 
         /// </summary>
         [DataMember]
@@ -117,7 +117,7 @@ namespace ModernDev.InTouch
 
         /// <summary>
         /// ID of the country specified on user's page in "Contacts" section.
-        /// Returns country ID that can be used to get its name using <see cref="Places.GetCountryById"/> method.
+        /// Returns country ID that can be used to get its name using <see cref="PlacesMethods.GetCountryById"/> method.
         /// If no country is specified or main information on the page is hidden in privacy settings, then it returns 0. 
         /// </summary>
         [DataMember]
@@ -218,7 +218,7 @@ namespace ModernDev.InTouch
 
         /// <summary>
         /// Information whether the user's mobile phone number is available. Returned values: true — available, otherwise false.
-        /// We recommend you to use it prior to call of <see cref="Secure.SendSMSNotification"/> method.  
+        /// We recommend you to use it prior to call of <see cref="SecureMethods.SendSMSNotification"/> method.  
         /// </summary>
         [DataMember]
         [JsonProperty("has_mobile")]
@@ -281,14 +281,7 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("followers_count")]
         public int FollowersCount { get; set; }
-
-        /// <summary>
-        /// Number of common friends with a current user.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("common_count")]
-        public int CommonCount { get; set; }
-
+        
         /// <summary>
         /// Number of various objects the user has.
         /// </summary>
