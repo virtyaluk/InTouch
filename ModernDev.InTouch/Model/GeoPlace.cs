@@ -27,7 +27,7 @@ namespace ModernDev.InTouch
         /// The name of the country.
         /// </summary>
         [DataMember]
-        [JsonProperty("")]
+        [JsonProperty("country")]
         public string Country { get; set; }
 
         /// <summary>

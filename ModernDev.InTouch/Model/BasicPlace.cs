@@ -26,11 +26,18 @@ namespace ModernDev.InTouch
     public abstract class BasicPlace : Coordinates
     {
         /// <summary>
-        /// Location ID.
+        /// Location Id.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Place Id.
         /// </summary>
         [DataMember]
         [JsonProperty("pid")]
-        public int Id { get; set; }
+        public int PId { get; set; }
 
         /// <summary>
         /// Location title.

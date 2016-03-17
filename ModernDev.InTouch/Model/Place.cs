@@ -36,5 +36,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("city")]
         public int? CityId { get; set; }
+
+        /// <summary>
+        /// Distance from the initial search point.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("distance")]
+        public int Distance { get; set; }
     }
 }
