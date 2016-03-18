@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Group {ScreenName} {Name}")]
     [DataContract]
-    public partial class Group : IProfileItem
+    public partial class Group : IProfileItem, IChatable
     {
         #region Properties
 

@@ -22,7 +22,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Chat {Title}")]
-    public class Chat
+    public class Chat : IChatable
     {
         /// <summary>
         /// Chat ID.

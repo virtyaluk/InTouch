@@ -13,7 +13,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.API;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -25,12 +24,9 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("User {FirstName} {LastName}")]
     [DataContract]
-    public partial class User : UserContact, IProfileItem
+    public partial class User : UserContact, IProfileItem, IChatable
     {
         #region Properties
-
-        [IgnoreDataMember]
-        public string Type { get; } = "User";
 
         /// <summary>
         /// User ID.
@@ -108,7 +104,7 @@ namespace ModernDev.InTouch
 
         /// <summary>
         /// ID of the city specified on user's page in "Contacts" section.
-        /// Returns city ID that can be used to get its name using <see cref="PlacesMethods.GetCityById"/> method.
+        /// Returns city ID that can be used to get its name using <see cref="DatabaseMethods.GetCitiesById"/> method.
         /// If no city is specified or main information on the page is hidden for in privacy settings, then it returns 0. 
         /// </summary>
         [DataMember]
@@ -117,7 +113,7 @@ namespace ModernDev.InTouch
 
         /// <summary>
         /// ID of the country specified on user's page in "Contacts" section.
-        /// Returns country ID that can be used to get its name using <see cref="PlacesMethods.GetCountryById"/> method.
+        /// Returns country ID that can be used to get its name using <see cref="DatabaseMethods.GetCountriesById"/> method.
         /// If no country is specified or main information on the page is hidden in privacy settings, then it returns 0. 
         /// </summary>
         [DataMember]
