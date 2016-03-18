@@ -21,15 +21,22 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("Response")]
     public class Response<T>
     {
+        public Response(ResponseError err, T data, string raw)
+        {
+            Error = err;
+            Data = data;
+            Raw = raw;
+        } 
+
         /// <summary>
         /// Response error (if any).
         /// </summary>
-        public ResponseError Error { get; set; }
+        public ResponseError Error { get; }
 
         /// <summary>
         /// Response data (if any).
         /// </summary>
-        public T Data { get; set; }
+        public T Data { get; }
 
         /// <summary>
         /// Whether the request response is error.
@@ -39,6 +46,6 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Raw JSON response.
         /// </summary>
-        public string Raw { get; set; }
+        public string Raw { get; }
     }
 }
