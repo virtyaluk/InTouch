@@ -98,6 +98,8 @@ namespace ModernDev.InTouch.Helpers
                     case "posted_photo":
                         list.Add(obj["posted_photo"].ToObject<PostedPhoto>());
                         break;
+
+                        // TODO: market, share
                 }
             }
 

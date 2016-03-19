@@ -310,7 +310,7 @@ namespace ModernDev.InTouch
         /// <param name="coords">Geographical coordinates.</param>
         /// <param name="sortByLikes">Sort order: True - by popularity; False - </param>
         /// <param name="count">Number of photos to return.</param>
-        /// <param name="offset">Offset needed to return a specific subset of photos. By default, 0. </param>
+        /// <param name="offset">Offset needed to return a specific subset of photos. By default, 0.</param>
         /// <param name="startTime">The start date from which to return photos.</param>
         /// <param name="endTime">The end date which up to return photos.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="Photo"/> objects.</returns>
@@ -320,8 +320,8 @@ namespace ModernDev.InTouch
             => await Request<ItemsList<Photo>>("search", new MethodParams
             {
                 {"q", q},
-                {"start_time", startTime.HasValue ? Utils.DateTimeToUnixTimeStamp(startTime.Value).ToString() : null},
-                {"end_time", endTime.HasValue ? Utils.DateTimeToUnixTimeStamp(endTime.Value).ToString() : null},
+                {"start_time", startTime?.ToUnixTimeStamp()},
+                {"end_time", endTime?.ToUnixTimeStamp()},
                 {"lat", coords?.Latitude},
                 {"long", coords?.Longitude},
                 {"sort", sortByLikes},

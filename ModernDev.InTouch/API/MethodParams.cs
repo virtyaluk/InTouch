@@ -44,9 +44,9 @@ namespace ModernDev.InTouch
         {
             if (valObj != null)
             {
-                if (valObj is int)
+                if (valObj is int || valObj is double)
                 {
-                    AddNumber(name, (int)valObj, required, extra as int[]);
+                    AddNumber(name, (double)valObj, required, extra as int[]);
                 } else if (valObj is string)
                 {
                     AddString(name, (string)valObj, required);
@@ -64,7 +64,7 @@ namespace ModernDev.InTouch
             }
         }
 
-        private void AddNumber(string name, int? value, bool required, IReadOnlyList<int> valueRange = null)
+        private void AddNumber(string name, double? value, bool required, IReadOnlyList<int> valueRange = null)
         {
             if (required && !value.HasValue)
             {
@@ -128,10 +128,17 @@ namespace ModernDev.InTouch
                 throw new InTouchException($"Required parameter `{name}` cannot be null.");
             }
             
-            if (value != null && value.GetType().GetTypeInfo().IsEnum)
+            if (value != null)
             {
-                _internalList.Add(name, flag ? ((int) value).ToString() : Utils.ToEnumString(value));
-            }
+                if (value.GetType().GetTypeInfo().IsEnum)
+                {
+                    _internalList.Add(name, flag ? ((int) value).ToString() : Utils.ToEnumString(value));
+                }
+                else
+                {
+                    _internalList.Add(name, value.ToString());
+                }
+            } 
         }
 
         public IEnumerator<KeyValuePair<string, string>> GetEnumerator() => _internalList.GetEnumerator();
