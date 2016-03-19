@@ -33,6 +33,20 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("uid")]
+        public int UId { get; set; }
+
+        /// <summary>
+        /// User ID.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// User ID.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("user_id")]
         public int UserId { get; set; }
 
         /// <summary>
