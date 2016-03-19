@@ -20,7 +20,7 @@ namespace ModernDev.InTouch.Helpers
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue(DateTimeToUnixTimeStamp((DateTime) value));
+            writer.WriteValue(((DateTime) value).ToUnixTimeStamp());
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,

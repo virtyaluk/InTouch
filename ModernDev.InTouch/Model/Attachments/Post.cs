@@ -27,8 +27,10 @@ namespace ModernDev.InTouch
     [DataContract]
     [DebuggerDisplay("Post {Id}")]
     [APIVersion(Version = 5.45)]
-    public class Post : IMediaAttachment
+    public class Post : IMediaAttachment, IFeedback
     {
+        #region Properties
+
         /// <summary>
         /// Post ID on the wall. 
         /// </summary>
@@ -183,6 +185,16 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("is_pinned")]
         [JsonConverter(typeof(JsonBoolConverter))]
-        public bool IsPinned { get; set; } 
+        public bool IsPinned { get; set; }
+
+        #region Extra properties
+
+        [DataMember]
+        [JsonProperty("to_id")]
+        public int ToId { get; set; }
+
+        #endregion
+
+        #endregion
     }
 }

@@ -38,9 +38,8 @@ namespace ModernDev.InTouch.Helpers
         /// <summary>
         /// Converts a <see cref="DateTime"/> object to <c>Unix time-stamp</c>.
         /// </summary>
-        /// <param name="dateTime">The <see cref="DateTime"/> object.</param>
         /// <returns></returns>
-        public static long DateTimeToUnixTimeStamp(DateTime dateTime)
+        public static long ToUnixTimeStamp(this DateTime dateTime)
             => new DateTimeOffset(dateTime).ToUnixTimeSeconds();
 
         /// <summary>

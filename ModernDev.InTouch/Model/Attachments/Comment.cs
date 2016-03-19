@@ -25,8 +25,10 @@ namespace ModernDev.InTouch
     [DataContract]
     [DebuggerDisplay("Comment {Id}")]
     [APIVersion(Version = 5.45)]
-    public class Comment : IMediaAttachment
+    public class Comment : IMediaAttachment, IFeedback
     {
+        #region Properties
+
         /// <summary>
         /// Comment ID.
         /// </summary>
@@ -97,6 +99,23 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("attachments")]
         [JsonConverter(typeof(JsonAttachmentsConverter))]
-        public IReadOnlyCollection<IMediaAttachment> Attachments { get; set; } 
+        public IReadOnlyCollection<IMediaAttachment> Attachments { get; set; }
+
+        #region Extra properties
+
+        /// <summary>
+        /// A <see cref="Post"/> object the comment posted on.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("post")]
+        public Post Post { get; set; }
+
+        [DataMember]
+        [JsonProperty("to_id")]
+        public int ToId { get; set; }
+
+        #endregion
+
+        #endregion
     }
 }

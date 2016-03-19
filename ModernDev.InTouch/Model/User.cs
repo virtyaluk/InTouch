@@ -24,7 +24,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("User {FirstName} {LastName}")]
     [DataContract]
-    public partial class User : UserContact, IProfileItem, IChatable
+    public partial class User : UserContact, IProfileItem, IChatable, IFeedback
     {
         #region Properties
 
@@ -497,6 +497,14 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("found_with")]
         public string FoundWith { get; set; }
+
+        [DataMember]
+        [JsonProperty("to_id")]
+        public int ToId { get; set; }
+
+        [DataMember]
+        [JsonProperty("from_id")]
+        public int FromId { get; set; }
 
         #endregion
         #endregion
