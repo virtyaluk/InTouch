@@ -28,7 +28,7 @@ namespace ModernDev.InTouch.Helpers
         {
             if (reader.Value != null)
             {
-                return UnixTimeStampToDateTime((int) reader.Value);
+                return UnixTimeStampToDateTime((long) reader.Value);
             }
 
             return null;
