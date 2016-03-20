@@ -15,7 +15,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ModernDev.InTouch.API
+namespace ModernDev.InTouch.Helpers
 {
     public class JsonRequestParamsConverter : JsonConverter
     {

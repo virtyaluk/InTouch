@@ -13,7 +13,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.API;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch

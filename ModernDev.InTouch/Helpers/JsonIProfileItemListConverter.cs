@@ -13,11 +13,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ModernDev.InTouch
+namespace ModernDev.InTouch.Helpers
 {
     public class JsonIProfileItemListConverter : JsonConverter
     {
