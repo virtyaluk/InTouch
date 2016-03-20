@@ -21,9 +21,9 @@ namespace ModernDev.InTouch
     /// <summary>
     /// User subscriptions extended.
     /// </summary>
-    [DebuggerDisplay("UserSubscriptionsExtended")]
+    [DebuggerDisplay("MixedProfilesList")]
     [DataContract]
-    public class UserSubscriptionsExtended : ItemsList<IProfileItem>
+    public class MixedProfilesList : ItemsList<IProfileItem>
     {
         [DataMember]
         [JsonProperty("items")]
