@@ -95,9 +95,9 @@ namespace ModernDev.InTouch
         /// <param name="offset">Offset needed to return a specific subset of subscriptions.</param>
         /// <param name="fields">A list of profiles fields to return. Accepts <see cref="UserProfileFields"/>, <see cref="GroupProfileFields"/> and regular string.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="User"/> and <see cref="Group"/> objects.</returns>
-        public async Task<Response<UserSubscriptionsExtended>> GetSubscriptionExtended(int? userId = null,
+        public async Task<Response<MixedProfilesList>> GetSubscriptionExtended(int? userId = null,
             int count = 20, int offset = 0, List<string> fields = null)
-            => await Request<UserSubscriptionsExtended>("getSubscriptions", new MethodParams
+            => await Request<MixedProfilesList>("getSubscriptions", new MethodParams
             {
                 {"user_id", userId},
                 {"count", count, false, new[] {0, 200}},
@@ -114,7 +114,7 @@ namespace ModernDev.InTouch
         /// <param name="offset">Offset needed to return a specific subset of subscriptions.</param>
         /// <param name="fields">A list of profiles fields to return. Accepts <see cref="UserProfileFields"/>, <see cref="GroupProfileFields"/> and regular string.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="User"/> and <see cref="Group"/> objects.</returns>
-        public async Task<Response<UserSubscriptionsExtended>> GetSubscriptionExtended(int? userId = null,
+        public async Task<Response<MixedProfilesList>> GetSubscriptionExtended(int? userId = null,
             int count = 20, int offset = 0, List<object> fields = null)
             => await GetSubscriptionExtended(userId, count, offset, fields?
                 .Where(el => el != null && (el is UserProfileFields || el is GroupProfileFields || el is string))

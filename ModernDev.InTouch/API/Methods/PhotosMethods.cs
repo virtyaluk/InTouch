@@ -251,7 +251,7 @@ namespace ModernDev.InTouch
         public async Task<Response<PhotosServerInfo>> GetWallUploadServer(int? groupId = null)
             => await Request<PhotosServerInfo>("getWallUploadServer", new MethodParams
             {
-                {"group_id", groupId}
+                {"group_id", groupId?.Abs()}
             });
 
         /// <summary>
