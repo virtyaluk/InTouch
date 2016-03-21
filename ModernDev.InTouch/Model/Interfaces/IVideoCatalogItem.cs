@@ -17,7 +17,7 @@ namespace ModernDev.InTouch
     /// </summary>
     public interface IVideoCatalogItem
     {
-        int Id { get; set; }
+        long Id { get; set; }
         int OwnerId { get; set; }
         string Title { get; set; }
         VideoCatalogItemTypes Type { get; set; }

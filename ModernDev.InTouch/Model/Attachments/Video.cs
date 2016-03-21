@@ -35,7 +35,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// ID of the user or community that owns the video. 
