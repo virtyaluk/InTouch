@@ -29,5 +29,9 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("audio")]
         public string Audio { get; set; }
+
+        [DataMember]
+        [JsonProperty("redirect")]
+        public string Redirect { get; set; }
     }
 }
