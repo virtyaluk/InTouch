@@ -28,7 +28,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("video_id")]
-        public int VideoId { get; set; }
+        public long VideoId { get; set; }
 
         /// <summary>
         /// Owner Id.
