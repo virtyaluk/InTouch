@@ -23,18 +23,38 @@ namespace ModernDev.InTouch
     [DataContract]
     public class VideoUploadResponse : UploadResponse
     {
+        #region Properties
+
         /// <summary>
         /// Video size.
         /// </summary>
         [DataMember]
         [JsonProperty("size")]
-        public string Size { get; set; }
+        public int Size { get; set; }
 
         /// <summary>
         /// Video ID.
         /// </summary>
         [DataMember]
         [JsonProperty("video_id")]
-        public string VideoId { get; set; }
+        public long VideoId { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        public Video GetVideo(VideoServerInfo videoServerInfo)
+        {
+            return new Video
+            {
+                Id = VideoId,
+                OwnerId = videoServerInfo?.OwnerId ?? 0,
+                Title = videoServerInfo?.Title,
+                Description = videoServerInfo?.Description,
+                AccessKey = videoServerInfo?.AccessKey
+            };
+        }
+
+        #endregion
     }
 }
