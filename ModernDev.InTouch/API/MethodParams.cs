@@ -10,6 +10,7 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace ModernDev.InTouch
             {
                 if (valObj is int || valObj is double)
                 {
-                    AddNumber(name, (double)valObj, required, extra as int[]);
+                    AddNumber(name, Convert.ToDouble(valObj), required, extra as int[]);
                 } else if (valObj is string)
                 {
                     AddString(name, (string)valObj, required);
@@ -130,7 +131,11 @@ namespace ModernDev.InTouch
             
             if (value != null)
             {
-                if (value.GetType().GetTypeInfo().IsEnum)
+                if (value is DateTime)
+                {
+                    _internalList.Add(name, ((DateTime) value).ToUnixTimeStamp().ToString());
+                }
+                else if (value.GetType().GetTypeInfo().IsEnum)
                 {
                     _internalList.Add(name, flag ? ((int) value).ToString() : Utils.ToEnumString(value));
                 }
