@@ -12,17 +12,17 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json.Linq;
 using static ModernDev.InTouch.Helpers.Utils;
 
-#if WINDOWS_UWP || WINDOWS_UWP81
+#if WINDOWS_UWP81 || WINDOWS_UWP
+using System.Diagnostics;
+using ModernDev.InTouch.Helpers;
 using Windows.Security.Authentication.Web;
 #endif
 
@@ -32,11 +32,16 @@ namespace ModernDev.InTouch
     {
         #region Fields
 
+        
         private readonly HttpClient _apiClient;
         private HttpClient _fileClient;
         private readonly Uri _baseApiUri = new Uri("https://api.vk.com/");
-        private const string AuthUrl = "https://oauth.vk.com/authorize";
         private string _dataLang = "en";
+        private bool _lastReqIsOpen;
+        private string _lastReqPath;
+        private Dictionary<string, string> _lastReqParams;
+        private string _lastReqMethod;
+        private const string AuthUrl = "https://oauth.vk.com/authorize";
 
         #endregion
 
@@ -90,7 +95,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Methods for working with user's account data.
         /// </summary>
-        public AccountMethods Account { get; private set; }
+        public AccountMethods Account { get; }
 
         /// <summary>
         /// Methods for working with users.
@@ -196,6 +201,13 @@ namespace ModernDev.InTouch
 
         #endregion
 
+        #region Events
+
+        public event EventHandler<ResponseError> AuthorizationFailed;
+        public event EventHandler<ResponseError> CaptchaNeeded;
+
+        #endregion
+
         #region Constructors
 
         /// <summary>
@@ -256,14 +268,15 @@ namespace ModernDev.InTouch
 
         #region Methods
 
-#if WINDOWS_UWP || WINDOWS_UWP81
-    /// <summary>
-    /// Starts the authentication operation with a given settings.
-    /// </summary>
-    /// <param name="authSettings">Authorization settings</param>
-    /// <param name="silentMode">Tells the web authentication broker to not render any UI.</param>
-    /// <exception cref="InTouchException">TODO:</exception>
-    /// <returns></returns>
+#if WINDOWS_UWP81 || WINDOWS_UWP
+
+        /// <summary>
+        /// Starts the authentication operation with a given settings.
+        /// </summary>
+        /// <param name="authSettings">Authorization settings</param>
+        /// <param name="silentMode">Tells the web authentication broker to not render any UI.</param>
+        /// <exception cref="InTouchException">Thrown when a HTTP error occurred or inner exceptions were caught.</exception>
+        /// <returns></returns>
         public async Task Authorize(AuthorizationSettings authSettings = null, bool silentMode = false)
         {
             var ad = authSettings ?? new AuthorizationSettings();
@@ -312,13 +325,11 @@ namespace ModernDev.InTouch
                 }
                 else if (webAuthResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
                 {
-                    // TODO:
-                    Debug.WriteLine($"HTTP error returned by AuthenticateAsync(): {webAuthResult.ResponseErrorDetail}");
+                    throw new InTouchException("A HTTP error occurred while attempting to contact the server.", webAuthResult.ResponseErrorDetail);
                 }
                 else
                 {
-                    // TODO:
-                    Debug.WriteLine($"Error returned by AuthenticateAsync(): {webAuthResult.ResponseStatus}");
+                    throw new InTouchException("An error occurred while attempting to authorize.", webAuthResult.ResponseStatus);
                 }
             }
             catch (Exception ex)
@@ -327,6 +338,70 @@ namespace ModernDev.InTouch
             }
         }
 #endif
+
+        /// <summary>
+        /// Checks whether the API session is alive.
+        /// </summary>
+        /// <returns>True if session alive.</returns>
+        public async Task<bool> IsSessionAlive()
+        {
+            try
+            {
+                var accountInfo = await Account.GetInfo(new List<AccountInfoFields> {AccountInfoFields.Lang});
+
+                if (accountInfo.IsError)
+                {
+                    return false;
+                }
+
+                _dataLang = accountInfo.Data.Lang.ToString();
+
+                 return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Tries to send request with data from the last request.
+        /// </summary>
+        /// <typeparam name="T">The type of the <see cref="Response{T}.Data"/> property.</typeparam>
+        /// <returns>Returns the result of API call.</returns>
+        public async Task<Response<T>> TrySendRequestAgain<T>()
+            => await Request<T>(_lastReqMethod, _lastReqParams, _lastReqIsOpen, _lastReqPath);
+
+        /// <summary>
+        /// Sends captcha code with given error object from the last request.
+        /// </summary>
+        /// <typeparam name="T">The type of the <see cref="Response{T}.Data"/> property.</typeparam>
+        /// <param name="captchaKey"></param>
+        /// <param name="lastResponseError"><see cref="ResponseError"/> object from last call response object.</param>
+        /// <param name="isOpen">Indicates whether the method can be called without <see cref="APISession.AccessToken"/>.</param>
+        /// <param name="path">Object path to select the token.</param>
+        /// <returns>Returns the result of API call.</returns>
+        public async Task<Response<T>> SendCaptcha<T>(string captchaKey, ResponseError lastResponseError,
+            bool isOpen = false, string path = null)
+        {
+            if (string.IsNullOrEmpty(captchaKey))
+            {
+                throw new ArgumentNullException(nameof(captchaKey));
+            }
+
+            if (lastResponseError == null)
+            {
+                throw new ArgumentNullException(nameof(lastResponseError));
+            }
+
+            var newParams = lastResponseError.RequestParams.Where(kvp => !kvp.Key.IsInSet("method", "oauth"))
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
+            newParams["captcha_sid"] = lastResponseError.CaptchaSId;
+            newParams["captcha_key"] = captchaKey;
+
+            return await Request<T>(lastResponseError.RequestParams["method"], newParams, isOpen, path);
+        }
 
         /// <summary>
         /// Sets the App Id and Secret.
@@ -362,6 +437,13 @@ namespace ModernDev.InTouch
             {
                 throw new ArgumentNullException(nameof(newSession), "Value cannot be null.");
             }
+
+            if (Session != null)
+            {
+                Session.AccessTokenExpired -= AccessTokenExpired;
+            }
+
+            newSession.AccessTokenExpired += AccessTokenExpired;
 
             Session = newSession;
         }
@@ -414,7 +496,11 @@ namespace ModernDev.InTouch
         public async Task<Response<T>> Request<T>(string methodName, Dictionary<string, string> methodParams = null,
             bool isOpenMethod = false, string path = null)
         {
-            var json = await Post($"method/{methodName}.json", NormalizeRequestParams(methodParams, isOpenMethod));
+            var normalizedParams = NormalizeRequestParams(methodParams, isOpenMethod);
+
+            CacheReqData(methodName, normalizedParams, isOpenMethod, path);
+
+            var json = await Post($"method/{methodName}.json", normalizedParams);
 
             return await Task.Run(() => ParseJsonReponse<T>(json, path));
         }
@@ -466,6 +552,12 @@ namespace ModernDev.InTouch
         {
             _apiClient?.Dispose();
             _fileClient?.Dispose();
+        }
+
+        // Just in case :)
+        ~InTouch()
+        {
+            Dispose();
         }
 
         /// <summary>
@@ -550,6 +642,14 @@ namespace ModernDev.InTouch
 
         #region Non-public methods
 
+        private void CacheReqData(string methodName, Dictionary<string, string> rParams, bool isOpen, string path)
+        {
+            _lastReqIsOpen = isOpen;
+            _lastReqPath = path;
+            _lastReqParams = rParams;
+            _lastReqMethod = methodName;
+        }
+
         protected Response<T> ParseJsonReponse<T>(string json, string path = null)
         {
             ResponseError errObj = null;
@@ -566,6 +666,16 @@ namespace ModernDev.InTouch
                     if (ThrowExceptionOnResponseError)
                     {
                         throw new InTouchResponseErrorException(errObj.Message, errObj);
+                    }
+
+                    if (errObj.Code == 5)
+                    {
+                        OnAuthorizationFailed(errObj);
+                    }
+
+                    if (errObj.Code == 14)
+                    {
+                        OnCaptchaNeeded(errObj);
                     }
                 }
                 else if (jObj["response"] != null)
@@ -609,7 +719,7 @@ namespace ModernDev.InTouch
                 throw new NullReferenceException("The session is not set. You need to authorize to get the new session.");
             }
 
-            if (!Session.IsAlive)
+            if (Session.IsExpired)
             {
                 throw new InTouchException(
                     "The session is dead. You need to obtain new access token to perform API calls.");
@@ -633,6 +743,11 @@ namespace ModernDev.InTouch
 
             return apiParams.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToString());
         }
+
+        private void AccessTokenExpired(object sender, EventArgs e) => OnAuthorizationFailed(null);
+
+        protected virtual void OnAuthorizationFailed(ResponseError e) => AuthorizationFailed?.Invoke(this, e);
+        protected virtual void OnCaptchaNeeded(ResponseError e) => CaptchaNeeded?.Invoke(this, e);
 
         #endregion
 
