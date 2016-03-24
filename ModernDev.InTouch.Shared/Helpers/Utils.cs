@@ -12,7 +12,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -41,7 +40,7 @@ namespace ModernDev.InTouch.Helpers
         /// </summary>
         /// <returns></returns>
         public static long ToUnixTimeStamp(this DateTime dateTime)
-            => new DateTimeOffset(dateTime).ToUnixTimeSeconds();
+            => (long) dateTime.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
 
         /// <summary>
         /// 
@@ -53,15 +52,7 @@ namespace ModernDev.InTouch.Helpers
         /// <param name="type"></param>
         /// <returns></returns>
         public static string ToEnumString<T>(T type)
-        {
-            //var enumType = typeof (T);
-            var enumType = type.GetType();
-            var name = Enum.GetName(enumType, type);
-            var enumMemberAttribute = ((EnumMemberAttribute[]) enumType.GetField(name)
-                .GetCustomAttributes(typeof (EnumMemberAttribute), true)).Single();
-
-            return enumMemberAttribute.Value;
-        }
+            => type.GetType().GetRuntimeField(type.ToString())?.GetCustomAttribute<EnumMemberAttribute>()?.Value;
 
         /// <summary>
         /// Transforms <see cref="Dictionary{String, Object}"/> to a query string.

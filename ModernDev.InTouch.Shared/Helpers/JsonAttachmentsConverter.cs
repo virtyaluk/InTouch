@@ -12,6 +12,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -103,7 +104,7 @@ namespace ModernDev.InTouch.Helpers
                 }
             }
 
-            return list.AsReadOnly();
+            return new ReadOnlyCollection<IMediaAttachment>(list);
         }
 
         public override bool CanConvert(Type objectType)

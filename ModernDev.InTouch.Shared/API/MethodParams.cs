@@ -94,7 +94,7 @@ namespace ModernDev.InTouch
 
             if (list != null && l.Any())
             {
-                if (list.GetType().GetGenericArguments().FirstOrDefault().GetTypeInfo().IsEnum)
+                if (list.GetType().GenericTypeArguments.FirstOrDefault().GetTypeInfo().IsEnum)//list.GetType().GetGenericArguments().FirstOrDefault().GetTypeInfo().IsEnum)
                 {
                     _internalList.Add(name, string.Join(",", l.Select(Utils.ToEnumString)));
                 }

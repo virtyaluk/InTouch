@@ -18,10 +18,13 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Security.Authentication.Web;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json.Linq;
 using static ModernDev.InTouch.Helpers.Utils;
+
+#if WINDOWS_UWP || WINDOWS_UWP81
+using Windows.Security.Authentication.Web;
+#endif
 
 namespace ModernDev.InTouch
 {
@@ -253,13 +256,14 @@ namespace ModernDev.InTouch
 
         #region Methods
 
-        /// <summary>
-        /// Starts the authentication operation with a given settings.
-        /// </summary>
-        /// <param name="authSettings">Authorization settings</param>
-        /// <param name="silentMode">Tells the web authentication broker to not render any UI.</param>
-        /// <exception cref="InTouchException">TODO:</exception>
-        /// <returns></returns>
+#if WINDOWS_UWP || WINDOWS_UWP81
+    /// <summary>
+    /// Starts the authentication operation with a given settings.
+    /// </summary>
+    /// <param name="authSettings">Authorization settings</param>
+    /// <param name="silentMode">Tells the web authentication broker to not render any UI.</param>
+    /// <exception cref="InTouchException">TODO:</exception>
+    /// <returns></returns>
         public async Task Authorize(AuthorizationSettings authSettings = null, bool silentMode = false)
         {
             var ad = authSettings ?? new AuthorizationSettings();
@@ -322,6 +326,7 @@ namespace ModernDev.InTouch
                 throw new InTouchException("An exception has occurred while authenticating.", ex);
             }
         }
+#endif
 
         /// <summary>
         /// Sets the App Id and Secret.
@@ -462,7 +467,7 @@ namespace ModernDev.InTouch
             _apiClient?.Dispose();
             _fileClient?.Dispose();
         }
-        
+
         /// <summary>
         /// Uploads the file by given link.
         /// </summary>
@@ -509,7 +514,7 @@ namespace ModernDev.InTouch
 
                 var response = await reqRes.Content.ReadAsByteArrayAsync();
 
-                return Encoding.UTF8.GetString(response);
+                return Encoding.UTF8.GetString(response, 0, response.Length);
             }
             catch (Exception ex)
             {
@@ -577,7 +582,7 @@ namespace ModernDev.InTouch
 
             return new Response<T>(errObj, dataObj, IncludeRawResponse ? json : null);
         }
-        
+
         protected async Task<string> Post(string url, Dictionary<string, string> paramsDict)
         {
             try
@@ -606,7 +611,8 @@ namespace ModernDev.InTouch
 
             if (!Session.IsAlive)
             {
-                throw new InTouchException("The session is dead. You need to obtain new access token to perform API calls.");
+                throw new InTouchException(
+                    "The session is dead. You need to obtain new access token to perform API calls.");
             }
 
             if (!isOpenMethod && string.IsNullOrEmpty(Session?.AccessToken))
