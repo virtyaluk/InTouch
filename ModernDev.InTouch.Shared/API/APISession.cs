@@ -12,6 +12,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Threading;
 
 namespace ModernDev.InTouch
 {
@@ -21,7 +22,7 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("APISession {UserId}")]
     public class APISession
     {
-        #region Constructors
+        #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="APISession"/> class with a given <c>accessToken</c>, <c>userId</c> and <c>expires</c> parameters.
@@ -36,13 +37,24 @@ namespace ModernDev.InTouch
             Duration = TimeSpan.FromSeconds(expires);
 
             _sessionStoredDateTime = DateTime.Now;
+
+            _timer = new Timer(e => OnAccessTokenExpired(EventArgs.Empty), null, (int) TimeRemains.TotalSeconds,
+                Timeout.Infinite);
+        }
+
+        ~APISession()
+        {
+            _timer.Dispose();
         }
 
         #endregion
 
+        public event EventHandler AccessTokenExpired;
+
         #region Fields
 
         private readonly DateTime _sessionStoredDateTime;
+        private readonly Timer _timer;
 
         #endregion
 
@@ -69,9 +81,15 @@ namespace ModernDev.InTouch
         public TimeSpan TimeRemains => Duration - (_sessionStoredDateTime - DateTime.Now);
 
         /// <summary>
-        /// Whether the session is active.
+        /// Whether the session is expired.
         /// </summary>
-        public bool IsAlive => TimeRemains.TotalSeconds > 0;
+        public bool IsExpired => TimeRemains.TotalSeconds <= 0;
+
+        #endregion
+
+        #region Methods
+
+        protected virtual void OnAccessTokenExpired(EventArgs e) => AccessTokenExpired?.Invoke(this, e);
 
         #endregion
     }
