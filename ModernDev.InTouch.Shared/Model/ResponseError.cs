@@ -10,6 +10,7 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
@@ -23,7 +24,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("ResponseError")]
     [DataContract]
-    public class ResponseError
+    public class ResponseError : EventArgs
     {
         /// <summary>
         /// Error code.
