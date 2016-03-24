@@ -334,8 +334,8 @@ namespace ModernDev.InTouch
         /// Saves photos after successful uploading.
         /// </summary>
         /// <param name="uploadResponse">Object returned when photos are uploaded to server.</param>
-        /// <param name="albumId">ID of the album to save photos to. </param>
-        /// <param name="groupId">ID of the community to save photos to. </param>
+        /// <param name="albumId">ID of the album to save photos to.</param>
+        /// <param name="groupId">ID of the community to save photos to.</param>
         /// <param name="caption">Text describing the photo. 2048 digits max.</param>
         /// <param name="coords">Geo coordinates object.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="Photo"/> objects.</returns>
@@ -713,6 +713,264 @@ namespace ModernDev.InTouch
                 {"count", count, false, new[] {0, 100}},
                 {"offset", offset}
             });
+
+        #region Upload methods
+
+        /// <summary>
+        /// Uploads a photo to the album.
+        /// </summary>
+        /// <param name="photos">A dictionary of photos where the key is a photo-file name and the value is the photo data.</param>
+        /// <param name="albumId">ID of the album to save photos to.</param>
+        /// <param name="groupId">ID of the community to save photos to.</param>
+        /// <param name="caption">Text describing the photo. 2048 digits max.</param>
+        /// <param name="coords">Geo coordinates object.</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>photos</c> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when a <c>photos</c> is empty.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns a <see cref="List{T}"/> of <see cref="Photo"/> objects.</returns>
+        public async Task<Response<List<Photo>>> UploadAlbumPhoto(Dictionary<string, byte[]> photos, int? albumId = null,
+            int? groupId = null,
+            string caption = null, Coordinates coords = null)
+        {
+            if (photos == null)
+            {
+                throw new ArgumentNullException(nameof(photos));
+            }
+
+            if (!photos.Any())
+            {
+                throw new ArgumentException("The value cannot be empty.", nameof(photos));
+            }
+
+            var filesDict = new List<Tuple<string, byte[], string>>();
+            var i = 1;
+
+            foreach (var photo in photos.Where(p => p.Value != null && !string.IsNullOrEmpty(p.Key)).Take(5))
+            {
+                filesDict.Add($"file{i++}", photo.Value, photo.Key);
+            }
+
+            try
+            {
+                var uplServerResp = await GetUploadServer(albumId, groupId);
+
+                if (uplServerResp.IsError && !API.ThrowExceptionOnResponseError)
+                {
+                    throw new InTouchResponseErrorException(uplServerResp.Error.Message, uplServerResp.Error);
+                }
+
+                var uplRespRawJson = await API.UploadFile(uplServerResp.Data.UploadUrl, filesDict);
+                var uplServerData = API.ParseUploadServerResponse<AlbumPhotoUploadResponse>(uplRespRawJson);
+
+                return await Save(uplServerData, albumId, groupId, caption, coords);
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading album photos.", ex);
+            }
+        }
+
+        /// <summary>
+        /// Uploads a photo to the wall.
+        /// </summary>
+        /// <param name="photo">Photo data.</param>
+        /// <param name="fileName">Photo file name.</param>
+        /// <param name = "userId" > ID of the user on whose wall the photo will be saved.</param>
+        /// <param name="groupId">ID of community on whose wall the photo will be saved.</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>photo</c> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>fileName</c> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns a <see cref="List{T}"/> of <see cref="Photo"/> objects.</returns>
+        public async Task<Response<List<Photo>>> UploadWallPhoto(byte[] photo, string fileName, int? groupId = null,
+            int? userId = null)
+        {
+            if (photo == null)
+            {
+                throw new ArgumentNullException(nameof(photo));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            try
+            {
+                var uplServerResp = await GetWallUploadServer(groupId);
+
+                if (uplServerResp.IsError && !API.ThrowExceptionOnResponseError)
+                {
+                    throw new InTouchResponseErrorException(uplServerResp.Error.Message, uplServerResp.Error);
+                }
+
+                var uplRespRawJson = await API.UploadFile(uplServerResp.Data.UploadUrl,
+                    new List<Tuple<string, byte[], string>>
+                    {
+                        {"photo", photo, fileName}
+                    });
+                var uplServerData = API.ParseUploadServerResponse<PhotoUploadResponse>(uplRespRawJson);
+
+                return await SaveWallPhoto(uplServerData, userId, groupId);
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading wall photo.", ex);
+            }
+        }
+
+        /// <summary>
+        /// Uploads new owner profile photo.
+        /// </summary>
+        /// <param name="photo">Photo data.</param>
+        /// <param name="fileName">Photo file name.</param>
+        /// <param name="ownerId">Identifier of a community or current user. Note that community id must be negative.</param>
+        /// <param name="squeareCrop">The additional parameter in "x,y,w" format (where x and y are the thumbnail coordinates and w is the square size). In this case a square thumbnail will be prepared for a photo.</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>photo</c> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>fileName</c> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns an <see cref="OwnerPhoto"/> object.</returns>
+        public async Task<Response<OwnerPhoto>> UploadOwnerPhoto(byte[] photo, string fileName, int? ownerId = null,
+            string squeareCrop = null)
+        {
+            if (photo == null)
+            {
+                throw new ArgumentNullException(nameof(photo));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            try
+            {
+                var uplServerResp = await GetOwnerPhotoUploadServer(ownerId);
+
+                if (uplServerResp.IsError && !API.ThrowExceptionOnResponseError)
+                {
+                    throw new InTouchResponseErrorException(uplServerResp.Error.Message, uplServerResp.Error);
+                }
+
+                var uplRespRawJson =
+                    await API.UploadFile(uplServerResp.Data.UploadUrl, new List<Tuple<string, byte[], string>>
+                    {
+                        {"photo", photo, fileName}
+                    }, new Dictionary<string, string>
+                    {
+                        {"_square_crop", squeareCrop}
+                    });
+                var uplServerData = API.ParseUploadServerResponse<PhotoUploadResponse>(uplRespRawJson);
+
+                return await SaveOwnerPhoto(uplServerData);
+
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading owner photo.", ex);
+            }
+        }
+
+        /// <summary>
+        /// Uploads photo to messages.
+        /// </summary>
+        /// <param name="photo">Photo data.</param>
+        /// <param name="fileName">Photo file name.</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>photo</c> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>fileName</c> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns a <see cref="List{T}"/> of <see cref="Photo"/> objects.</returns>
+        public async Task<Response<List<Photo>>> UploadMessagesPhoto(byte[] photo, string fileName)
+        {
+            if (photo == null)
+            {
+                throw new ArgumentNullException(nameof(photo));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            try
+            {
+                var uplServerResp = await GetMessagesUploadServer();
+
+                if (uplServerResp.IsError && !API.ThrowExceptionOnResponseError)
+                {
+                    throw new InTouchResponseErrorException(uplServerResp.Error.Message, uplServerResp.Error);
+                }
+
+                var uplRespRawJson = await API.UploadFile(uplServerResp.Data.UploadUrl,
+                    new List<Tuple<string, byte[], string>>
+                    {
+                        {"photo", photo, fileName}
+                    });
+                var uplServerData = API.ParseUploadServerResponse<PhotoUploadResponse>(uplRespRawJson);
+
+                return await SaveMessagesPhoto(uplServerData);
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading messages photo.", ex);
+            }
+        }
+
+        /// <summary>
+        /// Uploads new market photo.
+        /// </summary>
+        /// <param name="photo">Photo data.</param>
+        /// <param name="fileName">Photo file name.</param>
+        /// <param name="groupId">Group Id for which you want to upload a market photo.</param>
+        /// <param name="isMarketAlbumPhoto">True - to upload photo for product section; False - to upload photo for product item.</param>
+        /// <param name="mainPhoto">Whether the photo is album cover.</param>
+        /// <param name="cropX">X coordinate to crop.</param>
+        /// <param name="cropY">Y coordinate to crop.</param>
+        /// <param name="cropWidth">The image width after crop.</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>photo</c> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>fileName</c> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns object including server upload url.</returns>
+        public async Task<Response<List<Photo>>> UploadMarketPhoto(byte[] photo, string fileName, int groupId,
+            bool isMarketAlbumPhoto = false, bool mainPhoto = false, int? cropX = null, int? cropY = null,
+            int cropWidth = 200)
+        {
+            if (photo == null)
+            {
+                throw new ArgumentNullException(nameof(photo));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            try
+            {
+                var uplServerResp = await (isMarketAlbumPhoto
+                    ? GetMarketAlbumUploadServer(groupId)
+                    : GetMarketUploadServer(groupId, mainPhoto, cropX, cropY, cropWidth));
+
+                if (uplServerResp.IsError && !API.ThrowExceptionOnResponseError)
+                {
+                    throw new InTouchResponseErrorException(uplServerResp.Error.Message, uplServerResp.Error);
+                }
+
+                var uplRespRawJson = await API.UploadFile(uplServerResp.Data.UploadUrl,
+                    new List<Tuple<string, byte[], string>>
+                    {
+                        {"file", photo, fileName}
+                    });
+                var uplServerData = API.ParseUploadServerResponse<MarketPhotoUploadResponse>(uplRespRawJson);
+
+                return await SaveMarketPhoto(uplServerData);
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading market photo.", ex);
+            }
+        }
+
+        #endregion
 
         #endregion
     }

@@ -10,6 +10,7 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -417,6 +418,61 @@ namespace ModernDev.InTouch
             {
                 {"chat_id", chatId}
             });
+
+        #region Upload methods
+
+        /// <summary>
+        /// Uploads the new chat photo.
+        /// </summary>
+        /// <param name="photo">Photo data.</param>
+        /// <param name="fileName">Photo file name.</param>
+        /// <param name="chatId">ID of the chat for which you want to upload a cover photo.</param>
+        /// <param name="cropX">X coordinate to crop.</param>
+        /// <param name="cropY">Y coordinate to crop.</param>
+        /// <param name="cropWidth">Width (in pixels) of the photo after cropping</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>photo</c> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>fileName</c> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns <see cref="NewChatPhoto"/> object containing Id of the system message sent and a <see cref="Chat"/> object.</returns>
+        public async Task<Response<NewChatPhoto>> UploadChatPhoto(byte[] photo, string fileName, int chatId,
+            int? cropX = null, int? cropY = null,
+            int cropWidth = 200)
+        {
+            if (photo == null)
+            {
+                throw new ArgumentNullException(nameof(photo));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            try
+            {
+                var uplServerResp = await API.Photos.GetChatUploadServer(chatId, cropX, cropY, cropWidth);
+
+                if (uplServerResp.IsError && !API.ThrowExceptionOnResponseError)
+                {
+                    throw new InTouchResponseErrorException(uplServerResp.Error.Message, uplServerResp.Error);
+                }
+
+                var uplRespRawJson = await API.UploadFile(uplServerResp.Data.UploadUrl,
+                    new List<Tuple<string, byte[], string>>
+                    {
+                        {"file", photo, fileName}
+                    });
+                var uplServerData = API.ParseUploadServerResponse<string>(uplRespRawJson, "response");
+
+                return await SetChatPhoto(uplServerData);
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading chat photo.", ex);
+            }
+        }
+
+        #endregion
 
         #endregion
     }

@@ -10,7 +10,9 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ModernDev.InTouch
@@ -545,6 +547,106 @@ namespace ModernDev.InTouch
             {
                 {"section_id", sectionId, true}
             });
+
+        #region Upload methods
+
+        /// <summary>
+        /// Uploads the video.
+        /// </summary>
+        /// <param name="videoData">Video data.</param>
+        /// <param name="fileName">Video file name.</param>
+        /// <param name="saveParams">A <see cref="VideoSaveParams"/> object with the params.</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>videoData</c> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>fileName</c> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns a <see cref="VideoServerInfo"/> object containing upload server data.</returns>
+        public async Task<Video> UploadVideo(byte[] videoData, string fileName,
+            VideoSaveParams saveParams = null)
+        {
+            if (videoData == null)
+            {
+                throw new ArgumentNullException(nameof(videoData));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            try
+            {
+                var res = await UploadVideo(videoData, fileName, saveParams, false);
+
+                return (Video)res;
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading video file.", ex);
+            }
+        }
+
+        /// <summary>
+        /// Adds video by given external link.
+        /// </summary>
+        /// <param name="saveParams">A <see cref="VideoSaveParams"/> object with the params.</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>saveParams</c> is null.</exception>
+        /// <exception cref="NullReferenceException">Thrown when a <see cref="VideoSaveParams.Link"/> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns a <see cref="VideoServerInfo"/> object containing upload server data.</returns>
+        public async Task<Tuple<bool, VideoServerInfo>> UploadVideo(VideoSaveParams saveParams)
+        {
+            if (saveParams == null)
+            {
+                throw new ArgumentNullException(nameof(saveParams));
+            }
+
+            if (string.IsNullOrEmpty(saveParams.Link))
+            {
+                throw new NullReferenceException("Video link cannot be null or empty.");
+            }
+
+            try
+            {
+                var res = await UploadVideo(null, null, saveParams, true);
+
+                return (Tuple<bool, VideoServerInfo>)res;
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while adding video by link.", ex);
+            }
+        }
+
+        private async Task<object> UploadVideo(object videoObj, string fileName, VideoSaveParams saveParams, bool byLink)
+        {
+            var uplServerResp = await Save(saveParams);
+
+            if (uplServerResp.IsError && !API.ThrowExceptionOnResponseError)
+            {
+                throw new InTouchResponseErrorException(uplServerResp.Error.Message, uplServerResp.Error);
+            }
+
+            if (byLink)
+            {
+                var uplRespRawJson = await new HttpClient().GetStringAsync(uplServerResp.Data.UploadUrl);
+                var resp = API.ParseUploadServerResponse<bool>(uplRespRawJson, "response");
+
+                return Tuple.Create(resp, uplServerResp.Data);
+            }
+            else
+            {
+                var uplRespRawJson = await API.UploadFile(uplServerResp.Data.UploadUrl,
+                    new List<Tuple<string, byte[], string>>
+                    {
+                        {"video_file", (byte[]) videoObj, fileName}
+                    });
+                var resp = API.ParseUploadServerResponse<VideoUploadResponse>(uplRespRawJson);
+
+                return resp.GetVideo(uplServerResp.Data);
+            }
+        }
+
+        #endregion
 
         #endregion
     }

@@ -10,6 +10,7 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -76,7 +77,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Returns the server address for document upload onto a user's or community's wall.
         /// </summary>
-        /// <param name="groupId">Community ID (if the document will be uploaded to the community). </param>
+        /// <param name="groupId">Community ID (if the document will be uploaded to the community).</param>
         /// <returns>Returns a <see cref="ServerInfo"/> object with an <see cref="ServerInfo.UploadUrl"/> field. After the document is uploaded, use the <see cref="Save"/> method.</returns>
         public async Task<Response<ServerInfo>> GetWallUploadServer(int? groupId = null)
             => await Request<ServerInfo>("getWallUploadServer", new MethodParams {{"group_id", groupId}});
@@ -159,6 +160,61 @@ namespace ModernDev.InTouch
                 {"title", title},
                 {"tags", tags}
             });
+
+        #region Upload methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="docData">Document data.</param>
+        /// <param name="fileName">Document file name.</param>
+        /// <param name="isWallDoc">True - to upload a doc to the wall.</param>
+        /// <param name="groupId">Community ID (if the document will be uploaded to the community).</param>
+        /// <param name="title">Document title.</param>
+        /// <param name="tags">Document tags. </param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>docData</c> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>fileName</c> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns a <see cref="List{T}"/> of uploaded <see cref="Doc"/> objects.</returns>
+        public async Task<Response<List<Doc>>> UploadDoc(byte[] docData, string fileName, bool isWallDoc = false,
+            int? groupId = null,
+            string title = null, string tags = null)
+        {
+            if (docData == null)
+            {
+                throw new ArgumentNullException(nameof(docData));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            try
+            {
+                var uplServerResp = await (isWallDoc ? GetWallUploadServer(groupId) : GetUploadServer(groupId));
+
+                if (uplServerResp.IsError && !API.ThrowExceptionOnResponseError)
+                {
+                    throw new InTouchResponseErrorException(uplServerResp.Error.Message, uplServerResp.Error);
+                }
+
+                var uplRespRawJson = await API.UploadFile(uplServerResp.Data.UploadUrl,
+                    new List<Tuple<string, byte[], string>>
+                    {
+                        {"file", docData, fileName}
+                    });
+                var uplServerData = API.ParseUploadServerResponse<DocUploadResponse>(uplRespRawJson);
+
+                return await Save(uplServerData.File, title, tags);
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading document.", ex);
+            }
+        }
+
+        #endregion
 
         #endregion
     }
