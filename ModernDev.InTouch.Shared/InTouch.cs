@@ -198,6 +198,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public AudioMethods Audio { get; set; }
 
+        /// <summary>
+        /// Methods for working with wiki pages.
+        /// </summary>
+        public PagesMethods Pages { get; set; }
+
         #endregion
 
         #region Events
@@ -251,6 +256,7 @@ namespace ModernDev.InTouch
             Newsfeed = new NewsfeedMethods(this);
             Database = new DatabaseMethods(this);
             Audio = new AudioMethods(this);
+            Pages = new PagesMethods(this);
         }
 
         /// <summary>

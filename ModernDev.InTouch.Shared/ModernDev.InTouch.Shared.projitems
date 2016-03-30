@@ -71,6 +71,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\MessagesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\NewsfeedMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\NotificationsMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PagesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PhotosMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PlacesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PollsMethods.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\ObjectInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\OnlineFriends.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\OwnerPhoto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\PageVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PhotoSize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PhotosServerInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PhotoUploadResponse.cs" />
