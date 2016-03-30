@@ -25,30 +25,9 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("VideoAlbum {Title}")]
-    public class VideoAlbum : IVideoCatalogItem
+    public class VideoAlbum : BaseAlbum, IVideoCatalogItem
     {
         #region Properties
-
-        /// <summary>
-        /// Album Id.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("id")]
-        public long Id { get; set; }
-
-        /// <summary>
-        /// Owner Id.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("owner_id")]
-        public int OwnerId { get; set; }
-
-        /// <summary>
-        /// Album title.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("title")]
-        public string Title { get; set; }
 
         /// <summary>
         /// Number of videos in the album.
