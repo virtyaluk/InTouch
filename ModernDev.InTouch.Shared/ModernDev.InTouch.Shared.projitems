@@ -14,7 +14,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\Exceptions\InTouchException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Exceptions\InTouchResponseErrorException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodParamAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodParamsGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\AccountSaveProfileInfoParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\AuthSignupParams.cs" />
@@ -29,8 +31,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetLongPollHistoryParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesSendParams.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MethodParamAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MethodParamsGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\NewsfeedGetCommentsParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\NewsfeedGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\NewsfeedGetRecommendedParams.cs" />
