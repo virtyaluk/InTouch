@@ -24,7 +24,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("User {FirstName} {LastName}")]
     [DataContract]
-    public partial class User : UserContact, IProfileItem, IChatable, IFeedback
+    public partial class User : UserContact, IProfileItem, IChatable, IFeedback, IStatusAudio
     {
         #region Properties
 
@@ -519,6 +519,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("from_id")]
         public int FromId { get; set; }
+
+        /// <summary>
+        /// A <see cref="Audio"/> object, which is set in status.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("status_audio")]
+        public Audio StatusAudio { get; set; }
 
         #endregion
         #endregion
