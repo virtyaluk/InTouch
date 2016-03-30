@@ -27,6 +27,8 @@ namespace ModernDev.InTouch
     [APIVersion(Version = 5.45)]
     public partial class Page : IMediaAttachment
     {
+        #region Properties
+
         /// <summary>
         /// Page identifier.
         /// </summary>
@@ -158,5 +160,7 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("owner_id")]
         public int OwnerId { get; set; }
+
+        #endregion
     }
 }
