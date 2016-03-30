@@ -21,7 +21,6 @@ using Newtonsoft.Json.Linq;
 using static ModernDev.InTouch.Helpers.Utils;
 
 #if WINDOWS_UWP81 || WINDOWS_UWP
-using System.Diagnostics;
 using ModernDev.InTouch.Helpers;
 using Windows.Security.Authentication.Web;
 #endif
@@ -217,10 +216,13 @@ namespace ModernDev.InTouch
         /// <param name="includeRawResponse">Whether the raw response string should be included in request response object.</param>
         public InTouch(bool throwExceptionOnResponseError = false, bool includeRawResponse = false)
         {
-            _apiClient = new HttpClient
+            if (_apiClient == null)
             {
-                BaseAddress = _baseApiUri
-            };
+                _apiClient = new HttpClient
+                {
+                    BaseAddress = _baseApiUri
+                };
+            }
 
             _apiClient.DefaultRequestHeaders.Accept.Clear();
             _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -262,6 +264,14 @@ namespace ModernDev.InTouch
             bool includeRawResponse = false) : this(throwExceptionOnResponseError, includeRawResponse)
         {
             SetApplicationSettings(clientId, clientSecret);
+        }
+
+        public InTouch(HttpMessageHandler httpMessageHandler, int clientId, string clientSecret,
+            bool throwExceptionOnResponseError = false,
+            bool includeRawResponse = false)
+            : this(clientId, clientSecret, throwExceptionOnResponseError, includeRawResponse)
+        {
+            _apiClient = new HttpClient(httpMessageHandler);
         }
 
         #endregion
