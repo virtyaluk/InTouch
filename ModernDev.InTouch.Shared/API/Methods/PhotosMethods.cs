@@ -39,9 +39,9 @@ namespace ModernDev.InTouch
         /// Creates an empty photo album.
         /// </summary>
         /// <param name="methodParams">A <see cref="PhotosCreateAlbumParams"/> object with method params.</param>
-        /// <returns>Returns an <see cref="Album"/> object.</returns>
-        public async Task<Response<Album>> CreateAlbum(PhotosCreateAlbumParams methodParams)
-            => await Request<Album>("createAlbum", methodParams);
+        /// <returns>Returns an <see cref="PhotoAlbum"/> object.</returns>
+        public async Task<Response<PhotoAlbum>> CreateAlbum(PhotosCreateAlbumParams methodParams)
+            => await Request<PhotoAlbum>("createAlbum", methodParams);
 
         /// <summary>
         /// Edits information about a photo album.
@@ -55,9 +55,9 @@ namespace ModernDev.InTouch
         /// Returns a list of a user's or community's photo albums.
         /// </summary>
         /// <param name="methodParams">A <see cref="PhotosGetAlbumsParams"/> object with method params.</param>
-        /// <returns>Returns a <see cref="List{T}"/> of <see cref="Album"/> objects.</returns>
-        public async Task<Response<ItemsList<Album>>> GetAlbums(PhotosGetAlbumsParams methodParams)
-            => await Request<ItemsList<Album>>("getAlbums", methodParams, true);
+        /// <returns>Returns a <see cref="List{T}"/> of <see cref="PhotoAlbum"/> objects.</returns>
+        public async Task<Response<ItemsList<PhotoAlbum>>> GetAlbums(PhotosGetAlbumsParams methodParams)
+            => await Request<ItemsList<PhotoAlbum>>("getAlbums", methodParams, true);
 
         /// <summary>
         /// Returns a list of a user's or community's photos.

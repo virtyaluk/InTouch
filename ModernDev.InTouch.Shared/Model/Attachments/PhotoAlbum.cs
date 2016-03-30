@@ -20,19 +20,14 @@ using System.Collections.Generic;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// An <see cref="Album"/> represents a photo album.
+    /// An <see cref="PhotoAlbum"/> represents a photo album.
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Album {Title}")]
     [APIVersion(Version = 5.45)]
-    public class Album : IMediaAttachment
+    public class PhotoAlbum : BaseAlbum, IMediaAttachment
     {
-        /// <summary>
-        /// Album Id.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("id")]
-        public int Id { get; set; }
+        #region Properties
 
         /// <summary>
         /// Album cover.
@@ -40,20 +35,6 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("thumb")]
         public Photo Thumb { get; set; }
-
-        /// <summary>
-        /// Id of the user or community that owns the album.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("owner_id")]
-        public int OwnerId { get; set; }
-
-        /// <summary>
-        /// Album title.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("title")]
-        public string Title { get; set; }
 
         /// <summary>
         /// Album description.
@@ -140,5 +121,7 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("sizes")]
         public List<PhotoSize> Sizes { get; set; }
+
+        #endregion
     }
 }
