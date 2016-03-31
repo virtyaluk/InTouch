@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodParamsGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\AccountSaveProfileInfoParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\AudioEditParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\AudioSearchParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\AuthSignupParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BaseAddCommentParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BaseGetCommentsParams.cs" />
@@ -35,6 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\NewsfeedGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\NewsfeedGetRecommendedParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\NewsfeedSearchParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\PagesGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\PhotosCreateAlbumParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\PhotosCreateCommentParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\PhotosEdiAlbumParams.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallSearchGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallSearchParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\AccountMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\AudioMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\AuthMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\Class1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\DatabaseMethods.cs" />
@@ -157,7 +161,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\AnswerVoters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Application.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AttachmentsHistory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Album.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\PhotoAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Audio.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Comment.cs" />
@@ -174,9 +178,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\PostedPhoto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Sticker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Video.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\AudioAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AudioUploadResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AuthStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\BanInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\BaseAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\BasicPlace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Category.cs" />
@@ -207,6 +213,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Group.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Interfaces\IChatable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Interfaces\IFeedback.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Interfaces\IStatusAudio.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Interfaces\IVideoCatalogItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ItemsList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\LastActivity.cs" />
@@ -214,6 +221,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\LinkStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\LongPollHistory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\LongPollServerData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Lyrics.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Market.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MarketPhotoUploadResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MediaLiked.cs" />
