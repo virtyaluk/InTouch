@@ -37,7 +37,7 @@ namespace ModernDev.InTouch.Helpers
                 switch ((string) obj["type"])
                 {
                     case "album":
-                        list.Add(obj["album"].ToObject<Album>());
+                        list.Add(obj["album"].ToObject<PhotoAlbum>());
                         break;
 
                     case "app":

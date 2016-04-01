@@ -104,9 +104,9 @@ namespace ModernDev.InTouch
                 {
                     res.Add($"poll{att.OwnerId}_{((Poll) att).Id}");
                 }
-                else if (att is Album)
+                else if (att is PhotoAlbum)
                 {
-                    res.Add($"album{att.OwnerId}_{((Album) att).Id}");
+                    res.Add($"album{att.OwnerId}_{((PhotoAlbum) att).Id}");
                 }
             }
 
