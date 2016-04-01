@@ -66,7 +66,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("category")]
-        public Category Category { get; set; }
+        public MarketCategory Category { get; set; }
 
         /// <summary>
         /// Url of the cover image of the product.
