@@ -31,13 +31,35 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("end_date")]
         [JsonConverter(typeof(JsonNumberDateTimeConverter))]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         /// <summary>
-        /// Ban message
+        /// Ban message.
         /// </summary>
         [DataMember]
         [JsonProperty("comment")]
         public string Comment { get; set; }
+
+        /// <summary>
+        /// ID of the administrator who added the user to the blacklist.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("admin_id")]
+        public int AdminId { get; set; }
+
+        /// <summary>
+        /// Date when the user was added to the blacklist.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("date")]
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
+        public DateTime? Date { get; set; }
+
+        /// <summary>
+        /// Reason for ban.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("reason")]
+        public BanTypes Reason { get; set; }
     }
 }
