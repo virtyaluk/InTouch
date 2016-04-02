@@ -23,8 +23,8 @@ namespace ModernDev.InTouch
     {
         [EnumMember(Value = "group")]
         Group,
-        [EnumMember(Value = "page")]
-        Page,
+        [EnumMember(Value = "public")]
+        Public,
         [EnumMember(Value = "event")]
         Event
     }
