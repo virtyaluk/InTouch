@@ -123,7 +123,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
         /// </summary>
-        /// <param name="getFollowersParams"><see cref="UsersGetFollowersParams"/> object containing method params</param>
+        /// <param name="getFollowersParams"><see cref="UsersGetFollowersParams"/> object containing method params.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="User"/> objects.</returns>
         public async Task<Response<ItemsList<User>>> GetFollowers(UsersGetFollowersParams getFollowersParams = null)
             => await Request<ItemsList<User>>("getFollowers", getFollowersParams, true);

@@ -203,6 +203,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public PagesMethods Pages { get; set; }
 
+        /// <summary>
+        /// Methods for working with communities.
+        /// </summary>
+        public GroupsMethods Groups { get; set; }
+
         #endregion
 
         #region Events
@@ -257,6 +262,7 @@ namespace ModernDev.InTouch
             Database = new DatabaseMethods(this);
             Audio = new AudioMethods(this);
             Pages = new PagesMethods(this);
+            Groups = new GroupsMethods(this);
         }
 
         /// <summary>
