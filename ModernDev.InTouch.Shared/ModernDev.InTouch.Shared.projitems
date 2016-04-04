@@ -27,6 +27,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BaseNewsfeedGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BasePhotosCreateEditAlbumParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BasePhotosGetAlbumsParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BoardAddCommentParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BoardGetCommentsParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BoardGetTopicsParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsEditManagerParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsEditParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsEditPlaceParams.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\AccountMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\AudioMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\AuthMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\BoardMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\Class1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\DatabaseMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\DocsMethods.cs" />
@@ -314,6 +318,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Tags.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\TitledItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Topic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\TopicsList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\University.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UploadResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\User.cs" />

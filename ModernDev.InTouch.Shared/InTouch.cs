@@ -208,6 +208,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public GroupsMethods Groups { get; set; }
 
+        /// <summary>
+        /// Methods for working with community's topics.
+        /// </summary>
+        public BoardMethods Board { get; set; }
+
         #endregion
 
         #region Events
@@ -263,6 +268,7 @@ namespace ModernDev.InTouch
             Audio = new AudioMethods(this);
             Pages = new PagesMethods(this);
             Groups = new GroupsMethods(this);
+            Board = new BoardMethods(this);
         }
 
         /// <summary>
