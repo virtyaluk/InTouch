@@ -213,6 +213,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public BoardMethods Board { get; set; }
 
+        /// <summary>
+        /// Methods for working with user's notes.
+        /// </summary>
+        public NotesMethods Notes { get; set; }
+
         #endregion
 
         #region Events
@@ -269,6 +274,7 @@ namespace ModernDev.InTouch
             Pages = new PagesMethods(this);
             Groups = new GroupsMethods(this);
             Board = new BoardMethods(this);
+            Notes = new NotesMethods(this);
         }
 
         /// <summary>

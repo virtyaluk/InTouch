@@ -85,6 +85,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\LikesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\MessagesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\NewsfeedMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\NotesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\NotificationsMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PagesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PhotosMethods.cs" />
