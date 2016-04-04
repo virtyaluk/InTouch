@@ -91,6 +91,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PhotosMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PlacesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PollsMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StatsMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StatusMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StorageMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\UsersMethods.cs" />
@@ -292,6 +293,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\OnlineFriends.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\OwnerPhoto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PageVersion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Period.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\PeriodData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PhotoSize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PhotosServerInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PhotoUploadResponse.cs" />
@@ -299,6 +302,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\PlaceStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PlaceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PostSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\PostStats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Price.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Product.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ProfileInfo.cs" />

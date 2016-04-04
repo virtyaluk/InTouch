@@ -218,6 +218,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public NotesMethods Notes { get; set; }
 
+        /// <summary>
+        /// Methods for working with statistics.
+        /// </summary>
+        public StatsMethods Stats { get; set; }
+
         #endregion
 
         #region Events
@@ -275,6 +280,7 @@ namespace ModernDev.InTouch
             Groups = new GroupsMethods(this);
             Board = new BoardMethods(this);
             Notes = new NotesMethods(this);
+            Stats = new StatsMethods(this);
         }
 
         /// <summary>
