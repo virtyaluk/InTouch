@@ -75,7 +75,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\AudioMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\AuthMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\BoardMethods.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\Class1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\MarketMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\DatabaseMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\DocsMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\FaveMethods.cs" />
@@ -91,6 +91,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PhotosMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PlacesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PollsMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\SearchMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StatsMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StatusMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StorageMethods.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\FriendSuggestionsTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\GiftPrivacies.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\GroupProfileFields.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\HintsSectionTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Langs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LikesListFilterTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LinkStatuses.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\RelativeTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ReportReasonTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ReportTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\SearchHintsFilters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Services.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\SortOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\UserPersonalPoliticalViewsTypes.cs" />
@@ -314,6 +317,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Response.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ResponseError.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\School.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\SearchHintItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Section.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ServerInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Status.cs" />

@@ -223,6 +223,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public StatsMethods Stats { get; set; }
 
+        /// <summary>
+        /// Methods for wirking with search system.
+        /// </summary>
+        public SearchMethods Search { get; set; }
+
         #endregion
 
         #region Events
@@ -281,6 +286,7 @@ namespace ModernDev.InTouch
             Board = new BoardMethods(this);
             Notes = new NotesMethods(this);
             Stats = new StatsMethods(this);
+            Search = new SearchMethods(this);
         }
 
         /// <summary>
