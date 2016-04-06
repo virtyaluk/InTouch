@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\AuthSignupParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BaseAddCommentParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BaseGetCommentsParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BaseMarketAddEditParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BaseNewsfeedGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BasePhotosCreateEditAlbumParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\BasePhotosGetAlbumsParams.cs" />
@@ -37,6 +38,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsSearchParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\LikesGetListParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketAddParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketCreateCommentParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketEditParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketGetCommentsParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketSearchParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetHistoryAttachmentsParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetHistoryParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetLongPollHistoryParams.cs" />
@@ -250,6 +256,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\LongPollServerData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Lyrics.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Market.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\MarketAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MarketCategory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MarketPhotoUploadResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MediaLiked.cs" />

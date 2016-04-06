@@ -228,6 +228,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public SearchMethods Search { get; set; }
 
+        /// <summary>
+        /// Methods for working with market items.
+        /// </summary>
+        public MarketMethods Market { get; set; }
+
         #endregion
 
         #region Events
@@ -287,6 +292,7 @@ namespace ModernDev.InTouch
             Notes = new NotesMethods(this);
             Stats = new StatsMethods(this);
             Search = new SearchMethods(this);
+            Market = new MarketMethods(this);
         }
 
         /// <summary>
