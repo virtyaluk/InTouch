@@ -8,8 +8,8 @@
     <ProjectGuid>{FBC2191E-CA3A-49DC-B1AB-11D0F8C95A6C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ModernDev.InTouch.UniversalWin81</RootNamespace>
-    <AssemblyName>ModernDev.InTouch.UniversalWin81</AssemblyName>
+    <RootNamespace>ModernDev.InTouch</RootNamespace>
+    <AssemblyName>ModernDev.InTouch</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -29,7 +29,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;WINDOWS_UWP81</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>

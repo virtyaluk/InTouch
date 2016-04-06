@@ -38,27 +38,34 @@ namespace ModernDev.InTouch
 
             _sessionStoredDateTime = DateTime.Now;
 
+#if PORTABLE_LIB == false
             _timer = new Timer(e => OnAccessTokenExpired(EventArgs.Empty), null, (int) TimeRemains.TotalSeconds,
                 Timeout.Infinite);
+#endif
         }
 
         ~APISession()
         {
+#if PORTABLE_LIB == false
             _timer.Dispose();
+#endif
         }
 
-        #endregion
+#endregion
 
         public event EventHandler AccessTokenExpired;
 
-        #region Fields
+#region Fields
 
         private readonly DateTime _sessionStoredDateTime;
+        
+#if PORTABLE_LIB == false
         private readonly Timer _timer;
+#endif
 
-        #endregion
+#endregion
 
-        #region Properties
+#region Properties
 
         /// <summary>
         /// Access key for API calls.
@@ -85,12 +92,12 @@ namespace ModernDev.InTouch
         /// </summary>
         public bool IsExpired => TimeRemains.TotalSeconds <= 0;
 
-        #endregion
+#endregion
 
-        #region Methods
+#region Methods
 
         protected virtual void OnAccessTokenExpired(EventArgs e) => AccessTokenExpired?.Invoke(this, e);
 
-        #endregion
+#endregion
     }
 }

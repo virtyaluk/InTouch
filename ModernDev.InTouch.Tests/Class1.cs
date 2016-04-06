@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using RichardSzalay.MockHttp;
 
 namespace ModernDev.InTouch.Tests
