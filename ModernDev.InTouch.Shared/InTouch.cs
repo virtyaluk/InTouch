@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
@@ -25,12 +26,13 @@ using ModernDev.InTouch.Helpers;
 using Windows.Security.Authentication.Web;
 #endif
 
+[assembly: InternalsVisibleTo("ModernDev.InTouch.Tests")]
+
 namespace ModernDev.InTouch
 {
-    public partial class InTouch : IDisposable
+    public class InTouch : IDisposable
     {
         #region Fields
-
         
         private readonly HttpClient _apiClient;
         private HttpClient _fileClient;
@@ -224,7 +226,7 @@ namespace ModernDev.InTouch
         public StatsMethods Stats { get; set; }
 
         /// <summary>
-        /// Methods for wirking with search system.
+        /// Methods for working with search system.
         /// </summary>
         public SearchMethods Search { get; set; }
 
@@ -307,13 +309,16 @@ namespace ModernDev.InTouch
         {
             SetApplicationSettings(clientId, clientSecret);
         }
-
-        public InTouch(HttpMessageHandler httpMessageHandler, int clientId, string clientSecret,
+        
+        internal InTouch(HttpMessageHandler httpMessageHandler, int clientId, string clientSecret,
             bool throwExceptionOnResponseError = false,
             bool includeRawResponse = false)
             : this(clientId, clientSecret, throwExceptionOnResponseError, includeRawResponse)
         {
-            _apiClient = new HttpClient(httpMessageHandler);
+            _apiClient = new HttpClient(httpMessageHandler)
+            {
+                BaseAddress = _baseApiUri
+            };
         }
 
         #endregion
