@@ -35,6 +35,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("title")]
-        public int Title { get; set; }
+        public string Title { get; set; }
     }
 }

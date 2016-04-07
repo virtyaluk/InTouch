@@ -24,7 +24,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("User {FirstName} {LastName}")]
     [DataContract]
-    public partial class User : UserContact, IProfileItem, IChatable, IFeedback, IStatusAudio
+    public class User : UserContact, IProfileItem, IChatable, IFeedback, IStatusAudio
     {
         #region Properties
 
@@ -117,22 +117,18 @@ namespace ModernDev.InTouch
         public string BDate { get; set; }
 
         /// <summary>
-        /// ID of the city specified on user's page in "Contacts" section.
-        /// Returns city ID that can be used to get its name using <see cref="DatabaseMethods.GetCitiesById"/> method.
-        /// If no city is specified or main information on the page is hidden for in privacy settings, then it returns 0. 
+        /// User's city.
         /// </summary>
         [DataMember]
         [JsonProperty("city")]
         public City City { get; set; }
 
         /// <summary>
-        /// ID of the country specified on user's page in "Contacts" section.
-        /// Returns country ID that can be used to get its name using <see cref="DatabaseMethods.GetCountriesById"/> method.
-        /// If no country is specified or main information on the page is hidden in privacy settings, then it returns 0. 
+        /// User's country.
         /// </summary>
         [DataMember]
         [JsonProperty("country")]
-        public int CountryId { get; set; }
+        public Country Country { get; set; }
 
         /// <summary>
         /// User's home town.

@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
     [DataContract]
     [DebuggerDisplay("Audio {Artist} - {Title}")]
     [APIVersion(Version = 5.45)]
-    public partial class Audio : IMediaAttachment
+    public class Audio : IMediaAttachment
     {
         #region Properties
         
@@ -72,21 +72,21 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("url")]
-        public int Url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// ID of the lyrics (if available) of the audio file. 
         /// </summary>
         [DataMember]
         [JsonProperty("lyrics_id")]
-        public int LyricsId { get; set; }
+        public int? LyricsId { get; set; }
 
         /// <summary>
         /// ID of the album containing the audio file (if assigned). 
         /// </summary>
         [DataMember]
         [JsonProperty("album_id")]
-        public int AlbumId { get; set; }
+        public int? AlbumId { get; set; }
 
         /// <summary>
         /// Genre ID.
