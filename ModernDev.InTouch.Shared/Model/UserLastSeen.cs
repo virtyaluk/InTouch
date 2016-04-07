@@ -10,8 +10,10 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -28,13 +30,14 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("time")]
-        public int Time { get; set; }
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
+        public DateTime Time { get; set; }
 
         /// <summary>
         /// Type of the platform that used for the last authorization.
         /// </summary>
         [DataMember]
         [JsonProperty("platform")]
-        public string Platform { get; set; }
+        public int? Platform { get; set; }
     }
 }

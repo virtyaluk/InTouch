@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Post {Id}")]
-    [APIVersion(Version = 5.45)]
+    [APIVersion(Version = 5.50)]
     public class Post : IMediaAttachment, IFeedback
     {
         #region Properties
@@ -50,7 +50,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("from_id")]
-        public int FromId { get; set; }
+        public int? FromId { get; set; }
 
         /// <summary>
         /// Date the post was added. 
@@ -72,21 +72,20 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("reply_owner_id")]
-        public int ReplyOwnerId { get; set; }
+        public int? ReplyOwnerId { get; set; }
 
         /// <summary>
         /// ID of the wall post to which the reply is addressed (if the post is a reply to another wall post). 
         /// </summary>
         [DataMember]
         [JsonProperty("reply_post_id")]
-        public int ReplyPostId { get; set; }
+        public int? ReplyPostId { get; set; }
 
         /// <summary>
         /// True, if the post was created with "Friends only" option. 
         /// </summary>
         [DataMember]
         [JsonProperty("friends_only")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool FriendsOnly { get; set; }
 
         /// <summary>
@@ -145,7 +144,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("signer_id")]
-        public int SignerId { get; set; }
+        public int? SignerId { get; set; }
 
         /// <summary>
         /// A list containing reposts history for current post. Returns only if current post is a repost.
@@ -160,7 +159,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_pin")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanPin { get; set; }
 
         /// <summary>
@@ -168,7 +166,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_delete")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanDelete { get; set; }
 
         /// <summary>
@@ -176,7 +173,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_edit")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanEdit { get; set; }
 
         /// <summary>
@@ -184,14 +180,13 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("is_pinned")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool IsPinned { get; set; }
 
         #region Extra properties
 
         [DataMember]
         [JsonProperty("to_id")]
-        public int ToId { get; set; }
+        public int? ToId { get; set; }
 
         #endregion
 

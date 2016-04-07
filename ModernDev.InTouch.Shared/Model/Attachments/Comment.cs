@@ -41,14 +41,14 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("from_id")]
-        public int FromId { get; set; }
+        public int? FromId { get; set; }
 
         /// <summary>
         /// Post ID.
         /// </summary>
         [DataMember]
         [JsonProperty("post_id")]
-        public int PostId { get; set; }
+        public int? PostId { get; set; }
 
         /// <summary>
         /// User ID or community ID.
@@ -77,14 +77,14 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("reply_to_user")]
-        public int ReplyToUser { get; set; }
+        public int? ReplyToUser { get; set; }
 
         /// <summary>
         /// ID of the comment the reply to which is represented by the current comment (if the comment is a reply to another comment).
         /// </summary>
         [DataMember]
         [JsonProperty("reply_to_comment")]
-        public int ReplyToComment { get; set; }
+        public int? ReplyToComment { get; set; }
 
         /// <summary>
         /// Information about likes.
@@ -112,7 +112,7 @@ namespace ModernDev.InTouch
 
         [DataMember]
         [JsonProperty("to_id")]
-        public int ToId { get; set; }
+        public int? ToId { get; set; }
 
         #endregion
 

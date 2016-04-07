@@ -80,7 +80,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("hidden")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool Hidden { get; set; }
 
         /// <summary>
@@ -88,7 +87,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("verified")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool Verified { get; set; }
 
         /// <summary>
@@ -96,7 +94,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("blacklisted")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool Blacklisted { get; set; }
 
         /// <summary>
@@ -204,7 +201,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("online")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool Online { get; set; }
 
         /// <summary>
@@ -228,7 +224,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("has_mobile")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool HasMobile { get; set; }
 
         /// <summary>
@@ -286,7 +281,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("followers_count")]
-        public int FollowersCount { get; set; }
+        public int? FollowersCount { get; set; }
         
         /// <summary>
         /// Number of various objects the user has.
@@ -322,7 +317,7 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("relation")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public RelationTypes Relation { get; set; }
+        public RelationTypes? Relation { get; set; }
 
         /// <summary>
         /// Information from the "Personal views" section.
@@ -377,7 +372,6 @@ namespace ModernDev.InTouch
         /// Wall comments allowed(true — allowed, false — not allowed).
         /// </summary>
         [DataMember]
-        [JsonConverter(typeof (JsonBoolConverter))]
         [JsonProperty("wall_comments")]
         public bool WallCommentsAllowed { get; set; }
 
@@ -449,7 +443,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_post")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanPost { get; set; }
 
         /// <summary>
@@ -457,7 +450,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_see_all_posts")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanSeeAllPosts { get; set; }
 
         /// <summary>
@@ -465,7 +457,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_see_audio")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanSeeAudio { get; set; }
 
         /// <summary>
@@ -473,7 +464,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_write_private_message")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanWritePM { get; set; }
 
         /// <summary>
@@ -481,7 +471,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("timezone")]
-        public int Timezone { get; set; }
+        public int? Timezone { get; set; }
 
         /// <summary>
         /// User page's screen name (subdomain).
@@ -497,12 +487,11 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("online_mobile")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool OnlineMobile { get; set; }
 
         [DataMember]
         [JsonProperty("online_app")]
-        public int OnlineApp { get; set; }
+        public int? OnlineApp { get; set; }
 
         [DataMember]
         [JsonProperty("found_with")]
@@ -510,11 +499,11 @@ namespace ModernDev.InTouch
 
         [DataMember]
         [JsonProperty("to_id")]
-        public int ToId { get; set; }
+        public int? ToId { get; set; }
 
         [DataMember]
         [JsonProperty("from_id")]
-        public int FromId { get; set; }
+        public int? FromId { get; set; }
 
         /// <summary>
         /// A <see cref="Audio"/> object, which is set in status.

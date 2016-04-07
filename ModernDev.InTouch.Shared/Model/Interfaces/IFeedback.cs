@@ -20,11 +20,11 @@ namespace ModernDev.InTouch
         /// <summary>
         /// The id of the wall's owner on which the post was published.
         /// </summary>
-        int ToId { get; set; }
+        int? ToId { get; set; }
 
         /// <summary>
         /// Feedback owner Id.
         /// </summary>
-        int FromId { get; set; }
+        int? FromId { get; set; }
     }
 }
