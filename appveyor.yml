@@ -1,0 +1,13 @@
+platform: Any CPU
+configuration: Release
+
+build:
+  parallel: true
+  project: ModernDev.InTouch.sln
+
+before_build:
+  - nuget restore
+  
+after_build:
+  - nuget pack ModernDev.InTouch.nuspec -version %APPVEYOR_BUILD_VERSION%
+  - appveyor PushArtifact ModernDev.InTouch.%APPVEYOR_BUILD_VERSION%.nupkg
