@@ -21,20 +21,15 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using static ModernDev.InTouch.Helpers.Utils;
 
-#if WINDOWS_UWP81 || WINDOWS_UWP
-using ModernDev.InTouch.Helpers;
-using Windows.Security.Authentication.Web;
-#endif
-
 [assembly: InternalsVisibleTo("ModernDev.InTouch.Tests")]
 
 namespace ModernDev.InTouch
 {
-    public class InTouch : IDisposable
+    public sealed partial class InTouch : IDisposable
     {
         #region Fields
         
-        private readonly HttpClient _apiClient;
+        private HttpClient _apiClient;
         private HttpClient _fileClient;
         private readonly Uri _baseApiUri = new Uri("https://api.vk.com/");
         private string _dataLang = "en";
@@ -43,6 +38,7 @@ namespace ModernDev.InTouch
         private Dictionary<string, string> _lastReqParams;
         private string _lastReqMethod;
         private const string AuthUrl = "https://oauth.vk.com/authorize";
+        private readonly HttpMessageHandler _httpMessageHandler;
 
         #endregion
 
@@ -112,128 +108,128 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Methods for working with gifts.
         /// </summary>
-        public GiftsMethods Gifts { get; set; }
+        public GiftsMethods Gifts { get; private set; }
 
         /// <summary>
         /// Methods for working with VK storage.
         /// </summary>
-        public StorageMethods Storage { get; set; }
+        public StorageMethods Storage { get; private set; }
 
         /// <summary>
         /// Utility methods.
         /// </summary>
-        public UtilsMethods Utils { get; set; }
+        public UtilsMethods Utils { get; private set; }
 
         /// <summary>
         /// Methods for working with user's faves lists.
         /// </summary>
-        public FaveMethods Fave { get; set; }
+        public FaveMethods Fave { get; private set; }
 
         /// <summary>
         /// Methods for working with user's docs.
         /// </summary>
-        public DocsMethods Docs { get; set; }
+        public DocsMethods Docs { get; private set; }
 
         /// <summary>
         /// Methods for working with polls.
         /// </summary>
-        public PollsMethods Polls { get; set; }
+        public PollsMethods Polls { get; private set; }
 
         /// <summary>
         /// Methods for working with likes.
         /// </summary>
-        public LikesMethods Likes { get; set; }
+        public LikesMethods Likes { get; private set; }
 
         /// <summary>
         /// Auth methods.
         /// </summary>
-        public AuthMethods Auth { get; set; }
+        public AuthMethods Auth { get; private set; }
 
         /// <summary>
         /// Methods for working with the wall.
         /// </summary>
-        public WallMethods Wall { get; set; }
+        public WallMethods Wall { get; private set; }
 
         /// <summary>
         /// Methods for working with photos.
         /// </summary>
-        public PhotosMethods Photos { get; set; }
+        public PhotosMethods Photos { get; private set; }
 
         /// <summary>
         /// Methods for working with friends.
         /// </summary>
-        public FriendsMethods Friends { get; set; }
+        public FriendsMethods Friends { get; private set; }
 
         /// <summary>
         /// Methods for working with videos.
         /// </summary>
-        public VideoMethods Videos { get; set; }
+        public VideoMethods Videos { get; private set; }
 
 
         /// <summary>
         /// Methods for working with places.
         /// </summary>
-        public PlacesMethods Places { get; set; }
+        public PlacesMethods Places { get; private set; }
 
         /// <summary>
         /// Methods for working with user's messages.
         /// </summary>
-        public MessagesMethods Messages { get; set; }
+        public MessagesMethods Messages { get; private set; }
 
         /// <summary>
         /// Methods for working with user's notifications.
         /// </summary>
-        public NotificationsMethods Notifications { get; set; }
+        public NotificationsMethods Notifications { get; private set; }
 
         /// <summary>
         /// Methods for working with newsfeed.
         /// </summary>
-        public NewsfeedMethods Newsfeed { get; set; }
+        public NewsfeedMethods Newsfeed { get; private set; }
 
         /// <summary>
         /// Methods for working with VK open data.
         /// </summary>
-        public DatabaseMethods Database { get; set; }
+        public DatabaseMethods Database { get; private set; }
 
         /// <summary>
         /// Methods for working with audio files.
         /// </summary>
-        public AudioMethods Audio { get; set; }
+        public AudioMethods Audio { get; private set; }
 
         /// <summary>
         /// Methods for working with wiki pages.
         /// </summary>
-        public PagesMethods Pages { get; set; }
+        public PagesMethods Pages { get; private set; }
 
         /// <summary>
         /// Methods for working with communities.
         /// </summary>
-        public GroupsMethods Groups { get; set; }
+        public GroupsMethods Groups { get; private set; }
 
         /// <summary>
         /// Methods for working with community's topics.
         /// </summary>
-        public BoardMethods Board { get; set; }
+        public BoardMethods Board { get; private set; }
 
         /// <summary>
         /// Methods for working with user's notes.
         /// </summary>
-        public NotesMethods Notes { get; set; }
+        public NotesMethods Notes { get; private set; }
 
         /// <summary>
         /// Methods for working with statistics.
         /// </summary>
-        public StatsMethods Stats { get; set; }
+        public StatsMethods Stats { get; private set; }
 
         /// <summary>
         /// Methods for working with search system.
         /// </summary>
-        public SearchMethods Search { get; set; }
+        public SearchMethods Search { get; private set; }
 
         /// <summary>
         /// Methods for working with market items.
         /// </summary>
-        public MarketMethods Market { get; set; }
+        public MarketMethods Market { get; private set; }
 
         #endregion
 
@@ -253,17 +249,6 @@ namespace ModernDev.InTouch
         /// <param name="includeRawResponse">Whether the raw response string should be included in request response object.</param>
         public InTouch(bool throwExceptionOnResponseError = false, bool includeRawResponse = false)
         {
-            if (_apiClient == null)
-            {
-                _apiClient = new HttpClient
-                {
-                    BaseAddress = _baseApiUri
-                };
-            }
-
-            _apiClient.DefaultRequestHeaders.Accept.Clear();
-            _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             ThrowExceptionOnResponseError = throwExceptionOnResponseError;
             IncludeRawResponse = includeRawResponse;
 
@@ -315,86 +300,12 @@ namespace ModernDev.InTouch
             bool includeRawResponse = false)
             : this(clientId, clientSecret, throwExceptionOnResponseError, includeRawResponse)
         {
-            _apiClient = new HttpClient(httpMessageHandler)
-            {
-                BaseAddress = _baseApiUri
-            };
+            _httpMessageHandler = httpMessageHandler;
         }
 
         #endregion
 
         #region Methods
-
-#if WINDOWS_UWP81 || WINDOWS_UWP
-
-        /// <summary>
-        /// Starts the authentication operation with a given settings.
-        /// </summary>
-        /// <param name="authSettings">Authorization settings</param>
-        /// <param name="silentMode">Tells the web authentication broker to not render any UI.</param>
-        /// <exception cref="InTouchException">Thrown when a HTTP error occurred or inner exceptions were caught.</exception>
-        /// <returns></returns>
-        public async Task Authorize(AuthorizationSettings authSettings = null, bool silentMode = false)
-        {
-            var ad = authSettings ?? new AuthorizationSettings();
-
-            if (ClientId == 0)
-            {
-                throw new NullReferenceException("ClientId cannot be null or empty");
-            }
-
-            var authParams = new Dictionary<string, object>
-            {
-                {"client_id", ClientId},
-                {"v", APIVersion},
-                {"scope", (int) ad.Scope},
-                {"display", ToEnumString(ad.Display)},
-                {"response_type", "token"},
-                {"revoke", ad.Revoke ? 1 : 0},
-                {"redirect_uri", ad.RedirectUri},
-                {"lang", "en"}
-            };
-
-            var authUrl = new Uri($"{AuthUrl}?{authParams.GetQueryString()}");
-            var endUrl = new Uri($"{ad.RedirectUri}#access_token=");
-            var wao = silentMode ? WebAuthenticationOptions.SilentMode : WebAuthenticationOptions.None;
-
-            try
-            {
-                WebAuthenticationResult webAuthResult;
-
-                if (ad.SSOEnabled)
-                {
-                    webAuthResult = await WebAuthenticationBroker.AuthenticateAsync(wao, authUrl);
-                }
-                else
-                {
-                    webAuthResult = await WebAuthenticationBroker.AuthenticateAsync(wao, authUrl, endUrl);
-                }
-
-                if (webAuthResult.ResponseStatus == WebAuthenticationStatus.Success)
-                {
-                    var responseData =
-                        ParseQueryString(webAuthResult.ResponseData.Substring(ad.RedirectUri.ToString().Length + 1));
-
-                    SetSessionData(responseData["access_token"], int.Parse(responseData["user_id"]),
-                        int.Parse(responseData["expires_in"]));
-                }
-                else if (webAuthResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
-                {
-                    throw new InTouchException("A HTTP error occurred while attempting to contact the server.", webAuthResult.ResponseErrorDetail);
-                }
-                else
-                {
-                    throw new InTouchException("An error occurred while attempting to authorize.", webAuthResult.ResponseStatus);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new InTouchException("An exception has occurred while authenticating.", ex);
-            }
-        }
-#endif
 
         /// <summary>
         /// Checks whether the API session is alive.
@@ -553,6 +464,11 @@ namespace ModernDev.InTouch
         public async Task<Response<T>> Request<T>(string methodName, Dictionary<string, string> methodParams = null,
             bool isOpenMethod = false, string path = null)
         {
+            if (_apiClient == null)
+            {
+                InitApiClient();
+            }
+
             var normalizedParams = NormalizeRequestParams(methodParams, isOpenMethod);
 
             CacheReqData(methodName, normalizedParams, isOpenMethod, path);
@@ -707,7 +623,18 @@ namespace ModernDev.InTouch
             _lastReqMethod = methodName;
         }
 
-        protected Response<T> ParseJsonReponse<T>(string json, string path = null)
+        private void InitApiClient()
+        {
+            _apiClient = _httpMessageHandler != null
+                ? new HttpClient(_httpMessageHandler)
+                : new HttpClient();
+
+            _apiClient.BaseAddress = _baseApiUri;
+            _apiClient.DefaultRequestHeaders.Accept.Clear();
+            _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        private Response<T> ParseJsonReponse<T>(string json, string path = null)
         {
             ResponseError errObj = null;
             var dataObj = default(T);
@@ -750,7 +677,7 @@ namespace ModernDev.InTouch
             return new Response<T>(errObj, dataObj, IncludeRawResponse ? json : null);
         }
 
-        protected async Task<string> Post(string url, Dictionary<string, string> paramsDict)
+        private async Task<string> Post(string url, Dictionary<string, string> paramsDict)
         {
             try
             {
@@ -766,7 +693,7 @@ namespace ModernDev.InTouch
             }
         }
 
-        protected Dictionary<string, string> NormalizeRequestParams(Dictionary<string, string> reqParams = null,
+        private Dictionary<string, string> NormalizeRequestParams(Dictionary<string, string> reqParams = null,
             bool isOpenMethod = false)
         {
             var apiParams = reqParams ?? new Dictionary<string, string>();
@@ -803,8 +730,8 @@ namespace ModernDev.InTouch
 
         private void AccessTokenExpired(object sender, EventArgs e) => OnAuthorizationFailed(null);
 
-        protected virtual void OnAuthorizationFailed(ResponseError e) => AuthorizationFailed?.Invoke(this, e);
-        protected virtual void OnCaptchaNeeded(ResponseError e) => CaptchaNeeded?.Invoke(this, e);
+        private void OnAuthorizationFailed(ResponseError e) => AuthorizationFailed?.Invoke(this, e);
+        private void OnCaptchaNeeded(ResponseError e) => CaptchaNeeded?.Invoke(this, e);
 
         #endregion
 
