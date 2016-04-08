@@ -227,11 +227,18 @@ namespace ModernDev.InTouch
         public bool HasMobile { get; set; }
 
         /// <summary>
-        /// Information about user's phone numbers.
+        /// User's mobile phone number (only for standalone applications);
         /// </summary>
         [DataMember]
-        [JsonProperty("contacts")]
-        public UserContacts Contacts { get; set; }
+        [JsonProperty("mobile_phone")]
+        public string MobilePhone { get; set; }
+
+        /// <summary>
+        /// User's additional phone number.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("home_phone")]
+        public string HomePhone { get; set; }
 
         /// <summary>
         /// Returns a website address from a user profile.
