@@ -43,18 +43,25 @@ namespace ModernDev.InTouch
         /// <param name="extra">Extra options</param>
         public void Add(string name, object valObj, bool required = false, object extra = null)
         {
+            if (required && valObj == null)
+            {
+                throw new InTouchException($"Required parameter `{name}` cannot be null.");
+            }
             if (valObj != null)
             {
                 if (valObj is int || valObj is double)
                 {
                     AddNumber(name, Convert.ToDouble(valObj), required, extra as int[]);
-                } else if (valObj is string)
+                }
+                else if (valObj is string)
                 {
-                    AddString(name, (string)valObj, required);
-                } else if (valObj is bool)
+                    AddString(name, (string) valObj, required);
+                }
+                else if (valObj is bool)
                 {
                     AddBool(name, (bool) valObj);
-                } else if (valObj is IList)
+                }
+                else if (valObj is IList)
                 {
                     AddList(name, (IList) valObj, required, extra as int?);
                 }
