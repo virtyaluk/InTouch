@@ -54,6 +54,7 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneralClientTest.cs" />
     <Compile Include="UsersMethodsTest.cs" />
     <Compile Include="Ex.cs" />
     <Compile Include="MockJsonResponses.Designer.cs">
