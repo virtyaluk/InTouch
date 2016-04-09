@@ -11,9 +11,9 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.API;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Group {ScreenName} {Name}")]
     [DataContract]
-    public partial class Group : IProfileItem, IChatable, IStatusAudio
+    public class Group : IProfileItem, IChatable, IStatusAudio
     {
         #region Properties
 
@@ -33,8 +33,15 @@ namespace ModernDev.InTouch
         /// Community ID. 
         /// </summary>
         [DataMember]
-        [JsonProperty("gid")]
+        [JsonProperty("id")]
         public int Id { get; set; }
+
+        /// <summary>
+        /// Group ID. 
+        /// </summary>
+        [DataMember]
+        [JsonProperty("gid")]
+        public int GId { get; set; }
 
         /// <summary>
         /// Community name. 
@@ -116,7 +123,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("has_photo")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool HasPhoto { get; set; }
 
         /// <summary>
@@ -140,6 +146,27 @@ namespace ModernDev.InTouch
         [JsonProperty("photo_big")]
         public string PhotoBig { get; set; }
 
+        /// <summary>
+        /// Returns URL of square photo of the community with 50 pixels in width.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("photo_50")]
+        public string Photo50 { get; set; }
+
+        /// <summary>
+        /// Returns URL of square photo of the community with 100 pixels in width. 
+        /// </summary>
+        [DataMember]
+        [JsonProperty("photo_100")]
+        public string Photo100 { get; set; }
+
+        /// <summary>
+        /// Returns URL of square photo of the community with 200 pixels in width.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("photo_200")]
+        public string Photo200 { get; set; }
+
         #region Optional properties
 
         /// <summary>
@@ -151,7 +178,7 @@ namespace ModernDev.InTouch
 
         /// <summary>
         /// ID of the city specified in information about community.
-        /// Returns city ID that can be used to get its name using <see cref="Places.GetCityById"/> method.
+        /// Returns city ID that can be used to get its name using <see cref="DatabaseMethods.GetCitiesById"/> method.
         /// If city is not specified, "0" is returned. 
         /// </summary>
         [DataMember]
@@ -160,7 +187,7 @@ namespace ModernDev.InTouch
 
         /// <summary>
         /// ID of the country specified in information about community.
-        /// Returns country ID that can be used to get its name using <see cref="Places.GetCountryById"/> method.
+        /// Returns country ID that can be used to get its name using <see cref="DatabaseMethods.GetCountriesById"/> method.
         /// If country is not specified, 0 is returned.  
         /// </summary>
         [DataMember]
@@ -230,7 +257,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_message")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanMessage { get; set; }
 
         /// <summary>
@@ -252,7 +278,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_upload_doc")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanUploadDoc { get; set; }
 
         /// <summary>
@@ -260,7 +285,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_upload_video")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanUploadVideo { get; set; }
 
         /// <summary>
@@ -268,7 +292,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_create_topic")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanCreateTopic { get; set; }
 
         /// <summary>
@@ -291,7 +314,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("contacts")]
-        public string Contacts { get; set; }
+        public List<User> Contacts { get; set; }
 
         /// <summary>
         /// Community's "link" block.

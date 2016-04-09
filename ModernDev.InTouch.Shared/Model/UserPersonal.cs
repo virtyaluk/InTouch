@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace ModernDev.InTouch
 {
@@ -30,7 +29,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("political")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public UserPersonalPoliticalViewsTypes Political { get; set; }
 
         /// <summary>

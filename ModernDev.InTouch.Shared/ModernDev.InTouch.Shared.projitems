@@ -339,7 +339,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\UploadResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UserContact.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\UserContacts.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UserCounters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UserEducation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UserExports.cs" />

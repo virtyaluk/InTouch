@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
         Communist = 1,
         [EnumMember(Value = "Socialist")]
         Socialist = 2,
-        [EnumMember(Value = "Moderate ")]
+        [EnumMember(Value = "Moderate")]
         Moderate = 3,
         [EnumMember(Value = "Liberal")]
         Liberal = 4,

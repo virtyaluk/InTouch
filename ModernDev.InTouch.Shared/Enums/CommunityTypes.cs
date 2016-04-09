@@ -21,11 +21,9 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("GroupTypes")]
     public enum CommunityTypes
     {
-        [EnumMember(Value = "group")]
-        Group,
-        [EnumMember(Value = "public")]
-        Public,
-        [EnumMember(Value = "event")]
-        Event
+        [EnumMember(Value = "group")] Group,
+        [EnumMember(Value = "public")] Public,
+        [EnumMember(Value = "event")] Event,
+        [EnumMember(Value = "page")] Page
     }
 }
