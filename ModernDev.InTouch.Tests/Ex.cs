@@ -45,6 +45,13 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getNearby", Responses.GetString("usersItemsList"));
                     }
                     break;
+
+                case "utils":
+                    mochHttp
+                        .WhenAndRespond($"{cat}.checkLink", Responses.GetString("linkStatus"))
+                        .WhenAndRespond($"{cat}.resolveScreenName", Responses.GetString("objectInfo"))
+                        .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"));
+                    break;
             }
 
             var client = new InTouch(mochHttp, 12345, "super_secret");
