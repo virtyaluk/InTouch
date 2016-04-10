@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="GiftsMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public GiftsMethods(InTouch api) : base(api, "gifts") { }
+        internal GiftsMethods(InTouch api) : base(api, "gifts") { }
 
         #endregion
 

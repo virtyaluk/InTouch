@@ -28,7 +28,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="NotificationsMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public NotificationsMethods(InTouch api) : base(api, "notifications") { }
+        internal NotificationsMethods(InTouch api) : base(api, "notifications") { }
 
         #endregion
 

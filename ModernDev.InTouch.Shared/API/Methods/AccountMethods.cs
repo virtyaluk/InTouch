@@ -29,7 +29,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="AccountMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public AccountMethods(InTouch api) : base(api, "account") { }
+        internal AccountMethods(InTouch api) : base(api, "account") { }
 
         #endregion
 

@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="BoardMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public BoardMethods(InTouch api) : base(api, "board") { }
+        internal BoardMethods(InTouch api) : base(api, "board") { }
 
         #endregion
 

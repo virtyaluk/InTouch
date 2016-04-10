@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="StorageMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public StorageMethods(InTouch api) : base(api, "storage") { }
+        internal StorageMethods(InTouch api) : base(api, "storage") { }
 
         #endregion
 

@@ -28,7 +28,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="GroupsMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public GroupsMethods(InTouch api) : base(api, "groups") { }
+        internal GroupsMethods(InTouch api) : base(api, "groups") { }
 
         #endregion
 

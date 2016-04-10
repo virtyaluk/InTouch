@@ -28,7 +28,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="VideoMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public VideoMethods(InTouch api) : base(api, "video") { }
+        internal VideoMethods(InTouch api) : base(api, "video") { }
 
         #endregion
 

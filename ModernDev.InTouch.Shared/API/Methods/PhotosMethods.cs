@@ -29,7 +29,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="PhotosMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public PhotosMethods(InTouch api) : base(api, "photos") { }
+        internal PhotosMethods(InTouch api) : base(api, "photos") { }
 
         #endregion
 

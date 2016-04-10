@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="UsersMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public UsersMethods(InTouch api) : base(api, "users") { }
+        internal UsersMethods(InTouch api) : base(api, "users") { }
 
         #endregion
 

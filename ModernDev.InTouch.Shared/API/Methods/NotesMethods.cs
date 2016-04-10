@@ -27,7 +27,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="NotesMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public NotesMethods(InTouch api) : base(api, "notes") { }
+        internal NotesMethods(InTouch api) : base(api, "notes") { }
 
         #endregion
 

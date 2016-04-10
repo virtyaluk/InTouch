@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="PlacesMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public PlacesMethods(InTouch api) : base(api, "places") { }
+        internal PlacesMethods(InTouch api) : base(api, "places") { }
 
         #endregion
 

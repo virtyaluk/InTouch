@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="FaveMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public FaveMethods(InTouch api) : base(api, "fave") { }
+        internal FaveMethods(InTouch api) : base(api, "fave") { }
 
         #endregion
 

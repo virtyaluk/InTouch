@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="LikesMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public LikesMethods(InTouch api) : base(api, "likes") { }
+        internal LikesMethods(InTouch api) : base(api, "likes") { }
 
         #endregion
 

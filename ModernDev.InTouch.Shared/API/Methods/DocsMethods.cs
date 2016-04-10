@@ -27,7 +27,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="DocsMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public DocsMethods(InTouch api) : base(api, "docs") { }
+        internal DocsMethods(InTouch api) : base(api, "docs") { }
 
         #endregion
 

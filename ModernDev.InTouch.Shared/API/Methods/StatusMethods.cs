@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="StatusMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public StatusMethods(InTouch api) : base(api, "status") { }
+        internal StatusMethods(InTouch api) : base(api, "status") { }
 
         #endregion
 

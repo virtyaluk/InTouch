@@ -28,7 +28,7 @@ namespace ModernDev.InTouch
         /// Initializes a new instance of the <see cref="AudioMethods"/> class with a given <see cref="InTouch"/> instance.
         /// </summary>
         /// <param name="api">An instance of <see cref="InTouch"/> class.</param>
-        public AudioMethods(InTouch api) : base(api, "audio") { }
+        internal AudioMethods(InTouch api) : base(api, "audio") { }
 
         #endregion
 
