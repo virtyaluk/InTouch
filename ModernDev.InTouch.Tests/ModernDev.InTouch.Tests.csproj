@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="GeneralClientTest.cs" />
     <Compile Include="GiftsMethodsTests.cs" />
+    <Compile Include="StorageMethodsTests.cs" />
     <Compile Include="UsersMethodsTest.cs" />
     <Compile Include="Ex.cs" />
     <Compile Include="MockJsonResponses.Designer.cs">
