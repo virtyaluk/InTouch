@@ -52,6 +52,10 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.resolveScreenName", Responses.GetString("objectInfo"))
                         .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"));
                     break;
+
+                case "gifts":
+                    mochHttp.WhenAndRespond($"{cat}.get", Responses.GetString("giftsItemsList"));
+                    break;
             }
 
             var client = new InTouch(mochHttp, 12345, "super_secret");
