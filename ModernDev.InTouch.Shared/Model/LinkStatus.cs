@@ -37,6 +37,6 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("status")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public LinkStatus Status { get; set; }
+        public LinkStatuses Status { get; set; }
     }
 }
