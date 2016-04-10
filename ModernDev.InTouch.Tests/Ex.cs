@@ -56,6 +56,13 @@ namespace ModernDev.InTouch.Tests
                 case "gifts":
                     mochHttp.WhenAndRespond($"{cat}.get", Responses.GetString("giftsItemsList"));
                     break;
+
+                case "storage":
+                    mochHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("storageValsList"))
+                        .WhenAndRespond($"{cat}.set", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getKeys", Responses.GetString("stringsList"));
+                    break;
             }
 
             var client = new InTouch(mochHttp, 12345, "super_secret");
