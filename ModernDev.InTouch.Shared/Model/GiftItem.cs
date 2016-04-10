@@ -52,7 +52,7 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("date")]
         [JsonConverter(typeof(JsonNumberDateTimeConverter))]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// A <see cref="Gift"/> object.
@@ -67,5 +67,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("privacy")]
         public GiftPrivacies Privacy { get; set; }
+
+        /// <summary>
+        /// Gift hash.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("gift_hash")]
+        public string Hash { get; set; }
     }
 }
