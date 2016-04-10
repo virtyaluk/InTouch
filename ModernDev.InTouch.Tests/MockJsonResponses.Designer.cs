@@ -133,6 +133,24 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;key&quot;:&quot;foo&quot;,&quot;value&quot;:&quot;bar&quot;}]}.
+        /// </summary>
+        internal static string storageValsList {
+            get {
+                return ResourceManager.GetString("storageValsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[&quot;foo&quot;,&quot;bar&quot;,&quot;baz&quot;]}.
+        /// </summary>
+        internal static string stringsList {
+            get {
+                return ResourceManager.GetString("stringsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3,&quot;items&quot;:[{&quot;id&quot;:16133651,&quot;first_name&quot;:&quot;Vitalik&quot;,&quot;last_name&quot;:&quot;Ulybin&quot;,&quot;sex&quot;:2,&quot;nickname&quot;:&quot;&quot;,&quot;domain&quot;:&quot;ylubin&quot;,&quot;screen_name&quot;:&quot;ylubin&quot;,&quot;photo_50&quot;:&quot;https:\/\/pp.vk.me\/c633323\/v633323651\/10feb\/bemQ80NlFWM.jpg&quot;,&quot;photo_100&quot;:&quot;https:\/\/pp.vk.me\/c633323\/v633323651\/10fea\/5xmjTRE-1Bg.jpg&quot;,&quot;photo_200&quot;:&quot;https:\/\/pp.vk.me\/c633323\/v633323651\/10fe9\/BInBMF-GmS8.jpg&quot;,&quot;photo_200_orig&quot;:&quot;https:\/\/pp.vk.me\/c633323\/v633323651\/10fe7\/sHgM2UkEh2o.jpg&quot;,&quot;has_mobile&quot;:1,&quot;wall_comments&quot;:0,&quot;can_post [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string usersItemsList {
