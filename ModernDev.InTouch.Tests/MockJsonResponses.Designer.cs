@@ -97,6 +97,24 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;owner_id&quot;:-26406986,&quot;poll_id&quot;:222496894,&quot;created&quot;:1460316481,&quot;question&quot;:&quot;Насколько ловкие твои руки?&quot;,&quot;votes&quot;:3911,&quot;answer_id&quot;:0,&quot;answers&quot;:[{&quot;id&quot;:739902439,&quot;text&quot;:&quot;Да, умею. Правда на это уходит времени больше, чем на поиски смысла жизни.&quot;,&quot;votes&quot;:401,&quot;rate&quot;:10.250000},{&quot;id&quot;:739902440,&quot;text&quot;:&quot;Легко, по фасту собираю.&quot;,&quot;votes&quot;:233,&quot;rate&quot;:5.960000},{&quot;id&quot;:739902441,&quot;text&quot;:&quot;Собираю ногами, с закрытыми глазами, после 10 кужек пива.&quot;,&quot;votes&quot;:126,&quot;rate&quot;:3.220000},{&quot;id&quot;:739902442,&quot;text&quot;:&quot;Две грани соб [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string poll {
+            get {
+                return ResourceManager.GetString("poll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;answer_id&quot;:739946640,&quot;users&quot;:[1,{&quot;uid&quot;:16815310,&quot;first_name&quot;:&quot;Богдан&quot;,&quot;last_name&quot;:&quot;Штепан&quot;,&quot;sex&quot;:2,&quot;nickname&quot;:&quot;&quot;,&quot;screen_name&quot;:&quot;virtyaluk&quot;}]},{&quot;answer_id&quot;:739946641,&quot;users&quot;:[2,{&quot;uid&quot;:178250508,&quot;first_name&quot;:&quot;Вася&quot;,&quot;last_name&quot;:&quot;Пупкин&quot;,&quot;sex&quot;:2,&quot;nickname&quot;:&quot;&quot;,&quot;screen_name&quot;:&quot;make_the_crowd_go&quot;},{&quot;uid&quot;:127842370,&quot;first_name&quot;:&quot;Владислав&quot;,&quot;last_name&quot;:&quot;Брин&quot;,&quot;sex&quot;:2,&quot;nickname&quot;:&quot;&quot;,&quot;screen_name&quot;:&quot;id127842370&quot;}]},{&quot;answer_id&quot;:739946642,&quot;users&quot;:[0]}]}.
+        /// </summary>
+        internal static string pollVoters {
+            get {
+                return ResourceManager.GetString("pollVoters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:6,&quot;items&quot;:[{&quot;id&quot;:16133651,&quot;first_name&quot;:&quot;Vitalik&quot;,&quot;last_name&quot;:&quot;Ulybin&quot;,&quot;sex&quot;:2,&quot;nickname&quot;:&quot;&quot;,&quot;domain&quot;:&quot;ylubin&quot;,&quot;screen_name&quot;:&quot;ylubin&quot;,&quot;photo_50&quot;:&quot;https:\/\/pp.vk.me\/c633323\/v633323651\/10feb\/bemQ80NlFWM.jpg&quot;,&quot;photo_100&quot;:&quot;https:\/\/pp.vk.me\/c633323\/v633323651\/10fea\/5xmjTRE-1Bg.jpg&quot;,&quot;photo_200&quot;:&quot;https:\/\/pp.vk.me\/c633323\/v633323651\/10fe9\/BInBMF-GmS8.jpg&quot;,&quot;photo_200_orig&quot;:&quot;https:\/\/pp.vk.me\/c633323\/v633323651\/10fe7\/sHgM2UkEh2o.jpg&quot;,&quot;has_mobile&quot;:1,&quot;wall_comments&quot;:0,&quot;can_post [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string profilesMixedList {
