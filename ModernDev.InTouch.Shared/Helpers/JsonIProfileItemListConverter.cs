@@ -18,7 +18,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ModernDev.InTouch.Helpers
 {
-    public class JsonIProfileItemListConverter : JsonConverter
+    internal class JsonIProfileItemListConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

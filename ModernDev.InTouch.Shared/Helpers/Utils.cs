@@ -19,7 +19,7 @@ using System.Runtime.Serialization;
 
 namespace ModernDev.InTouch.Helpers
 {
-    public static class Utils
+    internal static class Utils
     {
         /// <summary>
         /// Converts <c>Unix time-stamp</c> to <see cref="DateTime"/> object.

@@ -16,7 +16,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ModernDev.InTouch
 {
-    public class JsonNewsPostAudioConverter : JsonConverter
+    internal class JsonNewsPostAudioConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

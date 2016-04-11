@@ -19,7 +19,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ModernDev.InTouch.Helpers
 {
-    public class JsonAttachmentsConverter : JsonConverter
+    internal class JsonAttachmentsConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

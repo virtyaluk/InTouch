@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 
 namespace ModernDev.InTouch.Helpers
 {
-    public class JsonStringToUserSexConverter : JsonConverter
+    internal class JsonStringToUserSexConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

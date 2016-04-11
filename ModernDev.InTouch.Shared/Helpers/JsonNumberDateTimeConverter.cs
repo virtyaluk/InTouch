@@ -16,7 +16,7 @@ using static ModernDev.InTouch.Helpers.Utils;
 
 namespace ModernDev.InTouch.Helpers
 {
-    public class JsonNumberDateTimeConverter : JsonConverter
+    internal class JsonNumberDateTimeConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

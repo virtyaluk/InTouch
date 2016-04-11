@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace ModernDev.InTouch
 {
-    public static class Extensions
+    internal static class Extensions
     {
-        public static void Add(this IList<Tuple<string, byte[], string>> @this, string item1, byte[] item2, string item3)
+        internal static void Add(this IList<Tuple<string, byte[], string>> @this, string item1, byte[] item2, string item3)
         {
             @this.Add(Tuple.Create(item1, item2, item3));
         }
 
-        public static int Abs(this int @this) => Math.Abs(@this);
+        internal static int Abs(this int @this) => Math.Abs(@this);
 
-        public static List<string> GetCommentAttachments(this List<IMediaAttachment> @this)
+        internal static List<string> GetCommentAttachments(this List<IMediaAttachment> @this)
         {
             var res = new List<string>();
 
@@ -39,7 +39,7 @@ namespace ModernDev.InTouch
             return res;
         }
 
-        public static List<string> GetMessageAttachments(this List<IMediaAttachment> @this)
+        internal static List<string> GetMessageAttachments(this List<IMediaAttachment> @this)
         {
             var res = new List<string>();
 
@@ -70,7 +70,7 @@ namespace ModernDev.InTouch
             return res;
         }
 
-        public static List<string> GetPostAttachments(this List<IMediaAttachment> @this)
+        internal static List<string> GetPostAttachments(this List<IMediaAttachment> @this)
         {
             var res = new List<string>();
 
