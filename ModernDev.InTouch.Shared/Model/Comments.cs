@@ -36,7 +36,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_posst")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanPost { get; set; }
     }
 }

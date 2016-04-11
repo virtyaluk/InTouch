@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Message {Id}, {Title}")]
     [DataContract]
-    public partial class Message
+    public class Message
     {
         #region Properties
 
@@ -57,14 +57,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("date")]
         [JsonConverter(typeof(JsonNumberDateTimeConverter))]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// Message status (False — not read, True — read). (Not returned for forwarded messages.) 
         /// </summary>
         [DataMember]
         [JsonProperty("read_state")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool IsRead { get; set; }
 
         /// <summary>
@@ -72,7 +71,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("out")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool IsSent { get; set; }
 
         /// <summary>
@@ -116,7 +114,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("emoji")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool HasEmoji { get; set; }
 
         /// <summary>
@@ -124,7 +121,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("important")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool IsImportant { get; set; }
 
         /// <summary>
@@ -132,7 +128,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("deleted")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool IsDeleted { get; set; }
 
         #region Multidialog Properties

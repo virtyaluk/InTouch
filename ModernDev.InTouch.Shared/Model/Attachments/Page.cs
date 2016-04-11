@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
     [DataContract]
     [DebuggerDisplay("Page {Title}")]
     [APIVersion(Version = 5.45)]
-    public partial class Page : IMediaAttachment
+    public class Page : IMediaAttachment
     {
         #region Properties
 
@@ -62,7 +62,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("current_user_can_edit")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanEdit { get; set; }
 
         /// <summary>
@@ -70,7 +69,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("current_user_can_edit_access")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanEditAccess { get; set; }
 
         /// <summary>

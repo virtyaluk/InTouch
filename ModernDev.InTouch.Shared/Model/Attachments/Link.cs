@@ -12,7 +12,6 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.API;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
@@ -24,7 +23,7 @@ namespace ModernDev.InTouch
     [DataContract]
     [DebuggerDisplay("Link {Title}")]
     [APIVersion(Version = 5.45)]
-    public partial class Link : IMediaAttachment
+    public class Link : IMediaAttachment
     {
         /// <summary>
         /// Link's url.
@@ -66,7 +65,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("is_external")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool IsExternal { get; set; }
 
         /// <summary>

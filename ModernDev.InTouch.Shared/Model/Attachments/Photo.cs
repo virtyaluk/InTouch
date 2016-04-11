@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("Photo {PhotoId}_{OwnerId}")]
     [DataContract]
     [APIVersion(Version = 5.45)]
-    public partial class Photo : IMediaAttachment
+    public class Photo : IMediaAttachment
     {
         #region Properties
 
@@ -203,7 +203,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_comment")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanComment { get; set; }
 
         /// <summary>

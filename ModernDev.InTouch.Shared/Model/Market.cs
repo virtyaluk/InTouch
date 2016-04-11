@@ -12,7 +12,6 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -29,7 +28,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("enabled")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool Enabled { get; set; }
 
         /// <summary>

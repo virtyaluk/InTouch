@@ -12,7 +12,6 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -36,7 +35,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("user_reposted")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool UserReposted { get; set; }
     }
 }

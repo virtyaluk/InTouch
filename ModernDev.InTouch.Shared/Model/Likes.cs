@@ -12,7 +12,6 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -28,7 +27,6 @@ namespace ModernDev.InTouch
         /// Whether the current user likes the specified object.
         /// </summary>
         [DataMember]
-        [JsonConverter(typeof(JsonBoolConverter))]
         [JsonProperty("user_likes")]
         public bool UserLikes { get; set; }
 
@@ -44,7 +42,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("can_like")]
-        [JsonConverter(typeof(JsonBoolConverter))]
         public bool CanLike { get; set; }
     }
 }

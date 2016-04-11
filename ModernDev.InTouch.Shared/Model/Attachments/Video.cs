@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("Video {Title}")]
     [DataContract]
     [APIVersion(Version = 5.45)]
-    public partial class Video : IMediaAttachment, IVideoCatalogItem
+    public class Video : IMediaAttachment, IVideoCatalogItem
     {
         #region Properties
 
@@ -140,7 +140,6 @@ namespace ModernDev.InTouch
         /// Whether the video is a live broadcast.
         /// </summary>
         [DataMember]
-        [JsonConverter(typeof(JsonBoolConverter))]
         [JsonProperty("live")]
         public bool Live { get; set; }
 
@@ -148,7 +147,6 @@ namespace ModernDev.InTouch
         /// Whether the video is being processed by a server.
         /// </summary>
         [DataMember]
-        [JsonConverter(typeof(JsonBoolConverter))]
         [JsonProperty("processing")]
         public bool Proccessing { get; set; }
 
@@ -174,7 +172,6 @@ namespace ModernDev.InTouch
         /// Whether the current user can copy the video using the "Share with friends" feature.
         /// </summary>
         [DataMember]
-        [JsonConverter(typeof(JsonBoolConverter))]
         [JsonProperty("can_repost")]
         public bool CanRepost { get; set; }
 
@@ -182,7 +179,6 @@ namespace ModernDev.InTouch
         /// Whether the current user can comment on the video.
         /// </summary>
         [DataMember]
-        [JsonConverter(typeof(JsonBoolConverter))]
         [JsonProperty("can_comment")]
         public bool CanComment { get; set; }
 
