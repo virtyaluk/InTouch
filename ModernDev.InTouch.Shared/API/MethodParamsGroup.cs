@@ -39,14 +39,9 @@ namespace ModernDev.InTouch
 
             foreach (var prop in properties)
             {
-                var val = prop.GetValue(this);
+                var mpa = prop.GetCustomAttribute<MethodParamAttribute>(true);
 
-                if (val != null)
-                {
-                    var mpa = prop.GetCustomAttribute<MethodParamAttribute>(true);
-
-                    mp.Add(mpa.Name, val, mpa.IsRequired, mpa.Extra);
-                }
+                mp.Add(mpa.Name, prop.GetValue(this), mpa.IsRequired, mpa.Extra);
             }
 
             return mp;
