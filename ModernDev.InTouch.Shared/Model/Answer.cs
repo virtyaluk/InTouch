@@ -51,6 +51,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("rate")]
-        public int Rate { get; set; }
+        public double Rate { get; set; }
     }
 }
