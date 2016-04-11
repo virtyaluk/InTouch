@@ -29,13 +29,13 @@ namespace ModernDev.InTouch.Tests
 
         public static InTouch GetMockedClient(string cat = null, bool setSessionData = true)
         {
-            var mochHttp = new MockHttpMessageHandler();
+            var mockHttp = new MockHttpMessageHandler();
 
             switch (cat)
             {
                 case "users":
                 {
-                    mochHttp
+                    mockHttp
                         .WhenAndRespond($"{cat}.get", Responses.GetString("usersList"))
                         .WhenAndRespond($"{cat}.search", Responses.GetString("usersItemsList"))
                         .WhenAndRespond($"{cat}.isAppUser", Responses.GetString("responseTrue"))
@@ -43,29 +43,39 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getFollowers", Responses.GetString("usersItemsList"))
                         .WhenAndRespond($"{cat}.report", Responses.GetString("responseFalse"))
                         .WhenAndRespond($"{cat}.getNearby", Responses.GetString("usersItemsList"));
-                    }
+                }
                     break;
 
                 case "utils":
-                    mochHttp
+                    mockHttp
                         .WhenAndRespond($"{cat}.checkLink", Responses.GetString("linkStatus"))
                         .WhenAndRespond($"{cat}.resolveScreenName", Responses.GetString("objectInfo"))
                         .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"));
                     break;
 
                 case "gifts":
-                    mochHttp.WhenAndRespond($"{cat}.get", Responses.GetString("giftsItemsList"));
+                    mockHttp.WhenAndRespond($"{cat}.get", Responses.GetString("giftsItemsList"));
                     break;
 
                 case "storage":
-                    mochHttp
+                    mockHttp
                         .WhenAndRespond($"{cat}.get", Responses.GetString("storageValsList"))
                         .WhenAndRespond($"{cat}.set", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getKeys", Responses.GetString("stringsList"));
                     break;
+
+                case "polls":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("poll"))
+                        .WhenAndRespond($"{cat}.addVote", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteVote", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getVoters", Responses.GetString("pollVoters"))
+                        .WhenAndRespond($"{cat}.create", Responses.GetString("poll"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"));
+                    break;
             }
 
-            var client = new InTouch(mochHttp, 12345, "super_secret");
+            var client = new InTouch(mockHttp, 12345, "super_secret");
 
             if (setSessionData)
             {
