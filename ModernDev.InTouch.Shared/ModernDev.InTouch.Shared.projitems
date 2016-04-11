@@ -170,7 +170,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\VideoSearchFilters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonAttachmentsConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonBoolConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonCoordinatesConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonIProfileItemListConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonIVideoCatalogItemsConverter.cs" />
@@ -179,6 +178,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonNumberDateTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonRequestParamsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonStringToUserSexConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\PrivateResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Utils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InTouch.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AccountCounters.cs" />
