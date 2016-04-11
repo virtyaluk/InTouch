@@ -36,8 +36,8 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Answer IDs. 
         /// </summary>
-        [MethodParam(Name = "answer_id", IsRequired = true)]
-        public int AnswerId { get; set; }
+        [MethodParam(Name = "answer_ids", IsRequired = true)]
+        public List<int> AnswerIds { get; set; }
 
         /// <summary>
         /// True – poll is in a board, False – poll is on a wall. False by default. 
