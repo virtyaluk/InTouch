@@ -14,7 +14,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.API;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
@@ -29,11 +28,18 @@ namespace ModernDev.InTouch
     public class Poll : IMediaAttachment
     {
         /// <summary>
-        /// Poll Id to get more info about using <see cref="Polls.GetById"/> method.
+        /// Poll Id to get more info about using <see cref="PollsMethods.GetById"/> method.
         /// </summary>
         [DataMember]
         [JsonProperty("id")]
         public int Id { get; set; }
+
+        /// <summary>
+        /// Poll Id.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("poll_id")]
+        public int PollId { get; set; }
 
         /// <summary>
         /// Id of the user or community that owns the poll.
