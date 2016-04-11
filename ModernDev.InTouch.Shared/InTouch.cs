@@ -18,6 +18,7 @@ using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using static ModernDev.InTouch.Helpers.Utils;
 
@@ -280,6 +281,11 @@ namespace ModernDev.InTouch
             Stats = new StatsMethods(this);
             Search = new SearchMethods(this);
             Market = new MarketMethods(this);
+
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+            {
+                ContractResolver = new PrivateResolver()
+            };
         }
 
         /// <summary>
