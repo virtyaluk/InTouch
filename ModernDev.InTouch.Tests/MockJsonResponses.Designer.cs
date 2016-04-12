@@ -61,6 +61,60 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:18,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Агрохимии&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Биофизики&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;Биохимии&quot;},{&quot;id&quot;:4,&quot;title&quot;:&quot;Ботаники&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Генетики и биотехнологии&quot;}]}}.
+        /// </summary>
+        internal static string chairsItemsList {
+            get {
+                return ResourceManager.GetString("chairsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:18,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Москва&quot;,&quot;important&quot;:1},{&quot;id&quot;:2,&quot;title&quot;:&quot;Санкт-Петербург&quot;,&quot;important&quot;:1},{&quot;id&quot;:10,&quot;title&quot;:&quot;Волгоград&quot;},{&quot;id&quot;:37,&quot;title&quot;:&quot;Владивосток&quot;},{&quot;id&quot;:153,&quot;title&quot;:&quot;Хабаровск&quot;}]}}.
+        /// </summary>
+        internal static string citiesItemsList {
+            get {
+                return ResourceManager.GetString("citiesItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Москва&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Санкт-Петербург&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;&quot;},{&quot;id&quot;:4,&quot;title&quot;:&quot;Herzliya&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Отрадное&quot;}]}.
+        /// </summary>
+        internal static string citiesList {
+            get {
+                return ResourceManager.GetString("citiesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:234,&quot;items&quot;:[{&quot;id&quot;:19,&quot;title&quot;:&quot;Австралия&quot;},{&quot;id&quot;:20,&quot;title&quot;:&quot;Австрия&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Азербайджан&quot;},{&quot;id&quot;:21,&quot;title&quot;:&quot;Албания&quot;},{&quot;id&quot;:22,&quot;title&quot;:&quot;Алжир&quot;}]}}.
+        /// </summary>
+        internal static string countriesItemsList {
+            get {
+                return ResourceManager.GetString("countriesItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Россия&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Украина&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;Беларусь&quot;},{&quot;id&quot;:4,&quot;title&quot;:&quot;Казахстан&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Азербайджан&quot;}]}.
+        /// </summary>
+        internal static string countriesList {
+            get {
+                return ResourceManager.GetString("countriesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:26,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Биологический&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Восточный&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;Институт наук о Земле (бывш. Факультет географии и геоэкологии и Геологический факультет)&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Журналистики (Высшая школа журналистики и массовых коммуникаций)&quot;},{&quot;id&quot;:6,&quot;title&quot;:&quot;Институт истории (бывш. Исторический факультет)&quot;}]}}.
+        /// </summary>
+        internal static string facultiesItemsList {
+            get {
+                return ResourceManager.GetString("facultiesItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3,&quot;items&quot;:[{&quot;id&quot;:653008904,&quot;from_id&quot;:165146081,&quot;message&quot;:&quot;&quot;,&quot;date&quot;:1458403595,&quot;gift&quot;:{&quot;id&quot;:770,&quot;thumb_256&quot;:&quot;https://vk.com/images/gift/770/256.jpg&quot;,&quot;thumb_96&quot;:&quot;https://vk.com/images/gift/770/96.png&quot;,&quot;thumb_48&quot;:&quot;https://vk.com/images/gift/770/48.png&quot;},&quot;privacy&quot;:1,&quot;gift_hash&quot;:&quot;eOwGaCj1Rc6Itu7T*RdRaIXHIlol27m*cXSHlBbQk0fFvGK4W8yxcKT0c8AcMcYST9FoViFMJoPFY*SOX/t1GLHumPjtYCbbYcwA8lE4WO2sydjoVzs8nKGfZS8*HBNQU6z6CZgxct2qFCCA2iyLDmM4j9jpcbU3MpMwdC1EWcM-&quot;},{&quot;id&quot;:653006597,&quot;from_id&quot;:165146081,&quot;mes [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string giftsItemsList {
@@ -124,6 +178,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:83,&quot;items&quot;:[{&quot;id&quot;:1000001,&quot;title&quot;:&quot;Адыгея&quot;},{&quot;id&quot;:1121540,&quot;title&quot;:&quot;Алтай&quot;},{&quot;id&quot;:1121829,&quot;title&quot;:&quot;Алтайский край&quot;},{&quot;id&quot;:1123488,&quot;title&quot;:&quot;Амурская область&quot;},{&quot;id&quot;:1000236,&quot;title&quot;:&quot;Архангельская область&quot;}]}}.
+        /// </summary>
+        internal static string regionsItemsList {
+            get {
+                return ResourceManager.GetString("regionsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:0}.
         /// </summary>
         internal static string responseFalse {
@@ -138,6 +201,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string responseTrue {
             get {
                 return ResourceManager.GetString("responseTrue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3211,&quot;items&quot;:[{&quot;id&quot;:8243,&quot;title&quot;:&quot;Anglo-American School of Moscow&quot;},{&quot;id&quot;:5780,&quot;title&quot;:&quot;Anglo-Russian School 497&quot;},{&quot;id&quot;:1669882,&quot;title&quot;:&quot;English International School Moscow&quot;},{&quot;id&quot;:1687981,&quot;title&quot;:&quot;Авиационная школа «Гамаюн»&quot;},{&quot;id&quot;:1706632,&quot;title&quot;:&quot;Авиационная школа Аэрофлота&quot;}]}}.
+        /// </summary>
+        internal static string schoolsItemsList {
+            get {
+                return ResourceManager.GetString("schoolsItemsList", resourceCulture);
             }
         }
         
@@ -160,11 +232,29 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;8 Марта ул.&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;А\/Д Подъезд к а. Гатлукай дор.&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;А\/Д Подъезд к г. Адыгейску дор.&quot;},{&quot;id&quot;:4,&quot;title&quot;:&quot;А\/Д Подъезд к ж\/д станции Псекупс дор.&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;А\/Д Пчегатлукай-Гатлукай-Адыгейск дор.&quot;}]}.
+        /// </summary>
+        internal static string streetsList {
+            get {
+                return ResourceManager.GetString("streetsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:[&quot;foo&quot;,&quot;bar&quot;,&quot;baz&quot;]}.
         /// </summary>
         internal static string stringsList {
             get {
                 return ResourceManager.GetString("stringsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:702,&quot;items&quot;:[{&quot;id&quot;:2,&quot;title&quot;:&quot;МГУ&quot;},{&quot;id&quot;:86,&quot;title&quot;:&quot;АПИ при ИГиП РАН&quot;},{&quot;id&quot;:87,&quot;title&quot;:&quot;Финансовый университет (бывш. ГУМФ)&quot;},{&quot;id&quot;:88,&quot;title&quot;:&quot;АГПС МЧС России&quot;},{&quot;id&quot;:89,&quot;title&quot;:&quot;АГЗ МЧС России&quot;}]}}.
+        /// </summary>
+        internal static string universitiesItemsList {
+            get {
+                return ResourceManager.GetString("universitiesItemsList", resourceCulture);
             }
         }
         

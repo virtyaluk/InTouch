@@ -162,4 +162,34 @@
   <data name="userStatus" xml:space="preserve">
     <value>{"response":{"text":"Major Lazer x Showtek – I’m a Believer","audio":{"id":456239425,"owner_id":16815310,"artist":"Major Lazer x Showtek","title":"I’m a Believer","duration":254,"date":1460392491,"url":"https : //cs7-5v4.v...c7EHzS9BZw1y1TWZ48c","genre_id":18,"no_search":1}}}</value>
   </data>
+  <data name="chairsItemsList" xml:space="preserve">
+    <value>{"response":{"count":18,"items":[{"id":1,"title":"Агрохимии"},{"id":2,"title":"Биофизики"},{"id":3,"title":"Биохимии"},{"id":4,"title":"Ботаники"},{"id":5,"title":"Генетики и биотехнологии"}]}}</value>
+  </data>
+  <data name="citiesItemsList" xml:space="preserve">
+    <value>{"response":{"count":18,"items":[{"id":1,"title":"Москва","important":1},{"id":2,"title":"Санкт-Петербург","important":1},{"id":10,"title":"Волгоград"},{"id":37,"title":"Владивосток"},{"id":153,"title":"Хабаровск"}]}}</value>
+  </data>
+  <data name="citiesList" xml:space="preserve">
+    <value>{"response":[{"id":1,"title":"Москва"},{"id":2,"title":"Санкт-Петербург"},{"id":3,"title":""},{"id":4,"title":"Herzliya"},{"id":5,"title":"Отрадное"}]}</value>
+  </data>
+  <data name="countriesItemsList" xml:space="preserve">
+    <value>{"response":{"count":234,"items":[{"id":19,"title":"Австралия"},{"id":20,"title":"Австрия"},{"id":5,"title":"Азербайджан"},{"id":21,"title":"Албания"},{"id":22,"title":"Алжир"}]}}</value>
+  </data>
+  <data name="countriesList" xml:space="preserve">
+    <value>{"response":[{"id":1,"title":"Россия"},{"id":2,"title":"Украина"},{"id":3,"title":"Беларусь"},{"id":4,"title":"Казахстан"},{"id":5,"title":"Азербайджан"}]}</value>
+  </data>
+  <data name="facultiesItemsList" xml:space="preserve">
+    <value>{"response":{"count":26,"items":[{"id":1,"title":"Биологический"},{"id":2,"title":"Восточный"},{"id":3,"title":"Институт наук о Земле (бывш. Факультет географии и геоэкологии и Геологический факультет)"},{"id":5,"title":"Журналистики (Высшая школа журналистики и массовых коммуникаций)"},{"id":6,"title":"Институт истории (бывш. Исторический факультет)"}]}}</value>
+  </data>
+  <data name="regionsItemsList" xml:space="preserve">
+    <value>{"response":{"count":83,"items":[{"id":1000001,"title":"Адыгея"},{"id":1121540,"title":"Алтай"},{"id":1121829,"title":"Алтайский край"},{"id":1123488,"title":"Амурская область"},{"id":1000236,"title":"Архангельская область"}]}}</value>
+  </data>
+  <data name="schoolsItemsList" xml:space="preserve">
+    <value>{"response":{"count":3211,"items":[{"id":8243,"title":"Anglo-American School of Moscow"},{"id":5780,"title":"Anglo-Russian School 497"},{"id":1669882,"title":"English International School Moscow"},{"id":1687981,"title":"Авиационная школа «Гамаюн»"},{"id":1706632,"title":"Авиационная школа Аэрофлота"}]}}</value>
+  </data>
+  <data name="streetsList" xml:space="preserve">
+    <value>{"response":[{"id":1,"title":"8 Марта ул."},{"id":2,"title":"А\/Д Подъезд к а. Гатлукай дор."},{"id":3,"title":"А\/Д Подъезд к г. Адыгейску дор."},{"id":4,"title":"А\/Д Подъезд к ж\/д станции Псекупс дор."},{"id":5,"title":"А\/Д Пчегатлукай-Гатлукай-Адыгейск дор."}]}</value>
+  </data>
+  <data name="universitiesItemsList" xml:space="preserve">
+    <value>{"response":{"count":702,"items":[{"id":2,"title":"МГУ"},{"id":86,"title":"АПИ при ИГиП РАН"},{"id":87,"title":"Финансовый университет (бывш. ГУМФ)"},{"id":88,"title":"АГПС МЧС России"},{"id":89,"title":"АГЗ МЧС России"}]}}</value>
+  </data>
 </root>
