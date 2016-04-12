@@ -57,7 +57,7 @@ namespace ModernDev.InTouch
             => await Request<bool>("setNameInMenu", new MethodParams
             {
                 {"user_id", userId, true},
-                {"name", name?.Substring(0, 17), true}
+                {"name", name?.Substring(0, name.Length > 17 ? 17 : name.Length), true}
             });
 
         /// <summary>
@@ -141,8 +141,8 @@ namespace ModernDev.InTouch
         /// </param>
         /// <param name="enableSound">True - enable sound in the dialog; False - disable. (Works only if peerId is ChatId).</param>
         /// <returns>If the method is successfully executed, True will be returned.</returns>
-        public async Task<Response<bool>> SetSilinceMode(string deviceId = null, int time = 360, int? peerId = null,
-            bool enableSound = false) => await Request<bool>("setSilinceMode", new MethodParams
+        public async Task<Response<bool>> SetSilenceMode(string deviceId = null, int time = 360, int? peerId = null,
+            bool enableSound = false) => await Request<bool>("setSilenceMode", new MethodParams
             {
                 {"device_id", deviceId},
                 {"time", time},
