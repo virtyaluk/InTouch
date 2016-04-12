@@ -94,6 +94,29 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getFaculties", Responses.GetString("facultiesItemsList"))
                         .WhenAndRespond($"{cat}.getChairs", Responses.GetString("chairsItemsList"));
                     break;
+
+                case "account":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.getCounters", Responses.GetString("accountCounters"))
+                        .WhenAndRespond($"{cat}.setNameInMenu", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.setOnline", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.setOffline", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.lookupContacts", Responses.GetString("accountContacts"))
+                        .WhenAndRespond($"{cat}.registerDevice", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.unregisterDevice", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.setSilenceMode", Responses.GetString("responseTrue"))
+                        //.WhenAndRespond($"{cat}.getPushSettings", Responses.GetString(""))
+                        .WhenAndRespond($"{cat}.setPushSettings", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getAppPermissions", Responses.GetString("appPermissions"))
+                        .WhenAndRespond($"{cat}.banUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.unbanUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getBanned", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.getInfo", Responses.GetString("accountInfo"))
+                        .WhenAndRespond($"{cat}.setInfo", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.changePassword", Responses.GetString("changePassword"))
+                        .WhenAndRespond($"{cat}.getProfileInfo", Responses.GetString("profileInfo"))
+                        .WhenAndRespond($"{cat}.saveProfileInfo", Responses.GetString("setProfileInfo"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
