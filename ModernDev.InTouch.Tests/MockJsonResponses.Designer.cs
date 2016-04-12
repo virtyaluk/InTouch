@@ -185,5 +185,14 @@ namespace ModernDev.InTouch.Tests {
                 return ResourceManager.GetString("usersList", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;text&quot;:&quot;Major Lazer x Showtek – I’m a Believer&quot;,&quot;audio&quot;:{&quot;id&quot;:456239425,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Major Lazer x Showtek&quot;,&quot;title&quot;:&quot;I’m a Believer&quot;,&quot;duration&quot;:254,&quot;date&quot;:1460392491,&quot;url&quot;:&quot;https : //cs7-5v4.v...c7EHzS9BZw1y1TWZ48c&quot;,&quot;genre_id&quot;:18,&quot;no_search&quot;:1}}}.
+        /// </summary>
+        internal static string userStatus {
+            get {
+                return ResourceManager.GetString("userStatus", resourceCulture);
+            }
+        }
     }
 }
