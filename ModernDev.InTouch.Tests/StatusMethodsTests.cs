@@ -10,7 +10,6 @@
  * Licensed under the GPLv3 license.
  */
 
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using static NUnit.Framework.Assert;
