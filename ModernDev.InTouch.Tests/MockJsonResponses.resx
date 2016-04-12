@@ -192,4 +192,25 @@
   <data name="universitiesItemsList" xml:space="preserve">
     <value>{"response":{"count":702,"items":[{"id":2,"title":"МГУ"},{"id":86,"title":"АПИ при ИГиП РАН"},{"id":87,"title":"Финансовый университет (бывш. ГУМФ)"},{"id":88,"title":"АГПС МЧС России"},{"id":89,"title":"АГЗ МЧС России"}]}}</value>
   </data>
+  <data name="accountContacts" xml:space="preserve">
+    <value>{"response":{"found":[{"id":16133651,"first_name":"Vitalik","last_name":"Ulybin","sex":2,"nickname":"","domain":"ylubin","screen_name":"ylubin","photo_50":"https:\/\/pp.vk.me\/c633323\/v633323651\/10feb\/bemQ80NlFWM.jpg","photo_100":"https:\/\/pp.vk.me\/c633323\/v633323651\/10fea\/5xmjTRE-1Bg.jpg","photo_200":"https:\/\/pp.vk.me\/c633323\/v633323651\/10fe9\/BInBMF-GmS8.jpg","photo_200_orig":"https:\/\/pp.vk.me\/c633323\/v633323651\/10fe7\/sHgM2UkEh2o.jpg","has_mobile":1,"wall_comments":0,"can_post":0,"can_see_all_posts":0,"can_see_audio":0,"can_write_private_message":1,"mobile_phone":"","home_phone":"","site":"","status":"","last_seen":{"time":1460061804,"platform":2},"verified":0,"followers_count":0,"blacklisted":0,"common_count":6,"online":0,"sort_num":10100008},{"id":24945500,"first_name":"Oleksandr","last_name":"Dranko","sex":2,"nickname":"","domain":"alexandrdranko","screen_name":"alexandrdranko","bdate":"24.8.1995","country":{"id":160,"title":"Poland"},"photo_50":"https:\/\/pp.vk.me\/c623127\/v623127500\/9103\/hflFz_g1jww.jpg","photo_100":"https:\/\/pp.vk.me\/c623127\/v623127500\/9102\/sUvSyUKcIrU.jpg","photo_200":"https:\/\/pp.vk.me\/c623127\/v623127500\/9101\/MJ4d5H1SG1k.jpg","photo_200_orig":"https:\/\/pp.vk.me\/c623127\/v623127500\/90ff\/0pyMq6kRFT8.jpg","has_mobile":1,"wall_comments":1,"can_post":1,"can_see_all_posts":1,"can_see_audio":1,"can_write_private_message":1,"mobile_phone":"+48 794756099","home_phone":"+380966023648","site":"","status":"","last_seen":{"time":1460062649,"platform":7},"verified":0,"followers_count":172,"blacklisted":0,"common_count":6,"occupation":{"type":"university","id":411411,"name":"not stated"},"university":1172960,"university_name":"SAN (dawniej SWSPiZ)","faculty":2160797,"faculty_name":"Instytut ekonomiczny","graduation":0,"home_town":"","relation":0,"personal":{"political":3,"langs":["Русский","Українська","Polski"],"inspired_by":"Муза","smoking":1,"alcohol":3},"interests":"Ski, Football, EDM","music":"BT, Calvin Harris, Swedish House mafia, Galantis, David Guetta, Avicci, Alesso, Quintino, Dyro, Dada life, Example, Madeon, Sick Individuals, Martin Garrix, NerO, Don Diablo, Oliver Heldens, Zedd, Sam Smith, Vicetone, Nicky Romero, Иван Дорн, The Chainsmokers, MakJ, Mr.White, ZoMBOY, Michael Calfan, Adam Lambert, Steven Price, Alex Clare, M83, Coldplay, DVBBS, Chocolate Puma","activities":"","movies":"","tv":"","books":"","games":"Футбол, волейбол, table tennis, монополія","universities":[{"id":1172960,"country":160,"city":1922897,"name":"SWSPiZ (Łódź) Warszawa","faculty":2160797,"faculty_name":"Instytut ekonomiczny","education_form":"Full-time","education_status":"Student (Bachelor's)"}],"schools":[{"id":"253181","country":2,"city":1514150,"name":"Средняя школа","year_from":2000,"year_graduated":2012,"class":"б"}],"about":"","relatives":[{"id":16815310,"type":"sibling"},{"id":88318904,"type":"sibling"},{"id":17340419,"type":"sibling"}],"quotes":"","online":0,"lists":[2],"sort_num":10100007}],"other":[]}}</value>
+  </data>
+  <data name="accountCounters" xml:space="preserve">
+    <value>{"response":{"friends":733,"messages":21,"gifts":2,"app_requests":1}}</value>
+  </data>
+  <data name="accountInfo" xml:space="preserve">
+    <value>{"response":{"country":"UA","https_required":1,"own_posts_default":1,"no_wall_replies":1,"intro":0,"lang":0}}</value>
+  </data>
+  <data name="appPermissions" xml:space="preserve">
+    <value>{"response":9355263}</value>
+  </data>
+  <data name="changePassword" xml:space="preserve">
+    <value>{"response":{"token":"super_token","secret":"super_secret"}}</value>
+  </data>
+  <data name="profileInfo" xml:space="preserve">
+    <value>{"response":{"first_name":"Богдан","last_name":"Штепан","screen_name":"virtyaluk","sex":2,"relation":0,"bdate":"29.2.0","bdate_visibility":2,"home_town":"","status":"Together We Are","phone":"+380 **** * ** 52","name_request":{"id":12345,"status":"processing","first_name":"Bohdan","last_name":"Shtepan"}}}</value>
+  </data>
+  <data name="setProfileInfo" xml:space="preserve">
+    <value>{"response":{"changed":1,"name_request":{"id":12345,"status":"processing","first_name":"Bohdan","last_name":"Shtepan"}}}</value>
+  </data>
 </root>
