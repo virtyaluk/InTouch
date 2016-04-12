@@ -57,6 +57,7 @@
     <Compile Include="GeneralClientTest.cs" />
     <Compile Include="GiftsMethodsTests.cs" />
     <Compile Include="PollsMethodsTests.cs" />
+    <Compile Include="StatusMethodsTests.cs" />
     <Compile Include="StorageMethodsTests.cs" />
     <Compile Include="UsersMethodsTest.cs" />
     <Compile Include="Ex.cs" />
