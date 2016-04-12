@@ -74,6 +74,12 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.create", Responses.GetString("poll"))
                         .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"));
                     break;
+
+                case "status":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("userStatus"))
+                        .WhenAndRespond($"{cat}.set", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
