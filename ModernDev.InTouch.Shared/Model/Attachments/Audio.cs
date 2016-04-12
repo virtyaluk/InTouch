@@ -100,9 +100,9 @@ namespace ModernDev.InTouch
         /// Added date.
         /// </summary>
         [DataMember]
-        [JsonProperty("data")]
+        [JsonProperty("date")]
         [JsonConverter(typeof(JsonNumberDateTimeConverter))]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// True, if the option "Do not show in the search" is enabled.
