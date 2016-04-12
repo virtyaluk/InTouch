@@ -84,8 +84,8 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="streetIds">Street IDs.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="Street"/> objects</returns>
-        public async Task<Response<ItemsList<Street>>> GetStreetsById(List<int> streetIds)
-            => await Request<ItemsList<Street>>("getStreetsById", new MethodParams
+        public async Task<Response<List<Street>>> GetStreetsById(List<int> streetIds)
+            => await Request<List<Street>>("getStreetsById", new MethodParams
             {
                 {"street_ids", streetIds, true, 1000}
             }, true);
@@ -128,8 +128,8 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="cityIds">City IDs. </param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="City"/> objects</returns>
-        public async Task<Response<ItemsList<City>>> GetCitiesById(List<int> cityIds)
-            => await Request<ItemsList<City>>("getCitiesById", new MethodParams
+        public async Task<Response<List<City>>> GetCitiesById(List<int> cityIds)
+            => await Request<List<City>>("getCitiesById", new MethodParams
             {
                 {"cityIds", cityIds, true, new[] {0, 1000}}
             }, true);
