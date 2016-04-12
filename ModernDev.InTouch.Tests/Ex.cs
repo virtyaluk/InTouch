@@ -80,6 +80,20 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.get", Responses.GetString("userStatus"))
                         .WhenAndRespond($"{cat}.set", Responses.GetString("responseTrue"));
                     break;
+
+                case "database":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.getCountries", Responses.GetString("countriesItemsList"))
+                        .WhenAndRespond($"{cat}.getRegions", Responses.GetString("regionsItemsList"))
+                        .WhenAndRespond($"{cat}.getStreetsById", Responses.GetString("streetsList"))
+                        .WhenAndRespond($"{cat}.getCountriesById", Responses.GetString("countriesList"))
+                        .WhenAndRespond($"{cat}.getCities", Responses.GetString("citiesItemsList"))
+                        .WhenAndRespond($"{cat}.getCitiesById", Responses.GetString("citiesList"))
+                        .WhenAndRespond($"{cat}.getUniversities", Responses.GetString("universitiesItemsList"))
+                        .WhenAndRespond($"{cat}.getSchools", Responses.GetString("schoolsItemsList"))
+                        .WhenAndRespond($"{cat}.getFaculties", Responses.GetString("facultiesItemsList"))
+                        .WhenAndRespond($"{cat}.getChairs", Responses.GetString("chairsItemsList"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
