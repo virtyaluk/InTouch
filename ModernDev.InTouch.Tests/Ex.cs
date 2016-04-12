@@ -10,6 +10,7 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Resources;
 using RichardSzalay.MockHttp;
 using static NUnit.Framework.Assert;
@@ -132,6 +133,22 @@ namespace ModernDev.InTouch.Tests
             IsTrue(group.CanSeeAllPosts, "group.CanSeeAllPosts");
             IsTrue(group.MainAlbumId == 219302511, "group.MainAlbumId == 219302511");
             IsNotEmpty(group.Photo100, nameof(group.Photo100));
+        }
+
+        public static void TestPoll(Poll poll)
+        {
+            IsNotNull(poll, "poll != null");
+            IsTrue(poll.OwnerId == -26406986, "poll.OwnerId == -26406986");
+            IsTrue(poll.PollId == 222496894, "poll.Id == 222496894");
+            IsNotNull(poll.Created, "poll.Created != null");
+            IsNotEmpty(poll.Question, "poll.Question");
+            IsTrue(poll.Votes == 3911, "poll.Votes == 3911");
+            IsNotNull(poll.Answers, "poll.Answers != null");
+            IsNotEmpty(poll.Answers, "poll.Answers");
+            IsNotNull(poll.Answers[0], "poll.Answers[0] != null");
+            IsTrue(poll.Answers[0].Id == 739902439, "poll.Answers[0].Id == 739902439");
+            IsTrue(poll.Answers[0].Votes == 401, "poll.Answers[0].Votes == 401");
+            IsTrue(Math.Abs(poll.Answers[0].Rate - 10.25) < double.Epsilon, "Math.Abs(poll.Answers[0].Rate - 10.25) < double.Epsilon");
         }
     }
 }
