@@ -240,4 +240,137 @@
   <data name="authStatus" xml:space="preserve">
     <value>{"response":{"sid":"super_sid","success":1,"uid":12345}}</value>
   </data>
+  <data name="commentItemsList" xml:space="preserve">
+    <value>{
+	"response" : {
+		"count" : 20490,
+		"items" : [{
+				"id" : 85995,
+				"from_id" : 7219163,
+				"date" : 1459494929,
+				"text" : "Здравствуйте.",
+				"likes" : {
+					"count" : 0,
+					"user_likes" : 0,
+					"can_like" : 1
+				},
+				"attachments" : [{
+						"type" : "photo",
+						"photo" : {
+							"id" : 410545563,
+							"album_id" : -12,
+							"owner_id" : -1,
+							"user_id" : 100,
+							"photo_75" : "https://pp.vk.me/...9bb/cC1ndaaUcag.jpg",
+							"photo_130" : "https://pp.vk.me/...9bc/4OoKxEUaaaE.jpg",
+							"photo_604" : "https://pp.vk.me/...9bd/Vz1oR972bIU.jpg",
+							"photo_807" : "https://pp.vk.me/...9be/Xpal8cOqSh8.jpg",
+							"photo_1280" : "https://pp.vk.me/...9bf/MBBQvMzlGSk.jpg",
+							"width" : 682,
+							"height" : 910,
+							"text" : "",
+							"date" : 1459494929,
+							"access_key" : "8f8a322694516efaf2"
+						}
+					}
+				],
+				"can_edit" : 0
+			}, {
+				"id" : 365685,
+				"from_id" : 2590045,
+				"date" : 1460586245,
+				"text" : "",
+				"likes" : {
+					"count" : 0,
+					"user_likes" : 0,
+					"can_like" : 1
+				},
+				"attachments" : [{
+						"type" : "video",
+						"video" : {
+							"id" : 172047301,
+							"owner_id" : -111331500,
+							"title" : "Model Videos Ass | MVA #modelvideosass",
+							"duration" : 9,
+							"description" : "",
+							"date" : 1452291397,
+							"views" : 291,
+							"comments" : 0,
+							"photo_130" : "https://pp.vk.me/...fd5/SKTFZQAOXRM.jpg",
+							"photo_320" : "https://pp.vk.me/...fd3/c6DGl7lxlyQ.jpg",
+							"photo_800" : "https://pp.vk.me/...fd2/OLhu_Jld2Z4.jpg",
+							"access_key" : "f924f36d86868874ff",
+							"can_add" : 0
+						}
+					}
+				]
+			}, {
+				"id" : 277725,
+				"from_id" : 89273041,
+				"date" : 1460584645,
+				"text" : 'Совпадение?',
+				"likes" : {
+					"count" : 4,
+					"user_likes" : 0,
+					"can_like" : 1
+				},
+				"attachments" : [{
+						"type" : "link",
+						"link" : {
+							"url" : "http://variety.co...oming-2-1201752759/",
+							"title" : "Michael Keaton Eyed to Play Villain in ‘Spider-Man: Homecoming’ (EXCLUSIVE)",
+							"description" : "Michael Keaton could be returning to the superhero universe — but this time, as a villain. Sources tell Variety that Keaton is in early talks to play a villain in the Marvel and Sony co-produ…",
+							"photo" : {
+								"id" : 409434742,
+								"album_id" : -2,
+								"owner_id" : 20274712,
+								"photo_75" : "https://pp.vk.me/...36b/yVsP-U-MjEM.jpg",
+								"photo_130" : "https://pp.vk.me/...36c/PF578-SxL6M.jpg",
+								"photo_604" : "https://pp.vk.me/...36d/YgPBPCbjntY.jpg",
+								"width" : 150,
+								"height" : 84,
+								"text" : '',
+								"date" : 1460584292
+							}
+						}
+					}
+				]
+			}
+		],
+		"profiles" : [{
+				"id" : 16133651,
+				"first_name" : "Vitalik",
+				"last_name" : "Ulybin",
+				"sex" : 2,
+				"screen_name" : "ylubin",
+				"photo_50" : "https:\/\/pp.vk.me\/c633323\/v633323651\/10feb\/bemQ80NlFWM.jpg",
+				"photo_100" : "https:\/\/pp.vk.me\/c633323\/v633323651\/10fea\/5xmjTRE-1Bg.jpg",
+				"online" : 0
+			}, {
+				"id" : 24945500,
+				"first_name" : "Oleksandr",
+				"last_name" : "Dranko",
+				"sex" : 2,
+				"screen_name" : "alexandrdranko",
+				"photo_50" : "https:\/\/pp.vk.me\/c623127\/v623127500\/9103\/hflFz_g1jww.jpg",
+				"photo_100" : "https:\/\/pp.vk.me\/c623127\/v623127500\/9102\/sUvSyUKcIrU.jpg",
+				"online" : 0
+			}, {
+				"id" : 25290020,
+				"first_name" : "Sergey",
+				"last_name" : "Chyorny",
+				"sex" : 2,
+				"screen_name" : "shippuden",
+				"photo_50" : "https:\/\/pp.vk.me\/c630828\/v630828020\/1598d\/_d4R8jRiFIY.jpg",
+				"photo_100" : "https:\/\/pp.vk.me\/c630828\/v630828020\/1598c\/E4nlBJLnsbU.jpg",
+				"online" : 0
+			}
+		],
+		"groups" : []
+	}
+}</value>
+  </data>
+  <data name="topicItemsList" xml:space="preserve">
+    <value>{"response":{"count":80,"items":[{"id":21972158,"title":"Вопросы по поводу создания приложений","created":1260720340,"created_by":189814,"updated":1460560838,"updated_by":239489016,"is_closed":0,"is_fixed":1,"comments":20490},{"id":21972169,"title":"Замеченные ошибки в API или документации","created":1260720510,"created_by":189814,"updated":1363956097,"updated_by":189814,"is_closed":1,"is_fixed":1,"comments":3747},{"id":27042222,"title":"Обновлённый платежный API для приложений","created":1348220340,"created_by":353135,"updated":1458838870,"updated_by":344119707,"is_closed":0,"is_fixed":0,"comments":621}],"default_order":2.000000,"can_add_topics":0}}</value>
+  </data>
 </root>

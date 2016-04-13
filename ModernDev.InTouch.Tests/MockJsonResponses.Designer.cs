@@ -196,6 +196,36 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;response&quot; : {
+        ///		&quot;count&quot; : 20490,
+        ///		&quot;items&quot; : [{
+        ///				&quot;id&quot; : 85995,
+        ///				&quot;from_id&quot; : 7219163,
+        ///				&quot;date&quot; : 1459494929,
+        ///				&quot;text&quot; : &quot;Здравствуйте.&quot;,
+        ///				&quot;likes&quot; : {
+        ///					&quot;count&quot; : 0,
+        ///					&quot;user_likes&quot; : 0,
+        ///					&quot;can_like&quot; : 1
+        ///				},
+        ///				&quot;attachments&quot; : [{
+        ///						&quot;type&quot; : &quot;photo&quot;,
+        ///						&quot;photo&quot; : {
+        ///							&quot;id&quot; : 410545563,
+        ///							&quot;album_id&quot; : -12,
+        ///							&quot;owner_id&quot; : -1,
+        ///							&quot;user_id&quot; : 100,
+        ///							&quot;photo_75&quot; : &quot;https://pp.vk.me/...9bb/cC1ndaaUcag.jpg&quot;,
+        ///							&quot;photo_130&quot; : &quot;https://p [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string commentItemsList {
+            get {
+                return ResourceManager.GetString("commentItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:234,&quot;items&quot;:[{&quot;id&quot;:19,&quot;title&quot;:&quot;Австралия&quot;},{&quot;id&quot;:20,&quot;title&quot;:&quot;Австрия&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Азербайджан&quot;},{&quot;id&quot;:21,&quot;title&quot;:&quot;Албания&quot;},{&quot;id&quot;:22,&quot;title&quot;:&quot;Алжир&quot;}]}}.
         /// </summary>
         internal static string countriesItemsList {
@@ -390,6 +420,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string stringsList {
             get {
                 return ResourceManager.GetString("stringsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:80,&quot;items&quot;:[{&quot;id&quot;:21972158,&quot;title&quot;:&quot;Вопросы по поводу создания приложений&quot;,&quot;created&quot;:1260720340,&quot;created_by&quot;:189814,&quot;updated&quot;:1460560838,&quot;updated_by&quot;:239489016,&quot;is_closed&quot;:0,&quot;is_fixed&quot;:1,&quot;comments&quot;:20490},{&quot;id&quot;:21972169,&quot;title&quot;:&quot;Замеченные ошибки в API или документации&quot;,&quot;created&quot;:1260720510,&quot;created_by&quot;:189814,&quot;updated&quot;:1363956097,&quot;updated_by&quot;:189814,&quot;is_closed&quot;:1,&quot;is_fixed&quot;:1,&quot;comments&quot;:3747},{&quot;id&quot;:27042222,&quot;title&quot;:&quot;Обновлённый платежный API для приложений&quot;,&quot;created&quot;:1348220340,&quot;create [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string topicItemsList {
+            get {
+                return ResourceManager.GetString("topicItemsList", resourceCulture);
             }
         }
         
