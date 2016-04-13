@@ -107,7 +107,7 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.setSilenceMode", Responses.GetString("responseTrue"))
                         //.WhenAndRespond($"{cat}.getPushSettings", Responses.GetString(""))
                         .WhenAndRespond($"{cat}.setPushSettings", Responses.GetString("responseTrue"))
-                        .WhenAndRespond($"{cat}.getAppPermissions", Responses.GetString("appPermissions"))
+                        .WhenAndRespond($"{cat}.getAppPermissions", Responses.GetString("responseNum"))
                         .WhenAndRespond($"{cat}.banUser", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.unbanUser", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getBanned", Responses.GetString("usersItemsList"))
@@ -116,6 +116,31 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.changePassword", Responses.GetString("changePassword"))
                         .WhenAndRespond($"{cat}.getProfileInfo", Responses.GetString("profileInfo"))
                         .WhenAndRespond($"{cat}.saveProfileInfo", Responses.GetString("setProfileInfo"));
+                    break;
+
+                case "audio":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("audioItemsList"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("audioList"))
+                        .WhenAndRespond($"{cat}.getLyrics", Responses.GetString("audioLyrics"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("audioItemsList"))
+                        .WhenAndRespond($"{cat}.getUploadServer", Responses.GetString("audioUploadServer"))
+                        .WhenAndRespond($"{cat}.save", Responses.GetString("audio"))
+                        .WhenAndRespond($"{cat}.add", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.reorder", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restore", Responses.GetString("audio"))
+                        .WhenAndRespond($"{cat}.getAlbums", Responses.GetString("audioAlbumItemsList"))
+                        .WhenAndRespond($"{cat}.addAlbum", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.editAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.moveToAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.setBroadcast", Responses.GetString("responseNumsList"))
+                        .WhenAndRespond($"{cat}.getBroadcastList", Responses.GetString("broadcastList"))
+                        .WhenAndRespond($"{cat}.getRecommendations", Responses.GetString("audioItemsList"))
+                        .WhenAndRespond($"{cat}.getPopular", Responses.GetString("audioList"))
+                        .WhenAndRespond($"{cat}.getCount", Responses.GetString("responseNum"));
                     break;
             }
 
@@ -192,6 +217,16 @@ namespace ModernDev.InTouch.Tests
             IsTrue(poll.Answers[0].Id == 739902439, "poll.Answers[0].Id == 739902439");
             IsTrue(poll.Answers[0].Votes == 401, "poll.Answers[0].Votes == 401");
             IsTrue(Math.Abs(poll.Answers[0].Rate - 10.25) < double.Epsilon, "Math.Abs(poll.Answers[0].Rate - 10.25) < double.Epsilon");
+        }
+
+        public static void TestAudio(Audio audio)
+        {
+            IsNotNull(audio, "audio != null");
+            IsTrue(audio.Id == 456239447, "audio.Id == 456239447");
+            IsTrue(audio.Artist == "Ghastly", "audio.Artist == 'Ghastly'");
+            IsTrue(audio.Duration == 249, "audio.Duration == 249");
+            IsNotNull(audio.Date, "audio.Date != null");
+            IsNotEmpty(audio.Url, "audio.Url");
         }
     }
 }
