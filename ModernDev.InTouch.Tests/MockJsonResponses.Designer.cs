@@ -88,15 +88,6 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;response&quot;:9355263}.
-        /// </summary>
-        internal static string appPermissions {
-            get {
-                return ResourceManager.GetString("appPermissions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:18,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Агрохимии&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Биофизики&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;Биохимии&quot;},{&quot;id&quot;:4,&quot;title&quot;:&quot;Ботаники&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Генетики и биотехнологии&quot;}]}}.
         /// </summary>
         internal static string chairsItemsList {
@@ -246,6 +237,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string responseFalse {
             get {
                 return ResourceManager.GetString("responseFalse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:481516}.
+        /// </summary>
+        internal static string responseNum {
+            get {
+                return ResourceManager.GetString("responseNum", resourceCulture);
             }
         }
         

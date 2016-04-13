@@ -120,7 +120,7 @@ namespace ModernDev.InTouch.Tests
             var resp = await _inTouch.Account.GetAppPermissions(12345);
 
             IsFalse(resp.IsError, "resp.IsError");
-            IsTrue(resp.Data == 9355263, "resp.Data == 9355263");
+            IsTrue(resp.Data == 481516, "resp.Data == 481516");
         }
 
         [Test]

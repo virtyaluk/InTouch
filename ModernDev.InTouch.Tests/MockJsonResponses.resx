@@ -201,8 +201,8 @@
   <data name="accountInfo" xml:space="preserve">
     <value>{"response":{"country":"UA","https_required":1,"own_posts_default":1,"no_wall_replies":1,"intro":0,"lang":0}}</value>
   </data>
-  <data name="appPermissions" xml:space="preserve">
-    <value>{"response":9355263}</value>
+  <data name="responseNum" xml:space="preserve">
+    <value>{"response":481516}</value>
   </data>
   <data name="changePassword" xml:space="preserve">
     <value>{"response":{"token":"super_token","secret":"super_secret"}}</value>
