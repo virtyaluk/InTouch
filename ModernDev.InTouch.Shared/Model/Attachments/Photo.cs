@@ -37,6 +37,13 @@ namespace ModernDev.InTouch
         public int PhotoId { get; set; }
 
         /// <summary>
+        /// Photo Id.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        /// <summary>
         /// Photo album ID. 
         /// </summary>
         [DataMember]
@@ -119,7 +126,7 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("date")]
         [JsonConverter(typeof(JsonNumberDateTimeConverter))]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// URL of image with maximum size 75x75px.
