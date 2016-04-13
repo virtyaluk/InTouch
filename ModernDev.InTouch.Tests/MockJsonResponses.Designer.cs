@@ -142,6 +142,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;sid&quot;:&quot;super_sid&quot;,&quot;success&quot;:1,&quot;uid&quot;:12345}}.
+        /// </summary>
+        internal static string authStatus {
+            get {
+                return ResourceManager.GetString("authStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:65596623,&quot;name&quot;:&quot;FTP&quot;,&quot;screen_name&quot;:&quot;ftp78&quot;,&quot;is_closed&quot;:0,&quot;type&quot;:&quot;page&quot;,&quot;description&quot;:&quot;Чёрный юмор&quot;,&quot;members_count&quot;:341049,&quot;start_date&quot;:19450509,&quot;can_post&quot;:0,&quot;can_see_all_posts&quot;:1,&quot;activity&quot;:&quot;Art and entertainment&quot;,&quot;status&quot;:&quot;иди сюда&quot;,&quot;contacts&quot;:[{&quot;user_id&quot;:171605462,&quot;desc&quot;:&quot;Агент по рекламе &quot;},{&quot;user_id&quot;:313566042,&quot;desc&quot;:&quot;только Реклама . вп не делаем &quot;},{&quot;user_id&quot;:236428820}],&quot;can_upload_doc&quot;:0,&quot;can_upload_video&quot;:0,&quot;can_create_topic&quot;:0,&quot;fixed_post&quot;:1063983,&quot;verified&quot;:0,&quot;site&quot;:&quot;&quot;,&quot;main_a [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string broadcastList {

@@ -237,4 +237,7 @@
   <data name="audioUploadServer" xml:space="preserve">
     <value>{"response":{"upload_url":"https://pu.vk.com/c613622/upload.php?act=add_audio&amp;mid=16815310&amp;aid=0&amp;gid=0&amp;hash=5c7ac97a2197b608f4df6ce3c1aa06f4&amp;rhash=618c8ca3260c1bec298851872c48699c&amp;api=1"}}</value>
   </data>
+  <data name="authStatus" xml:space="preserve">
+    <value>{"response":{"sid":"super_sid","success":1,"uid":12345}}</value>
+  </data>
 </root>
