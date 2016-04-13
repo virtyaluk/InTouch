@@ -150,6 +150,23 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.confirm", Responses.GetString("authStatus"))
                         .WhenAndRespond($"{cat}.restore", Responses.GetString("authStatus"));
                     break;
+
+                case "board":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.getTopics", Responses.GetString("topicItemsList"))
+                        .WhenAndRespond($"{cat}.getComments", Responses.GetString("commentItemsList"))
+                        .WhenAndRespond($"{cat}.addTopic", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.addComment", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.deleteTopic", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.editTopic", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.editComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restoreComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.openTopic", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.closeTopic", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.fixTopic", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.unfixTopic", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -235,6 +252,45 @@ namespace ModernDev.InTouch.Tests
             IsTrue(audio.Duration == 249, "audio.Duration == 249");
             IsNotNull(audio.Date, "audio.Date != null");
             IsNotEmpty(audio.Url, "audio.Url");
+        }
+
+        public static void TestComment(Comment comment)
+        {
+            IsNotNull(comment, "comment != null");
+            IsTrue(comment.Id == 85995, "comment.Id == 85995");
+            IsNotNull(comment.Date, "comment.Date != null");
+            IsNotEmpty(comment.Text, "comment.Text");
+            IsNotNull(comment.Likes, "comment.Likes != null");
+            IsTrue(comment.Likes.Count == 0, "comment.Likes.Count == 0");
+            IsFalse(comment.Likes.UserLikes, "comment.Likes.UserLikes");
+            IsFalse(comment.CanEdit, "comment.CanEdit");
+            IsNotEmpty(comment.Attachments, "comment.Attachments != null");
+        }
+
+        public static void TestPhotoAttachments(Photo photo)
+        {
+            IsNotNull(photo, "photo != null");
+            IsTrue(photo.Id == 410545563, "photo.Id == 410545563");
+            IsNotEmpty(photo.Photo75, "photo.Photo75");
+            IsNotNull(photo.Date, "photo.Date != null");
+            IsNotEmpty(photo.AccessKey, "photo.AccessKey");
+        }
+
+        public static void TestVideoAttachment(Video video)
+        {
+            IsNotNull(video, "video != null");
+            IsTrue(video.Id == 172047301, "video.Id == 172047301");
+            IsTrue(video.Duration == 9, "video.Duration == 9");
+            IsNotNull(video.Date, "video.Date != null");
+            IsFalse(video.CanAdd, "video.CanAdd");
+        }
+
+        public static void TestLinkAttachment(Link link)
+        {
+            IsNotNull(link, "link != null");
+            IsNotEmpty(link.Url, "link.Url");
+            IsNotEmpty(link.Title, "link.Title");
+            IsNotNull(link.Photo, "link.Photo != null");
         }
     }
 }
