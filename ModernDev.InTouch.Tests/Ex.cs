@@ -142,6 +142,14 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getPopular", Responses.GetString("audioList"))
                         .WhenAndRespond($"{cat}.getCount", Responses.GetString("responseNum"));
                     break;
+
+                case "auth":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.checkPhone", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.signup", Responses.GetString("authStatus"))
+                        .WhenAndRespond($"{cat}.confirm", Responses.GetString("authStatus"))
+                        .WhenAndRespond($"{cat}.restore", Responses.GetString("authStatus"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
