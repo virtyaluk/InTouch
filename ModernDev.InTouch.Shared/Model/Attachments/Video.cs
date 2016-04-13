@@ -94,11 +94,19 @@ namespace ModernDev.InTouch
         public string Photo640 { get; set; }
 
         /// <summary>
+        /// URL of the video cover image with the size of 800x640px (if available).
+        /// </summary>
+        [DataMember]
+        [JsonProperty("photo_800")]
+        public string Photo800 { get; set; }
+
+        /// <summary>
         /// Date (in Unix time) the video was created. 
         /// </summary>
         [DataMember]
         [JsonProperty("date")]
-        public int Date { get; set; }
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// Date (in Unix time) the video was added by user or group. 
@@ -181,6 +189,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("can_comment")]
         public bool CanComment { get; set; }
+
+        /// <summary>
+        /// Whether the current user can add video to the own page.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("can_add")]
+        public bool CanAdd { get; set; }
 
         /// <summary>
         /// Privacy settings in a special format (only for the current user).
