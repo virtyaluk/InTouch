@@ -108,8 +108,8 @@ namespace ModernDev.InTouch
         /// <param name="artist">The name of the artist. By default, this is obtained from ID3 tags. </param>
         /// <param name="title">The title of the audio file. By default, this is obtained from ID3 tags. </param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="Audio"/> objects.</returns>
-        public async Task<Response<ItemsList<Audio>>> Save(AudioUploadResponse uploadResponse, string artist = null,
-            string title = null) => await Request<ItemsList<Audio>>("save", new MethodParams
+        public async Task<Response<Audio>> Save(AudioUploadResponse uploadResponse, string artist = null,
+            string title = null) => await Request<Audio>("save", new MethodParams
             {
                 {"server", uploadResponse?.Server, true},
                 {"audio", uploadResponse?.Audio, true},
@@ -343,7 +343,7 @@ namespace ModernDev.InTouch
 
         #region Upload methods
 
-        public async Task<Response<ItemsList<Audio>>> UploadAudio(byte[] audio, string fileName, string artist = null,
+        public async Task<Response<Audio>> UploadAudio(byte[] audio, string fileName, string artist = null,
             string title = null)
         {
             if (audio == null)
