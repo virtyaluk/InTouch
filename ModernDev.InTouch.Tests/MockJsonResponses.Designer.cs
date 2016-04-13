@@ -88,6 +88,69 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:456239447,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Ghastly&quot;,&quot;title&quot;:&quot;Get On This (Ghastly x Ablaze VIP)&quot;,&quot;duration&quot;:249,&quot;date&quot;:1460490199,&quot;url&quot;:&quot;https://cs7-4v4.v...WnpkZxdJH-KkPfxRvmQ&quot;}}.
+        /// </summary>
+        internal static string audio {
+            get {
+                return ResourceManager.GetString("audio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:15,&quot;items&quot;:[{&quot;id&quot;:71581179,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;Future House&quot;},{&quot;id&quot;:48731778,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;Laidback Luke&apos; Mixsmash Radio&quot;},{&quot;id&quot;:48731762,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;W&amp;amp;W&apos; Mainstage&quot;}]}}.
+        /// </summary>
+        internal static string audioAlbumItemsList {
+            get {
+                return ResourceManager.GetString("audioAlbumItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:6000,&quot;items&quot;:[{&quot;id&quot;:456239447,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Ghastly&quot;,&quot;title&quot;:&quot;Get On This (Ghastly x Ablaze VIP)&quot;,&quot;duration&quot;:249,&quot;date&quot;:1460490199,&quot;url&quot;:&quot;https://cs7-4v4.v...WnpkZxdJH-KkPfxRvmQ&quot;},{&quot;id&quot;:456239446,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Ghastly &amp; Mija&quot;,&quot;title&quot;:&quot;Crank It (feat. Lil Jon) vk.com/itunesmusic_inc&quot;,&quot;duration&quot;:255,&quot;date&quot;:1460463175,&quot;url&quot;:&quot;https://psv4.vk.m...zrOW_RuTa6p6a_IjH7Q&quot;,&quot;genre_id&quot;:2},{&quot;id&quot;:456239445,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Eptic &amp; Habstrakt&quot;,&quot;title&quot;:&quot;On The [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string audioItemsList {
+            get {
+                return ResourceManager.GetString("audioItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:456239447,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Ghastly&quot;,&quot;title&quot;:&quot;Get On This (Ghastly x Ablaze VIP)&quot;,&quot;duration&quot;:249,&quot;date&quot;:1460490199,&quot;url&quot;:&quot;https://cs7-4v4.v...WnpkZxdJH-KkPfxRvmQ&quot;},{&quot;id&quot;:456239446,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Ghastly &amp; Mija&quot;,&quot;title&quot;:&quot;Crank It (feat. Lil Jon) vk.com/itunesmusic_inc&quot;,&quot;duration&quot;:255,&quot;date&quot;:1460463175,&quot;url&quot;:&quot;https://psv4.vk.m...zrOW_RuTa6p6a_IjH7Q&quot;,&quot;genre_id&quot;:2},{&quot;id&quot;:456239445,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Eptic &amp; Habstrakt&quot;,&quot;title&quot;:&quot;On The Block (Blvk Sheep x S [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string audioList {
+            get {
+                return ResourceManager.GetString("audioList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;lyrics_id&quot;:2428970,&quot;text&quot;:&quot;I&apos;ve got a mission A magic to perform, This rite of passage, Like the riders of the storm.&quot;}}.
+        /// </summary>
+        internal static string audioLyrics {
+            get {
+                return ResourceManager.GetString("audioLyrics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;upload_url&quot;:&quot;https://pu.vk.com/c613622/upload.php?act=add_audio&amp;mid=16815310&amp;aid=0&amp;gid=0&amp;hash=5c7ac97a2197b608f4df6ce3c1aa06f4&amp;rhash=618c8ca3260c1bec298851872c48699c&amp;api=1&quot;}}.
+        /// </summary>
+        internal static string audioUploadServer {
+            get {
+                return ResourceManager.GetString("audioUploadServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:65596623,&quot;name&quot;:&quot;FTP&quot;,&quot;screen_name&quot;:&quot;ftp78&quot;,&quot;is_closed&quot;:0,&quot;type&quot;:&quot;page&quot;,&quot;description&quot;:&quot;Чёрный юмор&quot;,&quot;members_count&quot;:341049,&quot;start_date&quot;:19450509,&quot;can_post&quot;:0,&quot;can_see_all_posts&quot;:1,&quot;activity&quot;:&quot;Art and entertainment&quot;,&quot;status&quot;:&quot;иди сюда&quot;,&quot;contacts&quot;:[{&quot;user_id&quot;:171605462,&quot;desc&quot;:&quot;Агент по рекламе &quot;},{&quot;user_id&quot;:313566042,&quot;desc&quot;:&quot;только Реклама . вп не делаем &quot;},{&quot;user_id&quot;:236428820}],&quot;can_upload_doc&quot;:0,&quot;can_upload_video&quot;:0,&quot;can_create_topic&quot;:0,&quot;fixed_post&quot;:1063983,&quot;verified&quot;:0,&quot;site&quot;:&quot;&quot;,&quot;main_a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string broadcastList {
+            get {
+                return ResourceManager.GetString("broadcastList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:18,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Агрохимии&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Биофизики&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;Биохимии&quot;},{&quot;id&quot;:4,&quot;title&quot;:&quot;Ботаники&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Генетики и биотехнологии&quot;}]}}.
         /// </summary>
         internal static string chairsItemsList {
@@ -246,6 +309,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string responseNum {
             get {
                 return ResourceManager.GetString("responseNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[12345,-54321,1,-2]}.
+        /// </summary>
+        internal static string responseNumsList {
+            get {
+                return ResourceManager.GetString("responseNumsList", resourceCulture);
             }
         }
         

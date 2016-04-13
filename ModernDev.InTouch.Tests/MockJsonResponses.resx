@@ -213,4 +213,28 @@
   <data name="setProfileInfo" xml:space="preserve">
     <value>{"response":{"changed":1,"name_request":{"id":12345,"status":"processing","first_name":"Bohdan","last_name":"Shtepan"}}}</value>
   </data>
+  <data name="audioAlbumItemsList" xml:space="preserve">
+    <value>{"response":{"count":15,"items":[{"id":71581179,"owner_id":16815310,"title":"Future House"},{"id":48731778,"owner_id":16815310,"title":"Laidback Luke' Mixsmash Radio"},{"id":48731762,"owner_id":16815310,"title":"W&amp;amp;W' Mainstage"}]}}</value>
+  </data>
+  <data name="audioItemsList" xml:space="preserve">
+    <value>{"response":{"count":6000,"items":[{"id":456239447,"owner_id":16815310,"artist":"Ghastly","title":"Get On This (Ghastly x Ablaze VIP)","duration":249,"date":1460490199,"url":"https://cs7-4v4.v...WnpkZxdJH-KkPfxRvmQ"},{"id":456239446,"owner_id":16815310,"artist":"Ghastly &amp; Mija","title":"Crank It (feat. Lil Jon) vk.com/itunesmusic_inc","duration":255,"date":1460463175,"url":"https://psv4.vk.m...zrOW_RuTa6p6a_IjH7Q","genre_id":2},{"id":456239445,"owner_id":16815310,"artist":"Eptic &amp; Habstrakt","title":"On The Block (Blvk Sheep x Sevla Remix) [4B Flip]","duration":157,"date":1460425864,"url":"https://psv4.vk.m...J63vlhKSDu-_x_Wgoqg","lyrics_id":301457363,"genre_id":18}]}}</value>
+  </data>
+  <data name="audioList" xml:space="preserve">
+    <value>{"response":[{"id":456239447,"owner_id":16815310,"artist":"Ghastly","title":"Get On This (Ghastly x Ablaze VIP)","duration":249,"date":1460490199,"url":"https://cs7-4v4.v...WnpkZxdJH-KkPfxRvmQ"},{"id":456239446,"owner_id":16815310,"artist":"Ghastly &amp; Mija","title":"Crank It (feat. Lil Jon) vk.com/itunesmusic_inc","duration":255,"date":1460463175,"url":"https://psv4.vk.m...zrOW_RuTa6p6a_IjH7Q","genre_id":2},{"id":456239445,"owner_id":16815310,"artist":"Eptic &amp; Habstrakt","title":"On The Block (Blvk Sheep x Sevla Remix) [4B Flip]","duration":157,"date":1460425864,"url":"https://psv4.vk.m...J63vlhKSDu-_x_Wgoqg","lyrics_id":301457363,"genre_id":18}]}</value>
+  </data>
+  <data name="audioLyrics" xml:space="preserve">
+    <value>{"response":{"lyrics_id":2428970,"text":"I've got a mission A magic to perform, This rite of passage, Like the riders of the storm."}}</value>
+  </data>
+  <data name="broadcastList" xml:space="preserve">
+    <value>{"response":[{"id":65596623,"name":"FTP","screen_name":"ftp78","is_closed":0,"type":"page","description":"Чёрный юмор","members_count":341049,"start_date":19450509,"can_post":0,"can_see_all_posts":1,"activity":"Art and entertainment","status":"иди сюда","contacts":[{"user_id":171605462,"desc":"Агент по рекламе "},{"user_id":313566042,"desc":"только Реклама . вп не делаем "},{"user_id":236428820}],"can_upload_doc":0,"can_upload_video":0,"can_create_topic":0,"fixed_post":1063983,"verified":0,"site":"","main_album_id":219302511,"is_favorite":0,"is_hidden_from_feed":0,"main_section":0,"has_photo":1,"can_message":1,"photo_50":"https:\/\/pp.vk.me\/c630022\/v630022272\/23d5c\/ZPAAMm1JnuM.jpg","photo_100":"https:\/\/pp.vk.me\/c630022\/v630022272\/23d5b\/pgjwNNtBf8o.jpg","photo_200":"https:\/\/pp.vk.me\/c630022\/v630022272\/23d5a\/onPCnCDECnI.jpg","status_audio":{"id":456239447,"owner_id":16815310,"artist":"Ghastly","title":"Get On This (Ghastly x Ablaze VIP)","duration":249,"date":1460490199,"url":"https://cs7-4v4.v...WnpkZxdJH-KkPfxRvmQ"}}]}</value>
+  </data>
+  <data name="responseNumsList" xml:space="preserve">
+    <value>{"response":[12345,-54321,1,-2]}</value>
+  </data>
+  <data name="audio" xml:space="preserve">
+    <value>{"response":{"id":456239447,"owner_id":16815310,"artist":"Ghastly","title":"Get On This (Ghastly x Ablaze VIP)","duration":249,"date":1460490199,"url":"https://cs7-4v4.v...WnpkZxdJH-KkPfxRvmQ"}}</value>
+  </data>
+  <data name="audioUploadServer" xml:space="preserve">
+    <value>{"response":{"upload_url":"https://pu.vk.com/c613622/upload.php?act=add_audio&amp;mid=16815310&amp;aid=0&amp;gid=0&amp;hash=5c7ac97a2197b608f4df6ce3c1aa06f4&amp;rhash=618c8ca3260c1bec298851872c48699c&amp;api=1"}}</value>
+  </data>
 </root>
