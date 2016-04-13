@@ -114,6 +114,13 @@ namespace ModernDev.InTouch
         [JsonProperty("to_id")]
         public int? ToId { get; set; }
 
+        /// <summary>
+        /// Whether the current user can edit the comment.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("can_edit")]
+        public bool CanEdit { get; set; }
+
         #endregion
 
         #endregion
