@@ -33,13 +33,13 @@ namespace ModernDev.InTouch
         /// Your application ID. 
         /// </summary>
         [MethodParam(Name = "client_id", IsRequired = true)]
-        public int ClientId { get; }
+        public int ClientId => API.ClientId;
 
         /// <summary>
         /// Your application secret.
         /// </summary>
         [MethodParam(Name = "client_secret", IsRequired = true)]
-        public string ClientSecret { get; }
+        public string ClientSecret => API.ClientSecret;
 
         /// <summary>
         /// User's phone number. Can be pre-checked with the <see cref="AuthMethods.CheckPhone"/> method. 
@@ -78,11 +78,5 @@ namespace ModernDev.InTouch
         /// </summary>
         [MethodParam(Name = "sid")]
         public string SId { get; set; }
-
-        public AuthSignupParams()
-        {
-            ClientId = API.ClientId;
-            ClientSecret = API.ClientSecret;
-        }
     }
 }
