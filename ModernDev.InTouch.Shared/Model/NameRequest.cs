@@ -10,8 +10,10 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -52,5 +54,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("last_name")]
         public string LastName { get; set; }
+
+        /// <summary>
+        /// The date until new request cannot be sent.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("repeat_date")]
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
+        public DateTime? RepeatDate { get; set; }
     }
 }
