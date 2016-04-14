@@ -313,6 +313,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\PlaceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PostSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\PostStats.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Preview.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Price.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Product.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ProfileInfo.cs" />
@@ -350,6 +351,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\VideoCatalog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\VideoCatalogBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\VideoFiles.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\VideoPreview.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\VideoServerInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\VideoUploadResponse.cs" />
   </ItemGroup>
