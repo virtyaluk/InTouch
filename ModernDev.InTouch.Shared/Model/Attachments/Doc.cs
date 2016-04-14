@@ -23,7 +23,7 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("Doc {Title}")]
     [DataContract]
     [APIVersion(Version = 5.45)]
-    public partial class Doc : IMediaAttachment
+    public class Doc : IMediaAttachment
     {
         #region Properties
 
@@ -93,6 +93,10 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("access_key ")]
         public string AccessKey { get; set; }
+
+        [DataMember]
+        [JsonProperty("preview")]
+        public Preview Preview { get; set; }
 
         #endregion
 
