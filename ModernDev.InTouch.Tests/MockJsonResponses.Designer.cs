@@ -133,15 +133,6 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;upload_url&quot;:&quot;https://pu.vk.com/c613622/upload.php?act=add_audio&amp;mid=16815310&amp;aid=0&amp;gid=0&amp;hash=5c7ac97a2197b608f4df6ce3c1aa06f4&amp;rhash=618c8ca3260c1bec298851872c48699c&amp;api=1&quot;}}.
-        /// </summary>
-        internal static string audioUploadServer {
-            get {
-                return ResourceManager.GetString("audioUploadServer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;sid&quot;:&quot;super_sid&quot;,&quot;success&quot;:1,&quot;uid&quot;:12345}}.
         /// </summary>
         internal static string authStatus {
@@ -240,6 +231,24 @@ namespace ModernDev.InTouch.Tests {
         internal static string countriesList {
             get {
                 return ResourceManager.GetString("countriesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:775,&quot;items&quot;:[{&quot;id&quot;:437429925,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;file.gif&quot;,&quot;size&quot;:428000,&quot;ext&quot;:&quot;gif&quot;,&quot;url&quot;:&quot;https:\/\/vk.com\/doc16815310_437429925?hash=1fb22b7ab82e2eb4f1&amp;dl=1460677884646710e77e68f9dffa&amp;api=1&quot;,&quot;date&quot;:1460580469,&quot;type&quot;:3,&quot;preview&quot;:{&quot;photo&quot;:{&quot;sizes&quot;:[{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c615129\/u344052\/-3\/m_56d17ef819.jpg&quot;,&quot;width&quot;:130,&quot;height&quot;:100,&quot;type&quot;:&quot;m&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c615129\/u344052\/-3\/s_56d17ef819.jpg&quot;,&quot;width&quot;:100,&quot;height&quot;:75,&quot;type&quot;:&quot;s&quot;},{&quot;src&quot;:&quot;https:\/\/pp.v [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string docsItemsList {
+            get {
+                return ResourceManager.GetString("docsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:437429925,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;file.gif&quot;,&quot;size&quot;:428000,&quot;ext&quot;:&quot;gif&quot;,&quot;url&quot;:&quot;https:\/\/vk.com\/doc16815310_437429925?hash=1fb22b7ab82e2eb4f1&amp;dl=1460677884646710e77e68f9dffa&amp;api=1&quot;,&quot;date&quot;:1460580469,&quot;type&quot;:3,&quot;preview&quot;:{&quot;photo&quot;:{&quot;sizes&quot;:[{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c615129\/u344052\/-3\/m_56d17ef819.jpg&quot;,&quot;width&quot;:130,&quot;height&quot;:100,&quot;type&quot;:&quot;m&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c615129\/u344052\/-3\/s_56d17ef819.jpg&quot;,&quot;width&quot;:100,&quot;height&quot;:75,&quot;type&quot;:&quot;s&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c615129\/u34405 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string docsList {
+            get {
+                return ResourceManager.GetString("docsList", resourceCulture);
             }
         }
         
@@ -433,11 +442,29 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:7,&quot;items&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;Текстовые&quot;,&quot;count&quot;:21},{&quot;id&quot;:2,&quot;name&quot;:&quot;Архивы&quot;,&quot;count&quot;:10},{&quot;id&quot;:3,&quot;name&quot;:&quot;Анимации&quot;,&quot;count&quot;:257},{&quot;id&quot;:4,&quot;name&quot;:&quot;Изображения&quot;,&quot;count&quot;:26},{&quot;id&quot;:5,&quot;name&quot;:&quot;Музыка&quot;,&quot;count&quot;:1},{&quot;id&quot;:6,&quot;name&quot;:&quot;Видео&quot;,&quot;count&quot;:1},{&quot;id&quot;:8,&quot;name&quot;:&quot;Прочие&quot;,&quot;count&quot;:459}]}}.
+        /// </summary>
+        internal static string typesItemsList {
+            get {
+                return ResourceManager.GetString("typesItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:702,&quot;items&quot;:[{&quot;id&quot;:2,&quot;title&quot;:&quot;МГУ&quot;},{&quot;id&quot;:86,&quot;title&quot;:&quot;АПИ при ИГиП РАН&quot;},{&quot;id&quot;:87,&quot;title&quot;:&quot;Финансовый университет (бывш. ГУМФ)&quot;},{&quot;id&quot;:88,&quot;title&quot;:&quot;АГПС МЧС России&quot;},{&quot;id&quot;:89,&quot;title&quot;:&quot;АГЗ МЧС России&quot;}]}}.
         /// </summary>
         internal static string universitiesItemsList {
             get {
                 return ResourceManager.GetString("universitiesItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;upload_url&quot;:&quot;some_upload_url&quot;}}.
+        /// </summary>
+        internal static string uploadServer {
+            get {
+                return ResourceManager.GetString("uploadServer", resourceCulture);
             }
         }
         
