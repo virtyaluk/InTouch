@@ -126,7 +126,7 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="ownerId">User ID or community ID. Use a negative value to designate a community ID.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="DocType"/> objects.</returns>
-        public async Task<Response<ItemsList<DocType>>> GetTypes(int ownerId)
+        public async Task<Response<ItemsList<DocType>>> GetTypes(int? ownerId = null)
             => await Request<ItemsList<DocType>>("getTypes", new MethodParams {{"owner_id", ownerId, true}});
 
         /// <summary>
