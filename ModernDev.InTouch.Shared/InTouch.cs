@@ -731,7 +731,7 @@ namespace ModernDev.InTouch
 
             apiParams["lang"] = DataLanguage == Langs.UsersCurrentLanguage ? _dataLang : ToEnumString(DataLanguage);
 
-            return apiParams.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToString());
+            return apiParams.ToDictionary(kvp => kvp.Key, kvp => kvp.Value?.ToString());
         }
 
         private void AccessTokenExpired(object sender, EventArgs e) => OnAuthorizationFailed(null);
