@@ -382,4 +382,22 @@
   <data name="typesItemsList" xml:space="preserve">
     <value>{"response":{"count":7,"items":[{"id":1,"name":"Текстовые","count":21},{"id":2,"name":"Архивы","count":10},{"id":3,"name":"Анимации","count":257},{"id":4,"name":"Изображения","count":26},{"id":5,"name":"Музыка","count":1},{"id":6,"name":"Видео","count":1},{"id":8,"name":"Прочие","count":459}]}}</value>
   </data>
+  <data name="areFriends" xml:space="preserve">
+    <value>{"response":[{"user_id":66748,"friend_status":0,"sign":"cd56c1006d87caf27377459caf3c4a03"},{"user_id":123161616,"friend_status":2,"sign":"c696e40846194051174887e3341bc369"}]}</value>
+  </data>
+  <data name="friendDeleteStatus" xml:space="preserve">
+    <value>{"response":{"success":1,"friend_deleted":1}}</value>
+  </data>
+  <data name="friendsLists" xml:space="preserve">
+    <value>{"response":{"count":2,"items":[{"name":':-*',"id":1},{"name":'^_^',"id":2}]}}</value>
+  </data>
+  <data name="mutualFriends" xml:space="preserve">
+    <value>{"response":[{"id":16133651,"common_friends":[29363547,31160235,34095918,159865266,272282474],"common_count":5},{"id":31160235,"common_friends":[16133651,24945500,26300808,29363547,34095918,88318904,159865266],"common_count":7}]}</value>
+  </data>
+  <data name="requestsItemsList" xml:space="preserve">
+    <value>{"response":{"count":1,"items":[{"user_id":224586038,"from":'178250508',"mutual":{"count":1,"users":[178250508]}}]}}</value>
+  </data>
+  <data name="usersOnline" xml:space="preserve">
+    <value>{"response":{"online":[25290020,31160235,34095918,66475294],"online_mobile":[16133651,24945500]}}</value>
+  </data>
 </root>

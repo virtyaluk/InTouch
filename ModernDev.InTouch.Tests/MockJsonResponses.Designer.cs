@@ -88,6 +88,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;user_id&quot;:66748,&quot;friend_status&quot;:0,&quot;sign&quot;:&quot;cd56c1006d87caf27377459caf3c4a03&quot;},{&quot;user_id&quot;:123161616,&quot;friend_status&quot;:2,&quot;sign&quot;:&quot;c696e40846194051174887e3341bc369&quot;}]}.
+        /// </summary>
+        internal static string areFriends {
+            get {
+                return ResourceManager.GetString("areFriends", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:456239447,&quot;owner_id&quot;:16815310,&quot;artist&quot;:&quot;Ghastly&quot;,&quot;title&quot;:&quot;Get On This (Ghastly x Ablaze VIP)&quot;,&quot;duration&quot;:249,&quot;date&quot;:1460490199,&quot;url&quot;:&quot;https://cs7-4v4.v...WnpkZxdJH-KkPfxRvmQ&quot;}}.
         /// </summary>
         internal static string audio {
@@ -262,6 +271,24 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;success&quot;:1,&quot;friend_deleted&quot;:1}}.
+        /// </summary>
+        internal static string friendDeleteStatus {
+            get {
+                return ResourceManager.GetString("friendDeleteStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:2,&quot;items&quot;:[{&quot;name&quot;:&apos;:-*&apos;,&quot;id&quot;:1},{&quot;name&quot;:&apos;^_^&apos;,&quot;id&quot;:2}]}}.
+        /// </summary>
+        internal static string friendsLists {
+            get {
+                return ResourceManager.GetString("friendsLists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3,&quot;items&quot;:[{&quot;id&quot;:653008904,&quot;from_id&quot;:165146081,&quot;message&quot;:&quot;&quot;,&quot;date&quot;:1458403595,&quot;gift&quot;:{&quot;id&quot;:770,&quot;thumb_256&quot;:&quot;https://vk.com/images/gift/770/256.jpg&quot;,&quot;thumb_96&quot;:&quot;https://vk.com/images/gift/770/96.png&quot;,&quot;thumb_48&quot;:&quot;https://vk.com/images/gift/770/48.png&quot;},&quot;privacy&quot;:1,&quot;gift_hash&quot;:&quot;eOwGaCj1Rc6Itu7T*RdRaIXHIlol27m*cXSHlBbQk0fFvGK4W8yxcKT0c8AcMcYST9FoViFMJoPFY*SOX/t1GLHumPjtYCbbYcwA8lE4WO2sydjoVzs8nKGfZS8*HBNQU6z6CZgxct2qFCCA2iyLDmM4j9jpcbU3MpMwdC1EWcM-&quot;},{&quot;id&quot;:653006597,&quot;from_id&quot;:165146081,&quot;mes [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string giftsItemsList {
@@ -285,6 +312,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string linkStatus {
             get {
                 return ResourceManager.GetString("linkStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:16133651,&quot;common_friends&quot;:[29363547,31160235,34095918,159865266,272282474],&quot;common_count&quot;:5},{&quot;id&quot;:31160235,&quot;common_friends&quot;:[16133651,24945500,26300808,29363547,34095918,88318904,159865266],&quot;common_count&quot;:7}]}.
+        /// </summary>
+        internal static string mutualFriends {
+            get {
+                return ResourceManager.GetString("mutualFriends", resourceCulture);
             }
         }
         
@@ -339,6 +375,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string regionsItemsList {
             get {
                 return ResourceManager.GetString("regionsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:1,&quot;items&quot;:[{&quot;user_id&quot;:224586038,&quot;from&quot;:&apos;178250508&apos;,&quot;mutual&quot;:{&quot;count&quot;:1,&quot;users&quot;:[178250508]}}]}}.
+        /// </summary>
+        internal static string requestsItemsList {
+            get {
+                return ResourceManager.GetString("requestsItemsList", resourceCulture);
             }
         }
         
@@ -483,6 +528,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string usersList {
             get {
                 return ResourceManager.GetString("usersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;online&quot;:[25290020,31160235,34095918,66475294],&quot;online_mobile&quot;:[16133651,24945500]}}.
+        /// </summary>
+        internal static string usersOnline {
+            get {
+                return ResourceManager.GetString("usersOnline", resourceCulture);
             }
         }
         
