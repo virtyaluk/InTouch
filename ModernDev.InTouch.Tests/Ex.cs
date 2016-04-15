@@ -19,14 +19,14 @@ namespace ModernDev.InTouch.Tests
 {
     public static class Ex
     {
-        public static MockHttpMessageHandler WhenAndRespond(this MockHttpMessageHandler @this, string url, string json)
+        private static MockHttpMessageHandler WhenAndRespond(this MockHttpMessageHandler @this, string url, string json)
         {
             @this.When($"/method/{url}.json").Respond("application/json", json);
 
             return @this;
         }
 
-        public static ResourceManager Responses { get; } = MockJsonResponses.ResourceManager;
+        private static ResourceManager Responses { get; } = MockJsonResponses.ResourceManager;
 
         public static InTouch GetMockedClient(string cat = null, bool setSessionData = true)
         {
@@ -124,7 +124,7 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getById", Responses.GetString("audioList"))
                         .WhenAndRespond($"{cat}.getLyrics", Responses.GetString("audioLyrics"))
                         .WhenAndRespond($"{cat}.search", Responses.GetString("audioItemsList"))
-                        .WhenAndRespond($"{cat}.getUploadServer", Responses.GetString("audioUploadServer"))
+                        .WhenAndRespond($"{cat}.getUploadServer", Responses.GetString("uploadServer"))
                         .WhenAndRespond($"{cat}.save", Responses.GetString("audio"))
                         .WhenAndRespond($"{cat}.add", Responses.GetString("responseNum"))
                         .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
@@ -166,6 +166,20 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.closeTopic", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.fixTopic", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.unfixTopic", Responses.GetString("responseTrue"));
+                    break;
+
+                case "docs":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("docsItemsList"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("docsList"))
+                        .WhenAndRespond($"{cat}.getUploadServer", Responses.GetString("uploadServer"))
+                        .WhenAndRespond($"{cat}.getWallUploadServer", Responses.GetString("uploadServer"))
+                        .WhenAndRespond($"{cat}.save", Responses.GetString("docsList"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.add", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.getTypes", Responses.GetString("typesItemsList"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("docsItemsList"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"));
                     break;
             }
 
@@ -291,6 +305,21 @@ namespace ModernDev.InTouch.Tests
             IsNotEmpty(link.Url, "link.Url");
             IsNotEmpty(link.Title, "link.Title");
             IsNotNull(link.Photo, "link.Photo != null");
+        }
+
+        public static void TestDoc(Doc doc)
+        {
+            IsNotNull(doc, "doc != null");
+            IsTrue(doc.Id == 437429925, "doc.Id == 437429925");
+            IsNotEmpty(doc.Title, "doc.Title");
+            IsNotNull(doc.Preview, "doc.Preview != null");
+            IsNotNull(doc.Preview.Video, "doc.Preview.Video != null");
+            IsNotEmpty(doc.Preview.Video.Src, "doc.Preview.Video.Src");
+            IsTrue(doc.Preview.Video.FileSize == 80787, "doc.Preview.Video.FileSize == 80787");
+            IsNotNull(doc.Preview.Photo, "doc.Preview.Photo != null");
+            IsNotEmpty(doc.Preview.Photo.Sizes, "doc.Preview.Photo.Sizes");
+            IsTrue(doc.Preview.Photo.Sizes[0].Type == PhotoSizeTypes.M, "doc.Preview.Photo.Sizes[0].Type == PhotoSizeTypes.M");
+            IsNotEmpty(doc.Preview.Photo.Sizes[0].Src, "doc.Preview.Photo.Sizes[0].Src");
         }
     }
 }
