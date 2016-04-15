@@ -60,6 +60,7 @@
     <Compile Include="BoardMethodsTests.cs" />
     <Compile Include="DatabaseMethodsTests.cs" />
     <Compile Include="DocsMethodsTests.cs" />
+    <Compile Include="FriendsMethodsTests.cs" />
     <Compile Include="GeneralClientTest.cs" />
     <Compile Include="GiftsMethodsTests.cs" />
     <Compile Include="PollsMethodsTests.cs" />

@@ -88,6 +88,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;list_id&quot;:2}}.
+        /// </summary>
+        internal static string addFriendsList {
+            get {
+                return ResourceManager.GetString("addFriendsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;user_id&quot;:66748,&quot;friend_status&quot;:0,&quot;sign&quot;:&quot;cd56c1006d87caf27377459caf3c4a03&quot;},{&quot;user_id&quot;:123161616,&quot;friend_status&quot;:2,&quot;sign&quot;:&quot;c696e40846194051174887e3341bc369&quot;}]}.
         /// </summary>
         internal static string areFriends {

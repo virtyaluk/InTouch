@@ -193,7 +193,7 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.delete", Responses.GetString("friendDeleteStatus"))
                         .WhenAndRespond($"{cat}.getLists", Responses.GetString("friendsLists"))
-                        .WhenAndRespond($"{cat}.addList", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.addList", Responses.GetString("addFriendsList"))
                         .WhenAndRespond($"{cat}.editList", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.deleteList", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getAppUsers", Responses.GetString("responseNumsList"))

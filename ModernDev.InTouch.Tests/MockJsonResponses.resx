@@ -400,4 +400,7 @@
   <data name="usersOnline" xml:space="preserve">
     <value>{"response":{"online":[25290020,31160235,34095918,66475294],"online_mobile":[16133651,24945500]}}</value>
   </data>
+  <data name="addFriendsList" xml:space="preserve">
+    <value>{"response":{"list_id":2}}</value>
+  </data>
 </root>
