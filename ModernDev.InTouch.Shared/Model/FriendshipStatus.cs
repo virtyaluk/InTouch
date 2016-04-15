@@ -35,7 +35,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("friend_status")]
-        public FriendshipStatus Status { get; set; }
+        public FriendshipStatuses Status { get; set; }
 
         /// <summary>
         /// Friend request message (if any).
