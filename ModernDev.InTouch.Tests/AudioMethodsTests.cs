@@ -78,7 +78,7 @@ namespace ModernDev.InTouch.Tests
             var resp = await _inTouch.Audio.GetUploadServer();
 
             IsFalse(resp.IsError, "resp.IsError");
-            IsNotNull(resp.Data);
+            IsNotNull(resp.Data, "resp.Data != null");
             IsNotEmpty(resp.Data.UploadUrl, "resp.Data.UploadUrl");
         }
 
