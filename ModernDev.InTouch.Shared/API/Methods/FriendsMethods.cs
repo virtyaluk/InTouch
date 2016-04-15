@@ -348,11 +348,11 @@ namespace ModernDev.InTouch
         /// <param name="fields">Profile fields to return.</param>
         /// <param name="nameCase">Case for declension of user name and surname.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="User"/> objects.</returns>
-        public async Task<Response<ItemsList<User>>> Search(int userId, string q = null, int count = 20, int offset = 0,
+        public async Task<Response<ItemsList<User>>> Search(int? userId = null, string q = null, int count = 20, int offset = 0,
             List<UserProfileFields> fields = null, NameCases nameCase = NameCases.Nominative)
             => await Request<ItemsList<User>>("search", new MethodParams
             {
-                {"user_id", userId, true},
+                {"user_id", userId},
                 {"q", q},
                 {"count", count, false, new[] {0, 1000}},
                 {"offset", offset},
