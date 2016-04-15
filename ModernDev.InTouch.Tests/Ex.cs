@@ -181,6 +181,29 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.search", Responses.GetString("docsItemsList"))
                         .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"));
                     break;
+
+                case "friends":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.getOnline", Responses.GetString("usersOnline"))
+                        .WhenAndRespond($"{cat}.getMutual", Responses.GetString("mutualFriends"))
+                        .WhenAndRespond($"{cat}.getRecent", Responses.GetString("responseNumsList"))
+                        .WhenAndRespond($"{cat}.getRequests", Responses.GetString("requestsItemsList"))
+                        .WhenAndRespond($"{cat}.add", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("friendDeleteStatus"))
+                        .WhenAndRespond($"{cat}.getLists", Responses.GetString("friendsLists"))
+                        .WhenAndRespond($"{cat}.addList", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.editList", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteList", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getAppUsers", Responses.GetString("responseNumsList"))
+                        .WhenAndRespond($"{cat}.getByPhones", Responses.GetString("usersList"))
+                        .WhenAndRespond($"{cat}.deleteAllRequests", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getSuggestions", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.areFriends", Responses.GetString("areFriends"))
+                        .WhenAndRespond($"{cat}.getAvailableForCall", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("usersItemsList"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
