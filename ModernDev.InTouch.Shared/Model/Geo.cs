@@ -45,5 +45,9 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("place")]
         public GeoPlace Place { get; set; }
+
+        [DataMember]
+        [JsonProperty("showmap")]
+        public bool Showmap { get; set; }
     }
 }
