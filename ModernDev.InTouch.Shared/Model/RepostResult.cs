@@ -34,8 +34,8 @@ namespace ModernDev.InTouch
         /// Id of created post.
         /// </summary>
         [DataMember]
-        [JsonProperty("repost_id")]
-        public int RepostId { get; set; }
+        [JsonProperty("post_id")]
+        public int PostId { get; set; }
 
         /// <summary>
         /// The number of reposts.
