@@ -379,7 +379,7 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;liked&quot;:1,&quot;copied&quot;:150}}.
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;liked&quot;:1,&quot;copied&quot;:1}}.
         /// </summary>
         internal static string isLiked {
             get {
