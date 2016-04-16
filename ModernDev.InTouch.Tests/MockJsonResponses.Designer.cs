@@ -379,6 +379,24 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;liked&quot;:1,&quot;copied&quot;:150}}.
+        /// </summary>
+        internal static string isLiked {
+            get {
+                return ResourceManager.GetString("isLiked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;likes&quot;:123}}.
+        /// </summary>
+        internal static string likesCount {
+            get {
+                return ResourceManager.GetString("likesCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;status&quot;:&quot;not_banned&quot;,&quot;link&quot;:&quot;https://github.com/virtyaluk&quot;}}.
         /// </summary>
         internal static string linkStatus {
