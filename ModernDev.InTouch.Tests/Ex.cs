@@ -235,6 +235,14 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.removeUser", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.approveRequest", Responses.GetString("responseTrue"));
                     break;
+
+                case "likes":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.getList", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.add", Responses.GetString("likesCount"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("likesCount"))
+                        .WhenAndRespond($"{cat}.isLiked", Responses.GetString("isLiked"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
