@@ -204,6 +204,37 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getAvailableForCall", Responses.GetString("usersItemsList"))
                         .WhenAndRespond($"{cat}.search", Responses.GetString("usersItemsList"));
                     break;
+
+                case "groups":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.isMember", Responses.GetString("groupIsMember"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("groupsList"))
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("groupsItemsList"))
+                        .WhenAndRespond($"{cat}.getMembers", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.join", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.leave", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("groupsItemsList"))
+                        .WhenAndRespond($"{cat}.getCatalog", Responses.GetString("groupsItemsList"))
+                        .WhenAndRespond($"{cat}.getCatalogInfo", Responses.GetString("groupsCatalogInfo"))
+                        .WhenAndRespond($"{cat}.getInvites", Responses.GetString("groupsItemsList"))
+                        .WhenAndRespond($"{cat}.getInvitedUsers", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.banUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.unbanUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getBanned", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.create", Responses.GetString("group"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.editPlace", Responses.GetString("editPlace"))
+                        .WhenAndRespond($"{cat}.getSettings", Responses.GetString("groupSettings"))
+                        .WhenAndRespond($"{cat}.getRequests", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.editManager", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.invite", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.addLink", Responses.GetString("groupAddLink"))
+                        .WhenAndRespond($"{cat}.deleteLink", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.editLink", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reorderLink", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.removeUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.approveRequest", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
