@@ -1,4 +1,4 @@
-/**
+﻿/**
  * This file\code is part of InTouch project.
  *
  * InTouch - is a .NET wrapper for the vk.com API.
@@ -243,6 +243,28 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.delete", Responses.GetString("likesCount"))
                         .WhenAndRespond($"{cat}.isLiked", Responses.GetString("isLiked"));
                     break;
+
+                case "wall":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("postsItemsList"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("postsItemsList"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("postsItemsList"))
+                        .WhenAndRespond($"{cat}.post", Responses.GetString("wallPost"))
+                        .WhenAndRespond($"{cat}.repost", Responses.GetString("wallPost"))
+                        .WhenAndRespond($"{cat}.getReposts", Responses.GetString("postsItemsList"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restore", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.pin", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.unpin", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getComments", Responses.GetString("commentItemsList"))
+                        .WhenAndRespond($"{cat}.addComment", Responses.GetString("addComment"))
+                        .WhenAndRespond($"{cat}.editComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restoreComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reportPost", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reportComment", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -382,6 +404,50 @@ namespace ModernDev.InTouch.Tests
             IsNotEmpty(doc.Preview.Photo.Sizes, "doc.Preview.Photo.Sizes");
             IsTrue(doc.Preview.Photo.Sizes[0].Type == PhotoSizeTypes.M, "doc.Preview.Photo.Sizes[0].Type == PhotoSizeTypes.M");
             IsNotEmpty(doc.Preview.Photo.Sizes[0].Src, "doc.Preview.Photo.Sizes[0].Src");
+        }
+
+        public static void TestWallPost(Post post)
+        {
+            IsNotNull(post, "post != null");
+            IsTrue(post.Id == 8226, "post.Id == 8226");
+            IsTrue(post.PostType == PostTypes.Post, "post.PostType == PostTypes.Post");
+            IsNotEmpty(post.Text, "post.Text");
+            IsTrue(post.CanEdit, "post.CanEdit");
+
+            // attachments
+            IsNotEmpty(post.Attachments, "post.Attachments");
+            IsInstanceOf<Photo>(post.Attachments[0], "post.Attachments[0] instanceOf Photo");
+            IsTrue(((Photo) post.Attachments[0]).Id == 412644711, "((Photo) post.Attachments[0]).Id == 412644711");
+            IsInstanceOf<Video>(post.Attachments[1], "post.Attachments[1] instanceOf Video");
+            IsTrue(((Video) post.Attachments[1]).CanAdd, "((Video) post.Attachments[1]).CanAdd");
+
+            // geo
+            IsNotNull(post.Geo, "post.Geo != null");
+            IsTrue(post.Geo.Type == "point", "post.Geo.Type == 'point'");
+            IsNotNull(post.Geo.Coordinates, "post.Geo.Coordinates != null");
+            IsNotNull(post.Geo.Place, "post.Geo.Place != null");
+            IsTrue(post.Geo.Place.Id == 0, "post.Geo.Place.Id == 0");
+            IsTrue(post.Geo.Place.City == "Киев", "post.Geo.Place.City == 'Киев'");
+            IsTrue(post.Geo.Showmap, "post.Geo.Showmap");
+
+            // post_source
+            IsNotNull(post.PostSource, "post.PostSource != null");
+            IsTrue(post.PostSource.Type == PostSoureTypes.VK, "post.PostSource.Type == PostSoureTypes.VK");
+
+            // comments
+            IsNotNull(post.Comments, "post.Comments != null");
+            IsTrue(post.Comments.Count == 0, "post.Comments.Count == 0");
+            IsFalse(post.Comments.CanPost, "post.Comments.CanPost");
+
+            // likes
+            IsNotNull(post.Likes, "post.Likes != null");
+            IsTrue(post.Likes.Count == 0, "post.Likes.Count == 0");
+            IsFalse(post.Likes.UserLikes, "post.Likes.UserLikes");
+
+            // reposts
+            IsNotNull(post.Reposts, "post.Reposts != null");
+            IsTrue(post.Reposts.Count == 0, "post.Reposts.Count == 0");
+            IsFalse(post.Reposts.UserReposted, "post.Reposts.UserReposted");
         }
     }
 }
