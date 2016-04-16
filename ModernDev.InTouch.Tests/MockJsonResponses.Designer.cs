@@ -88,6 +88,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;comment_id&quot;:8227}}.
+        /// </summary>
+        internal static string addComment {
+            get {
+                return ResourceManager.GetString("addComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;list_id&quot;:2}}.
         /// </summary>
         internal static string addFriendsList {
@@ -442,6 +451,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:6499,&quot;items&quot;:[{&quot;id&quot;:8226,&quot;from_id&quot;:16815310,&quot;owner_id&quot;:16815310,&quot;date&quot;:1460845707,&quot;post_type&quot;:&quot;post&quot;,&quot;text&quot;:&quot;test&quot;,&quot;can_edit&quot;:1,&quot;can_delete&quot;:1,&quot;can_pin&quot;:1,&quot;attachments&quot;:[{&quot;type&quot;:&quot;photo&quot;,&quot;photo&quot;:{&quot;id&quot;:412644711,&quot;album_id&quot;:-7,&quot;owner_id&quot;:16815310,&quot;photo_75&quot;:&quot;https:\/\/pp.vk.me\/c636031\/v636031972\/17f9\/zqw_nq2GXb0.jpg&quot;,&quot;photo_130&quot;:&quot;https:\/\/pp.vk.me\/c636031\/v636031972\/17fa\/wUHAhbg2Nhk.jpg&quot;,&quot;photo_604&quot;:&quot;https:\/\/pp.vk.me\/c636031\/v636031972\/17fb\/VjYcTHsPtoE.jpg&quot;,&quot;width&quot;:604,&quot;heig [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string postsItemsList {
+            get {
+                return ResourceManager.GetString("postsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;first_name&quot;:&quot;Богдан&quot;,&quot;last_name&quot;:&quot;Штепан&quot;,&quot;screen_name&quot;:&quot;virtyaluk&quot;,&quot;sex&quot;:2,&quot;relation&quot;:0,&quot;bdate&quot;:&quot;29.2.0&quot;,&quot;bdate_visibility&quot;:2,&quot;home_town&quot;:&quot;&quot;,&quot;status&quot;:&quot;Together We Are&quot;,&quot;phone&quot;:&quot;+380 **** * ** 52&quot;,&quot;name_request&quot;:{&quot;id&quot;:12345,&quot;status&quot;:&quot;processing&quot;,&quot;first_name&quot;:&quot;Bohdan&quot;,&quot;last_name&quot;:&quot;Shtepan&quot;}}}.
         /// </summary>
         internal static string profileInfo {
@@ -636,6 +654,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string userStatus {
             get {
                 return ResourceManager.GetString("userStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;post_id&quot;:1234,&quot;success&quot;:1,&quot;reposts_count&quot;:50,&quot;likes_count&quot;:105}}.
+        /// </summary>
+        internal static string wallPost {
+            get {
+                return ResourceManager.GetString("wallPost", resourceCulture);
             }
         }
     }
