@@ -74,6 +74,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Filters to apply.
         /// </summary>
+        [MethodParam(Name = "filter")]
         public LikesListFilterTypes Filter { get; set; } = LikesListFilterTypes.Likes;
     }
 }
