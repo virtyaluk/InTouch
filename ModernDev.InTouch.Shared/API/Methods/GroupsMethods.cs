@@ -98,7 +98,7 @@ namespace ModernDev.InTouch
         /// <param name="notSure">Optional parameter which is taken into account when gid belongs to the event: True — Perhaps I will attend; False — I will be there for sure(default) </param>
         /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
         public async Task<Response<bool>> Join(object groupId = null, bool notSure = false)
-            => await Request<bool>("getById", new MethodParams
+            => await Request<bool>("join", new MethodParams
             {
                 {"group_id", groupId?.ToString()},
                 {"not_sure", notSure}
@@ -129,7 +129,7 @@ namespace ModernDev.InTouch
         /// <param name="categoryId">Category id received from <see cref="GetCatalogInfo"/>.</param>
         /// <param name="subcategoryId"></param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="Group"/> objects.</returns>
-        public async Task<Response<ItemsList<Group>>> GetCatalog(int? categoryId, int? subcategoryId = null)
+        public async Task<Response<ItemsList<Group>>> GetCatalog(int? categoryId = null, int? subcategoryId = null)
             => await Request<ItemsList<Group>>("getCatalog", new MethodParams
             {
                 {"category_id", categoryId},
@@ -194,7 +194,7 @@ namespace ModernDev.InTouch
         /// <param name="comment">Text of comment to ban.</param>
         /// <param name="commentVisible">True — text of comment will be visible to the user; False — text of comment will be invisible to the user(default)</param>
         /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
-        public async Task<Response<bool>> BanUser(int groupId, int userId, DateTime? endDate,
+        public async Task<Response<bool>> BanUser(int groupId, int userId, DateTime? endDate = null,
             BanTypes reason = BanTypes.Other, string comment = null, bool commentVisible = false)
             => await Request<bool>("banUser", new MethodParams
             {
@@ -247,14 +247,14 @@ namespace ModernDev.InTouch
         /// <param name="type">Community type.</param>
         /// <param name="subtype">Public page subtype.</param>
         /// <returns>Returns an id of a created community.</returns>
-        public async Task<Response<int>> Create(string title, string description = null,
+        public async Task<Response<Group>> Create(string title, string description = null,
             CommunityTypes type = CommunityTypes.Public, CommunitySubtypes? subtype = null)
-            => await Request<int>("create", new MethodParams
+            => await Request<Group>("create", new MethodParams
             {
                 {"title", title, true},
                 {"description", description},
                 {"type", Utils.ToEnumString(type)},
-                {"subtype", subtype.HasValue ? subtype : 0}
+                {"subtype", subtype.HasValue ? (int) subtype : 1}
             });
 
         /// <summary>
