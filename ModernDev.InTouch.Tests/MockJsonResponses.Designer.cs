@@ -226,7 +226,7 @@ namespace ModernDev.InTouch.Tests {
         ///							&quot;owner_id&quot; : -1,
         ///							&quot;user_id&quot; : 100,
         ///							&quot;photo_75&quot; : &quot;https://pp.vk.me/...9bb/cC1ndaaUcag.jpg&quot;,
-        ///							&quot;photo_130&quot; : &quot;https://p [rest of string was truncated]&quot;;.
+        ///							&quot;photo_130&quot; : &quot;https://pp.vk.me/...9bc/4OoKxE [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string commentItemsList {
             get {
@@ -271,6 +271,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{success:1,address:&quot;place_address&quot;}}.
+        /// </summary>
+        internal static string editPlace {
+            get {
+                return ResourceManager.GetString("editPlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:26,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Биологический&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Восточный&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;Институт наук о Земле (бывш. Факультет географии и геоэкологии и Геологический факультет)&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Журналистики (Высшая школа журналистики и массовых коммуникаций)&quot;},{&quot;id&quot;:6,&quot;title&quot;:&quot;Институт истории (бывш. Исторический факультет)&quot;}]}}.
         /// </summary>
         internal static string facultiesItemsList {
@@ -307,11 +316,65 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:65596623,&quot;name&quot;:&quot;FTP&quot;,&quot;screen_name&quot;:&quot;ftp78&quot;,&quot;is_closed&quot;:0,&quot;type&quot;:&quot;page&quot;,&quot;description&quot;:&quot;Чёрный юмор&quot;,&quot;members_count&quot;:341049,&quot;start_date&quot;:19450509,&quot;can_post&quot;:0,&quot;can_see_all_posts&quot;:1,&quot;activity&quot;:&quot;Art and entertainment&quot;,&quot;status&quot;:&quot;иди сюда&quot;,&quot;contacts&quot;:[{&quot;user_id&quot;:171605462,&quot;desc&quot;:&quot;Агент по рекламе &quot;},{&quot;user_id&quot;:313566042,&quot;desc&quot;:&quot;только Реклама . вп не делаем &quot;},{&quot;user_id&quot;:236428820}],&quot;can_upload_doc&quot;:0,&quot;can_upload_video&quot;:0,&quot;can_create_topic&quot;:0,&quot;fixed_post&quot;:1063983,&quot;verified&quot;:0,&quot;site&quot;:&quot;&quot;,&quot;main_al [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string group {
+            get {
+                return ResourceManager.GetString("group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:124,&quot;url&quot;:&quot;link_url&quot;,&quot;name&quot;:&quot;link name&quot;,&quot;edit_title&quot;:1,&quot;desc&quot;:&quot;link description&quot;,&quot;image_processing&quot;:1}}.
+        /// </summary>
+        internal static string groupAddLink {
+            get {
+                return ResourceManager.GetString("groupAddLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;member&quot;:0,&quot;request&quot;:1}}.
+        /// </summary>
+        internal static string groupIsMember {
+            get {
+                return ResourceManager.GetString("groupIsMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;enabled&quot;:1,&quot;categories&quot;:[{&quot;id&quot;:0,&quot;name&quot;:&quot;Рекомендации&quot;,&quot;page_count&quot;:16,&quot;page_previews&quot;:[{&quot;id&quot;:59576823,&quot;name&quot;:&quot;ONUKA&quot;,&quot;screen_name&quot;:&quot;onuka&quot;,&quot;is_closed&quot;:0,&quot;type&quot;:&quot;group&quot;,&quot;photo_50&quot;:&quot;https:\/\/pp.vk.me\/c633718\/v633718415\/1b94a\/HuF1djxpQgA.jpg&quot;,&quot;photo_100&quot;:&quot;https:\/\/pp.vk.me\/c633718\/v633718415\/1b949\/DgRtxTs0xg0.jpg&quot;,&quot;photo_200&quot;:&quot;https:\/\/pp.vk.me\/c633718\/v633718415\/1b948\/boTmiSBZo6U.jpg&quot;}]},{&quot;id&quot;:1,&quot;name&quot;:&quot;Новости&quot;,&quot;page_count&quot;:11,&quot;page_previews&quot;:[{&quot;id&quot;:44721377,&quot;name&quot;:&quot;События&quot;,&quot;sc [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string groupsCatalogInfo {
+            get {
+                return ResourceManager.GetString("groupsCatalogInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;title&quot;:&quot;Group title&quot;,&quot;description&quot;:&quot;Group description&quot;,&quot;address&quot;:&quot;alex_boroda4&quot;,&quot;country_id&quot;:0,&quot;city_id&quot;:0,&quot;wall&quot;:1,&quot;photos&quot;:1,&quot;video&quot;:1,&quot;audio&quot;:1,&quot;docs&quot;:0,&quot;topics&quot;:1,&quot;wiki&quot;:0,&quot;public_date&quot;:&quot;1.1.2009&quot;,&quot;public_date_label&quot;:&quot;Дата рождения:&quot;,&quot;public_category&quot;:&quot;328&quot;,&quot;public_subcategory&quot;:&quot;0&quot;,&quot;public_category_list&quot;:[{&quot;id&quot;:0,&quot;name&quot;:&quot;Не выбрана&quot;},{&quot;id&quot;:301,&quot;name&quot;:&quot;Ведущий \/ Ведущая&quot;},{&quot;id&quot;:302,&quot;name&quot;:&quot;Госслужащий \/ Госслужащая&quot;},{&quot;id&quot;:303,&quot;name&quot;:&quot;Духовное лицо&quot;},{&quot;id&quot;:304,&quot;name&quot;:&quot;Журналист&quot;},{&quot;id&quot;:30 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string groupSettings {
+            get {
+                return ResourceManager.GetString("groupSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3,&quot;items&quot;:[{&quot;id&quot;:65596623,&quot;name&quot;:&quot;FTP&quot;,&quot;screen_name&quot;:&quot;ftp78&quot;,&quot;is_closed&quot;:0,&quot;type&quot;:&quot;page&quot;,&quot;description&quot;:&quot;Чёрный юмор&quot;,&quot;members_count&quot;:341049,&quot;start_date&quot;:19450509,&quot;can_post&quot;:0,&quot;can_see_all_posts&quot;:1,&quot;activity&quot;:&quot;Art and entertainment&quot;,&quot;status&quot;:&quot;иди сюда&quot;,&quot;contacts&quot;:[{&quot;user_id&quot;:171605462,&quot;desc&quot;:&quot;Агент по рекламе &quot;},{&quot;user_id&quot;:313566042,&quot;desc&quot;:&quot;только Реклама . вп не делаем &quot;},{&quot;user_id&quot;:236428820}],&quot;can_upload_doc&quot;:0,&quot;can_upload_video&quot;:0,&quot;can_create_topic&quot;:0,&quot;fixed_post&quot;:1063983,&quot;verified&quot;: [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string groupsItemsList {
             get {
                 return ResourceManager.GetString("groupsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:65596623,&quot;name&quot;:&quot;FTP&quot;,&quot;screen_name&quot;:&quot;ftp78&quot;,&quot;is_closed&quot;:0,&quot;type&quot;:&quot;page&quot;,&quot;description&quot;:&quot;Чёрный юмор&quot;,&quot;members_count&quot;:341049,&quot;start_date&quot;:19450509,&quot;can_post&quot;:0,&quot;can_see_all_posts&quot;:1,&quot;activity&quot;:&quot;Art and entertainment&quot;,&quot;status&quot;:&quot;иди сюда&quot;,&quot;contacts&quot;:[{&quot;user_id&quot;:171605462,&quot;desc&quot;:&quot;Агент по рекламе &quot;},{&quot;user_id&quot;:313566042,&quot;desc&quot;:&quot;только Реклама . вп не делаем &quot;},{&quot;user_id&quot;:236428820}],&quot;can_upload_doc&quot;:0,&quot;can_upload_video&quot;:0,&quot;can_create_topic&quot;:0,&quot;fixed_post&quot;:1063983,&quot;verified&quot;:0,&quot;site&quot;:&quot;&quot;,&quot;main_a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string groupsList {
+            get {
+                return ResourceManager.GetString("groupsList", resourceCulture);
             }
         }
         
