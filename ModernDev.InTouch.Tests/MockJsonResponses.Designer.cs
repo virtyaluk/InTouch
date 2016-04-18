@@ -550,6 +550,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;type&quot;:&quot;profile&quot;,&quot;section&quot;:&quot;friends&quot;,&quot;description&quot;:&quot;Ukraine&quot;,&quot;profile&quot;:{&quot;id&quot;:24945500,&quot;first_name&quot;:&quot;Oleksandr&quot;,&quot;last_name&quot;:&quot;Dranko&quot;,&quot;sex&quot;:2}},{&quot;type&quot;:&quot;group&quot;,&quot;section&quot;:&quot;publics&quot;,&quot;description&quot;:&quot;СМИ, 13 718 подписчиков&quot;,&quot;group&quot;:{&quot;id&quot;:69019591,&quot;name&quot;:&quot;EPSCAPE | Новости сериалов и кино&quot;,&quot;screen_name&quot;:&quot;epscape&quot;,&quot;is_closed&quot;:0,&quot;type&quot;:&quot;page&quot;,&quot;is_admin&quot;:0,&quot;is_member&quot;:1,&quot;photo_50&quot;:&quot;https://pp.vk.me/...5f9/r5NWq655vsg.jpg&quot;,&quot;photo_100&quot;:&quot;https://pp.vk.me/...5f8/bDhZC3CyA54.jpg&quot;,&quot;photo_200&quot;:&quot;https://pp.vk.m [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string searchHints {
+            get {
+                return ResourceManager.GetString("searchHints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:1460247613}.
         /// </summary>
         internal static string serverTime {
