@@ -265,6 +265,42 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.reportPost", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.reportComment", Responses.GetString("responseTrue"));
                     break;
+
+                case "video":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("videosItemsList"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.add", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.save", Responses.GetString("videoSave"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restore", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("videosItemsList"))
+                        .WhenAndRespond($"{cat}.getUserVideos", Responses.GetString("videosItemsList"))
+                        .WhenAndRespond($"{cat}.getAlbums", Responses.GetString("videoAlbumsItemsList"))
+                        .WhenAndRespond($"{cat}.getAlbumById", Responses.GetString("videoAlbum"))
+                        .WhenAndRespond($"{cat}.addAlbum", Responses.GetString("videoAddAlbum"))
+                        .WhenAndRespond($"{cat}.editAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reorderAlbums", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reorderVideos", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.addToAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.removeFromAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getAlbumsByVideo", Responses.GetString("videoAlbumsItemsList"))
+                        .WhenAndRespond($"{cat}.getComments", Responses.GetString("commentItemsList"))
+                        .WhenAndRespond($"{cat}.createComment", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.deleteComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restoreComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.editComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getTags", Responses.GetString("videoTags"))
+                        .WhenAndRespond($"{cat}.putTag", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.removeTag", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getNewTags", Responses.GetString("videosItemsList"))
+                        .WhenAndRespond($"{cat}.report", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reportComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getCatalog", Responses.GetString("videoCatalog"))
+                        .WhenAndRespond($"{cat}.getCatalogSection", Responses.GetString("videoCatalogSection"))
+                        .WhenAndRespond($"{cat}.hideCatalogSection", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -448,6 +484,28 @@ namespace ModernDev.InTouch.Tests
             IsNotNull(post.Reposts, "post.Reposts != null");
             IsTrue(post.Reposts.Count == 0, "post.Reposts.Count == 0");
             IsFalse(post.Reposts.UserReposted, "post.Reposts.UserReposted");
+        }
+
+        public static void TestVideo(Video video)
+        {
+            IsNotNull(video, "video != null");
+            IsTrue(video.Id == 456239064, "video.Id == 456239064");
+            IsFalse(video.Repeat, "video.Repeat");
+            IsNotEmpty(video.Title, "video.Title");
+            IsNotNull(video.Date, "video.Date != null");
+            IsNotNull(video.Likes, "video.Likes != null");
+            IsFalse(video.Likes.UserLikes, "video.Likes.UserLikes");
+            IsNotNull(video.PrivacyView, "video.PrivacyView != null");
+            IsTrue(video.PrivacyView.Contains("all"), "video.PrivacyView.Contains('all')");
+        }
+
+        public static void TestVideoAlbum(VideoAlbum album)
+        {
+            IsNotNull(album, "album != null");
+            IsTrue(album.Id == 38887239, "album.Id == 38887239");
+            IsTrue(album.Title == "test", "album.Title == 'test'");
+            IsNotNull(album.UpdatedTime, "album.UpdatedTime != null");
+            IsTrue(album.Privacy.Contains("only_me"), "album.Privacy.Contains('only_me')");
         }
     }
 }
