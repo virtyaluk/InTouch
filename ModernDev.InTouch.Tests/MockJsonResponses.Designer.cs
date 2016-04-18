@@ -451,6 +451,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;reach_subscribers&quot;:11385,&quot;reach_total&quot;:21105,&quot;links&quot;:92,&quot;to_group&quot;:97,&quot;join_group&quot;:3,&quot;report&quot;:0,&quot;hide&quot;:58,&quot;unsubscribe&quot;:15}}.
+        /// </summary>
+        internal static string postReach {
+            get {
+                return ResourceManager.GetString("postReach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:6499,&quot;items&quot;:[{&quot;id&quot;:8226,&quot;from_id&quot;:16815310,&quot;owner_id&quot;:16815310,&quot;date&quot;:1460845707,&quot;post_type&quot;:&quot;post&quot;,&quot;text&quot;:&quot;test&quot;,&quot;can_edit&quot;:1,&quot;can_delete&quot;:1,&quot;can_pin&quot;:1,&quot;attachments&quot;:[{&quot;type&quot;:&quot;photo&quot;,&quot;photo&quot;:{&quot;id&quot;:412644711,&quot;album_id&quot;:-7,&quot;owner_id&quot;:16815310,&quot;photo_75&quot;:&quot;https:\/\/pp.vk.me\/c636031\/v636031972\/17f9\/zqw_nq2GXb0.jpg&quot;,&quot;photo_130&quot;:&quot;https:\/\/pp.vk.me\/c636031\/v636031972\/17fa\/wUHAhbg2Nhk.jpg&quot;,&quot;photo_604&quot;:&quot;https:\/\/pp.vk.me\/c636031\/v636031972\/17fb\/VjYcTHsPtoE.jpg&quot;,&quot;width&quot;:604,&quot;heig [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string postsItemsList {
@@ -555,6 +564,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string setProfileInfo {
             get {
                 return ResourceManager.GetString("setProfileInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;day&quot;:&quot;2016-04-17&quot;,&quot;views&quot;:2402,&quot;visitors&quot;:1817,&quot;reach&quot;:1043,&quot;reach_subscribers&quot;:219,&quot;subscribed&quot;:86,&quot;unsubscribed&quot;:70,&quot;sex&quot;:[{&quot;visitors&quot;:735,&quot;value&quot;:&quot;f&quot;},{&quot;visitors&quot;:756,&quot;value&quot;:&quot;m&quot;}],&quot;age&quot;:[{&quot;visitors&quot;:406,&quot;value&quot;:&quot;12-18&quot;},{&quot;visitors&quot;:261,&quot;value&quot;:&quot;18-21&quot;},{&quot;visitors&quot;:176,&quot;value&quot;:&quot;21-24&quot;},{&quot;visitors&quot;:143,&quot;value&quot;:&quot;24-27&quot;},{&quot;visitors&quot;:90,&quot;value&quot;:&quot;27-30&quot;},{&quot;visitors&quot;:73,&quot;value&quot;:&quot;30-35&quot;},{&quot;visitors&quot;:44,&quot;value&quot;:&quot;35-45&quot;},{&quot;visitors&quot;:81,&quot;value&quot;:&quot;45-100&quot;}],&quot;sex_age&quot;:[{&quot;visitors&quot;:254,&quot;value&quot;:&quot;f;12-18&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string stats {
+            get {
+                return ResourceManager.GetString("stats", resourceCulture);
             }
         }
         
