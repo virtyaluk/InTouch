@@ -301,6 +301,13 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getCatalogSection", Responses.GetString("videoCatalogSection"))
                         .WhenAndRespond($"{cat}.hideCatalogSection", Responses.GetString("responseTrue"));
                     break;
+
+                case "stats":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("stats"))
+                        .WhenAndRespond($"{cat}.trackVisitor", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getPostReach", Responses.GetString("postReach"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
