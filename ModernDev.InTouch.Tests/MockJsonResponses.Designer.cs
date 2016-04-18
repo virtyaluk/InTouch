@@ -196,6 +196,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:96,&quot;items&quot;:[{&quot;id&quot;:&quot;3796764_1127&quot;,&quot;user_id&quot;:3796764,&quot;post_id&quot;:1127,&quot;date&quot;:1461004126,&quot;latitude&quot;:0.000000,&quot;longitude&quot;:0.000000,&quot;text&quot;:&quot;#СловомиМузыкой Творческий вечер Андрея Пастушенко &lt;br&gt;#АнтонАвдеев #ВячеславШтыпс #ИлияДьяков #АндрейПастушенко #ДарьяКотюх #МананаГогитидзе #КириллГордеев #ВераСвешникова #РостиславКолпаков @ Концертный зал у Финляндского&quot;,&quot;place_id&quot;:0,&quot;place_title&quot;:&quot;&quot;,&quot;place_country&quot;:0,&quot;place_city&quot;:0,&quot;place_address&quot;:&quot;&quot;,&quot;place_type&quot;:0,&quot;place_icon&quot;:&quot;http:\/\/vk.com\/image [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string checkinsItemsList {
+            get {
+                return ResourceManager.GetString("checkinsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:18,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Москва&quot;,&quot;important&quot;:1},{&quot;id&quot;:2,&quot;title&quot;:&quot;Санкт-Петербург&quot;,&quot;important&quot;:1},{&quot;id&quot;:10,&quot;title&quot;:&quot;Волгоград&quot;},{&quot;id&quot;:37,&quot;title&quot;:&quot;Владивосток&quot;},{&quot;id&quot;:153,&quot;title&quot;:&quot;Хабаровск&quot;}]}}.
         /// </summary>
         internal static string citiesItemsList {
@@ -433,6 +442,96 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:230870814,&quot;thumb_id&quot;:0,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;Test Album&quot;,&quot;description&quot;:&apos;Test&apos;,&quot;created&quot;:1461013076,&quot;updated&quot;:1461013076,&quot;size&quot;:0,&quot;privacy_view&quot;:[&quot;friends&quot;],&quot;privacy_comment&quot;:[&quot;friends&quot;]}}.
+        /// </summary>
+        internal static string photoAlbum {
+            get {
+                return ResourceManager.GetString("photoAlbum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:8,&quot;items&quot;:[{&quot;id&quot;:230870814,&quot;thumb_id&quot;:0,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;Test Album&quot;,&quot;description&quot;:&quot;Test&quot;,&quot;created&quot;:1461013076,&quot;updated&quot;:1461013076,&quot;size&quot;:0,&quot;thumb_is_last&quot;:1,&quot;privacy_view&quot;:[&quot;friends&quot;],&quot;privacy_comment&quot;:[&quot;friends&quot;],&quot;sizes&quot;:[{&quot;src&quot;:&quot;https:\/\/vk.com\/images\/s_noalbum.png&quot;,&quot;width&quot;:75,&quot;height&quot;:55,&quot;type&quot;:&quot;s&quot;},{&quot;src&quot;:&quot;https:\/\/vk.com\/images\/m_noalbum.png&quot;,&quot;width&quot;:130,&quot;height&quot;:97,&quot;type&quot;:&quot;m&quot;},{&quot;src&quot;:&quot;https:\/\/vk.com\/images\/x_noalbum.png&quot;,&quot;width&quot;:432,&quot;height&quot;:249,&quot;type&quot;:&quot;x&quot;} [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string photoAlbumsItemsList {
+            get {
+                return ResourceManager.GetString("photoAlbumsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:167,&quot;items&quot;:[{&quot;id&quot;:397256148,&quot;album_id&quot;:136414880,&quot;owner_id&quot;:16815310,&quot;sizes&quot;:[{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c633928\/v633928310\/8113\/j8GvxSFiozQ.jpg&quot;,&quot;width&quot;:87,&quot;height&quot;:130,&quot;type&quot;:&quot;m&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c633928\/v633928310\/8116\/BPsLFFM98Qw.jpg&quot;,&quot;width&quot;:130,&quot;height&quot;:194,&quot;type&quot;:&quot;o&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c633928\/v633928310\/8117\/kPngK-7AwuI.jpg&quot;,&quot;width&quot;:200,&quot;height&quot;:298,&quot;type&quot;:&quot;p&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c633928\/v633928310\/8118\/ziQdPfj_jfk.jpg&quot;,&quot;width&quot;:320,&quot;h [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string photosItemsList {
+            get {
+                return ResourceManager.GetString("photosItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:397256148,&quot;album_id&quot;:136414880,&quot;owner_id&quot;:16815310,&quot;sizes&quot;:[{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c633928\/v633928310\/8113\/j8GvxSFiozQ.jpg&quot;,&quot;width&quot;:87,&quot;height&quot;:130,&quot;type&quot;:&quot;m&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c633928\/v633928310\/8116\/BPsLFFM98Qw.jpg&quot;,&quot;width&quot;:130,&quot;height&quot;:194,&quot;type&quot;:&quot;o&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c633928\/v633928310\/8117\/kPngK-7AwuI.jpg&quot;,&quot;width&quot;:200,&quot;height&quot;:298,&quot;type&quot;:&quot;p&quot;},{&quot;src&quot;:&quot;https:\/\/pp.vk.me\/c633928\/v633928310\/8118\/ziQdPfj_jfk.jpg&quot;,&quot;width&quot;:320,&quot;height&quot;:477,&quot;type&quot;:&quot;q&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string photosList {
+            get {
+                return ResourceManager.GetString("photosList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;upload_url&quot;:&quot;some_upload_url&quot;,&quot;album_id&quot;:1234,&quot;user_id&quot;:12345}}.
+        /// </summary>
+        internal static string photosUploadServer {
+            get {
+                return ResourceManager.GetString("photosUploadServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:42830775,&quot;user_id&quot;:3420,&quot;placer_id&quot;:46775,&quot;tagged_name&quot;:&quot;Georgy Lobushkin&quot;,&quot;date&quot;:1413100329,&quot;x&quot;:45.16,&quot;y&quot;:42.97,&quot;x2&quot;:59.22,&quot;y2&quot;:63.75,&quot;viewed&quot;:0},{&quot;id&quot;:42830777,&quot;user_id&quot;:9256,&quot;placer_id&quot;:46775,&quot;tagged_name&quot;:&quot;Dmitry Vanyukov&quot;,&quot;date&quot;:1413100353,&quot;x&quot;:51.56,&quot;y&quot;:34.84,&quot;x2&quot;:56.25,&quot;y2&quot;:39.53,&quot;viewed&quot;:1}]}.
+        /// </summary>
+        internal static string photoTags {
+            get {
+                return ResourceManager.GetString("photoTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:1234}}.
+        /// </summary>
+        internal static string placeAdd {
+            get {
+                return ResourceManager.GetString("placeAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:1999,&quot;items&quot;:[{&quot;id&quot;:213784,&quot;title&quot;:&quot;Дом Зингера&quot;,&quot;latitude&quot;:59.935624,&quot;longitude&quot;:30.325875,&quot;created&quot;:1295369575,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/work.png&quot;,&quot;checkins&quot;:415,&quot;updated&quot;:1460883258,&quot;type&quot;:2,&quot;country&quot;:1,&quot;city&quot;:2,&quot;address&quot;:&quot;Невский проспект 28&quot;,&quot;distance&quot;:3},{&quot;id&quot;:4348949,&quot;title&quot;:&quot;Штаб ВКонтакте&quot;,&quot;latitude&quot;:59.935620,&quot;longitude&quot;:30.325884,&quot;created&quot;:1356787551,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/place.png&quot;,&quot;group_id&quot;:47590230,&quot;group_photo&quot;:&quot;https:\/\/pp.vk.me\/c40 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string placesItemsList {
+            get {
+                return ResourceManager.GetString("placesItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:4980426,&quot;title&quot;:&quot;test&quot;,&quot;latitude&quot;:25.000000,&quot;longitude&quot;:25.000000,&quot;created&quot;:1364117621,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/home.png&quot;,&quot;checkins&quot;:33,&quot;updated&quot;:1460612881,&quot;type&quot;:1},{&quot;id&quot;:1,&quot;title&quot;:&quot;Baila Baila&quot;,&quot;latitude&quot;:55.657941,&quot;longitude&quot;:37.751574,&quot;created&quot;:1280741941,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/clubs.png&quot;,&quot;checkins&quot;:436,&quot;updated&quot;:1459540482,&quot;type&quot;:4,&quot;country&quot;:1,&quot;city&quot;:1,&quot;address&quot;:&quot;Мячковский б-р 3а&quot;},{&quot;id&quot;:43252,&quot;title&quot;:&quot;Phoenix Litchfield Municipal Airport&quot;,&quot;latit [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string placesList {
+            get {
+                return ResourceManager.GetString("placesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Дом&quot;,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/home.png&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Работа&quot;,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/work.png&quot;},{&quot;id&quot;:3,&quot;title&quot;:&quot;Ресторан&quot;,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/restaraunt.png&quot;},{&quot;id&quot;:4,&quot;title&quot;:&quot;Клуб&quot;,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/clubs.png&quot;},{&quot;id&quot;:5,&quot;title&quot;:&quot;Кинотеатр&quot;,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/cinema.png&quot;},{&quot;id&quot;:6,&quot;title&quot;:&quot;Бар&quot;,&quot;icon&quot;:&quot;https:\/\/vk.com\/images\/places\/bar.png&quot;},{&quot;id&quot;:7,&quot;title&quot;:&quot;Развлечен [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string placeTypes {
+            get {
+                return ResourceManager.GetString("placeTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;owner_id&quot;:-26406986,&quot;poll_id&quot;:222496894,&quot;created&quot;:1460316481,&quot;question&quot;:&quot;Насколько ловкие твои руки?&quot;,&quot;votes&quot;:3911,&quot;answer_id&quot;:0,&quot;answers&quot;:[{&quot;id&quot;:739902439,&quot;text&quot;:&quot;Да, умею. Правда на это уходит времени больше, чем на поиски смысла жизни.&quot;,&quot;votes&quot;:401,&quot;rate&quot;:10.250000},{&quot;id&quot;:739902440,&quot;text&quot;:&quot;Легко, по фасту собираю.&quot;,&quot;votes&quot;:233,&quot;rate&quot;:5.960000},{&quot;id&quot;:739902441,&quot;text&quot;:&quot;Собираю ногами, с закрытыми глазами, после 10 кужек пива.&quot;,&quot;votes&quot;:126,&quot;rate&quot;:3.220000},{&quot;id&quot;:739902442,&quot;text&quot;:&quot;Две грани соб [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string poll {
@@ -537,6 +636,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string responseTrue {
             get {
                 return ResourceManager.GetString("responseTrue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;photo_hash&quot;:&quot;hash&quot;,&quot;photo_src&quot;:&quot;src&quot;}}.
+        /// </summary>
+        internal static string saveOwnerPhoto {
+            get {
+                return ResourceManager.GetString("saveOwnerPhoto", resourceCulture);
             }
         }
         
