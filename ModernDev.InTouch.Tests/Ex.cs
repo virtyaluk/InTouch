@@ -312,6 +312,63 @@ namespace ModernDev.InTouch.Tests
                 case "search":
                     mockHttp.WhenAndRespond($"{cat}.getHints", Responses.GetString("searchHints"));
                     break;
+
+                case "places":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.add", Responses.GetString("placeAdd"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("placesList"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("placesItemsList"))
+                        .WhenAndRespond($"{cat}.checkin", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.getCheckins", Responses.GetString("checkinsItemsList"))
+                        .WhenAndRespond($"{cat}.getTypes", Responses.GetString("placeTypes"));
+                    break;
+                case "photos":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.createAlbum", Responses.GetString("photoAlbum"))
+                        .WhenAndRespond($"{cat}.editAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getAlbums", Responses.GetString("photoAlbumsItemsList"))
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("photosItemsList"))
+                        .WhenAndRespond($"{cat}.getAlbumsCount", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("photosList"))
+                        .WhenAndRespond($"{cat}.getUploadServer", Responses.GetString("photosUploadServer"))
+                        .WhenAndRespond($"{cat}.getOwnerPhotoUploadServer", Responses.GetString("photosUploadServer"))
+                        .WhenAndRespond($"{cat}.getChatUploadServer", Responses.GetString("photosUploadServer"))
+                        .WhenAndRespond($"{cat}.getMarketUploadServer", Responses.GetString("photosUploadServer"))
+                        .WhenAndRespond($"{cat}.getMarketAlbumUploadServer", Responses.GetString("photosUploadServer"))
+                        .WhenAndRespond($"{cat}.saveMarketPhoto", Responses.GetString("photosList"))
+                        .WhenAndRespond($"{cat}.saveMarketAlbumPhoto", Responses.GetString("photosList"))
+                        .WhenAndRespond($"{cat}.saveOwnerPhoto", Responses.GetString("saveOwnerPhoto"))
+                        .WhenAndRespond($"{cat}.saveWallPhoto", Responses.GetString("photosList"))
+                        .WhenAndRespond($"{cat}.getWallUploadServer", Responses.GetString("photosUploadServer"))
+                        .WhenAndRespond($"{cat}.getMessagesUploadServer", Responses.GetString("photosUploadServer"))
+                        .WhenAndRespond($"{cat}.saveMessagesPhoto", Responses.GetString("photosList"))
+                        .WhenAndRespond($"{cat}.report", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reportComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("photosItemsList"))
+                        .WhenAndRespond($"{cat}.save", Responses.GetString("photosList"))
+                        .WhenAndRespond($"{cat}.copy", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.move", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.makeCover", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reorderAlbums", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reorderPhotos", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getAll", Responses.GetString("photosItemsList"))
+                        .WhenAndRespond($"{cat}.getUserPhotos", Responses.GetString("photosItemsList"))
+                        .WhenAndRespond($"{cat}.deleteAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restore", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.confirmTag", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getComments", Responses.GetString("commentItemsList"))
+                        .WhenAndRespond($"{cat}.getAllComments", Responses.GetString("commentItemsList"))
+                        .WhenAndRespond($"{cat}.createComment", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.deleteComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restoreComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.editComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getTags", Responses.GetString("photoTags"))
+                        .WhenAndRespond($"{cat}.putTag", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.removeTag", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getNewTags", Responses.GetString("photosItemsList"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -517,6 +574,45 @@ namespace ModernDev.InTouch.Tests
             IsTrue(album.Title == "test", "album.Title == 'test'");
             IsNotNull(album.UpdatedTime, "album.UpdatedTime != null");
             IsTrue(album.Privacy.Contains("only_me"), "album.Privacy.Contains('only_me')");
+        }
+
+        public static void TestPhotoAlbum(PhotoAlbum album)
+        {
+            IsNotNull(album, "album != null");
+            IsTrue(album.Id == 230870814, "album.Id == 230870814");
+            IsTrue(album.Title == "Test Album", "album.Title == 'Test Album'");
+            IsNotNull(album.Created, "album.Created != null");
+            IsTrue(album.PrivacyView.Contains("friends"), "album.PrivacyView.Contains('friends')");
+
+            if (album.Sizes != null)
+            {
+                IsNotEmpty(album.Sizes, "album.Sizes");
+                IsNotNull(album.Sizes[0], "album.Sizes[0] != null");
+                IsNotEmpty(album.Sizes[0].Src, "album.Sizes[0].Src");
+                IsTrue(album.Sizes[0].Width == 75, "album.Sizes[0].Width == 75");
+                IsTrue(album.Sizes[0].Type == PhotoSizeTypes.S, "album.Sizes[0].Type == PhotoSizeTypes.S");
+            }
+        }
+
+        public static void TestPhoto(Photo photo)
+        {
+            IsNotNull(photo, "photo != null");
+            IsTrue(photo.Id == 397256148, "photo.Id == 397256148");
+            IsNotEmpty(photo.Sizes, "photo.Sizes != null");
+            IsNotNull(photo.Sizes[0], "photo.Sizes[0] != null");
+            IsTrue(photo.Sizes[0].Width == 87, "photo.Sizes[0].Width == 87");
+            IsTrue(photo.Sizes[0].Type == PhotoSizeTypes.M, "photo.Sizes[0].Type == PhotoSizeTypes.M");
+            IsNotEmpty(photo.Text, "photo.Text");
+            IsNotNull(photo.Date, "photo.Date != null");
+            IsNotNull(photo.Likes, "photo.Likes != null");
+            IsFalse(photo.Likes.UserLikes, "photo.Likes.UserLikes");
+            IsNotNull(photo.Reposts, "photo.Reposts != null");
+            IsTrue(photo.Reposts.Count == 0, "photo.Reposts.Count == 0");
+            IsNotNull(photo.Comments, "photo.Comments != null");
+            IsTrue(photo.Comments.Count == 0, "photo.Comments.Count == 0");
+            IsTrue(photo.CanComment, "photo.CanComment");
+            IsNotNull(photo.Tags, "photo.Tags != null");
+            IsTrue(photo.Tags.Count == 0, "photo.Tags.Count == 0");
         }
     }
 }
