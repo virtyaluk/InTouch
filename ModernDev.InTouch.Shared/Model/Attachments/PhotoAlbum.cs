@@ -122,6 +122,14 @@ namespace ModernDev.InTouch
         [JsonProperty("sizes")]
         public List<PhotoSize> Sizes { get; set; }
 
+        #region Extra properties
+
+        [DataMember]
+        [JsonProperty("thumb_is_last")]
+        public bool ThumbIsLast { get; set; }
+
+        #endregion
+
         #endregion
     }
 }
