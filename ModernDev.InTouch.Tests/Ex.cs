@@ -308,6 +308,10 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.trackVisitor", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getPostReach", Responses.GetString("postReach"));
                     break;
+
+                case "search":
+                    mockHttp.WhenAndRespond($"{cat}.getHints", Responses.GetString("searchHints"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
