@@ -23,6 +23,20 @@ namespace ModernDev.InTouch
     [DataContract]
     public class Coordinates
     {
+        #region Constructor
+
+        public Coordinates(double latitude, double longitude)
+        {
+            Latitude = latitude;
+            Longitude = longitude;
+        }
+
+        public Coordinates() { }
+
+        #endregion
+
+        #region Properties
+
         /// <summary>
         /// Geographical latitude, in degrees (from -90 to 90).
         /// </summary>
@@ -46,5 +60,7 @@ namespace ModernDev.InTouch
         /// Accuracy in meters.
         /// </summary>
         public int Accuracy { get; set; }
+
+        #endregion
     }
 }
