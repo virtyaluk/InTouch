@@ -64,6 +64,14 @@ namespace ModernDev.InTouch
         Q,
 
         /// <summary>
+        /// If original image's "width/height" ratio is less or equal to 3:2, then proportional copy with 510px max width.
+        /// If original image's "width/height" ratio is more than 3:2, then copy of cropped by left side image
+        /// with 510px max width and 3:2 sides ratio.
+        /// </summary>
+        [EnumMember(Value = "r")]
+        R,
+
+        /// <summary>
         /// Proportional copy with 807px max width.
         /// </summary>
         [EnumMember(Value = "y")]
