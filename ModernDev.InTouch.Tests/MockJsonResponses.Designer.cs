@@ -658,6 +658,78 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;album_id&quot;:1234}}.
+        /// </summary>
+        internal static string videoAddAlbum {
+            get {
+                return ResourceManager.GetString("videoAddAlbum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:38887239,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;test&quot;,&quot;count&quot;:1,&quot;photo_320&quot;:&quot;https:\/\/pp.vk.me\/c633524\/u50013393\/video\/l_cb5ee969.jpg&quot;,&quot;photo_160&quot;:&quot;https:\/\/pp.vk.me\/c633524\/u50013393\/video\/m_055fec62.jpg&quot;,&quot;updated_time&quot;:1458066164,&quot;privacy&quot;:[&quot;only_me&quot;]}}.
+        /// </summary>
+        internal static string videoAlbum {
+            get {
+                return ResourceManager.GetString("videoAlbum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:5,&quot;items&quot;:[{&quot;id&quot;:38887239,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;test&quot;,&quot;count&quot;:1,&quot;photo_320&quot;:&quot;https:\/\/pp.vk.me\/c633524\/u50013393\/video\/l_cb5ee969.jpg&quot;,&quot;photo_160&quot;:&quot;https:\/\/pp.vk.me\/c633524\/u50013393\/video\/m_055fec62.jpg&quot;,&quot;updated_time&quot;:1458066164,&quot;privacy&quot;:[&quot;only_me&quot;]},{&quot;id&quot;:38887238,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;wtf&quot;,&quot;count&quot;:1,&quot;photo_320&quot;:&quot;https:\/\/pp.vk.me\/c622418\/u551488\/video\/l_9da88abe.jpg&quot;,&quot;photo_160&quot;:&quot;https:\/\/pp.vk.me\/c622418\/u551488\/video\/m_c73a125d.jpg&quot;,&quot;updated_tim [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string videoAlbumsItemsList {
+            get {
+                return ResourceManager.GetString("videoAlbumsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;items&quot;:[{&quot;items&quot;:[{&quot;id&quot;:456239073,&quot;owner_id&quot;:-25988584,&quot;title&quot;:&quot;Таку Секине в гостях у «Еды»&quot;,&quot;duration&quot;:389,&quot;description&quot;:&quot;&quot;,&quot;date&quot;:1460801976,&quot;views&quot;:7623,&quot;comments&quot;:8,&quot;photo_130&quot;:&quot;https:\/\/cs7065.vk.me\/c636328\/v636328584\/19ae\/L132LsR0hYI.jpg&quot;,&quot;photo_320&quot;:&quot;https:\/\/cs7065.vk.me\/c636328\/v636328584\/19ac\/Q0yo6gkjbTk.jpg&quot;,&quot;photo_800&quot;:&quot;https:\/\/cs7065.vk.me\/c636328\/v636328584\/19ab\/1ERvshMCDmw.jpg&quot;,&quot;can_add&quot;:1,&quot;type&quot;:&quot;video&quot;},{&quot;id&quot;:456239072,&quot;owner_id&quot;:-25988584,&quot;title&quot;:&quot;«Олд-фэшенд [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string videoCatalog {
+            get {
+                return ResourceManager.GetString("videoCatalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;items&quot;:[{&quot;type&quot;:&quot;album&quot;,&quot;id&quot;:38887239,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;test&quot;,&quot;count&quot;:1,&quot;photo_320&quot;:&quot;https:\/\/pp.vk.me\/c633524\/u50013393\/video\/l_cb5ee969.jpg&quot;,&quot;photo_160&quot;:&quot;https:\/\/pp.vk.me\/c633524\/u50013393\/video\/m_055fec62.jpg&quot;,&quot;updated_time&quot;:1458066164,&quot;privacy&quot;:[&quot;only_me&quot;]},{&quot;type&quot;:&quot;video&quot;,&quot;id&quot;:167787241,&quot;owner_id&quot;:-63858240,&quot;title&quot;:&quot;Когда звонит бывшая (Vine)&quot;,&quot;duration&quot;:6,&quot;description&quot;:&quot;&quot;,&quot;date&quot;:1395074446,&quot;views&quot;:254834,&quot;comments&quot;:75,&quot;photo_130&quot;:&quot;https:\/\/pp.vk.me\/c532519\/u24057 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string videoCatalogSection {
+            get {
+                return ResourceManager.GetString("videoCatalogSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;upload_url&quot;:&quot;https://cs505217....fupload=1&amp;api=1&quot;,&quot;video_id&quot;:456239067,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;No name&quot;,&quot;description&quot;:&quot;&quot;,&quot;access_key&quot;:&quot;e8a1325ae87fb901b6&quot;}}.
+        /// </summary>
+        internal static string videoSave {
+            get {
+                return ResourceManager.GetString("videoSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:4597,&quot;items&quot;:[{&quot;id&quot;:167787241,&quot;owner_id&quot;:-63858240,&quot;title&quot;:&quot;Когда звонит бывшая (Vine)&quot;,&quot;duration&quot;:6,&quot;description&quot;:&quot;&quot;,&quot;date&quot;:1395074446,&quot;views&quot;:254834,&quot;comments&quot;:75,&quot;photo_130&quot;:&quot;https:\/\/pp.vk.me\/c532519\/u240579991\/video\/s_9a1b2abd.jpg&quot;,&quot;photo_320&quot;:&quot;https:\/\/pp.vk.me\/c532519\/u240579991\/video\/l_d091a6ee.jpg&quot;,&quot;adding_date&quot;:1460931140,&quot;user_id&quot;:182956644,&quot;player&quot;:&quot;https:\/\/vk.com\/video_ext.php?oid=-63858240&amp;id=167787241&amp;hash=3023bc2767fd485d&amp;__ref=vk.api&amp;api_hash=14609325446dee [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string videosItemsList {
+            get {
+                return ResourceManager.GetString("videosItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;user_id&quot;:9594917,&quot;tag_id&quot;:88134675,&quot;placer_id&quot;:57193514,&quot;tagged_name&quot;:&quot;Маринка Юзефович&quot;,&quot;date&quot;:1267692441,&quot;viewed&quot;:1},{&quot;user_id&quot;:11511140,&quot;tag_id&quot;:88134678,&quot;placer_id&quot;:57193514,&quot;tagged_name&quot;:&quot;Людмилочка Ткаченко&quot;,&quot;date&quot;:1267692455,&quot;viewed&quot;:0}]}.
+        /// </summary>
+        internal static string videoTags {
+            get {
+                return ResourceManager.GetString("videoTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;post_id&quot;:1234,&quot;success&quot;:1,&quot;reposts_count&quot;:50,&quot;likes_count&quot;:105}}.
         /// </summary>
         internal static string wallPost {
