@@ -505,7 +505,19 @@
   <data name="placeTypes" xml:space="preserve">
     <value>{"response":[{"id":1,"title":"Дом","icon":"https:\/\/vk.com\/images\/places\/home.png"},{"id":2,"title":"Работа","icon":"https:\/\/vk.com\/images\/places\/work.png"},{"id":3,"title":"Ресторан","icon":"https:\/\/vk.com\/images\/places\/restaraunt.png"},{"id":4,"title":"Клуб","icon":"https:\/\/vk.com\/images\/places\/clubs.png"},{"id":5,"title":"Кинотеатр","icon":"https:\/\/vk.com\/images\/places\/cinema.png"},{"id":6,"title":"Бар","icon":"https:\/\/vk.com\/images\/places\/bar.png"},{"id":7,"title":"Развлечения","icon":"https:\/\/vk.com\/images\/places\/entertainment.png"},{"id":8,"title":"Магазин","icon":"https:\/\/vk.com\/images\/places\/shop.png"},{"id":9,"title":"Аэропорт","icon":"https:\/\/vk.com\/images\/places\/airport.png"},{"id":10,"title":"Вокзал","icon":"https:\/\/vk.com\/images\/places\/train.png"},{"id":11,"title":"Отель","icon":"https:\/\/vk.com\/images\/places\/hotel.png"},{"id":12,"title":"Кафе","icon":"https:\/\/vk.com\/images\/places\/cafe.png"},{"id":13,"title":"Бистро","icon":"https:\/\/vk.com\/images\/places\/burger.png"},{"id":14,"title":"Пиццерия","icon":"https:\/\/vk.com\/images\/places\/pizza.png"},{"id":15,"title":"Бассейн","icon":"https:\/\/vk.com\/images\/places\/pool.png"},{"id":16,"title":"Тренажерный зал","icon":"https:\/\/vk.com\/images\/places\/gym.png"},{"id":17,"title":"Учебное заведение","icon":"https:\/\/vk.com\/images\/places\/education.png"},{"id":18,"title":"Музей","icon":"https:\/\/vk.com\/images\/places\/museum.png"},{"id":19,"title":"Театр","icon":"https:\/\/vk.com\/images\/places\/theater.png"},{"id":20,"title":"Парк","icon":"https:\/\/vk.com\/images\/places\/park.png"},{"id":21,"title":"Другое","icon":"https:\/\/vk.com\/images\/places\/place.png"}]}</value>
   </data>
+  <data name="responseText" xml:space="preserve">
+    <value>{"response":"some text"}</value>
+  </data>
   <data name="saveOwnerPhoto" xml:space="preserve">
     <value>{"response":{"photo_hash":"hash","photo_src":"src"}}</value>
+  </data>
+  <data name="wikiHistory" xml:space="preserve">
+    <value>{"response":[{"id":183526239,"length":23,"date":1430756719,"editor_id":2314852,"editor_name":"Irina Denezhkina"}]}</value>
+  </data>
+  <data name="wikiPage" xml:space="preserve">
+    <value>{"response":{"id":48646066,"group_id":79831840,"title":"book","who_can_view":2,"who_can_edit":0,"edited":1418760747,"created":1416349779,"views":470,"source":"156 книг для IT-профессионалов","view_url":"https : //m.vk.com/...ed7580b41b51f2208cd"}}</value>
+  </data>
+  <data name="wikiTitles" xml:space="preserve">
+    <value>{"response":[{"id":48646066,"title":"book","group_id":79831840,"created":1416349779,"edited":1418760747,"who_can_view":2,"who_can_edit":0,"views":470},{"id":48646082,"title":"goldfondbook","group_id":79831840,"created":1416350500,"edited":1416429170,"who_can_view":2,"who_can_edit":0,"views":306},{"id":49674033,"title":"Задачи C","group_id":79831840,"created":1444683925,"edited":1444683925,"who_can_view":2,"who_can_edit":0,"views":0},{"id":49674057,"title":"лекция 3","group_id":79831840,"created":1444684154,"edited":1444684520,"who_can_view":2,"who_can_edit":0,"views":0}]}</value>
   </data>
 </root>
