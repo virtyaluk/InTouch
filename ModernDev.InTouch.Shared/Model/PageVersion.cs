@@ -43,9 +43,9 @@ namespace ModernDev.InTouch
         /// Date on which the page was edited.
         /// </summary>
         [DataMember]
-        [JsonProperty("edited")]
+        [JsonProperty("Date")]
         [JsonConverter(typeof(JsonNumberDateTimeConverter))]
-        public DateTime Edited { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// ID of the user who edited the page.
