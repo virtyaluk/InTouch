@@ -156,6 +156,15 @@ namespace ModernDev.InTouch
         [JsonProperty("owner_id")]
         public int OwnerId { get; set; }
 
+        [DataMember]
+        [JsonProperty("page_id")]
+        public int PageId { get; set; }
+
+        [DataMember]
+        [JsonProperty("version_created")]
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
+        public DateTime? VersionCreated { get; set; }
+
         #endregion
     }
 }
