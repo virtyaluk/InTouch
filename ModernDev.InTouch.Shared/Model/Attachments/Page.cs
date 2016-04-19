@@ -15,7 +15,6 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace ModernDev.InTouch
 {
@@ -76,7 +75,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("who_can_view")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public CommunityAccessTypes WhoCanView { get; set; }
 
         /// <summary>
@@ -84,7 +82,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("who_can_edit")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public CommunityAccessTypes WhoCanEdit { get; set; }
 
         /// <summary>
