@@ -369,6 +369,18 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.removeTag", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getNewTags", Responses.GetString("photosItemsList"));
                     break;
+
+                case "pages":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("wikiPage"))
+                        .WhenAndRespond($"{cat}.save", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.saveAccess", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.getHistory", Responses.GetString("wikiHistory"))
+                        .WhenAndRespond($"{cat}.getTitles", Responses.GetString("wikiTitles"))
+                        .WhenAndRespond($"{cat}.getVersion", Responses.GetString("wikiPage"))
+                        .WhenAndRespond($"{cat}.parseWiki", Responses.GetString("responseText"))
+                        .WhenAndRespond($"{cat}.clearCache", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -613,6 +625,15 @@ namespace ModernDev.InTouch.Tests
             IsTrue(photo.CanComment, "photo.CanComment");
             IsNotNull(photo.Tags, "photo.Tags != null");
             IsTrue(photo.Tags.Count == 0, "photo.Tags.Count == 0");
+        }
+
+        public static void TestWikiPage(Page page)
+        {
+            IsNotNull(page, "page != null");
+            IsTrue(page.Id == 48646066, "page.Id == 48646066");
+            IsTrue(page.Title == "book", "page.Title == 'book'");
+            IsTrue(page.WhoCanView == CommunityAccessTypes.Everyone, "page.WhoCanView == CommunityAccessTypes.Everyone");
+            IsNotNull(page.Created, "page.Created != null");
         }
     }
 }

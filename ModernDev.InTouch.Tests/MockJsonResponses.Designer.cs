@@ -631,6 +631,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:&quot;some text&quot;}.
+        /// </summary>
+        internal static string responseText {
+            get {
+                return ResourceManager.GetString("responseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:1}.
         /// </summary>
         internal static string responseTrue {
@@ -870,6 +879,33 @@ namespace ModernDev.InTouch.Tests {
         internal static string wallPost {
             get {
                 return ResourceManager.GetString("wallPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:183526239,&quot;length&quot;:23,&quot;date&quot;:1430756719,&quot;editor_id&quot;:2314852,&quot;editor_name&quot;:&quot;Irina Denezhkina&quot;}]}.
+        /// </summary>
+        internal static string wikiHistory {
+            get {
+                return ResourceManager.GetString("wikiHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:48646066,&quot;group_id&quot;:79831840,&quot;title&quot;:&quot;book&quot;,&quot;who_can_view&quot;:2,&quot;who_can_edit&quot;:0,&quot;edited&quot;:1418760747,&quot;created&quot;:1416349779,&quot;views&quot;:470,&quot;source&quot;:&quot;156 книг для IT-профессионалов&quot;,&quot;view_url&quot;:&quot;https : //m.vk.com/...ed7580b41b51f2208cd&quot;}}.
+        /// </summary>
+        internal static string wikiPage {
+            get {
+                return ResourceManager.GetString("wikiPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:48646066,&quot;title&quot;:&quot;book&quot;,&quot;group_id&quot;:79831840,&quot;created&quot;:1416349779,&quot;edited&quot;:1418760747,&quot;who_can_view&quot;:2,&quot;who_can_edit&quot;:0,&quot;views&quot;:470},{&quot;id&quot;:48646082,&quot;title&quot;:&quot;goldfondbook&quot;,&quot;group_id&quot;:79831840,&quot;created&quot;:1416350500,&quot;edited&quot;:1416429170,&quot;who_can_view&quot;:2,&quot;who_can_edit&quot;:0,&quot;views&quot;:306},{&quot;id&quot;:49674033,&quot;title&quot;:&quot;Задачи C&quot;,&quot;group_id&quot;:79831840,&quot;created&quot;:1444683925,&quot;edited&quot;:1444683925,&quot;who_can_view&quot;:2,&quot;who_can_edit&quot;:0,&quot;views&quot;:0},{&quot;id&quot;:49674057,&quot;title&quot;:&quot;лекция 3&quot;,&quot;group_id&quot;:79831840,&quot;created&quot;:1444684154, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string wikiTitles {
+            get {
+                return ResourceManager.GetString("wikiTitles", resourceCulture);
             }
         }
     }
