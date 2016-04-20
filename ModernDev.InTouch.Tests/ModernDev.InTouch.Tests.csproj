@@ -65,6 +65,7 @@
     <Compile Include="GiftsMethodsTests.cs" />
     <Compile Include="GroupsMethodsTests.cs" />
     <Compile Include="LikesMethodsTests.cs" />
+    <Compile Include="NotesMethodsTests.cs" />
     <Compile Include="NotificationsMethodsTests.cs" />
     <Compile Include="PagesMethodsTests.cs" />
     <Compile Include="PhotosMethodsTests.cs" />
