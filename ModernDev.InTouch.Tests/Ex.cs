@@ -401,6 +401,25 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.deleteComment", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.restoreComment", Responses.GetString("responseTrue"));
                     break;
+
+                case "newsfeed":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("newsItemsList"))
+                        .WhenAndRespond($"{cat}.getRecommended", Responses.GetString("newsItemsList"))
+                        .WhenAndRespond($"{cat}.getComments", Responses.GetString("newsItemsList"))
+                        .WhenAndRespond($"{cat}.getMentions", Responses.GetString("mentionsItemsList"))
+                        .WhenAndRespond($"{cat}.getBanned", Responses.GetString("separatedProfilesList"))
+                        .WhenAndRespond($"{cat}.addBan", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteBan", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.ignoreItem", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.unignoreItem", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("newsItemsList"))
+                        .WhenAndRespond($"{cat}.getLists", Responses.GetString("newsLists"))
+                        .WhenAndRespond($"{cat}.saveList", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.deleteList", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.unsubscribe", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getSuggestedSources", Responses.GetString("mixedProfilesList"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -662,6 +681,34 @@ namespace ModernDev.InTouch.Tests
             IsTrue(note.Id == 11096473, "note.Id == 11096473");
             IsNotNull(note.Date, "note.Date != null");
             IsTrue(note.Text == "note html", "note.Text == 'note html'");
+        }
+
+        public static void TestNewsPost(NewsPost post)
+        {
+            IsNotNull(post, "news != null");
+            IsTrue(post.Type == NewsfeedFilters.Video, "post.Type == NewsfeedFilters.Video");
+            IsTrue(post.SourceId == -2682332, "post.SourceId == -2682332");
+            IsNotNull(post.Date, "post.Date != null");
+            IsNotNull(post.Video, "post.Video != null");
+            IsNotEmpty(post.Video.Items, "post.Video.Items");
+            IsNotNull(post.Video.Items[0], "post.Video.Items[0] != null");
+            IsTrue(post.Video.Items[0].Id == 456239274, "post.Video.Items[0].Id == 456239274");
+            IsTrue(post.Video.Items[0].CanAdd, "post.Video.Items[0].CanAdd");
+            IsNotEmpty(post.Video.Items[0].Title, "post.Video.Items[0].Title");
+            IsNotNull(post.Video.Items[0].Date, "post.Video.Items[0].Date != null");
+        }
+
+        public static void TestNewsPost2(NewsPost post)
+        {
+            IsNotNull(post, "post != null");
+            IsTrue(post.Type == NewsfeedFilters.Post, "post.Type == NewsfeedFilters.Post");
+            IsTrue(post.SourceId == -2682332, "post.SourceId == --2682332");
+            IsTrue(post.PostId == 109876, "post.PostId == 109876");
+            IsNotEmpty(post.Text, "post.Text");
+            IsNotEmpty(post.Attachments, "post.Attachments");
+            IsNotNull(post.Likes, "post.Likes != null");
+            IsTrue(post.Likes.Count == 0, "post.Likes.Count == 0");
+            IsFalse(post.Likes.UserLikes, "post.Likes.UserLikes");
         }
     }
 }
