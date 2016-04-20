@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace ModernDev.InTouch
 {
@@ -30,7 +31,8 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("type")]
-        public string Type { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public NotificationTypes Type { get; set; }
 
         /// <summary>
         /// Date the feedback appeared.

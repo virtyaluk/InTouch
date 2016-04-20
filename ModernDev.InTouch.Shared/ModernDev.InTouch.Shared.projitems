@@ -144,6 +144,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\NewsfeedFilters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\NewsfeedIgnoreItemTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\NotificationsTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\NotificationTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ObjectTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\OccupationTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\PhotoSizeTypes.cs" />
