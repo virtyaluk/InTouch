@@ -59,6 +59,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("date")]
+        [JsonConverter(typeof(JsonNumberDateTimeConverter))]
         public DateTime? Date { get; set; }
 
         /// <summary>
