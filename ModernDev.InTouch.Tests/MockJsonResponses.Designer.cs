@@ -424,11 +424,47 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:276,&quot;items&quot;:[{&quot;id&quot;:1127235,&quot;from_id&quot;:88832143,&quot;to_id&quot;:-65596623,&quot;date&quot;:1461189507,&quot;post_id&quot;:1126593,&quot;post_type&quot;:&quot;reply&quot;,&quot;text&quot;:&quot;[id16815310|Богдан], согласен а те кто говорит ты видел его камеру с плейстейшн и прочее если вы не знаете в китае есть люди которые за тебя сидят срок да и много где есть хорошого качества камеры)&quot;,&quot;post_source&quot;:{&quot;type&quot;:&quot;vk&quot;},&quot;comments&quot;:{&quot;count&quot;:0,&quot;can_post&quot;:1},&quot;likes&quot;:{&quot;count&quot;:0,&quot;user_likes&quot;:0,&quot;can_like&quot;:1,&quot;can_publish&quot;:1},&quot;reposts&quot;:{&quot;count&quot;:0,&quot;user_reposted&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string mentionsItemsList {
+            get {
+                return ResourceManager.GetString("mentionsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:2,&quot;items&quot;:[{&quot;id&quot;:24945500,&quot;first_name&quot;:&quot;Oleksandr&quot;,&quot;last_name&quot;:&quot;Dranko&quot;,&quot;sex&quot;:2,&quot;nickname&quot;:&quot;&quot;,&quot;domain&quot;:&quot;alexandrdranko&quot;,&quot;screen_name&quot;:&quot;alexandrdranko&quot;,&quot;bdate&quot;:&quot;24.8.1995&quot;,&quot;country&quot;:{&quot;id&quot;:160,&quot;title&quot;:&quot;Poland&quot;},&quot;photo_50&quot;:&quot;https:\/\/pp.vk.me\/c623127\/v623127500\/9103\/hflFz_g1jww.jpg&quot;,&quot;photo_100&quot;:&quot;https:\/\/pp.vk.me\/c623127\/v623127500\/9102\/sUvSyUKcIrU.jpg&quot;,&quot;photo_200&quot;:&quot;https:\/\/pp.vk.me\/c623127\/v623127500\/9101\/MJ4d5H1SG1k.jpg&quot;,&quot;photo_200_orig&quot;:&quot;https:\/\/pp.vk.me\/c623127\/v6231 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string mixedProfilesList {
+            get {
+                return ResourceManager.GetString("mixedProfilesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;id&quot;:16133651,&quot;common_friends&quot;:[29363547,31160235,34095918,159865266,272282474],&quot;common_count&quot;:5},{&quot;id&quot;:31160235,&quot;common_friends&quot;:[16133651,24945500,26300808,29363547,34095918,88318904,159865266],&quot;common_count&quot;:7}]}.
         /// </summary>
         internal static string mutualFriends {
             get {
                 return ResourceManager.GetString("mutualFriends", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;items&quot;:[{&quot;type&quot;:&quot;video&quot;,&quot;source_id&quot;:-2682332,&quot;date&quot;:1461191133,&quot;video&quot;:{&quot;count&quot;:1,&quot;items&quot;:[{&quot;id&quot;:456239274,&quot;owner_id&quot;:-95012771,&quot;title&quot;:&quot;летящая дурилка.120&quot;,&quot;duration&quot;:2541,&quot;description&quot;:&quot;&quot;,&quot;date&quot;:1461190478,&quot;views&quot;:1,&quot;comments&quot;:0,&quot;photo_130&quot;:&quot;https:\/\/pp.vk.me\/c630230\/v630230771\/28d39\/0Qf3d2vLaHk.jpg&quot;,&quot;photo_320&quot;:&quot;https:\/\/pp.vk.me\/c630230\/v630230771\/28d37\/-7nIAN8FIoU.jpg&quot;,&quot;photo_800&quot;:&quot;https:\/\/pp.vk.me\/c630230\/v630230771\/28d36\/uB73ZaiQZGM.jpg&quot;,&quot;processing&quot;:1,&quot;can_add&quot;:1,&quot;can_ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string newsItemsList {
+            get {
+                return ResourceManager.GetString("newsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Музыка&quot;,&quot;no_reposts&quot;:1,&quot;source_ids&quot;:[-55657165,-50314780,-46231012,-45398514,-45019815,-44150176,-43666695,-43462544,-43296843,-42874211,-42743690,-42645487,-42467072,-41389591,-41131570,-40868077,-37202902,-33285665,-31339996,-30883877,-29420768,-29099541,-29033660,-29013286,-28849462,-27999076,-27380885,-26713338,-26068373,-24363586,-23420445,-20833574,-19453499,-15344106,-11751095,-10803616,-2469750,-111181,-9918,-1959]},{&quot;id&quot;:2,&quot;title&quot;:&quot;Кино&quot;},{&quot;id&quot;:3,&quot;ti [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string newsLists {
+            get {
+                return ResourceManager.GetString("newsLists", resourceCulture);
             }
         }
         
@@ -699,6 +735,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string searchHints {
             get {
                 return ResourceManager.GetString("searchHints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:2,&quot;groups&quot;:[{&quot;id&quot;:65596623,&quot;name&quot;:&quot;FTP&quot;,&quot;screen_name&quot;:&quot;ftp78&quot;,&quot;is_closed&quot;:0,&quot;type&quot;:&quot;page&quot;,&quot;description&quot;:&quot;Чёрный юмор&quot;,&quot;members_count&quot;:341049,&quot;start_date&quot;:19450509,&quot;can_post&quot;:0,&quot;can_see_all_posts&quot;:1,&quot;activity&quot;:&quot;Art and entertainment&quot;,&quot;status&quot;:&quot;иди сюда&quot;,&quot;contacts&quot;:[{&quot;user_id&quot;:171605462,&quot;desc&quot;:&quot;Агент по рекламе &quot;},{&quot;user_id&quot;:313566042,&quot;desc&quot;:&quot;только Реклама . вп не делаем &quot;},{&quot;user_id&quot;:236428820}],&quot;can_upload_doc&quot;:0,&quot;can_upload_video&quot;:0,&quot;can_create_topic&quot;:0,&quot;fixed_post&quot;:1063983,&quot;verified&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string separatedProfilesList {
+            get {
+                return ResourceManager.GetString("separatedProfilesList", resourceCulture);
             }
         }
         
