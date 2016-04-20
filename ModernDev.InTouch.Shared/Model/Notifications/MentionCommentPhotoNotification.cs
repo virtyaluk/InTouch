@@ -33,6 +33,8 @@ namespace ModernDev.InTouch
         /// <summary>
         /// An object describing a material owns feedback.
         /// </summary>
+        [DataMember]
+        [JsonProperty("parent")]
         public Photo Parent { get; set; }
     }
 }
