@@ -85,8 +85,8 @@ namespace ModernDev.InTouch
         /// <param name="fields">Profile fields to return.</param>
         /// <param name="nameCase">Case for declension of user name and surname.</param>
         /// <returns>Returns a mixed list of <see cref="User"/> and <see cref="Group"/> objects.</returns>
-        public async Task<Response<MixedProfilesList>> GetBanned(List<UserProfileFields> fields = null,
-            NameCases nameCase = NameCases.Nominative) => await Request<MixedProfilesList>("getBanned", new MethodParams
+        public async Task<Response<ItemsList<EmptyItem>>> GetBanned(List<UserProfileFields> fields = null,
+            NameCases nameCase = NameCases.Nominative) => await Request<ItemsList<EmptyItem>>("getBanned", new MethodParams
             {
                 {"extended", true},
                 {"fields", fields},

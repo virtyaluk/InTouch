@@ -21,7 +21,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("NewsFeed")]
-    public class NewsFeed : ItemsList<Post>
+    public class NewsFeed : ItemsList<NewsPost>
     {
         /// <summary>
         /// Contains an <c>offset</c> parameter that is passed to get the next array of news.
