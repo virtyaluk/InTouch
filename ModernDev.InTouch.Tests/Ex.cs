@@ -387,6 +387,20 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.get", Responses.GetString("notifications"))
                         .WhenAndRespond($"{cat}.markAsViewed", Responses.GetString("responseTrue"));
                     break;
+
+                case "notes":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("notesItemsList"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("note"))
+                        .WhenAndRespond($"{cat}.add", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getComments", Responses.GetString("commentItemsList"))
+                        .WhenAndRespond($"{cat}.createComment", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.editComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restoreComment", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -640,6 +654,14 @@ namespace ModernDev.InTouch.Tests
             IsTrue(page.Title == "book", "page.Title == 'book'");
             IsTrue(page.WhoCanView == CommunityAccessTypes.Everyone, "page.WhoCanView == CommunityAccessTypes.Everyone");
             IsNotNull(page.Created, "page.Created != null");
+        }
+
+        public static void TestNote(Note note)
+        {
+            IsNotNull(note, "note != null");
+            IsTrue(note.Id == 11096473, "note.Id == 11096473");
+            IsNotNull(note.Date, "note.Date != null");
+            IsTrue(note.Text == "note html", "note.Text == 'note html'");
         }
     }
 }
