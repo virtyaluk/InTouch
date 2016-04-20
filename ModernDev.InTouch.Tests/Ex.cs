@@ -381,6 +381,12 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.parseWiki", Responses.GetString("responseText"))
                         .WhenAndRespond($"{cat}.clearCache", Responses.GetString("responseTrue"));
                     break;
+
+                case "notifications":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("notifications"))
+                        .WhenAndRespond($"{cat}.markAsViewed", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
