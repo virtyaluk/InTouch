@@ -433,6 +433,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:1000,&quot;items&quot;:[{&quot;type&quot;:&quot;like_video&quot;,&quot;date&quot;:1461012203,&quot;parent&quot;:{&quot;id&quot;:168603708,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;Tiesto vs. Diplo - C&apos;mon (Piano Cover by linDdside)&quot;,&quot;duration&quot;:108,&quot;description&quot;:&quot;There is no music sheet. Made by ear. Enjoy!\n\n- because of rights infringement of the classroom where i recorded it, I&apos;ve felt obligated to hide the classroom -&quot;,&quot;date&quot;:1399152490,&quot;views&quot;:6,&quot;comments&quot;:0,&quot;photo_130&quot;:&quot;https:\/\/pp.vk.me\/c608519\/u16815310\/video\/s_8f5e8225.jpg&quot;,&quot;photo_320&quot;:&quot;https:\ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string notifications {
+            get {
+                return ResourceManager.GetString("notifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;type&quot;:&quot;user&quot;,&quot;object_id&quot;: 16815310}}.
         /// </summary>
         internal static string objectInfo {
