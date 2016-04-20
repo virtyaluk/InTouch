@@ -433,6 +433,24 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;id&quot;:11096473,&quot;owner_id&quot;:16815310,&quot;comments&quot;:0,&quot;read_comments&quot;:0,&quot;date&quot;:1307232484,&quot;title&quot;:&quot;Шесть уроков жизни&quot;,&quot;text&quot;:&quot;note html&quot;,&quot;view_url&quot;:&quot;https:\/\/m.vk.com\/note16815310_11096473?api_view=aefdd65530b7018afb41bfd429bf2f&quot;}}.
+        /// </summary>
+        internal static string note {
+            get {
+                return ResourceManager.GetString("note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:4,&quot;items&quot;:[{&quot;id&quot;:11096473,&quot;owner_id&quot;:16815310,&quot;comments&quot;:0,&quot;read_comments&quot;:0,&quot;date&quot;:1307232484,&quot;title&quot;:&quot;Шесть уроков жизни&quot;,&quot;text&quot;:&quot;note html&quot;,&quot;view_url&quot;:&quot;https:\/\/m.vk.com\/note16815310_11096473?api_view=aefdd65530b7018afb41bfd429bf2f&quot;},{&quot;id&quot;:11096472,&quot;owner_id&quot;:16815310,&quot;comments&quot;:0,&quot;read_comments&quot;:0,&quot;date&quot;:1307232462,&quot;title&quot;:&quot;40 чисто женских моментов поведения&quot;,&quot;text&quot;:&quot;note html&quot;,&quot;view_url&quot;:&quot;https:\/\/m.vk.com\/note16815310_11096472?api_view=071a05479e61d8206b41b1a9189453&quot;},{&quot;id&quot;:1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string notesItemsList {
+            get {
+                return ResourceManager.GetString("notesItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:1000,&quot;items&quot;:[{&quot;type&quot;:&quot;like_video&quot;,&quot;date&quot;:1461012203,&quot;parent&quot;:{&quot;id&quot;:168603708,&quot;owner_id&quot;:16815310,&quot;title&quot;:&quot;Tiesto vs. Diplo - C&apos;mon (Piano Cover by linDdside)&quot;,&quot;duration&quot;:108,&quot;description&quot;:&quot;There is no music sheet. Made by ear. Enjoy!\n\n- because of rights infringement of the classroom where i recorded it, I&apos;ve felt obligated to hide the classroom -&quot;,&quot;date&quot;:1399152490,&quot;views&quot;:6,&quot;comments&quot;:0,&quot;photo_130&quot;:&quot;https:\/\/pp.vk.me\/c608519\/u16815310\/video\/s_8f5e8225.jpg&quot;,&quot;photo_320&quot;:&quot;https:\ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string notifications {
