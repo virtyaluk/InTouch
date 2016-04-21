@@ -13,6 +13,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -57,6 +58,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("users")]
-        public List<int> Users { get; set; } 
+        [JsonConverter(typeof(JsonUsersListConverter))]
+        public List<object> Users { get; set; } 
     }
 }
