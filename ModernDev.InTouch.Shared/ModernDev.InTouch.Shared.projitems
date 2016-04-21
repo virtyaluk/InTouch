@@ -179,6 +179,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonNumberDateTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonRequestParamsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonStringToUserSexConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonUsersListConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\PrivateResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Utils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InTouch.cs" />
