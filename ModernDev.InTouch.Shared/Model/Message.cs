@@ -64,14 +64,14 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("read_state")]
-        public bool IsRead { get; set; }
+        public bool ReadState { get; set; }
 
         /// <summary>
         /// Message type (False — received, True — sent). (Not returned for forwarded messages.)
         /// </summary>
         [DataMember]
         [JsonProperty("out")]
-        public bool IsSent { get; set; }
+        public bool Out { get; set; }
 
         /// <summary>
         /// Title of message or chat.
