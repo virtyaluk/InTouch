@@ -49,6 +49,6 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("message")]
-        public Message LastMessage { get; set; }
+        public Message Message { get; set; }
     }
 }
