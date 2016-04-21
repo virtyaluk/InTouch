@@ -420,6 +420,35 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.unsubscribe", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getSuggestedSources", Responses.GetString("mixedProfilesList"));
                     break;
+
+                case "messages":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("messagesItemsList"))
+                        .WhenAndRespond($"{cat}.getDialogs", Responses.GetString("dialogsItemsList"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("messagesItemsList"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("messagesItemsList"))
+                        .WhenAndRespond($"{cat}.getHistory", Responses.GetString("messagesItemsList"))
+                        .WhenAndRespond($"{cat}.getHistoryAttachments", Responses.GetString("attachmentsItemsList"))
+                        .WhenAndRespond($"{cat}.send", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteDialog", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restore", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.markAsRead", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.markAsImportant", Responses.GetString("responseNumsList"))
+                        .WhenAndRespond($"{cat}.getLongPollServer", Responses.GetString("messagesLongPollServer"))
+                        .WhenAndRespond($"{cat}.getLongPollHistory", Responses.GetString("messagesLongPollHistory"))
+                        .WhenAndRespond($"{cat}.getChat", Responses.GetString("chat"))
+                        .WhenAndRespond($"{cat}.createChat", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.editChat", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getChatUsers", Responses.GetString("usersList"))
+                        .WhenAndRespond($"{cat}.setActivity", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.searchDialogs", Responses.GetString("searchDialogs"))
+                        .WhenAndRespond($"{cat}.addChatUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.removeChatUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getLastActivity", Responses.GetString("userLastActivity"))
+                        .WhenAndRespond($"{cat}.setChatPhoto", Responses.GetString("newChatPhoto"))
+                        .WhenAndRespond($"{cat}.deleteChatPhoto", Responses.GetString("newChatPhoto"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -445,9 +474,11 @@ namespace ModernDev.InTouch.Tests
             IsTrue(user.Country.Id == 160, "user.Country.Id == 160");
             IsTrue(user.WallCommentsAllowed, "user.WallCommentsAllowed");
             IsNotNull(user.Occupation, "user.Occupation != null");
-            IsTrue(user.Occupation.Type == OccupationTypes.University, "user.Occupation.Type == OccupationTypes.University");
+            IsTrue(user.Occupation.Type == OccupationTypes.University,
+                "user.Occupation.Type == OccupationTypes.University");
             IsNotNull(user.Personal, "user.Personal != null");
-            IsTrue(user.Personal.Political == UserPersonalPoliticalViewsTypes.Moderate, "user.Personal.Political == UserPersonalPoliticalViewsTypes.Moderate");
+            IsTrue(user.Personal.Political == UserPersonalPoliticalViewsTypes.Moderate,
+                "user.Personal.Political == UserPersonalPoliticalViewsTypes.Moderate");
             IsNotNull(user.Personal.Langs, "user.Personal.Langs != null");
             IsTrue(user.Personal.Langs.Count == 3, nameof(user.Personal.Langs));
             IsNotEmpty(user.Games, nameof(user.Games));
@@ -494,7 +525,8 @@ namespace ModernDev.InTouch.Tests
             IsNotNull(poll.Answers[0], "poll.Answers[0] != null");
             IsTrue(poll.Answers[0].Id == 739902439, "poll.Answers[0].Id == 739902439");
             IsTrue(poll.Answers[0].Votes == 401, "poll.Answers[0].Votes == 401");
-            IsTrue(Math.Abs(poll.Answers[0].Rate - 10.25) < double.Epsilon, "Math.Abs(poll.Answers[0].Rate - 10.25) < double.Epsilon");
+            IsTrue(Math.Abs(poll.Answers[0].Rate - 10.25) < double.Epsilon,
+                "Math.Abs(poll.Answers[0].Rate - 10.25) < double.Epsilon");
         }
 
         public static void TestAudio(Audio audio)
@@ -557,7 +589,8 @@ namespace ModernDev.InTouch.Tests
             IsTrue(doc.Preview.Video.FileSize == 80787, "doc.Preview.Video.FileSize == 80787");
             IsNotNull(doc.Preview.Photo, "doc.Preview.Photo != null");
             IsNotEmpty(doc.Preview.Photo.Sizes, "doc.Preview.Photo.Sizes");
-            IsTrue(doc.Preview.Photo.Sizes[0].Type == PhotoSizeTypes.M, "doc.Preview.Photo.Sizes[0].Type == PhotoSizeTypes.M");
+            IsTrue(doc.Preview.Photo.Sizes[0].Type == PhotoSizeTypes.M,
+                "doc.Preview.Photo.Sizes[0].Type == PhotoSizeTypes.M");
             IsNotEmpty(doc.Preview.Photo.Sizes[0].Src, "doc.Preview.Photo.Sizes[0].Src");
         }
 
@@ -709,6 +742,36 @@ namespace ModernDev.InTouch.Tests
             IsNotNull(post.Likes, "post.Likes != null");
             IsTrue(post.Likes.Count == 0, "post.Likes.Count == 0");
             IsFalse(post.Likes.UserLikes, "post.Likes.UserLikes");
+        }
+
+        public static void TestChat(Chat chat)
+        {
+            IsNotNull(chat, "chat != null");
+            IsTrue(chat.Id == 1, "chat.Id == 1");
+            IsTrue(chat.Type == "chat", "chat.Type == 'chat'");
+            IsNotEmpty(chat.Title, "chat.Title");
+            IsTrue(chat.AdminId == 16815310, "chat.AdminId == 16815310");
+            IsNotEmpty(chat.Users, "chat.Users");
+
+            if (chat.Users[0] is User)
+            {
+                IsTrue(((User) chat.Users[0]).Id == 16815310, "((User)chat.Users[0]).Id == 16815310");
+            }
+        }
+
+        public static void TestMessage(Message msg)
+        {
+            IsNotNull(msg, "msg != null");
+            IsTrue(msg.Id == 147673, "msg.Id == 147673");
+            IsNotNull(msg.Date, "msg.Date != null");
+            IsTrue(msg.Body == "text", "msg.Body == 'text'");
+            IsTrue(msg.Out, "msg.Out");
+            IsFalse(msg.ReadState, "msg.ReadState");
+            IsNotEmpty(msg.Attachments, "msg.Attachments");
+            IsInstanceOf<Photo>(msg.Attachments[0], "msg.Attachments[0] instanceOf Photo");
+            TestPhotoAttachments((Photo) msg.Attachments[0]);
+            IsInstanceOf<Video>(msg.Attachments[1], "msg.Attachments[1] instanceOf Video");
+            TestVideoAttachment((Video) msg.Attachments[1]);
         }
     }
 }
