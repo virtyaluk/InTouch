@@ -17,6 +17,10 @@ namespace ModernDev.InTouch
     /// </summary>
     public class MarketEditParams : BaseMarketAddEditParams
     {
-
+        /// <summary>
+        /// Item Id.
+        /// </summary>
+        [MethodParam(Name = "item_id", IsRequired = true)]
+        public int ItemId { get; set; }
     }
 }
