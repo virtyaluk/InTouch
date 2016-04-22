@@ -22,5 +22,11 @@ namespace ModernDev.InTouch
         /// </summary>
         [MethodParam(Name = "item_id", IsRequired = true)]
         public int ItemId { get; set; }
+
+        /// <summary>
+        /// Comment message.
+        /// </summary>
+        [MethodParam(Name = "message")]
+        public string Message { get; set; }
     }
 }
