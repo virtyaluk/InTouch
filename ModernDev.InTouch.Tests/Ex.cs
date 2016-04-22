@@ -465,6 +465,34 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.addLink", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.removeLink", Responses.GetString("responseTrue"));
                     break;
+
+                case "market":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.get", Responses.GetString("marketItemsList"))
+                        .WhenAndRespond($"{cat}.getById", Responses.GetString("marketItemsList"))
+                        .WhenAndRespond($"{cat}.search", Responses.GetString("marketItemsList"))
+                        .WhenAndRespond($"{cat}.getAlbums", Responses.GetString("marketAlbumsItemsList"))
+                        .WhenAndRespond($"{cat}.getAlbumById", Responses.GetString("marketAlbumsItemsList"))
+                        .WhenAndRespond($"{cat}.createComment", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.getComments", Responses.GetString("commentItemsList"))
+                        .WhenAndRespond($"{cat}.deleteComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restoreComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.editComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reportComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getCategories", Responses.GetString("marketCategories"))
+                        .WhenAndRespond($"{cat}.report", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.add", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.edit", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.restore", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reorderItems", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.reorderAlbums", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.addAlbum", Responses.GetString("addMarketAlbum"))
+                        .WhenAndRespond($"{cat}.editAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.deleteAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.removeFromAlbum", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.addToAlbum", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -818,6 +846,16 @@ namespace ModernDev.InTouch.Tests
             IsNotNull(item.Likes, "item.Likes != null");
             IsTrue(item.Likes.UserLikes, "item.Likes.UserLikes");
             IsTrue(item.ViewsCount == 704, "item.ViewsCount == 704");
+        }
+
+        public static void TestMarketAlbum(MarketAlbum album)
+        {
+            IsNotNull(album, "album != null");
+            IsTrue(album.Id == 1, "album.Id == 1");
+            IsNotEmpty(album.Title, "album.Title");
+            IsNotNull(album.UpdatedTime, "album.UpdatedTime != null");
+            IsNotNull(album.Photo, "album.Photo != null");
+            IsTrue(album.Photo.Id == 379131663, "album.Photo.Id == 379131663");
         }
     }
 }
