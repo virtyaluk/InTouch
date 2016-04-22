@@ -66,6 +66,7 @@
     <Compile Include="GiftsMethodsTests.cs" />
     <Compile Include="GroupsMethodsTests.cs" />
     <Compile Include="LikesMethodsTests.cs" />
+    <Compile Include="MarketMethodsTests.cs" />
     <Compile Include="MessagesMethodsTests.cs" />
     <Compile Include="NewsfeedMethodsTests.cs" />
     <Compile Include="NotesMethodsTests.cs" />
