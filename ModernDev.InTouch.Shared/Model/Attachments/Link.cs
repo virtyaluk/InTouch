@@ -25,6 +25,7 @@ namespace ModernDev.InTouch
     [APIVersion(Version = 5.45)]
     public class Link : IMediaAttachment
     {
+        #region Properties
         /// <summary>
         /// Link's url.
         /// </summary>
@@ -117,5 +118,27 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("owner_id")]
         public int OwnerId { get; set; }
+
+        #region Extra properties
+
+        [DataMember]
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [DataMember]
+        [JsonProperty("photo_50")]
+        public string Photo50 { get; set; }
+
+        [DataMember]
+        [JsonProperty("photo_100")]
+        public string Photo100 { get; set; }
+
+        [DataMember]
+        [JsonProperty("photo_200")]
+        public string Photo200 { get; set; }
+
+        #endregion
+
+        #endregion
     }
 }
