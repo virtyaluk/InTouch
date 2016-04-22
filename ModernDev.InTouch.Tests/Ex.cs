@@ -449,6 +449,22 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.setChatPhoto", Responses.GetString("newChatPhoto"))
                         .WhenAndRespond($"{cat}.deleteChatPhoto", Responses.GetString("newChatPhoto"));
                     break;
+
+                case "fave":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.getUsers", Responses.GetString("usersItemsList"))
+                        .WhenAndRespond($"{cat}.getPhotos", Responses.GetString("photosItemsList"))
+                        .WhenAndRespond($"{cat}.getPosts", Responses.GetString("postsItemsList"))
+                        .WhenAndRespond($"{cat}.getVideos", Responses.GetString("videosItemsList"))
+                        .WhenAndRespond($"{cat}.getLinks", Responses.GetString("linksItemsList"))
+                        .WhenAndRespond($"{cat}.getMarketItems", Responses.GetString("marketItemsList"))
+                        .WhenAndRespond($"{cat}.addUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.removeUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.addGroup", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.removeGroup", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.addLink", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.removeLink", Responses.GetString("responseTrue"));
+                    break;
             }
 
             var client = new InTouch(mockHttp, 12345, "super_secret");
@@ -772,6 +788,36 @@ namespace ModernDev.InTouch.Tests
             TestPhotoAttachments((Photo) msg.Attachments[0]);
             IsInstanceOf<Video>(msg.Attachments[1], "msg.Attachments[1] instanceOf Video");
             TestVideoAttachment((Video) msg.Attachments[1]);
+        }
+
+        public static void TestMarketItem(Product item)
+        {
+            IsNotNull(item, "item != null");
+            IsTrue(item.Id == 198, "item.Id == 198");
+            IsNotEmpty(item.Title, "item.Title");
+            IsNotNull(item.Price, "item.Price != null");
+            IsTrue(item.Price.Amount == 235000, "item.Price.Amount == 235000");
+            IsNotNull(item.Price.Currency, "item.Price.Currency != null");
+            IsTrue(item.Price.Currency.Id == 643, "item.Price.Currency.Id == 643");
+            IsNotEmpty(item.Price.Text, "item.Price.Text");
+            IsNotEmpty(item.Price.Currency.Name, "item.Price.Currency.Name");
+            IsNotNull(item.Category, "item.Category != null");
+            IsTrue(item.Category.Id == 1, "item.Category.Id == 1");
+            IsNotEmpty(item.Category.Name, "item.Category.Name");
+            IsNotNull(item.Category.Section, "item.Category.Section != null");
+            IsTrue(item.Category.Section.Id == 0, "item.Category.Section.Id == 0");
+            IsNotNull(item.Date, "item.Date != null");
+            IsNotEmpty(item.ThumbPhoto, "item.ThumbPhoto");
+            IsTrue(item.Availability == ProductAvailability.Available, "item.Availability == ProductAvailability.Available");
+            IsNotEmpty(item.AlbumsIds, "item.AlbumsIds");
+            IsTrue(item.AlbumsIds.Contains(6), "item.AlbumsIds.Contains(6)");
+            IsNotEmpty(item.Photos, "item.Photos");
+            IsNotNull(item.Photos[0], "item.Photos[0] != null");
+            IsTrue(item.Photos[0].Id == 379184674, "item.Photos[0].Id == 379184674");
+            IsTrue(item.CanComment, "item.CanComment");
+            IsNotNull(item.Likes, "item.Likes != null");
+            IsTrue(item.Likes.UserLikes, "item.Likes.UserLikes");
+            IsTrue(item.ViewsCount == 704, "item.ViewsCount == 704");
         }
     }
 }
