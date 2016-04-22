@@ -26,6 +26,7 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("Product")]
     public class Product
     {
+        #region Properties
         /// <summary>
         /// Product's price
         /// </summary>
@@ -117,5 +118,15 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("likes")]
         public Likes Likes { get; set; }
+
+        [DataMember]
+        [JsonProperty("albums_ids")]
+        public List<int> AlbumsIds { get; set; }
+
+        [DataMember]
+        [JsonProperty("views_count")]
+        public int ViewsCount { get; set; }
+
+        #endregion
     }
 }
