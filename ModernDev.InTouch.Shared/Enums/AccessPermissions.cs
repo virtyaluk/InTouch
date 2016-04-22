@@ -130,6 +130,12 @@ namespace ModernDev.InTouch.API
         Offline = 65536,
 
         /// <summary>
+        /// Access to products.
+        /// </summary>
+        [EnumMember(Value = "market")]
+        Market = 134217728,
+
+        /// <summary>
         /// None.
         /// </summary>
         [EnumMember(Value = "")]
