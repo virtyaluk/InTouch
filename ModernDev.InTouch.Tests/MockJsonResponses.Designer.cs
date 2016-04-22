@@ -442,11 +442,29 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:23,&quot;items&quot;:[{&quot;id&quot;:&quot;2_16815310_98093993&quot;,&quot;url&quot;:&quot;https:\/\/vk.com\/snapster&quot;,&quot;title&quot;:&quot;Snapster&quot;,&quot;description&quot;:&quot;Сообщество&quot;,&quot;photo_50&quot;:&quot;https:\/\/pp.vk.me\/c627324\/v627324034\/3f305\/fg9-C9etAK0.jpg&quot;,&quot;photo_100&quot;:&quot;https:\/\/pp.vk.me\/c627324\/v627324034\/3f304\/_lRrz_JHd1c.jpg&quot;,&quot;photo_200&quot;:&quot;https:\/\/pp.vk.me\/c627324\/v627324034\/3f302\/ikuRdAQysIo.jpg&quot;},{&quot;id&quot;:&quot;2_16815310_104669514&quot;,&quot;url&quot;:&quot;https:\/\/vk.com\/vkmc&quot;,&quot;title&quot;:&quot;VK Mobile Challenge&quot;,&quot;description&quot;:&quot;Сообщество&quot;,&quot;photo_50&quot;:&quot;https:\ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string linksItemsList {
+            get {
+                return ResourceManager.GetString("linksItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;status&quot;:&quot;not_banned&quot;,&quot;link&quot;:&quot;https://github.com/virtyaluk&quot;}}.
         /// </summary>
         internal static string linkStatus {
             get {
                 return ResourceManager.GetString("linkStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3,&quot;items&quot;:[{&quot;id&quot;:198,&quot;owner_id&quot;:-43195721,&quot;title&quot;:&quot;Джинсовое платье &quot;,&quot;description&quot;:&quot;Размеры: S-M   (длина 78см)\nАрт 5429&quot;,&quot;price&quot;:{&quot;amount&quot;:&quot;235000&quot;,&quot;currency&quot;:{&quot;id&quot;:643,&quot;name&quot;:&quot;RUB&quot;},&quot;text&quot;:&quot;2 350 руб.&quot;},&quot;category&quot;:{&quot;id&quot;:1,&quot;name&quot;:&quot;Женская одежда&quot;,&quot;section&quot;:{&quot;id&quot;:0,&quot;name&quot;:&quot;Гардероб&quot;}},&quot;date&quot;:1441980511,&quot;thumb_photo&quot;:&quot;https:\/\/pp.vk.me\/c628418\/v628418464\/14220\/4OF9hyYuT9g.jpg&quot;,&quot;availability&quot;:0},{&quot;id&quot;:43691,&quot;owner_id&quot;:-45806864,&quot;title&quot;:&quot;Колпачки&quot;,&quot;description&quot;:&quot;Купить можно тут: ht [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string marketItemsList {
+            get {
+                return ResourceManager.GetString("marketItemsList", resourceCulture);
             }
         }
         
