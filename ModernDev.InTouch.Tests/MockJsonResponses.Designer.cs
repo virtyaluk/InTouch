@@ -106,6 +106,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;market_album_id&quot;:481516}}.
+        /// </summary>
+        internal static string addMarketAlbum {
+            get {
+                return ResourceManager.GetString("addMarketAlbum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;user_id&quot;:66748,&quot;friend_status&quot;:0,&quot;sign&quot;:&quot;cd56c1006d87caf27377459caf3c4a03&quot;},{&quot;user_id&quot;:123161616,&quot;friend_status&quot;:2,&quot;sign&quot;:&quot;c696e40846194051174887e3341bc369&quot;}]}.
         /// </summary>
         internal static string areFriends {
@@ -456,6 +465,24 @@ namespace ModernDev.InTouch.Tests {
         internal static string linkStatus {
             get {
                 return ResourceManager.GetString("linkStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:9,&quot;items&quot;:[{&quot;id&quot;:1,&quot;owner_id&quot;:-43195721,&quot;title&quot;:&quot;Верхняя одежда&quot;,&quot;count&quot;:37,&quot;updated_time&quot;:1442081607,&quot;photo&quot;:{&quot;id&quot;:379131663,&quot;album_id&quot;:-53,&quot;owner_id&quot;:-43195721,&quot;user_id&quot;:100,&quot;photo_75&quot;:&quot;https:\/\/pp.vk.me\/c628418\/v628418464\/13ed3\/omjTSK0_zdE.jpg&quot;,&quot;photo_130&quot;:&quot;https:\/\/pp.vk.me\/c628418\/v628418464\/13ed4\/pXwt5PGb1xk.jpg&quot;,&quot;photo_604&quot;:&quot;https:\/\/pp.vk.me\/c628418\/v628418464\/13ed5\/gDPBCpdWVnQ.jpg&quot;,&quot;photo_807&quot;:&quot;https:\/\/pp.vk.me\/c628418\/v628418464\/13ed6\/yxm0IQc8Seo.jpg&quot;,&quot;wid [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string marketAlbumsItemsList {
+            get {
+                return ResourceManager.GetString("marketAlbumsItemsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:85,&quot;items&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;Женская одежда&quot;,&quot;section&quot;:{&quot;id&quot;:0,&quot;name&quot;:&quot;Гардероб&quot;}},{&quot;id&quot;:2,&quot;name&quot;:&quot;Мужская одежда&quot;,&quot;section&quot;:{&quot;id&quot;:0,&quot;name&quot;:&quot;Гардероб&quot;}},{&quot;id&quot;:3,&quot;name&quot;:&quot;Детская одежда&quot;,&quot;section&quot;:{&quot;id&quot;:0,&quot;name&quot;:&quot;Гардероб&quot;}},{&quot;id&quot;:4,&quot;name&quot;:&quot;Обувь и сумки&quot;,&quot;section&quot;:{&quot;id&quot;:0,&quot;name&quot;:&quot;Гардероб&quot;}},{&quot;id&quot;:5,&quot;name&quot;:&quot;Аксессуары и украшения&quot;,&quot;section&quot;:{&quot;id&quot;:0,&quot;name&quot;:&quot;Гардероб&quot;}}]}}.
+        /// </summary>
+        internal static string marketCategories {
+            get {
+                return ResourceManager.GetString("marketCategories", resourceCulture);
             }
         }
         
