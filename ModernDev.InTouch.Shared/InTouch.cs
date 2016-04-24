@@ -88,7 +88,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// The current API session.
         /// </summary>
-        public APISession Session { get; private set; }
+        public APISession Session { get; internal set; }
 
         /// <summary>
         /// Methods for working with user's account data.
@@ -363,7 +363,7 @@ namespace ModernDev.InTouch
                 throw new ArgumentNullException(nameof(captchaKey));
             }
 
-            if (lastResponseError == null)
+            if (string.IsNullOrEmpty(lastResponseError?.CaptchaSId))
             {
                 throw new ArgumentNullException(nameof(lastResponseError));
             }
@@ -396,8 +396,14 @@ namespace ModernDev.InTouch
                 throw new ArgumentNullException(nameof(appSecret), "Value cannot be null or empty.");
             }
 
+            if (ClientId == appId && ClientSecret == appSecret)
+            {
+                return;
+            }
+
             ClientId = appId;
             ClientSecret = appSecret;
+            Session = null;
         }
 
         /// <summary>
@@ -405,7 +411,7 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="newSession">The new <see cref="APISession"/> instance.</param>
         /// <exception cref="ArgumentNullException">Thrown when a <code>newSession</code> is <code>null</code>.</exception>
-        public void SetSessionData(APISession newSession)
+        internal void SetSessionData(APISession newSession)
         {
             if (newSession == null)
             {
@@ -470,6 +476,20 @@ namespace ModernDev.InTouch
         public async Task<Response<T>> Request<T>(string methodName, Dictionary<string, string> methodParams = null,
             bool isOpenMethod = false, string path = null)
         {
+            if (!isOpenMethod)
+            {
+                if (Session == null)
+                {
+                    throw new NullReferenceException("The session is not set. You need to authorize to get the new session.");
+                }
+
+                if (Session.IsExpired)
+                {
+                    throw new InTouchException(
+                        "The session is dead. You need to obtain new access token to perform API calls.");
+                }
+            }
+
             if (_apiClient == null)
             {
                 InitApiClient();
@@ -600,7 +620,7 @@ namespace ModernDev.InTouch
         /// <param name="json">Upload server response to parse.</param>
         /// <param name="path">JPath to select the token.</param>
         /// <returns>Returns deserialized object.</returns>
-        public T ParseUploadServerResponse<T>(string json, string path = null)
+        internal T ParseUploadServerResponse<T>(string json, string path = null)
         {
             try
             {
@@ -613,7 +633,7 @@ namespace ModernDev.InTouch
 
                 return string.IsNullOrEmpty(path) ? jObj.ToObject<T>() : jObj.SelectToken(path).ToObject<T>();
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex.GetType() != typeof (InTouchResponseErrorException))
             {
                 throw new InTouchException("An exception has occurred while parsing upload server response", ex);
             }
@@ -629,7 +649,7 @@ namespace ModernDev.InTouch
             _lastReqMethod = methodName;
         }
 
-        private void InitApiClient()
+        internal void InitApiClient()
         {
             _apiClient = _httpMessageHandler != null
                 ? new HttpClient(_httpMessageHandler)
@@ -640,7 +660,7 @@ namespace ModernDev.InTouch
             _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        private Response<T> ParseJsonReponse<T>(string json, string path = null)
+        internal Response<T> ParseJsonReponse<T>(string json, string path = null)
         {
             ResponseError errObj = null;
             var dataObj = default(T);
@@ -675,7 +695,9 @@ namespace ModernDev.InTouch
                         : jObj["response"].ToObject<T>();
                 }
             }
-            catch (Exception ex) when (ex.GetType() != typeof (InTouchException))
+            catch (Exception ex)
+                when (ex.GetType() != typeof (InTouchException) &&
+                      ex.GetType() != typeof (InTouchResponseErrorException))
             {
                 throw new InTouchException("An exception has occurred while parsing request response", ex);
             }
@@ -683,7 +705,7 @@ namespace ModernDev.InTouch
             return new Response<T>(errObj, dataObj, IncludeRawResponse ? json : null);
         }
 
-        private async Task<string> Post(string url, Dictionary<string, string> paramsDict)
+        internal async Task<string> Post(string url, Dictionary<string, string> paramsDict)
         {
             try
             {
@@ -704,23 +726,7 @@ namespace ModernDev.InTouch
         {
             var apiParams = reqParams ?? new Dictionary<string, string>();
 
-            if (Session == null)
-            {
-                throw new NullReferenceException("The session is not set. You need to authorize to get the new session.");
-            }
-
-            if (Session.IsExpired)
-            {
-                throw new InTouchException(
-                    "The session is dead. You need to obtain new access token to perform API calls.");
-            }
-
-            if (!isOpenMethod && string.IsNullOrEmpty(Session?.AccessToken))
-            {
-                throw new NullReferenceException("AccessToken cannot be null or empty.");
-            }
-
-            apiParams["access_token"] = Session?.AccessToken;
+            apiParams["access_token"] = Session?.AccessToken ?? "";
             apiParams["v"] = $"{APIVersion}";
             apiParams["https"] = $"{(AlowHttpsLinks ? 1 : 0)}";
 
