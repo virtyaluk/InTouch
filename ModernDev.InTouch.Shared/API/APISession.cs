@@ -12,7 +12,6 @@
 
 using System;
 using System.Diagnostics;
-using System.Threading;
 
 namespace ModernDev.InTouch
 {
@@ -39,33 +38,34 @@ namespace ModernDev.InTouch
             _sessionStoredDateTime = DateTime.Now;
 
 #if PORTABLE_LIB == false
-            _timer = new Timer(e => OnAccessTokenExpired(EventArgs.Empty), null, (int) TimeRemains.TotalSeconds,
-                Timeout.Infinite);
+            _timer = new System.Threading.Timer(e => OnAccessTokenExpired(EventArgs.Empty), null, (int) TimeRemains.TotalSeconds,
+                System.Threading.Timeout.Infinite);
 #endif
         }
 
+#if PORTABLE_LIB == false
         ~APISession()
         {
-#if PORTABLE_LIB == false
-            _timer.Dispose();
-#endif
-        }
 
-#endregion
+            _timer.Dispose();
+    }
+#endif
+
+        #endregion
 
         public event EventHandler AccessTokenExpired;
 
 #region Fields
 
         private readonly DateTime _sessionStoredDateTime;
-        
+
 #if PORTABLE_LIB == false
-        private readonly Timer _timer;
+        private readonly System.Threading.Timer _timer;
 #endif
 
-#endregion
+        #endregion
 
-#region Properties
+        #region Properties
 
         /// <summary>
         /// Access key for API calls.
@@ -85,7 +85,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// The amount of time left before session expires.
         /// </summary>
-        public TimeSpan TimeRemains => Duration - (_sessionStoredDateTime - DateTime.Now);
+        public TimeSpan TimeRemains => Duration - (DateTime.Now - _sessionStoredDateTime);
 
         /// <summary>
         /// Whether the session is expired.
