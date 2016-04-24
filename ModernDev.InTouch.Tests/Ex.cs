@@ -11,6 +11,7 @@
  */
 
 using System;
+using System.Net;
 using System.Resources;
 using RichardSzalay.MockHttp;
 using static NUnit.Framework.Assert;
@@ -492,6 +493,16 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.deleteAlbum", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.removeFromAlbum", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.addToAlbum", Responses.GetString("responseTrue"));
+                    break;
+
+                default:
+                    mockHttp
+                        .WhenAndRespond("test", Responses.GetString("responseTrue"))
+                        .WhenAndRespond("users.get", Responses.GetString("apiError5"))
+                        .WhenAndRespond("users.search", Responses.GetString("apiError14"))
+                        .WhenAndRespond("users.isAppUser", Responses.GetString("responseTrue"))
+                        .WhenAndRespond("users.getFollowers", Responses.GetString("usersItemsList"))
+                        .When("/method/test2.json").Respond(HttpStatusCode.BadRequest);
                     break;
             }
 
