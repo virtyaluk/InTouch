@@ -16,6 +16,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
+// ReSharper disable UnusedAutoPropertyAccessor.Local
 
 namespace ModernDev.InTouch
 {
@@ -31,14 +32,14 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("error_code")]
-        public int Code { get; set; }
+        public int Code { get; private set; }
 
         /// <summary>
         /// Error text.
         /// </summary>
         [DataMember]
         [JsonProperty("error_msg")]
-        public string Message { get; set; }
+        public string Message { get; private set; }
 
         /// <summary>
         /// Captcha identifier.
@@ -52,7 +53,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("captcha_img")]
-        public string CaptchaImg { get; set; }
+        public string CaptchaImg { get; private set; }
 
         /// <summary>
         /// Request parameters.
@@ -60,6 +61,6 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("request_params")]
         [JsonConverter(typeof(JsonRequestParamsConverter))]
-        public Dictionary<string, string> RequestParams { get; set; } 
+        public Dictionary<string, string> RequestParams { get; private set; } 
     }
 }
