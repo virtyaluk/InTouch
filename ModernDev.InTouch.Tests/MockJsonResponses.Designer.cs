@@ -115,6 +115,24 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;error&quot;:{&quot;error_code&quot;:14,&quot;error_msg&quot;:&quot;Captcha needed&quot;,&quot;request_params&quot;:[{&quot;key&quot;:&quot;oauth&quot;,&quot;value&quot;:&quot;1&quot;},{&quot;key&quot;:&quot;foo&quot;,&quot;value&quot;:&quot;bar&quot;},{&quot;key&quot;:&quot;method&quot;,&quot;value&quot;:&quot;users.getFollowers&quot;}],&quot;captcha_sid&quot;:&quot;239633676097&quot;,&quot;captcha_img&quot;:&quot;http:\/\/api.vk.com\/captcha.php?sid=239633676097&amp;s=1&quot;}}.
+        /// </summary>
+        internal static string apiError14 {
+            get {
+                return ResourceManager.GetString("apiError14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;error&quot;:{&quot;error_code&quot;:5,&quot;error_msg&quot;:&quot;User authorization failed: access_token was given to another ip address.&quot;,&quot;request_params&quot;:[{&quot;key&quot;:&quot;oauth&quot;,&quot;value&quot;:&quot;1&quot;},{&quot;key&quot;:&quot;foo&quot;,&quot;value&quot;:&quot;bar&quot;}]}}.
+        /// </summary>
+        internal static string apiError5 {
+            get {
+                return ResourceManager.GetString("apiError5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:[{&quot;user_id&quot;:66748,&quot;friend_status&quot;:0,&quot;sign&quot;:&quot;cd56c1006d87caf27377459caf3c4a03&quot;},{&quot;user_id&quot;:123161616,&quot;friend_status&quot;:2,&quot;sign&quot;:&quot;c696e40846194051174887e3341bc369&quot;}]}.
         /// </summary>
         internal static string areFriends {

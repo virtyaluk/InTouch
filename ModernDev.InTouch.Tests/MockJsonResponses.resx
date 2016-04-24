@@ -586,4 +586,10 @@
   <data name="marketCategories" xml:space="preserve">
     <value>{"response":{"count":85,"items":[{"id":1,"name":"Женская одежда","section":{"id":0,"name":"Гардероб"}},{"id":2,"name":"Мужская одежда","section":{"id":0,"name":"Гардероб"}},{"id":3,"name":"Детская одежда","section":{"id":0,"name":"Гардероб"}},{"id":4,"name":"Обувь и сумки","section":{"id":0,"name":"Гардероб"}},{"id":5,"name":"Аксессуары и украшения","section":{"id":0,"name":"Гардероб"}}]}}</value>
   </data>
+  <data name="apiError14" xml:space="preserve">
+    <value>{"error":{"error_code":14,"error_msg":"Captcha needed","request_params":[{"key":"oauth","value":"1"},{"key":"foo","value":"bar"},{"key":"method","value":"users.getFollowers"}],"captcha_sid":"239633676097","captcha_img":"http:\/\/api.vk.com\/captcha.php?sid=239633676097&amp;s=1"}}</value>
+  </data>
+  <data name="apiError5" xml:space="preserve">
+    <value>{"error":{"error_code":5,"error_msg":"User authorization failed: access_token was given to another ip address.","request_params":[{"key":"oauth","value":"1"},{"key":"foo","value":"bar"}]}}</value>
+  </data>
 </root>
