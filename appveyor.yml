@@ -1,7 +1,16 @@
 platform: Any CPU
 configuration: Release
+version: 1.0.{build}
+
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.cs'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
 
 build:
+  publish_nuget: true
   parallel: true
   project: ModernDev.InTouch.sln
 
@@ -11,3 +20,16 @@ before_build:
 after_build:
   - nuget pack ModernDev.InTouch.nuspec -version %APPVEYOR_BUILD_VERSION%
   - appveyor PushArtifact ModernDev.InTouch.%APPVEYOR_BUILD_VERSION%.nupkg
+  
+notifications:
+- provider: Webhook
+  url: https://webhooks.gitter.im/e/fccbbe8e33b7c9ea1f62
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
+  
+deploy:
+- provider: NuGet
+  api_key:
+    secure: VgpA4NJgZjB689R1BP3A4bbtQzjprU8U/Cgre7NS5IDWxry5Z9WxhFUqz8lWsRnw
+  artifact: /.*\.nupkg/
