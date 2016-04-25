@@ -9,8 +9,14 @@ namespace ModernDev.InTouch
 {
     public partial class InTouch
     {
+        #region Fields
+
+        private const string AuthUrl = "https://oauth.vk.com/authorize";
+
+        #endregion
+
         #region Methods
-        
+
         /// <summary>
         /// Starts the authentication operation with a given settings.
         /// </summary>

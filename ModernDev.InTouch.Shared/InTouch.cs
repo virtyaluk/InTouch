@@ -26,7 +26,10 @@ using static ModernDev.InTouch.Helpers.Utils;
 
 namespace ModernDev.InTouch
 {
-    public sealed partial class InTouch : IDisposable
+    /// <summary>
+    /// Provides a base class for working with vk.com API.
+    /// </summary>
+    public partial class InTouch : IDisposable
     {
         #region Fields
         
@@ -38,8 +41,8 @@ namespace ModernDev.InTouch
         private string _lastReqPath;
         private Dictionary<string, string> _lastReqParams;
         private string _lastReqMethod;
-        private const string AuthUrl = "https://oauth.vk.com/authorize";
         private readonly HttpMessageHandler _httpMessageHandler;
+        private bool _disposed;
 
         #endregion
 
@@ -236,7 +239,14 @@ namespace ModernDev.InTouch
 
         #region Events
 
+        /// <summary>
+        /// Occurs when an authorization fails.
+        /// </summary>
         public event EventHandler<ResponseError> AuthorizationFailed;
+
+        /// <summary>
+        /// Occurs when is need to enter captcha key.
+        /// </summary>
         public event EventHandler<ResponseError> CaptchaNeeded;
 
         #endregion
@@ -547,16 +557,21 @@ namespace ModernDev.InTouch
         public async Task<Response<JObject>> Execute(string code)
             => await Request<JObject>("execute", new MethodParams {{"code", code, true}}.GetParams());
 
+        /// <summary>
+        /// Releases all resources used by the current instance of <see cref="InTouch"/>.
+        /// </summary>
         public void Dispose()
         {
-            _apiClient?.Dispose();
-            _fileClient?.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
-
-        // Just in case :)
+        
+        /// <summary>
+        /// 
+        /// </summary>
         ~InTouch()
         {
-            Dispose();
+            Dispose(false);
         }
 
         /// <summary>
@@ -744,6 +759,24 @@ namespace ModernDev.InTouch
 
         private void OnAuthorizationFailed(ResponseError e) => AuthorizationFailed?.Invoke(this, e);
         private void OnCaptchaNeeded(ResponseError e) => CaptchaNeeded?.Invoke(this, e);
+
+        /// <summary>
+        /// Releases all resources used by the current instance of <see cref="InTouch"/>.
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+            {
+                if (disposing)
+                {
+                    _apiClient?.Dispose();
+                    _fileClient?.Dispose();
+                }
+
+                _disposed = true;
+            }
+        }
 
         #endregion
 
