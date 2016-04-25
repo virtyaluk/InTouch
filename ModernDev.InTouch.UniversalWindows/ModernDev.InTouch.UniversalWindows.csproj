@@ -32,12 +32,15 @@
     <DefineConstants>DEBUG;TRACE;WINDOWS_UWP81</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ModernDev.InTouch.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <TargetPlatform Include="Windows, Version=8.1" />
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APISession.cs" />
     <Compile Include="InTouch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
