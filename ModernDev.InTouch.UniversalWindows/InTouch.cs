@@ -9,7 +9,6 @@ namespace ModernDev.InTouch
 {
     public partial class InTouch
     {
-
         #region Methods
         
         /// <summary>

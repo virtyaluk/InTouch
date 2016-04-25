@@ -19,7 +19,7 @@ namespace ModernDev.InTouch
     /// An <see cref="APISession"/> class describes an API session.
     /// </summary>
     [DebuggerDisplay("APISession {UserId}")]
-    public class APISession
+    public partial class APISession
     {
         #region Constructor
 
@@ -37,35 +37,23 @@ namespace ModernDev.InTouch
 
             _sessionStoredDateTime = DateTime.Now;
 
-#if PORTABLE_LIB == false
-            _timer = new System.Threading.Timer(e => OnAccessTokenExpired(EventArgs.Empty), null, (int) TimeRemains.TotalSeconds,
-                System.Threading.Timeout.Infinite);
-#endif
+            InitTimer();
         }
 
-#if PORTABLE_LIB == false
-        ~APISession()
-        {
+#endregion
 
-            _timer.Dispose();
-    }
-#endif
-
-        #endregion
-
+        /// <summary>
+        /// Occurs when the <see cref="AccessToken"/> expires.
+        /// </summary>
         public event EventHandler AccessTokenExpired;
 
 #region Fields
 
         private readonly DateTime _sessionStoredDateTime;
 
-#if PORTABLE_LIB == false
-        private readonly System.Threading.Timer _timer;
-#endif
+#endregion
 
-        #endregion
-
-        #region Properties
+#region Properties
 
         /// <summary>
         /// Access key for API calls.
@@ -96,8 +84,14 @@ namespace ModernDev.InTouch
 
 #region Methods
 
+        /// <summary>
+        /// Called when the <see cref="AccessToken"/> expired.
+        /// </summary>
+        /// <param name="e"></param>
         protected virtual void OnAccessTokenExpired(EventArgs e) => AccessTokenExpired?.Invoke(this, e);
 
-#endregion
+        partial void InitTimer();
+
+        #endregion
     }
 }
