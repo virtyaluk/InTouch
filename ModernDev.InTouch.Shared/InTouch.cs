@@ -390,29 +390,29 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Sets the App Id and Secret.
         /// </summary>
-        /// <param name="appId">Your App Id.</param>
-        /// <param name="appSecret">Your App Secret.</param>
+        /// <param name="clientId">Your App Id.</param>
+        /// <param name="clientSecret">Your App Secret.</param>
         /// <exception cref="ArgumentNullException">Thrown when an <code>appSecret</code> is <code>null</code> or empty.</exception>
-        /// <exception cref="ArgumentException">Thrown when an <code>appId</code> is less than or equal to zero.</exception>
-        public void SetApplicationSettings(int appId, string appSecret)
+        /// <exception cref="ArgumentException">Thrown when an <code>clientId</code> is less than or equal to zero.</exception>
+        public void SetApplicationSettings(int clientId, string clientSecret)
         {
-            if (appId <= 0)
+            if (clientId <= 0)
             {
-                throw new ArgumentException("The value cannot be less than or equal to zero.", nameof(appId));
+                throw new ArgumentException("The value cannot be less than or equal to zero.", nameof(clientId));
             }
 
-            if (string.IsNullOrEmpty(appSecret))
+            if (string.IsNullOrEmpty(clientSecret))
             {
-                throw new ArgumentNullException(nameof(appSecret), "Value cannot be null or empty.");
+                throw new ArgumentNullException(nameof(clientSecret), "Value cannot be null or empty.");
             }
 
-            if (ClientId == appId && ClientSecret == appSecret)
+            if (ClientId == clientId && ClientSecret == clientSecret)
             {
                 return;
             }
 
-            ClientId = appId;
-            ClientSecret = appSecret;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
             Session = null;
         }
 
