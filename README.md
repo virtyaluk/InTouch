@@ -7,7 +7,9 @@
 
 Be sure to check out official VK's **[:link:Quick start](https://new.vk.com/dev/main)** guide before you dive into **InTouch**.
 
-[:ru: Документация на русском.](README.ru.md)
+Compatible with version **4.45** of **[:link:VK API](https://new.vk.com/dev/versions)**.
+
+[:calendar: Changelog](CHANGELOG.md) &nbsp; [:ru: Документация на русском.](README.ru.md)
 
 
 ## :dvd: NuGet
@@ -58,12 +60,12 @@ After you [:link:register](https://vk.com/editapp?act=create) an app, you'll get
 You may use one of following constructors to produce a new instance of `InTouch` class.
 
 ```csharp
-new InTouch(int clientId, string clientSecret[, bool throwExceptionOnResponseError = false[,
-    bool includeRawResponse = false]]);
+new InTouch(int clientId, string clientSecret, bool throwExceptionOnResponseError = false,
+    bool includeRawResponse = false);
 ```
 
 ```csharp
-new InTouch([bool throwExceptionOnResponseError = false[, bool includeRawResponse = false]])
+new InTouch(bool throwExceptionOnResponseError = false, bool includeRawResponse = false)
 ```
 
 ##### Values:
@@ -91,7 +93,7 @@ Authorization may be performed using the **`Authorize`** method, which is availa
 **In case of Windows Store Apps**, you need to await the **`Authorize`** method which starts the *authentication operation* and shows *auth dialog* to the user. In case of success, auth data will be set to the client automatically, no need to take additional actions.
 
 ```csharp
-async Task Authorize([AuthorizationSettings authSettings = null[, bool silentMode = false]]);
+async Task Authorize(AuthorizationSettings authSettings = null, bool silentMode = false);
 ```
 
 ##### Values:
@@ -284,6 +286,30 @@ try {
 }
 ```
 
+#### Handling Authorization\Captcha errors.
+
+Whenever API call gets **authorization failed** error or **captcha needed** error, **`AuthorizationFailed`** or **`CaptchaNeeded`** event will be fired accordingly. So there's no need to check response error on these two, you can simply subscribe to custom events and use custom logic whenever it's needed.
+
+```csharp
+client.AuthorizationFailed += OnAuthorizationFailed;
+
+client.CaptchaNeeded += (s, error) => ShowCaptchaBox(error.CaptchaImg, error.CaptchaSId);
+```
+
+Moreover, there is an utility method that helps you to resend previously failed request with *captcha code*:
+
+```csharp
+async Task<Response<T>> SendCaptcha<T>(string captchaKey, ResponseError lastResponseError);
+```
+
+There is also an utility method called **`TrySendRequestAgain`** which is designed to resend previously failed request:
+
+```csharp
+async Task<Response<T>> TrySendRequestAgain<T>();
+```
+
+**:information_source: Note**: Keep in mind that custom events will occur only and only when the **`ThrowExceptionOnResponseError`** is set to `false`, which is the default value.
+
 #### Limits and recommendations
 
 > There can be maximum 3 requests to API methods per second from a client. 
@@ -299,12 +325,58 @@ If an app has less than 10 000 users, 5 requests per second, up to 100 000 – 8
 >
 > On excess of a quantitative limit access to a particular method will require captcha (see captcha_error). After that it may be temporarily limited (in this case the server doesn't answer on particular method's requests but easily processes any other requests).
 
+### Other
 
-**TODO:**...
+#### Custom API request
+
+You may want to get full control on what you send through the request. **InTouch** exposes **`Request`** method to send VK API requests. All the **InTouch** API methods are build on top of the one. The signature is next:
+
+```csharp
+async Task<Response<T>> Request<T>(string methodName, Dictionary<string, string> methodParams = null,
+    bool isOpenMethod = false, string path = null);
+```
+
+##### Values:
+ - **`methodName`** - The name of the method to call.
+ - **`methodParams`** - Request parameters.
+ - **`isOpenMethod`** - Indicates whether the method can be called without an `accessToken`.
+ - **`path`** - Object's path to select the token from.
+
+The next example shows how to get a list of user's friends using the **`Request`** method:
+
+```csharp
+var friends = await client.Request<ItemsList<User>>("friends.get", new Dictionary<string, string> {
+    {"user_id", "16815310"},
+    {"count", "10"},
+    {"order", "name"}
+});
+```
+
+#### Uploading Files
+
+**InTouch** supports [:link:uploading files](https://new.vk.com/dev/upload_files) through API.
+
+Next example demonstrates how to upload document to user's page.
+
+```csharp
+byte[] docFile = GetMyFile("cats.gif");
+
+var uploadedDocs = await client.Docs.UploadDoc(docFile, "cats.gif", title: "my funny cat");
+
+ShowUploadedDoc(uploadedDocs.Data[0]);
+```
+
+or how to update user's profile photo:
+
+```csharp
+byte[] newPhoto = GetMyFile("photo.jpg");
+
+await client.Photos.UploadOwnerPhoto(newPhoto, "profile.jpg");
+```
 
 ## :green_book: Platform Support
 
-InTouch is compiled for .NET 4.5, as well a Portable Class Library (Profile 111) supporting:
+**InTouch** is compiled for .NET 4.5, as well a Portable Class Library (Profile 111) supporting:
  - .NET 4.5
  - ASP.NET Core 1.0
  - Windows 8
@@ -312,12 +384,6 @@ InTouch is compiled for .NET 4.5, as well a Portable Class Library (Profile 111)
  - Xamarin.Android
  - Xamarin.iOS
  - Xamarin.iOS (Classic)
-
-## :green_book: Build / Release
-
-Clone the repository and build `ModernDev.InTouch.sln` using MSBuild. NuGet package restore must be enabled.
-
-If you fork the project, simply rename the `nuspec` file accordingly and it will be picked up by the release script.
 
 ## :green_book: License
 
