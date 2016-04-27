@@ -156,7 +156,7 @@ await client.Wall.Get(new WallGetParams {
 
 :information_source: Oh, by the way, **InTouch** brings all the advantages of [:link:async programming](https://msdn.microsoft.com/en-us/library/hh191443.aspx). Which means there are only a couple of *non-async* methods and all the rest are *async*. So you need to **`await`** them.
 
-#### Methods parameters
+#### Parameters transmissiton in API
 
 Most of the methods have its own *parameters* that are described in the **docs**. If a method (like [:link:this one](https://new.vk.com/dev/wall.get)) takes more than **6** arguments then these arguments will be combined into the **one object**. Here's what that means.
 
@@ -199,11 +199,105 @@ async Task<Response<ItemsList<Post>>> GetById(List<string> posts, bool extended 
     int copyHistoryDepth = 2, List<object> fields = null);
 ```
 
-:information_source: Keep in mind, **InTouch** would throw an exception if not all **required** parameters would be filled with a data. *Optional* parameters may be omitted.
+:information_source: Keep in mind, **InTouch** would throw an exception if not all **required** parameters filled with data. *Optional* parameters may be omitted.
 
+Each method has its own set of supported parameters but there are some common ones:
+
+ - **DataLanguage** - determines the language for the data to be displayed on. For example country and city names. If you use a non-cyrillic language, cyrillic symbols will be transtiterated automatically.
+
+```csharp
+client.DataLanguage = Langs.English;
+```
+
+ - **AlowHttpsLinks** - allows to get https links for photos and other media. False – methods return http links.
+
+```csharp
+client.AlowHttpsLinks = true;
+```
+
+ - **TestMode** - allows to send requests from a native app without switching it on for all users.
+
+```csharp
+client.TestMode = false;
+```
 
 #### Response object
 
+Calling to the API will always result in **`Response`** object which describes the next data structure:
+
+```csharp
+class Response<T> {
+    // Response error (if any).
+    ResponseError Error,
+
+    // Response data (if any).
+    T Data,
+
+    // Whether the request response is error.
+    bool IsError => Error != null,
+
+    // Raw JSON response.
+    string Raw
+}
+```
+
+So, for example, retrieving friends list using [:link:friends.get](https://new.vk.com/dev/friends.get) method will result in **`Response<ItemsList<User>>`**, where **Data** property would be of type **`ItemsList<User>`**.
+
+If API request resulted in *error* then the **Error** property would contain the error object describing the error code and the error message:
+
+```csharp
+class ResponseError: EventArgs {
+    // Error code.
+    int Code,
+
+    // Error text.
+    string Message,
+
+    // Captcha identifier.
+    string CaptchaSId,
+
+    // A link to an image that will be shown to a user.
+    string CaptchaImg,
+
+    // Request parameters.
+    Dictionary<string, string> RequestParams
+}
+```
+
+There are few *options* using which you can control how **InTouch** handles response errors.
+
+```csharp
+// If set to true, then an exception will be thrown in case of response error,
+// instead of passing an error object to the Response object.
+client.ThrowExceptionOnResponseError = true;
+
+// If set to true, then Response.Raw will be filled with raw JSON response string.
+client.IncludeRawResponse  = true;
+
+try {
+    var audios = await client.Audios.Get(count: 10);
+
+    OwnWayToAnalyzeRawResp(audios.Raw);
+    FillAudiosList(audios.Data);
+} catch (InTouchResponseErrorException ex) {
+    MessageBox.Show(ex.ResponseError.Message);
+}
+```
+
+#### Limits and recommendations
+
+> There can be maximum 3 requests to API methods per second from a client. 
+>
+> Maximum amount of server requests depends on the app's users amount. 
+If an app has less than 10 000 users, 5 requests per second, up to 100 000 – 8 requests, up to 1 000 000 – 20 requests, 1 000 000+ – 35 requests. 
+>
+> If one of this limits is exceeded, the server will return following error: 'Too many requests per second'. 
+>
+> If your app's logic implies many requests in a row, check the execute method. 
+>
+> Except the frequency limits there are quantitative limits on calling the methods of the > same type. By obvious reasons we don't provide the exact limits info. 
+>
+> On excess of a quantitative limit access to a particular method will require captcha (see captcha_error). After that it may be temporarily limited (in this case the server doesn't answer on particular method's requests but easily processes any other requests).
 
 
 **TODO:**...
