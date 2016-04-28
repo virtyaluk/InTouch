@@ -10,9 +10,9 @@
  * Licensed under the GPLv3 license.
  */
 
+using System;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -75,6 +75,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("photo_100")]
+        [Obsolete]
         public string Photo100 { get; set; }
 
         /// <summary>
@@ -82,6 +83,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("photo_130")]
+        [Obsolete]
         public string Photo130 { get; set; }
 
         #region Extra properties
