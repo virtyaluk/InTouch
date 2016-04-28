@@ -189,6 +189,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\AnswerVoters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Application.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AttachmentsHistory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\MarketAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\PhotoAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Audio.cs" />
@@ -258,7 +259,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\LongPollServerData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Lyrics.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Market.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\MarketAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MarketCategory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MarketPhotoUploadResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MediaLiked.cs" />

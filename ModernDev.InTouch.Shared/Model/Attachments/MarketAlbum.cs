@@ -23,7 +23,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("MarketAlbum {Title}")]
-    public class MarketAlbum : BaseAlbum
+    public class MarketAlbum : BaseAlbum, IMediaAttachment
     {
         /// <summary>
         /// Collection cover.
@@ -45,6 +45,6 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("updated_time")]
         [JsonConverter(typeof(JsonNumberDateTimeConverter))]
-        public DateTime? UpdatedTime { get; set; }
+        public DateTime UpdatedTime { get; set; }
     }
 }
