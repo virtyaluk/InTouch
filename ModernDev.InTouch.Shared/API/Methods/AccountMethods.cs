@@ -230,16 +230,20 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Allows to edit the current account info.
         /// </summary>
-        /// <param name="intro">Bit mask responsible for passing the tutorial in mobile clients. </param>
-        /// <param name="ownPostsDefault">True, if only user's posts should be displayed on the user's wall; False, for all posts.</param>
-        /// <param name="noWallreplies">True - disable wall posts commenting, False - allow commenting.</param>
+        /// <param name="name">
+        /// Option name.
+        /// Possible values:
+        /// <c>intro</c> - Bit mask responsible for passing the tutorial in mobile clients.
+        /// <c>own_posts_default</c> - True, if only user's posts should be displayed on the user's wall; False, for all posts.
+        /// <c>no_wall_replies</c> - True - disable wall posts commenting, False - allow commenting.
+        /// </param>
+        /// <param name="value">Option value.</param>
         /// <returns>If the method is successfully executed, code True will be returned.</returns>
-        public async Task<Response<bool>> SetInfo(int intro = 0, bool ownPostsDefault = true, bool noWallreplies = true)
+        public async Task<Response<bool>> SetInfo(string name, object value)
             => await Request<bool>("setInfo", new MethodParams
             {
-                {"intro", intro},
-                {"own_posts_default", ownPostsDefault},
-                {"no_wall_replies", noWallreplies}
+                {"name", name, true},
+                {"value", value }
             });
 
         /// <summary>

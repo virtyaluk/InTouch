@@ -158,7 +158,7 @@ namespace ModernDev.InTouch.Tests
         [Test]
         public async Task SetInfo()
         {
-            var resp = await _inTouch.Account.SetInfo();
+            var resp = await _inTouch.Account.SetInfo("own_posts_default", true);
 
             IsFalse(resp.IsError, "resp.IsError");
             IsTrue(resp.Data, "resp.Data");
