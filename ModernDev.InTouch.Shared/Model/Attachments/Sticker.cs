@@ -22,7 +22,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Sticker {Id}_{ProductId}")]
     [DataContract]
-    [APIVersion(Version = 5.45)]
     public class Sticker : IMediaAttachment
     {
         /// <summary>

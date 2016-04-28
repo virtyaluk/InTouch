@@ -22,7 +22,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Answer {Text}")]
-    [APIVersion(Version = 5.45)]
     public class Answer
     {
         /// <summary>

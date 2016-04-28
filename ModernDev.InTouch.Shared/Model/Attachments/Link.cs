@@ -12,7 +12,6 @@
 
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using ModernDev.InTouch.Helpers;
 using Newtonsoft.Json;
 
 namespace ModernDev.InTouch
@@ -22,7 +21,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Link {Title}")]
-    [APIVersion(Version = 5.45)]
     public class Link : IMediaAttachment
     {
         #region Properties
@@ -97,7 +95,7 @@ namespace ModernDev.InTouch
         public Button Button { get; set; }
 
         /// <summary>
-        /// Wiki's <see cref="Page"/> ID to preview content using methods like <see cref="Pages.Get"/>.
+        /// Wiki's <see cref="Page"/> ID to preview content using methods like <see cref="PagesMethods.Get"/>.
         /// The returned Id has the next form Page.OwnerId_Page.PageId.
         /// </summary>
         [DataMember]

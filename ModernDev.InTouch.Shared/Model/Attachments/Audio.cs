@@ -24,7 +24,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Audio {Artist} - {Title}")]
-    [APIVersion(Version = 5.45)]
     public class Audio : IMediaAttachment
     {
         #region Properties

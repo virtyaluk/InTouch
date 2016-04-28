@@ -24,7 +24,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Album {Title}")]
-    [APIVersion(Version = 5.45)]
     public class PhotoAlbum : BaseAlbum, IMediaAttachment
     {
         #region Properties

@@ -22,7 +22,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Gift {Id}")]
-    [APIVersion(Version = 5.45)]
     public class Gift : IMediaAttachment
     {
         /// <summary>

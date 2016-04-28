@@ -24,7 +24,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Photo {PhotoId}_{OwnerId}")]
     [DataContract]
-    [APIVersion(Version = 5.45)]
     public class Photo : IMediaAttachment
     {
         #region Properties

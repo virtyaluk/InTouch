@@ -5,9 +5,11 @@ namespace ModernDev.InTouch
     /// <summary>
     /// An <see cref="IMediaAttachment"/> is a base interface for all kind of attachments.
     /// </summary>
-    [APIVersion(Version = 5.45)]
     public interface IMediaAttachment
     {
+        /// <summary>
+        /// Item owner Id.
+        /// </summary>
         int OwnerId { get; set; }
     }
 }

@@ -24,7 +24,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Poll {Question}")]
-    [APIVersion(Version = 5.45)]
     public class Poll : IMediaAttachment
     {
         /// <summary>

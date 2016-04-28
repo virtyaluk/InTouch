@@ -22,7 +22,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Graffiti {Id} {OwnerId}")]
-    [APIVersion(Version = 5.45)]
     public class Graffiti : IMediaAttachment
     {
         /// <summary>

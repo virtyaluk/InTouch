@@ -169,7 +169,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\VideoCatalogFilterTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\VideoCatalogItemTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\VideoSearchFilters.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonAttachmentsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonCoordinatesConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonIProfileItemListConverter.cs" />

@@ -23,7 +23,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Page {Title}")]
-    [APIVersion(Version = 5.45)]
     public class Page : IMediaAttachment
     {
         #region Properties

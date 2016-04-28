@@ -23,7 +23,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Note {Title}")]
-    [APIVersion(Version = 5.45)]
     public class Note : IMediaAttachment
     {
         /// <summary>

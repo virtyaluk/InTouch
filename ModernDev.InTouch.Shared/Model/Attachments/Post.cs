@@ -26,7 +26,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Post {Id}")]
-    [APIVersion(Version = 5.50)]
     public class Post : IMediaAttachment, IFeedback
     {
         #region Properties

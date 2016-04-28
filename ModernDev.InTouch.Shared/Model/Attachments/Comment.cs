@@ -24,7 +24,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Comment {Id}")]
-    [APIVersion(Version = 5.45)]
     public class Comment : IMediaAttachment, IFeedback
     {
         #region Properties

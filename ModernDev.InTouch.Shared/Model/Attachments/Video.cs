@@ -25,7 +25,6 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Video {Title}")]
     [DataContract]
-    [APIVersion(Version = 5.45)]
     public class Video : IMediaAttachment, IVideoCatalogItem
     {
         #region Properties
