@@ -44,8 +44,8 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Messages filter: 8 - to return important messages.
         /// </summary>
-        [MethodParam(Name = "important")]
-        public int OnlyImportant { get; set; } = 8;
+        [MethodParam(Name = "filters")]
+        public int Filters { get; set; } = 8;
 
         /// <summary>
         /// Number of characters after which to truncate a previewed message. To preview the full message, specify 0.
