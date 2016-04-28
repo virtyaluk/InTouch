@@ -21,27 +21,51 @@ namespace ModernDev.InTouch
     [DebuggerDisplay("AttachmentTypes")]
     public enum AttachmentsTypes
     {
+        /// <summary>
+        /// Photos.
+        /// </summary>
         [EnumMember(Value = "photo")]
         Photo,
 
+        /// <summary>
+        /// Videos.
+        /// </summary>
         [EnumMember(Value = "video")]
         Video,
 
+        /// <summary>
+        /// Audio files.
+        /// </summary>
         [EnumMember(Value = "audio")]
         Audio,
 
+        /// <summary>
+        /// Documents.
+        /// </summary>
         [EnumMember(Value = "doc")]
         Doc,
 
+        /// <summary>
+        /// Links.
+        /// </summary>
         [EnumMember(Value = "link")]
         Link,
 
+        /// <summary>
+        /// Market items.
+        /// </summary>
         [EnumMember(Value = "market")]
         Market,
 
+        /// <summary>
+        /// Wall posts.
+        /// </summary>
         [EnumMember(Value = "wall")]
         Wall,
 
+        /// <summary>
+        /// Links, market items and wall posts.
+        /// </summary>
         [EnumMember(Value = "share")]
         Share
     }
