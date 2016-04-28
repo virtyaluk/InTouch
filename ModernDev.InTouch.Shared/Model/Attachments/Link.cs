@@ -135,6 +135,10 @@ namespace ModernDev.InTouch
         [JsonProperty("photo_200")]
         public string Photo200 { get; set; }
 
+        [DataMember]
+        [JsonProperty("image_src")]
+        public string ImageSrc { get; set; }
+
         #endregion
 
         #endregion
