@@ -100,7 +100,13 @@ namespace ModernDev.InTouch.Helpers
                         list.Add(obj["posted_photo"].ToObject<PostedPhoto>());
                         break;
 
-                        // TODO: market, share
+                    case "market":
+                        list.Add(obj["market"].ToObject<Product>());
+                        break;
+
+                    case "market_album":
+                        list.Add(obj["market_album"].ToObject<MarketAlbum>());
+                        break;
                 }
             }
 
