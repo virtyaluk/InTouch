@@ -118,6 +118,26 @@ namespace ModernDev.InTouch
         public async Task<Response<int>> Send(MessagesSendParams methodParams) => await Request<int>("send", methodParams);
 
         /// <summary>
+        /// Sends a sticker.
+        /// </summary>
+        /// <param name="stickerId">Sticker ID.</param>
+        /// <param name="userId">User ID.</param>
+        /// <param name="domain">User's domain.</param>
+        /// <param name="peerId">Peer ID.</param>
+        /// <param name="chatId">Chat ID.</param>
+        /// <returns>Returns ID of the sent message.</returns>
+        public async Task<Response<int>> SendSticker(int stickerId, int? userId = null, string domain = null,
+            int? peerId = null, int? chatId = null) => await Request<int>("sendSticker", new MethodParams
+            {
+                {"random_id", new Random().Next(10000, 99999)},
+                {"sticker_id", stickerId, true},
+                {"user_id", userId},
+                {"domain", domain},
+                {"peer_id", peerId},
+                {"chat_id", chatId}
+            });
+
+        /// <summary>
         /// Deletes one or more messages.
         /// </summary>
         /// <param name="messageIds">Message IDs.</param>
