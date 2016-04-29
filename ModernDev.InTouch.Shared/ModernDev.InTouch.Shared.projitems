@@ -205,6 +205,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Poll.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Post.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\PostedPhoto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Product.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Sticker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AudioAlbum.cs" />
@@ -317,7 +318,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\PostStats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Preview.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Price.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\Product.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ProfileInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Rating.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Region.cs" />
