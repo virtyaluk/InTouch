@@ -1,13 +1,13 @@
 <h1 align="center"><img width="256" src="media/it-logo.png" alt="InTouch logo" style="clear: right;"><br/></h1>
 
-[![Build status](https://ci.appveyor.com/api/projects/status/m3lbiphdft6bn059?svg=true)](https://ci.appveyor.com/project/virtyaluk/intouch) [![NuGet](https://img.shields.io/nuget/v/ModernDev.InTouch.svg?maxAge=3600)](https://www.nuget.org/packages/ModernDev.InTouch/) [![Join the chat at https://gitter.im/virtyaluk/InTouch](https://badges.gitter.im/virtyaluk/InTouch.svg)](https://gitter.im/virtyaluk/InTouch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build status](https://ci.appveyor.com/api/projects/status/m3lbiphdft6bn059?svg=true)](https://ci.appveyor.com/project/virtyaluk/intouch) [![NuGet](https://img.shields.io/nuget/v/ModernDev.InTouch.svg?maxAge=7200)](https://www.nuget.org/packages/ModernDev.InTouch/) [![Join the chat at https://gitter.im/virtyaluk/InTouch](https://badges.gitter.im/virtyaluk/InTouch.svg)](https://gitter.im/virtyaluk/InTouch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 **InTouch** - is a C# wrapper for [vk.com](https://vk.com/) API.
 
 Be sure to check out official VK's **[:link:Quick start](https://new.vk.com/dev/main)** guide before you dive into **InTouch**.
 
-Compatible with version **4.45** of **[:link:VK API](https://new.vk.com/dev/versions)**.
+Compatible with version **4.52** of **[:link:VK API](https://new.vk.com/dev/versions)**.
 
 [:calendar: Changelog](CHANGELOG.md) &nbsp; [:ru: Документация на русском.](README.ru.md)
 
