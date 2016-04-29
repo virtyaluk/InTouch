@@ -431,6 +431,7 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getHistory", Responses.GetString("messagesItemsList"))
                         .WhenAndRespond($"{cat}.getHistoryAttachments", Responses.GetString("attachmentsItemsList"))
                         .WhenAndRespond($"{cat}.send", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.sendSticker", Responses.GetString("responseNum"))
                         .WhenAndRespond($"{cat}.delete", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.deleteDialog", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.restore", Responses.GetString("responseTrue"))

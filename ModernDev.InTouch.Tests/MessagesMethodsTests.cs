@@ -120,6 +120,15 @@ namespace ModernDev.InTouch.Tests
         }
 
         [Test]
+        public async Task SendSticker()
+        {
+            var resp = await _inTouch.Messages.SendSticker(5566, 12345);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data == 481516, "resp.Data == 481516");
+        }
+
+        [Test]
         public async Task Delete()
         {
             var resp = await _inTouch.Messages.Delete(new List<int> { 1 });
