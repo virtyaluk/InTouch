@@ -20,6 +20,10 @@ before_build:
 after_build:
   - nuget pack ModernDev.InTouch.nuspec -version %APPVEYOR_BUILD_VERSION%
   - appveyor PushArtifact ModernDev.InTouch.%APPVEYOR_BUILD_VERSION%.nupkg
+
+pull_requests:
+  do_not_increment_build_number: true
+skip_non_tags: true
   
 notifications:
 - provider: Webhook
