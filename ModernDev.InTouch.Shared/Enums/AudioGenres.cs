@@ -54,8 +54,8 @@ namespace ModernDev.InTouch
         Classical = 16,
         [EnumMember(Value = "17")]
         IndiePop = 17,
-        [EnumMember(Value = "18")]
-        Speech = 18,
+        [EnumMember(Value = "19")]
+        Speech = 19,
         [EnumMember(Value = "22")]
         ElectropopAndDisco = 22,
         [EnumMember(Value = "18")]
