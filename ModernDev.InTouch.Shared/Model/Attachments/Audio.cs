@@ -111,5 +111,10 @@ namespace ModernDev.InTouch
         public bool NoSearch { get; set; }
 
         #endregion
+
+        public override string ToString()
+        {
+            return $"{Artist} - {Title}";
+        }
     }
 }

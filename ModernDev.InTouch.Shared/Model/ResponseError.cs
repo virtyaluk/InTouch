@@ -61,6 +61,11 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("request_params")]
         [JsonConverter(typeof(JsonRequestParamsConverter))]
-        public Dictionary<string, string> RequestParams { get; private set; } 
+        public Dictionary<string, string> RequestParams { get; private set; }
+
+        public override string ToString()
+        {
+            return $"{Code}: {Message}";
+        }
     }
 }

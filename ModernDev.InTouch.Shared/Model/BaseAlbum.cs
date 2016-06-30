@@ -47,5 +47,10 @@ namespace ModernDev.InTouch
         public string Title { get; set; }
 
         #endregion
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }
