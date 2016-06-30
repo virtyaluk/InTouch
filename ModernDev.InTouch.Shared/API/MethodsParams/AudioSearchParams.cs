@@ -53,7 +53,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// True - to search only user's audio files; False - to exclude user's audio files from search results.
         /// </summary>
-        [MethodParam(Name = "search_down")]
+        [MethodParam(Name = "search_own")]
         public bool SearchOwn { get; set; }
 
         /// <summary>
