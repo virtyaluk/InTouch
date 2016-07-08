@@ -33,11 +33,18 @@ namespace ModernDev.InTouch
         {
             AccessToken = accessToken;
             UserId = userId;
-            Duration = TimeSpan.FromSeconds(expires);
 
             _sessionStoredDateTime = DateTime.Now;
-
-            InitTimer();
+            
+            if (expires != 0)
+            {
+                Duration = TimeSpan.FromSeconds(expires);
+                InitTimer();
+            }
+            else
+            {
+                Duration = TimeSpan.MaxValue;
+            }
         }
 
 #endregion
