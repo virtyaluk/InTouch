@@ -458,9 +458,9 @@ namespace ModernDev.InTouch
                 throw new ArgumentException("The value cannot be less than or equal to zero.", nameof(userId));
             }
 
-            if (sessionDuration <= 0)
+            if (sessionDuration < 0)
             {
-                throw new ArgumentException("The value cannot be less than or equal to zero.", nameof(sessionDuration));
+                throw new ArgumentException("The value cannot be less than zero.", nameof(sessionDuration));
             }
 
             SetSessionData(new APISession(accessToken, userId, sessionDuration));
