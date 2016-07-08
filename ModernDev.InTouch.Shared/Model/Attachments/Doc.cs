@@ -102,5 +102,10 @@ namespace ModernDev.InTouch
         #endregion
 
         #endregion
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }
