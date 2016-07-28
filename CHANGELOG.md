@@ -5,16 +5,25 @@
 
 **InTouch** - is a C# wrapper for [vk.com](https://vk.com/) API.
 
-Compatible with version **5.52** of **[:link:VK API](https://new.vk.com/dev/versions)**.
+Compatible with version **5.53** of **[:link:VK API](https://new.vk.com/dev/versions)**.
 
 [:uk: Readme](README.md) &nbsp; [:ru: Документация на русском.](README.ru.md)
 
 # Changelog
 
+## v1.0.15 (July 28, 2016)
+- API aligned with latest version of VK API (5.53).
+- Fixed AudioGenres.Speech enum value. @RomanGL in [#2](https://github.com/virtyaluk/InTouch/pull/2).
+- AudioSearchParams.SearchOwn MethodParamAttribute.Name fix. @RomanGL in [#3](https://github.com/virtyaluk/InTouch/pull/3).
+- Implemented ToString for Audio, Video, Doc, BaseAlbum and ResponseError. @RomanGL in [#4](https://github.com/virtyaluk/InTouch/pull/4).
+- Fixed method mask in InTouch.Request<T>. @RomanGL in [#5](https://github.com/virtyaluk/InTouch/pull/5).
+- Allows sessions with duration of `0`. @acedened in [#6](https://github.com/virtyaluk/InTouch/pull/6).
+- APIVersion: type changed to string. @RomanGL in [#7](https://github.com/virtyaluk/InTouch/pull/7).
+
 ## v1.0.14 (April 30, 2016)
 
-- Added new **messages.sendSticker** method;
-- API aligned with latest version of VK API (5.52);
+- Added new **messages.sendSticker** method.
+- API aligned with latest version of VK API (5.52).
 - Bug fixes and code improvements.
 
 ---
