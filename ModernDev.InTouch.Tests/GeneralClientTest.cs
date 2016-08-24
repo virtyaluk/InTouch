@@ -50,7 +50,7 @@ namespace ModernDev.InTouch.Tests
 
             Throws<ArgumentNullException>(() => _it1.SetSessionData("", 0));
             Throws<ArgumentException>(() => _it1.SetSessionData("access_token", 0));
-            Throws<ArgumentException>(() => _it1.SetSessionData("access_token", 1, 0));
+            Throws<ArgumentException>(() => _it1.SetSessionData("access_token", 1, -1));
             Throws<ArgumentNullException>(() => _it1.SetSessionData(null));
             DoesNotThrow(() => _it1.SetSessionData("access_token", 1));
             IsNotNull(_it1.Session, "_it1.Session != null");
@@ -113,7 +113,7 @@ namespace ModernDev.InTouch.Tests
 
             DoesNotThrowAsync(async () =>
             {
-                respJson = await _inTouch.Post("/method/test.json", _emptyDict);
+                respJson = await _inTouch.Post("/method/test", _emptyDict);
             });
 
             IsNotEmpty(respJson, "respJson");
@@ -144,11 +144,12 @@ namespace ModernDev.InTouch.Tests
             ThrowsAsync<NullReferenceException>(async () => await _inTouch.Request<bool>("test"));
             DoesNotThrowAsync(async () => await _inTouch.Request<bool>("test", isOpenMethod: true));
 
-            _inTouch.Session = new APISession("access_token", 12345, 0);
-
-            ThrowsAsync<InTouchException>(async () => await _inTouch.Request<bool>("test"));
-
-            _inTouch.SetApplicationSettings(12345, "super_secret");
+            /* 
+             * Next won't work since session duration could be equal to zero
+             * _inTouch.Session = new APISession("access_token", 12345, 0);
+             * ThrowsAsync<InTouchException>(async () => await _inTouch.Request<bool>("test"));
+             * _inTouch.SetApplicationSettings(12345, "super_secret");
+             */
         }
 
         [Test]

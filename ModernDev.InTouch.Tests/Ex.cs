@@ -22,7 +22,7 @@ namespace ModernDev.InTouch.Tests
     {
         private static MockHttpMessageHandler WhenAndRespond(this MockHttpMessageHandler @this, string url, string json)
         {
-            @this.When($"/method/{url}.json").Respond("application/json", json);
+            @this.When($"/method/{url}").Respond("application/json", json);
 
             return @this;
         }

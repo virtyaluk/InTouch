@@ -509,7 +509,7 @@ namespace ModernDev.InTouch
 
             CacheReqData(methodName, normalizedParams, isOpenMethod, path);
 
-            var json = await Post($"method/{methodName}.json", normalizedParams);
+            var json = await Post($"method/{methodName}", normalizedParams);
 
             return await Task.Run(() => ParseJsonReponse<T>(json, path));
         }
