@@ -37,6 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsGetMembersParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsGetParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsSearchParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\GroupsSetCallbackSettingsParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\LikesGetListParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketAddParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketCreateCommentParams.cs" />
@@ -216,6 +217,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\BasicPlace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\BaseCategory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\CallbackServerSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\CallbackServerState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\CallbackSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Chat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ChatPushSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Checkin.cs" />

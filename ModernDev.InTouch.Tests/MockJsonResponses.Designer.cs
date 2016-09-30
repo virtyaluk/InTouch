@@ -379,6 +379,33 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;code&quot;:&quot;confirmationCode&quot;}}.
+        /// </summary>
+        internal static string getCallbackConfirmationCode {
+            get {
+                return ResourceManager.GetString("getCallbackConfirmationCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;secret_key&quot;:&quot;secretKey&quot;,&quot;server_url&quot;:&quot;serverUrl&quot;}}.
+        /// </summary>
+        internal static string getCallbackServerSettings {
+            get {
+                return ResourceManager.GetString("getCallbackServerSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;message_new&quot;:true,&quot;wall_reply_new&quot;:false}}.
+        /// </summary>
+        internal static string getCallbackSettings {
+            get {
+                return ResourceManager.GetString("getCallbackSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3,&quot;items&quot;:[{&quot;id&quot;:653008904,&quot;from_id&quot;:165146081,&quot;message&quot;:&quot;&quot;,&quot;date&quot;:1458403595,&quot;gift&quot;:{&quot;id&quot;:770,&quot;thumb_256&quot;:&quot;https://vk.com/images/gift/770/256.jpg&quot;,&quot;thumb_96&quot;:&quot;https://vk.com/images/gift/770/96.png&quot;,&quot;thumb_48&quot;:&quot;https://vk.com/images/gift/770/48.png&quot;},&quot;privacy&quot;:1,&quot;gift_hash&quot;:&quot;eOwGaCj1Rc6Itu7T*RdRaIXHIlol27m*cXSHlBbQk0fFvGK4W8yxcKT0c8AcMcYST9FoViFMJoPFY*SOX/t1GLHumPjtYCbbYcwA8lE4WO2sydjoVzs8nKGfZS8*HBNQU6z6CZgxct2qFCCA2iyLDmM4j9jpcbU3MpMwdC1EWcM-&quot;},{&quot;id&quot;:653006597,&quot;from_id&quot;:165146081,&quot;mes [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string giftsItemsList {
@@ -888,6 +915,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string serverTime {
             get {
                 return ResourceManager.GetString("serverTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;state_code&quot;:1,&quot;state&quot;:&quot;ok&quot;}}.
+        /// </summary>
+        internal static string setCallbackServer {
+            get {
+                return ResourceManager.GetString("setCallbackServer", resourceCulture);
             }
         }
         
