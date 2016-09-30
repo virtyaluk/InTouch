@@ -96,7 +96,7 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="groupId">ID or screen name of the community. </param>
         /// <param name="notSure">Optional parameter which is taken into account when gid belongs to the event: True — Perhaps I will attend; False — I will be there for sure(default) </param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> Join(object groupId = null, bool notSure = false)
             => await Request<bool>("join", new MethodParams
             {
@@ -108,7 +108,7 @@ namespace ModernDev.InTouch
         /// With this method you can leave a group, public page, or event.
         /// </summary>
         /// <param name="groupId">ID or screen name of the community.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> Leave(object groupId) => await Request<bool>("leave",
             new MethodParams
             {
@@ -193,7 +193,7 @@ namespace ModernDev.InTouch
         /// <param name="reason">Reason for ban.</param>
         /// <param name="comment">Text of comment to ban.</param>
         /// <param name="commentVisible">True — text of comment will be visible to the user; False — text of comment will be invisible to the user(default)</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> BanUser(int groupId, int userId, DateTime? endDate = null,
             BanTypes reason = BanTypes.Other, string comment = null, bool commentVisible = false)
             => await Request<bool>("banUser", new MethodParams
@@ -211,7 +211,7 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="groupId">Community ID.</param>
         /// <param name="userId">User ID.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> UnbanUser(int groupId, int userId)
             => await Request<bool>("unbanUser", new MethodParams
             {
@@ -262,7 +262,7 @@ namespace ModernDev.InTouch
         /// <remarks>You must be a community administrator to use this method</remarks>
         /// </summary>
         /// <param name="methodParams"><see cref="GroupsEditParams"/> object containing method params.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> Edit(GroupsEditParams methodParams)
             => await Request<bool>("edit", methodParams);
 
@@ -306,7 +306,7 @@ namespace ModernDev.InTouch
         /// Allows to assign or demote community's manager, or to change the level of the existing manager.
         /// </summary>
         /// <param name="methodParams"><see cref="GroupsEditManagerParams"/> object containing method params.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> EditManager(GroupsEditManagerParams methodParams)
             => await Request<bool>("editManager", methodParams);
 
@@ -315,7 +315,7 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="groupId">Community ID.</param>
         /// <param name="userId">User Id.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> Invite(int groupId, int userId)
             => await Request<bool>("invite", new MethodParams
             {
@@ -343,7 +343,7 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="groupId">Community ID.</param>
         /// <param name="linkId">Link Id.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> DeleteLink(int groupId, int linkId)
             => await Request<bool>("deleteLink", new MethodParams
             {
@@ -357,7 +357,7 @@ namespace ModernDev.InTouch
         /// <param name="groupId">Community ID.</param>
         /// <param name="linkId">Link Id.</param>
         /// <param name="text">New link text.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> EditLink(int groupId, int linkId, string text = null)
             => await Request<bool>("editLink", new MethodParams
             {
@@ -372,7 +372,7 @@ namespace ModernDev.InTouch
         /// <param name="groupId">Community ID.</param>
         /// <param name="linkId">Link Id.</param>
         /// <param name="after">Link Id after which you want to place movable link. 0 - if you want to place the link at the top spot.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> ReorderLink(int groupId, int linkId, int after = 0)
             => await Request<bool>("reorderLink", new MethodParams
             {
@@ -386,7 +386,7 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="groupId">Community ID.</param>
         /// <param name="userId">User Id.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> RemoveUser(int groupId, int userId)
             => await Request<bool>("removeUser", new MethodParams
             {
@@ -399,13 +399,87 @@ namespace ModernDev.InTouch
         /// </summary>
         /// <param name="groupId">Community ID.</param>
         /// <param name="userId">User Id.</param>
-        /// <returns>Returns True if the user installed the application; otherwise returns False.</returns>
+        /// <returns>If successfully executed, returns True.</returns>
         public async Task<Response<bool>> ApproveRequest(int groupId, int userId)
             => await Request<bool>("approveRequest", new MethodParams
             {
                 {"group_id", groupId, true},
                 {"user_id", userId, true}
             });
+
+        #region Callback methods
+
+        /// <summary>
+        /// Returns Callback API confirmation code for the community.
+        /// </summary>
+        /// <param name="groupId">Community ID.</param>
+        /// <returns>Returns a string with the confirmation code.</returns>
+        public async Task<Response<string>> GetCallbackConfirmationCode(int groupId)
+            => await Request<string>("getCallbackConfirmationCode", new MethodParams
+            {
+                {"group_id", groupId, true}
+            }, false, "code");
+
+        /// <summary>
+        /// Returns Callback API server settings for the community.
+        /// </summary>
+        /// <param name="groupId">Community ID.</param>
+        /// <returns>Returns <see cref="CallbackServerSettings"/> object.</returns>
+        public async Task<Response<CallbackServerSettings>> GetCallbackServerSettings(int groupId)
+            => await Request<CallbackServerSettings>("getCallbackServerSettings", new MethodParams
+            {
+                {"group_id", groupId, true}
+            });
+
+        /// <summary>
+        /// Returns Callback API notifications settings.
+        /// </summary>
+        /// <param name="groupId">Community ID.</param>
+        /// <returns>Returns <see cref="CallbackSettings"/> object.</returns>
+        public async Task<Response<CallbackSettings>> GetCallbackSettings(int groupId)
+            => await Request<CallbackSettings>("getCallbackSettings", new MethodParams
+            {
+                {"group_id", groupId, true}
+            });
+
+        /// <summary>
+        /// Allow to set Callback API server URL for the community. 
+        /// 
+        /// To confirm the connection, your server should return a string with a confirmation code.
+        /// You can get thus code using <see cref="GetCallbackConfirmationCode"/> method.
+        /// </summary>
+        /// <param name="groupId">Community ID.</param>
+        /// <param name="serverUrl">Server URL.</param>
+        /// <returns>Returns <see cref="CallbackServerState"/> object.</returns>
+        public async Task<Response<CallbackServerState>> SetCallbackServer(int groupId, string serverUrl)
+            => await Request<CallbackServerState>("setCallbackServer", new MethodParams
+            {
+                {"group_id", groupId, true},
+                {"server_url", serverUrl, true}
+            });
+
+        /// <summary>
+        /// Allow to set Callback API server settings.
+        /// </summary>
+        /// <param name="groupId">Community ID.</param>
+        /// <param name="secretKey">Callback API secret key.</param>
+        /// <returns>If successfully executed, returns True.</returns>
+        public async Task<Response<bool>> SetCallbackServerSettings(int groupId, string secretKey)
+            => await Request<bool>("setCallbackServerSettings", new MethodParams
+            {
+                {"group_id", groupId, true},
+                {"secretKey", secretKey, true}
+            });
+
+        /// <summary>
+        /// Allow to set notifications settings for Callback API.
+        /// </summary>
+        /// <param name="methodParams"><see cref="GroupsSetCallbackSettingsParams"/> object containing method params.</param>
+        /// <returns>If successfully executed, returns True.</returns>
+        public async Task<Response<bool>> SetCallbackSettings(GroupsSetCallbackSettingsParams methodParams)
+            => await Request<bool>("setCallbackSettings", methodParams);
+
+        #endregion
 
         #endregion
     }
