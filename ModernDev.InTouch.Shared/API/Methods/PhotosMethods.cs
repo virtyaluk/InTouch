@@ -714,6 +714,16 @@ namespace ModernDev.InTouch
                 {"offset", offset}
             });
 
+        /// <summary>
+        /// Returns photo editor sticker IDs.
+        /// </summary>
+        /// <returns>Returns <see cref="EditorStickers"/> object with sticker IDs.</returns>
+        public async Task<Response<EditorStickers>> GetEditorStickers()
+        {
+            #warning THIS IS AN EXPERIMENTAL METHOD
+            return await Request<EditorStickers>("getEditorStickers");
+        }
+
         #region Upload methods
 
         /// <summary>

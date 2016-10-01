@@ -237,6 +237,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\DialogsList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\DocType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\DocUploadResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\EditorStickers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\EmptyItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Faculty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\FacultyChair.cs" />
