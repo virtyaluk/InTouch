@@ -289,7 +289,7 @@ namespace ModernDev.InTouch.Tests {
         ///							&quot;owner_id&quot; : -1,
         ///							&quot;user_id&quot; : 100,
         ///							&quot;photo_75&quot; : &quot;https://pp.vk.me/...9bb/cC1ndaaUcag.jpg&quot;,
-        ///							&quot;photo_130&quot; : &quot;https://pp.vk.me/...9bc/4OoKxE [rest of string was truncated]&quot;;.
+        ///							&quot;photo_130&quot; : &quot;https://p [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string commentItemsList {
             get {
@@ -339,6 +339,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string docsList {
             get {
                 return ResourceManager.GetString("docsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;base_url&quot;: &quot;https://vk.com/images/stickers&quot;,&quot;sticker_ids&quot;: [3175, 3176, 3177, 3178, 3179, 3180, 3181, 3182, 3183, 3184, 3185, 3186, 3187, 3188, 3189, 3190, 3191, 3192, 3193, 3194, 3195, 3196, 3197, 3198, 3199, 3200, 3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208, 3209, 3210, 3211, 3212, 3213, 3214, 3215, 3216, 3217, 3218, 3219, 3220, 3221, 3222, 3223, 3224, 3225, 3226, 3227, 3228, 3229, 3230, 3231, 3232, 3233, 3234, 3235, 3236, 3237, 3238, 3239, 3240, 3241, 3242, 3243, 3244]}}.
+        /// </summary>
+        internal static string editorStickers {
+            get {
+                return ResourceManager.GetString("editorStickers", resourceCulture);
             }
         }
         

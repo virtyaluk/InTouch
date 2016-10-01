@@ -539,6 +539,17 @@ namespace ModernDev.InTouch.Tests
             Ex.TestPhoto(resp.Data.Items[0]);
         }
 
+        public async Task GetEditorStickers()
+        {
+            var resp = await _inTouch.Photos.GetEditorStickers();
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            IsNotEmpty(resp.Data.BaseUrl, "resp.Data.BaseUrl");
+            IsNotEmpty(resp.Data.StickerIds, "resp.Data.StickerIds");
+            Contains(resp.Data.StickerIds, new List<int> {3178, 3210, 3229});
+        }
+
         [OneTimeTearDown]
         public void TestTearDown()
         {

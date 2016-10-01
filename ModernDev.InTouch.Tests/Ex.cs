@@ -376,7 +376,8 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.getTags", Responses.GetString("photoTags"))
                         .WhenAndRespond($"{cat}.putTag", Responses.GetString("responseNum"))
                         .WhenAndRespond($"{cat}.removeTag", Responses.GetString("responseTrue"))
-                        .WhenAndRespond($"{cat}.getNewTags", Responses.GetString("photosItemsList"));
+                        .WhenAndRespond($"{cat}.getNewTags", Responses.GetString("photosItemsList"))
+                        .WhenAndRespond($"{cat}.getEditorStickers", Responses.GetString("editorStickers"));
                     break;
 
                 case "pages":
