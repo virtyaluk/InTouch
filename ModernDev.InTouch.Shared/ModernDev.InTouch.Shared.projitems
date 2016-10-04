@@ -44,6 +44,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketEditParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketGetCommentsParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MarketSearchParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetDialogsParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetHistoryAttachmentsParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetHistoryParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\MessagesGetLongPollHistoryParams.cs" />
