@@ -458,7 +458,9 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.removeChatUser", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getLastActivity", Responses.GetString("userLastActivity"))
                         .WhenAndRespond($"{cat}.setChatPhoto", Responses.GetString("newChatPhoto"))
-                        .WhenAndRespond($"{cat}.deleteChatPhoto", Responses.GetString("newChatPhoto"));
+                        .WhenAndRespond($"{cat}.deleteChatPhoto", Responses.GetString("newChatPhoto"))
+                        .WhenAndRespond($"{cat}.markAsImportantDialog", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.markAsAnsweredDialog", Responses.GetString("responseTrue"));
                     break;
 
                 case "fave":
