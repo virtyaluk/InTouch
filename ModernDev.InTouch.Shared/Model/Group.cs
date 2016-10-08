@@ -241,7 +241,7 @@ namespace ModernDev.InTouch
         /// Returned only for meeting and contain end time of the meeting.
         /// </summary>
         [DataMember]
-        [JsonProperty("end_date")]
+        [JsonProperty("finish_date")]
         [JsonConverter(typeof(JsonNumberDateTimeConverter))]
         public DateTime? EndDate { get; set; }
 
@@ -385,6 +385,16 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("status_audio")]
         public Audio StatusAudio { get; set; }
+
+        /// <summary>
+        /// Age limit:
+        /// 1 - no limit;
+        /// 2 - 16+;
+        /// 3 - 18+.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("age_limits")]
+        public int AgeLimits { get; set; }
 
         #endregion
         #endregion

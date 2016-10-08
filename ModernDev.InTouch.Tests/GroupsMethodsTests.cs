@@ -308,6 +308,68 @@ namespace ModernDev.InTouch.Tests
             IsTrue(resp.Data, "resp.Data");
         }
 
+        [Test]
+        public async Task GetCallbackConfirmationCode()
+        {
+            var resp = await _inTouch.Groups.GetCallbackConfirmationCode(1);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            AreEqual(resp.Data, "confirmationCode");
+        }
+
+        [Test]
+        public async Task GetCallbackServerSettingsT()
+        {
+            var resp = await _inTouch.Groups.GetCallbackServerSettings(1);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            AreEqual(resp.Data.SecretKey, "secretKey");
+        }
+
+        [Test]
+        public async Task GetCallbackSettings()
+        {
+            var resp = await _inTouch.Groups.GetCallbackSettings(1);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            IsTrue(resp.Data.MessageNew, "resp.Data.MessageNew");
+            IsFalse(resp.Data.WallReplyNew, "resp.Data.WallReplyNew");
+        }
+
+        [Test]
+        public async Task SetCallbackServer()
+        {
+            var resp = await _inTouch.Groups.SetCallbackServer(1, "serverUrl");
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            AreEqual(resp.Data.StateCode, 1);
+        }
+
+        [Test]
+        public async Task SetCallbackServerSettings()
+        {
+            var resp = await _inTouch.Groups.SetCallbackServerSettings(1, "secretKey");
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
+        }
+
+        [Test]
+        public async Task SetCallbackSettings()
+        {
+            var resp = await _inTouch.Groups.SetCallbackSettings(new GroupsSetCallbackSettingsParams
+            {
+                GroupId = 1,
+                MessageNew = true
+            });
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
+        }
+
         [OneTimeTearDown]
         public void TestTearDown()
         {

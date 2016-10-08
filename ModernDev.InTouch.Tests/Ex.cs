@@ -234,7 +234,15 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.editLink", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.reorderLink", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.removeUser", Responses.GetString("responseTrue"))
-                        .WhenAndRespond($"{cat}.approveRequest", Responses.GetString("responseTrue"));
+                        .WhenAndRespond($"{cat}.approveRequest", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.getCallbackConfirmationCode",
+                            Responses.GetString("getCallbackConfirmationCode"))
+                        .WhenAndRespond($"{cat}.getCallbackServerSettings",
+                            Responses.GetString("getCallbackServerSettings"))
+                        .WhenAndRespond($"{cat}.getCallbackSettings", Responses.GetString("getCallbackSettings"))
+                        .WhenAndRespond($"{cat}.setCallbackServer", Responses.GetString("setCallbackServer"))
+                        .WhenAndRespond($"{cat}.setCallbackServerSettings", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.setCallbackSettings", Responses.GetString("responseTrue"));
                     break;
 
                 case "likes":

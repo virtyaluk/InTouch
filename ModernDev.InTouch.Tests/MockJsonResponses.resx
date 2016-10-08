@@ -592,4 +592,16 @@
   <data name="apiError5" xml:space="preserve">
     <value>{"error":{"error_code":5,"error_msg":"User authorization failed: access_token was given to another ip address.","request_params":[{"key":"oauth","value":"1"},{"key":"foo","value":"bar"}]}}</value>
   </data>
+  <data name="getCallbackConfirmationCode" xml:space="preserve">
+    <value>{"response":{"code":"confirmationCode"}}</value>
+  </data>
+  <data name="getCallbackServerSettings" xml:space="preserve">
+    <value>{"response":{"secret_key":"secretKey","server_url":"serverUrl"}}</value>
+  </data>
+  <data name="getCallbackSettings" xml:space="preserve">
+    <value>{"response":{"message_new":true,"wall_reply_new":false}}</value>
+  </data>
+  <data name="setCallbackServer" xml:space="preserve">
+    <value>{"response":{"state_code":1,"state":"ok"}}</value>
+  </data>
 </root>
