@@ -1,4 +1,4 @@
-﻿/**
+/**
  * This file\code is part of InTouch project.
  *
  * InTouch - is a .NET wrapper for the vk.com API.
@@ -10,6 +10,7 @@
  * Licensed under the GPLv3 license.
  */
 
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
@@ -17,38 +18,38 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// Document preview info.
+    /// Audio message info.
     /// </summary>
     [DataContract]
-    [DebuggerDisplay("Preview")]
-    public class Preview
+    [DebuggerDisplay("AudioMessage")]
+    public class AudioMessage
     {
         /// <summary>
-        /// Photo to preview.
+        /// Duration in seconds.
         /// </summary>
         [DataMember]
-        [JsonProperty("photo")]
-        public Photo Photo { get; set; }
+        [JsonProperty("duration")]
+        public int Duration { get; set; }
 
         /// <summary>
-        /// Video to preview.
+        /// List of integers used to visual representation of waveform.
         /// </summary>
         [DataMember]
-        [JsonProperty("video")]
-        public VideoPreview Video { get; set; }
+        [JsonProperty("waveform")]
+        public List<int> Waveform { get; set; }
 
         /// <summary>
-        /// Graffiti info.
+        /// URL to .ogg file.
         /// </summary>
         [DataMember]
-        [JsonProperty("graffiti")]
-        public GraffitiPreview Graffiti { get; set; }
+        [JsonProperty("link_ogg")]
+        public string LingOGG { get; set; }
 
         /// <summary>
-        /// Audio message info.
+        /// URL to .mp3 file.
         /// </summary>
         [DataMember]
-        [JsonProperty("audio_msg")]
-        public AudioMessage AudioMessage { get; set; }
+        [JsonProperty("link_mp3")]
+        public string LinkMP3 { get; set; }
     }
 }

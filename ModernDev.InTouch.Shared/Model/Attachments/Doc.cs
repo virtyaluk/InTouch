@@ -95,6 +95,9 @@ namespace ModernDev.InTouch
         [JsonProperty("access_key ")]
         public string AccessKey { get; set; }
 
+        /// <summary>
+        /// Information about document preview.
+        /// </summary>
         [DataMember]
         [JsonProperty("preview")]
         public Preview Preview { get; set; }

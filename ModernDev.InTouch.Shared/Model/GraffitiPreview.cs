@@ -1,4 +1,4 @@
-﻿/**
+/**
  * This file\code is part of InTouch project.
  *
  * InTouch - is a .NET wrapper for the vk.com API.
@@ -17,38 +17,31 @@ using Newtonsoft.Json;
 namespace ModernDev.InTouch
 {
     /// <summary>
-    /// Document preview info.
+    /// Graffiti preview info.
     /// </summary>
     [DataContract]
-    [DebuggerDisplay("Preview")]
-    public class Preview
+    [DebuggerDisplay("GrafittiPreview")]
+    public class GraffitiPreview
     {
         /// <summary>
-        /// Photo to preview.
+        /// Graffiti URL.
         /// </summary>
         [DataMember]
-        [JsonProperty("photo")]
-        public Photo Photo { get; set; }
+        [JsonProperty("src")]
+        public string Src { get; set; }
 
         /// <summary>
-        /// Video to preview.
+        /// Image with in px.
         /// </summary>
         [DataMember]
-        [JsonProperty("video")]
-        public VideoPreview Video { get; set; }
+        [JsonProperty("width")]
+        public int Width { get; set; }
 
         /// <summary>
-        /// Graffiti info.
+        /// Image height in px.
         /// </summary>
         [DataMember]
-        [JsonProperty("graffiti")]
-        public GraffitiPreview Graffiti { get; set; }
-
-        /// <summary>
-        /// Audio message info.
-        /// </summary>
-        [DataMember]
-        [JsonProperty("audio_msg")]
-        public AudioMessage AudioMessage { get; set; }
+        [JsonProperty("height")]
+        public int Height { get; set; }
     }
 }
