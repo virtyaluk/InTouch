@@ -47,21 +47,10 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Returns a list of the current user's conversations.
         /// </summary>
-        /// <param name="count">Number of messages to return.</param>
-        /// <param name="offset">Offset needed to return a specific subset of messages.</param>
-        /// <param name="previewLength">Number of characters after which to truncate a previewed message. To preview the full message, specify 0.</param>
-        /// <param name="startMessageId">Message Id from which return messages.</param>
-        /// <param name="unread">True - to return dialogs that have unread incoming messages.</param>
+        /// <param name="methodParams">A <see cref="MessagesGetDialogsParams"/> object with the params.</param>
         /// <returns>Returns a <see cref="DialogsList"/> object containing dialogs.</returns>
-        public async Task<Response<DialogsList>> GetDialogs(int count = 20, int offset = 0, int previewLength = 0,
-            int? startMessageId = null, bool unread = false) => await Request<DialogsList>("getDialogs", new MethodParams
-            {
-                {"offset", offset},
-                {"count", count, false, new[] {0, 200}},
-                {"start_message_id", startMessageId},
-                {"unread", unread},
-                {"preview_length", previewLength}
-            });
+        public async Task<Response<DialogsList>> GetDialogs(MessagesGetDialogsParams methodParams)
+            => await Request<DialogsList>("getDialogs", methodParams);
 
         /// <summary>
         /// Returns messages by their IDs.
@@ -212,6 +201,30 @@ namespace ModernDev.InTouch
             {
                 {"message_ids", messageIds, true},
                 {"important", important}
+            });
+
+        /// <summary>
+        /// Marks and unmarks dialog as important.
+        /// </summary>
+        /// <param name="peerId">Dialog Id.</param>
+        /// <param name="important">True - to mark as important.</param>
+        /// <returns>If successfully executed, returns True.</returns>
+        public async Task<Response<bool>> MarkAsImportantDialog(int peerId, bool important)
+            => await Request<bool>("markAsImportantDialog", new MethodParams
+            {
+                {"peer_id", peerId, true},
+                {"important", important, true}
+            });
+
+        /// <summary>
+        /// Marks and unmarks dialog as answered.
+        /// </summary>
+        /// <param name="peerId">Dialog Id.</param>
+        /// <returns>If successfully executed, returns True.</returns>
+        public async Task<Response<bool>> MarkAsAnsweredDialog(int peerId)
+            => await Request<bool>("markAsAnsweredDialog", new MethodParams
+            {
+                {"peer_id", peerId, true}
             });
 
         /// <summary>

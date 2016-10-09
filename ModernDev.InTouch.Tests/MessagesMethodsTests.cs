@@ -43,7 +43,7 @@ namespace ModernDev.InTouch.Tests
         [Test]
         public async Task GetDialogs()
         {
-            var resp = await _inTouch.Messages.GetDialogs(3);
+            var resp = await _inTouch.Messages.GetDialogs(new MessagesGetDialogsParams {Count = 3});
 
             IsFalse(resp.IsError, "resp.IsError");
             IsNotNull(resp.Data, "resp.Data != null");
@@ -173,6 +173,24 @@ namespace ModernDev.InTouch.Tests
             IsNotNull(resp.Data, "resp.Data != null");
             IsNotEmpty(resp.Data, "resp.Data");
             IsTrue(resp.Data.Contains(12345), "resp.Data.Contains(12345)");
+        }
+
+        [Test]
+        public async Task MarkAsImportantDialog()
+        {
+            var resp = await _inTouch.Messages.MarkAsImportantDialog(123, true);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
+        }
+
+        [Test]
+        public async Task MarkAsAnsweredDialog()
+        {
+            var resp = await _inTouch.Messages.MarkAsAnsweredDialog(123);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
         }
 
         [Test]
