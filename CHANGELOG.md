@@ -5,11 +5,18 @@
 
 **InTouch** - is a C# wrapper for [vk.com](https://vk.com/) API.
 
-Compatible with version **5.53** of **[:link:VK API](https://new.vk.com/dev/versions)**.
+Compatible with version **5.57** of **[:link:VK API](https://new.vk.com/dev/versions)**.
 
 [:uk: Readme](README.md) &nbsp; [:ru: Документация на русском.](README.ru.md)
 
 # Changelog
+
+## v1.0.18 (October 10, 2016)
+- Groups Callback API. @virtyaluk in [#10](https://github.com/virtyaluk/InTouch/pull/10).
+- New `markAsImportantDialog` and `markAsAnsweredDialog` methods. @virtyaluk in [#11](https://github.com/virtyaluk/InTouch/pull/11).
+- New `Doc.Preview` properties. @virtyaluk in [#12](https://github.com/virtyaluk/InTouch/pull/12).
+- Code refactoring and improvements.
+- New VK API version - 5.57.
 
 ## v1.0.15 (July 28, 2016)
 - API aligned with latest version of VK API (5.53).

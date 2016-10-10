@@ -7,7 +7,7 @@
 
 Be sure to check out official VK's **[:link:Quick start](https://new.vk.com/dev/main)** guide before you dive into **InTouch**.
 
-Compatible with version **5.53** of **[:link:VK API](https://new.vk.com/dev/versions)**.
+Compatible with version **5.57** of **[:link:VK API](https://new.vk.com/dev/versions)**.
 
 [:calendar: Changelog](CHANGELOG.md) &nbsp; [:ru: Документация на русском.](README.ru.md)
 
