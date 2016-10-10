@@ -211,6 +211,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Sticker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Video.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AudioAlbum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\AudioMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AudioUploadResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AuthStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\BanInfo.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Geo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\GeoPlace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\GiftItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GraffitiPreview.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Group.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\GroupCatalogInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\GroupCategory.cs" />
