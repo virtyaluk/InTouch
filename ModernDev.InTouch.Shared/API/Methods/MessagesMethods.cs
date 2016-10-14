@@ -452,6 +452,43 @@ namespace ModernDev.InTouch
                 {"chat_id", chatId}
             });
 
+        /// <summary>
+        /// Denies sending message from community to the current user.
+        /// </summary>
+        /// <param name="groupId">Community ID.</param>
+        /// <returns>If successfully executed, returns True.</returns>
+        public async Task<Response<bool>> DenyMessagesFromGroup(int groupId)
+            => await Request<bool>("denyMessagesFromGroup", new MethodParams
+            {
+                {"group_id", groupId, true}
+            });
+
+        /// <summary>
+        /// Allows sending messages from community to the current user.
+        /// </summary>
+        /// <param name="groupId">Community ID.</param>
+        /// <param name="key">Random string, can be used for the user identification. It returns with message_allow event in Callback API. </param>
+        /// <returns>If successfully executed, returns True.</returns>
+        public async Task<Response<bool>> AllowMessagesFromGroup(int groupId, string key = null)
+            => await Request<bool>("allowMessagesFromGroup", new MethodParams
+            {
+                {"group_id", groupId, true},
+                {"key", key}
+            });
+
+        /// <summary>
+        /// Returns information whether sending messages from the community to current user is allowed.
+        /// </summary>
+        /// <param name="groupId">Community ID.</param>
+        /// <param name="userId">User ID.</param>
+        /// <returns>Returns True if messages are allowed and False if not.</returns>
+        public async Task<Response<bool>> IsMessagesFromGroupAllowed(int groupId, int userId)
+            => await Request<bool>("isMessagesFromGroupAllowed", new MethodParams
+            {
+                {"group_id", groupId, true},
+                {"user_id", userId, true}
+            }, false, "is_allowed");
+
         #region Upload methods
 
         /// <summary>
