@@ -460,7 +460,10 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.setChatPhoto", Responses.GetString("newChatPhoto"))
                         .WhenAndRespond($"{cat}.deleteChatPhoto", Responses.GetString("newChatPhoto"))
                         .WhenAndRespond($"{cat}.markAsImportantDialog", Responses.GetString("responseTrue"))
-                        .WhenAndRespond($"{cat}.markAsAnsweredDialog", Responses.GetString("responseTrue"));
+                        .WhenAndRespond($"{cat}.markAsAnsweredDialog", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.denyMessagesFromGroup", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.allowMessagesFromGroup", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.isMessagesFromGroupAllowed", Responses.GetString("isMessagesFromGroupAllowed"));
                     break;
 
                 case "fave":

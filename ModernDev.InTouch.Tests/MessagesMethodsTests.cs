@@ -334,6 +334,33 @@ namespace ModernDev.InTouch.Tests
             Ex.TestChat(resp.Data.Chat);
         }
 
+        [Test]
+        public async Task DenyMessagesFromGroup()
+        {
+            var resp = await _inTouch.Messages.DenyMessagesFromGroup(1);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
+        }
+
+        [Test]
+        public async Task AllowMessagesFromGroup()
+        {
+            var resp = await _inTouch.Messages.AllowMessagesFromGroup(1);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
+        }
+
+        [Test]
+        public async Task IsMessagesFromGroupAllowed()
+        {
+            var resp = await _inTouch.Messages.IsMessagesFromGroupAllowed(1, 1);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
+        }
+
         [OneTimeTearDown]
         public void TestTearDown()
         {
