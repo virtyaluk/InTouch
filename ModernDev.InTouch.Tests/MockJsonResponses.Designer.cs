@@ -496,6 +496,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;is_allowed&quot;:1}}.
+        /// </summary>
+        internal static string isMessagesFromGroupAllowed {
+            get {
+                return ResourceManager.GetString("isMessagesFromGroupAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;likes&quot;:123}}.
         /// </summary>
         internal static string likesCount {
