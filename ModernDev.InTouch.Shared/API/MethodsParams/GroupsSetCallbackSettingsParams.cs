@@ -18,6 +18,18 @@ namespace ModernDev.InTouch
         public bool MessageNew { get; set; }
 
         /// <summary>
+        /// New user consent to messages sending.
+        /// </summary>
+        [MethodParam(Name = "message_allow")]
+        public bool MessageAllow { get; set; }
+
+        /// <summary>
+        /// New user prohibition to messages sending.
+        /// </summary>
+        [MethodParam(Name = "message_deny")]
+        public bool MessageDeny { get; set; }
+
+        /// <summary>
         /// New photos notifications.
         /// </summary>
         [MethodParam(Name = "photo_new")]
