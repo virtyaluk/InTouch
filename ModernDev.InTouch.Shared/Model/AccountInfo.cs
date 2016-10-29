@@ -65,5 +65,12 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("no_wall_replies")]
         public bool NoWallReplies { get; set; }
+
+        /// <summary>
+        /// True - the user has enabled 2-factor authorization.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("2fa_required")]
+        public bool TwoFactorAuthorizationRequired { get; set; }
     }
 }
