@@ -31,10 +31,10 @@ namespace ModernDev.InTouch
         public string Title { get; set; }
 
         /// <summary>
-        /// Button's target url.
+        /// Button's action
         /// </summary>
         [DataMember]
-        [JsonProperty("url")]
-        public string Url { get; set; }
+        [JsonProperty("action")]
+        public ButtonAction Action { get; set; }
     }
 }
