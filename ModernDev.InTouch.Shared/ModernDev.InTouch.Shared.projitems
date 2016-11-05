@@ -219,6 +219,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\BasicPlace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\BaseCategory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ButtonAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\CallbackServerSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\CallbackServerState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\CallbackSettings.cs" />
