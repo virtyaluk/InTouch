@@ -31,6 +31,20 @@ namespace ModernDev.InTouch
         public bool MessageNew { get; set; }
 
         /// <summary>
+        /// New user consent to messages sending.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("message_allow")]
+        public bool MessageAllow { get; set; }
+
+        /// <summary>
+        /// New user prohibition to messages sending.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("message_deny")]
+        public bool MessageDeny { get; set; }
+
+        /// <summary>
         /// New comment on wall.
         /// </summary>
         [DataMember]

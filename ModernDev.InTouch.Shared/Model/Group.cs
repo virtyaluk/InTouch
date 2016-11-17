@@ -396,6 +396,13 @@ namespace ModernDev.InTouch
         [JsonProperty("age_limits")]
         public int AgeLimits { get; set; }
 
+        /// <summary>
+        /// Information whether sending messages forn community to current user is allowed.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("is_messages_allowed")]
+        public bool IsMessagesAllowed { get; set; }
+
         #endregion
         #endregion
     }
