@@ -1,6 +1,8 @@
 platform: Any CPU
 configuration: Release
 version: 1.0.{build}
+skip_non_tags: true
+skip_branch_with_pr: true
 
 assembly_info:
   patch: true
@@ -23,7 +25,9 @@ after_build:
 
 pull_requests:
   do_not_increment_build_number: true
-skip_non_tags: true
+
+nuget:
+  disable_publish_on_pr: true
   
 notifications:
 - provider: Webhook
