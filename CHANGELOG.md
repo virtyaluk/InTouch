@@ -5,11 +5,20 @@
 
 **InTouch** - is a C# wrapper for [vk.com](https://vk.com/) API.
 
-Compatible with version **5.57** of **[:link:VK API](https://new.vk.com/dev/versions)**.
+Compatible with version **5.60** of **[:link:VK API](https://new.vk.com/dev/versions)**.
 
 [:uk: Readme](README.md) &nbsp; [:ru: Документация на русском.](README.ru.md)
 
 # Changelog
+
+## v1.0.19 (November 21, 2016)
+- Adds 3 new methods: `DenyMessagesFromGroup`, `AllowMessagesFromGroup`, `IsMessagesFromGroupAllowed`. @virtyaluk in [#13](https://github.com/virtyaluk/InTouch/pull/13).
+- API version **5.59**. @virtyaluk in [#14](https://github.com/virtyaluk/InTouch/pull/14).
+ - `Group` object contains new `IsMessagesAllowed` field.
+ - Two new events `MessageAllow` and `MessageDeny` has been added to Callback API. `Groups.SetCallbackSettings` method supports two new parameters and `Groups.GetCallbackSettings` returns two new fields respectively.
+- API version **5.60**. @virtyaluk in [#15](https://github.com/virtyaluk/InTouch/pull/15).
+ - `Account.GetInfo` method returns an additional `TwoFactorAuthorizationRequired` field for accounts with 2FA.
+ - `Button` field has a new structure for attachments with *Link* type.
 
 ## v1.0.18 (October 10, 2016)
 - Groups Callback API. @virtyaluk in [#10](https://github.com/virtyaluk/InTouch/pull/10).
