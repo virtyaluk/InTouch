@@ -24,6 +24,9 @@ namespace ModernDev.InTouch
         [EnumMember(Value = "friends")]
         Friends,
 
+        [EnumMember(Value = "friends_suggestions")]
+        FriendsSuggestions,
+
         [EnumMember(Value = "messages")]
         Messages,
 
