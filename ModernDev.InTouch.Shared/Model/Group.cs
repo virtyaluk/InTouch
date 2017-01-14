@@ -167,6 +167,13 @@ namespace ModernDev.InTouch
         [JsonProperty("photo_200")]
         public string Photo200 { get; set; }
 
+        /// <summary>
+        /// Community cover.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("cover")]
+        public GroupCover Cover { get; set; }
+
         #region Optional properties
 
         /// <summary>

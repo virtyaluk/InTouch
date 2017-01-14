@@ -229,6 +229,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\ChatPushSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Checkin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\City.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GroupCover.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Comments.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\CommunityCounters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\CommunityLink.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Coordinates.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Counters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Country.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\CoverImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Currency.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Dialog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\DialogsList.cs" />
