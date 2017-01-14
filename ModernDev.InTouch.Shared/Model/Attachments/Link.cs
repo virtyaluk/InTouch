@@ -20,8 +20,8 @@ namespace ModernDev.InTouch
     /// A <see cref="Link"/> class represents a link to the web page attachment.
     /// </summary>
     [DataContract]
-    [DebuggerDisplay("Link {Title}")]
-    public class Link : IMediaAttachment
+    [DebuggerDisplay("Link {" + nameof(Title) + "}")]
+    public class Link : IMediaAttachment, IMessageAttachment
     {
         #region Properties
         /// <summary>
@@ -138,6 +138,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("image_src")]
         public string ImageSrc { get; set; }
+
+        /// <summary>
+        /// Message ID the attachment is attached to.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("message_id")]
+        public int? MessageId { get; set; }
 
         #endregion
 

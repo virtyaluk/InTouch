@@ -101,9 +101,10 @@ namespace ModernDev.InTouch.Tests
             IsNotNull(resp.Data, "resp.Data != null");
             IsNotEmpty(resp.Data.Items, "resp.Data.Items");
             IsInstanceOf<Photo>(resp.Data.Items[0], "resp.Data.Items[0] instanceOf Photo");
-            Ex.TestPhotoAttachments((Photo) resp.Data.Items[0]);
-            IsInstanceOf<Video>(resp.Data.Items[1], "resp.Date.Items[1] instanceOf Video");
-            Ex.TestVideoAttachment((Video)resp.Data.Items[1]);
+            IsTrue(resp.Data.Items[0].MessageId == 192455, "resp.Data.Items[0].MessageId == 192455");
+            IsTrue(((Photo) resp.Data.Items[0]).Id == 456239586, "((Photo) resp.Data.Items[0]).Id == 456239586");
+            IsTrue(((Photo) resp.Data.Items[0]).AccessKey == "5d6940ba1a2b179fb5",
+                "((Photo)resp.Data.Items[0]).AccessKey == '5d6940ba1a2b179fb5'");
         }
 
         [Test]

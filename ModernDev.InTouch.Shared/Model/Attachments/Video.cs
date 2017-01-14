@@ -23,9 +23,9 @@ namespace ModernDev.InTouch
     /// <summary>
     /// A <see cref="Video"/> class describes video file.
     /// </summary>
-    [DebuggerDisplay("Video {Title}")]
+    [DebuggerDisplay("Video {" + nameof(Title) + "}")]
     [DataContract]
-    public class Video : IMediaAttachment, IVideoCatalogItem
+    public class Video : IMediaAttachment, IVideoCatalogItem, IMessageAttachment
     {
         #region Properties
 
@@ -217,6 +217,13 @@ namespace ModernDev.InTouch
         [JsonProperty("repeat")]
         public bool Repeat { get; set; }
 
+        /// <summary>
+        /// Message ID the attachment is attached to.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("message_id")]
+        public int? MessageId { get; set; }
+
         #endregion
 
         #region Tags
@@ -259,9 +266,6 @@ namespace ModernDev.InTouch
 
         #endregion
 
-        public override string ToString()
-        {
-            return Title;
-        }
+        public override string ToString() => Title;
     }
 }

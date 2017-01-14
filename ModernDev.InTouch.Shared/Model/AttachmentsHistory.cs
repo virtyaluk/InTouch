@@ -52,7 +52,7 @@ namespace ModernDev.InTouch
         /// </summary>
         [DataMember]
         [JsonProperty("items")]
-        [JsonConverter(typeof(JsonAttachmentsConverter))]
-        public ReadOnlyCollection<IMediaAttachment> Items { get; set; }
+        [JsonConverter(typeof(JsonHistoryAttachmentsConverter))]
+        public ReadOnlyCollection<IMessageAttachment> Items { get; set; }
     }
 }

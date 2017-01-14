@@ -24,7 +24,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DebuggerDisplay("Photo {PhotoId}_{OwnerId}")]
     [DataContract]
-    public class Photo : IMediaAttachment
+    public class Photo : IMediaAttachment, IMessageAttachment
     {
         #region Properties
 
@@ -233,6 +233,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("access_key")]
         public string AccessKey { get; set; }
+
+        /// <summary>
+        /// Message ID the attachment is attached to.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("message_id")]
+        public int? MessageId { get; set; }
 
         #endregion
 
