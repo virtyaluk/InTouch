@@ -1,3 +1,4 @@
+using System.Diagnostics.Contracts;
 using ModernDev.InTouch.Helpers;
 
 namespace ModernDev.InTouch

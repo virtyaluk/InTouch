@@ -173,6 +173,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\VideoSearchFilters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonAttachmentsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonCoordinatesConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonHistoryAttachmentsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonIProfileItemListConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonIVideoCatalogItemsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonNewsPostAudioConverter.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\AnswerVoters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Application.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\AttachmentsHistory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\IMessageAttachment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\MarketAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\PhotoAlbum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\App.cs" />

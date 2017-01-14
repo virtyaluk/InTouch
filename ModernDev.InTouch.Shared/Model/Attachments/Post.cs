@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Post {Id}")]
-    public class Post : IMediaAttachment, IFeedback
+    public class Post : IMediaAttachment, IFeedback, IMessageAttachment
     {
         #region Properties
 
@@ -186,6 +186,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("to_id")]
         public int? ToId { get; set; }
+
+        /// <summary>
+        /// Message ID the attachment is attached to.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("message_id")]
+        public int? MessageId { get; set; }
 
         #endregion
 

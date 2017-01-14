@@ -24,7 +24,7 @@ namespace ModernDev.InTouch
     /// </summary>
     [DataContract]
     [DebuggerDisplay("Audio {Artist} - {Title}")]
-    public class Audio : IMediaAttachment
+    public class Audio : IMediaAttachment, IMessageAttachment
     {
         #region Properties
         
@@ -109,6 +109,13 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("no_search")]
         public bool NoSearch { get; set; }
+
+        /// <summary>
+        /// Message ID the attachment is attached to.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("message_id")]
+        public int? MessageId { get; set; }
 
         #endregion
 

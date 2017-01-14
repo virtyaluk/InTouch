@@ -20,9 +20,9 @@ namespace ModernDev.InTouch
     /// <summary>
     /// A <see cref="Doc"/> class describes a document.
     /// </summary>
-    [DebuggerDisplay("Doc {Title}")]
+    [DebuggerDisplay("Doc {" + nameof(Title) + "}")]
     [DataContract]
-    public class Doc : IMediaAttachment
+    public class Doc : IMediaAttachment, IMessageAttachment
     {
         #region Properties
 
@@ -102,13 +102,17 @@ namespace ModernDev.InTouch
         [JsonProperty("preview")]
         public Preview Preview { get; set; }
 
-        #endregion
+        /// <summary>
+        /// Message ID the attachment is attached to.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("message_id")]
+        public int? MessageId { get; set; }
 
         #endregion
 
-        public override string ToString()
-        {
-            return Title;
-        }
+        #endregion
+
+        public override string ToString() => Title;
     }
 }
