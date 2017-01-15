@@ -1,4 +1,4 @@
-platform: Any CPU
+platform: x64
 configuration: Release
 version: 1.0.{build}
 skip_non_tags: true
