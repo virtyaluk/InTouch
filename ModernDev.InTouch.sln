@@ -92,7 +92,6 @@ Global
 		{9840FA9C-C8CD-4F6E-954B-2D0CC73C0CAB}.Release|ARM.ActiveCfg = Release|Any CPU
 		{9840FA9C-C8CD-4F6E-954B-2D0CC73C0CAB}.Release|ARM.Build.0 = Release|Any CPU
 		{9840FA9C-C8CD-4F6E-954B-2D0CC73C0CAB}.Release|x64.ActiveCfg = Release|Any CPU
-		{9840FA9C-C8CD-4F6E-954B-2D0CC73C0CAB}.Release|x64.Build.0 = Release|Any CPU
 		{9840FA9C-C8CD-4F6E-954B-2D0CC73C0CAB}.Release|x86.ActiveCfg = Release|Any CPU
 		{9840FA9C-C8CD-4F6E-954B-2D0CC73C0CAB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
