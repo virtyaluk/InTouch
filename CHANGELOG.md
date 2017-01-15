@@ -11,11 +11,10 @@ Compatible with version **5.62** of **[:link:VK API](https://new.vk.com/dev/vers
 
 # Changelog
 
-## v1.0.25 (January 15, 2017)
-- Recovery build. .NET Standard project was removed due to build problem.
+## v1.0.26 (January 15, 2017)
+- Adds [.NET Standard](https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/) **1.1** targeting project. [**@virtyaluk**](https://github.com/virtyaluk) in [#19](https://github.com/virtyaluk/InTouch/pull/19).
 
 ## v1.0.20 (January 15, 2017)
-- Adds [.NET Standard](https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/) **1.1** targeting project. [**@virtyaluk**](https://github.com/virtyaluk) in [#18](https://github.com/virtyaluk/InTouch/pull/18).
 - API version **5.62**. [**@virtyaluk**](https://github.com/virtyaluk) in [#17](https://github.com/virtyaluk/InTouch/pull/17).
  - `Messages.gGetHistoryAttachments` method returns `MessageId` field.
  - `User` object has a new value of relationship status (8 — "in a civil union").
