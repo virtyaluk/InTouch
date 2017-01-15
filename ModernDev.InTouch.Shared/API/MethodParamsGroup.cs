@@ -30,7 +30,7 @@ namespace ModernDev.InTouch
         {
             var mp = new MethodParams();
 
-#if WINDOWS_UWP81 || PORTABLE_LIB
+#if WINDOWS_UWP81 || PORTABLE_LIB || NET_STANDARD
             var properties = GetType().GetTypeInfo().DeclaredProperties.Where(propInfo => propInfo.CanRead);
 #else
             var properties = GetType().GetProperties(BindingFlags.Public).Where(prop => prop.CanRead);

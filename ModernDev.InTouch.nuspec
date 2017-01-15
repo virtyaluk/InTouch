@@ -10,14 +10,15 @@
     <projectUrl>https://github.com/virtyaluk/InTouch</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>InTouch - is a C# wrapper for vk.com API.</description>
-    <copyright>Copyright 2016 Bohdan Shtepan</copyright>
+    <copyright>Copyright 2017 Bohdan Shtepan</copyright>
     <tags>vk api intouch wrapper vkontakte</tags>
 	<dependencies>
-		<dependency id="Newtonsoft.Json" version="8.0.3" />
+		<dependency id="Newtonsoft.Json" version="9.0.1" />
 	</dependencies>
 	
   </metadata>
   <files>
+	<file src="ModernDev.InTouch.NetStandard\bin\Release\ModernDev.InTouch.dll" target="lib\netstandard1.1" />
     <file src="ModernDev.InTouch.Portable\bin\Release\ModernDev.InTouch.dll" target="lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
     <file src="ModernDev.InTouch.UniversalWindows\bin\Release\ModernDev.InTouch.dll" target="lib\portable46-win81+wpa81" />
   </files>
