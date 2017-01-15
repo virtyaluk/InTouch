@@ -1,25 +1,36 @@
-<?xml version="1.0"?>
-<package >
-  <metadata>
-    <id>ModernDev.InTouch</id>
-    <version>0.1.0</version>
-    <title>InTouch</title>
-    <authors>Bohdan Shtepan</authors>
-    <owners>Bohdan Shtepan</owners>
-    <licenseUrl>https://github.com/virtyaluk/InTouch/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/virtyaluk/InTouch</projectUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>InTouch - is a C# wrapper for vk.com API.</description>
-    <copyright>Copyright 2017 Bohdan Shtepan</copyright>
-    <tags>vk api intouch wrapper vkontakte</tags>
-	<dependencies>
-		<dependency id="Newtonsoft.Json" version="9.0.1" />
-	</dependencies>
-	
-  </metadata>
-  <files>
-    <file src="ModernDev.InTouch.Portable\bin\Release\ModernDev.InTouch.dll" target="lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
-    <file src="ModernDev.InTouch.UniversalWindows\bin\Release\ModernDev.InTouch.dll" target="lib\portable46-win81+wpa81" />
-  </files>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>ModernDev.InTouch</id>
+        <version>0.1.0</version>
+        <title>InTouch</title>
+        <authors>Bohdan Shtepan</authors>
+        <owners>Bohdan Shtepan</owners>
+        <licenseUrl>https://github.com/virtyaluk/InTouch/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/virtyaluk/InTouch</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>InTouch - is a C# wrapper for vk.com API.</description>
+        <copyright>Copyright 2017 Bohdan Shtepan</copyright>
+        <tags>vk api intouch wrapper vkontakte</tags>
+        <dependencies>
+			<group targetFramework="netstandard1.1">
+				<dependency id="Newtonsoft.Json" version="9.0.1" />
+				<dependency id="System.Net.Http" version="4.3.0" />
+			</group>
+			<group targetFramework="portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1">
+				<dependency id="Newtonsoft.Json" version="9.0.1" />
+			</group>
+			<group targetFramework="portable46-win81+wpa81">
+				<dependency id="Newtonsoft.Json" version="9.0.1" />
+			</group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="ModernDev.InTouch.Standard\bin\Release\ModernDev.InTouch.dll" target="lib\netstandard1.1\ModernDev.InTouch.dll" />
+        <file src="ModernDev.InTouch.Standard\bin\Release\ModernDev.InTouch.XML" target="lib\netstandard1.1\ModernDev.InTouch.XML" />
+        <file src="ModernDev.InTouch.Portable\bin\Release\ModernDev.InTouch.dll" target="lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\ModernDev.InTouch.dll" />
+        <file src="ModernDev.InTouch.Portable\bin\Release\ModernDev.InTouch.XML" target="lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\ModernDev.InTouch.XML" />
+        <file src="ModernDev.InTouch.UniversalWindows\bin\Release\ModernDev.InTouch.dll" target="lib\portable46-win81+wpa81\ModernDev.InTouch.dll" />
+        <file src="ModernDev.InTouch.UniversalWindows\bin\Release\ModernDev.InTouch.XML" target="lib\portable46-win81+wpa81\ModernDev.InTouch.XML" />
+    </files>
 </package>

@@ -11,8 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernDev.InTouch.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernDev.InTouch.Portable", "ModernDev.InTouch.Portable\ModernDev.InTouch.Portable.csproj", "{7887EBDB-A6B2-400E-9017-C47B606AA8D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernDev.InTouch.Standard", "ModernDev.InTouch.Standard\ModernDev.InTouch.Standard.csproj", "{151D2808-4BE1-4D3B-9E63-5752A54DE542}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ModernDev.InTouch.Shared\ModernDev.InTouch.Shared.projitems*{151d2808-4be1-4d3b-9e63-5752a54de542}*SharedItemsImports = 4
 		ModernDev.InTouch.Shared\ModernDev.InTouch.Shared.projitems*{7887ebdb-a6b2-400e-9017-c47b606aa8d9}*SharedItemsImports = 4
 		ModernDev.InTouch.Shared\ModernDev.InTouch.Shared.projitems*{fbc2191e-ca3a-49dc-b1ab-11d0f8c95a6c}*SharedItemsImports = 4
 		ModernDev.InTouch.Shared\ModernDev.InTouch.Shared.projitems*{fc97ea26-e93d-4853-ae7f-695d80cd68b8}*SharedItemsImports = 13
@@ -76,6 +79,22 @@ Global
 		{7887EBDB-A6B2-400E-9017-C47B606AA8D9}.Release|x64.Build.0 = Release|Any CPU
 		{7887EBDB-A6B2-400E-9017-C47B606AA8D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{7887EBDB-A6B2-400E-9017-C47B606AA8D9}.Release|x86.Build.0 = Release|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Debug|ARM.Build.0 = Debug|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Debug|x64.Build.0 = Debug|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Debug|x86.Build.0 = Debug|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Release|ARM.ActiveCfg = Release|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Release|ARM.Build.0 = Release|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Release|x64.ActiveCfg = Release|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Release|x64.Build.0 = Release|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Release|x86.ActiveCfg = Release|Any CPU
+		{151D2808-4BE1-4D3B-9E63-5752A54DE542}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
