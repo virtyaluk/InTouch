@@ -378,9 +378,10 @@ await client.Photos.UploadOwnerPhoto(newPhoto, "profile.jpg");
 
 **InTouch** is compiled for .NET 4.5, as well a Portable Class Library (Profile 111) supporting:
  - .NET 4.5
+ - .NET Standard 1.1
  - ASP.NET Core 1.0
- - Windows 8
- - Windows Phone 8.1
+ - Windows 8+
+ - Windows Phone 8.1+
  - Xamarin.Android
  - Xamarin.iOS
  - Xamarin.iOS (Classic)
@@ -389,7 +390,7 @@ await client.Photos.UploadOwnerPhoto(newPhoto, "profile.jpg");
 
 [Licensed under the GPLv3 license.](https://github.com/virtyaluk/InTouch/blob/master/LICENSE)
 
-Copyright (c) 2016 Bohdan Shtepan
+Copyright (c) 2017 Bohdan Shtepan
 
 ---
 
