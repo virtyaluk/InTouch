@@ -11,7 +11,7 @@ Compatible with version **5.62** of **[:link:VK API](https://new.vk.com/dev/vers
 
 # Changelog
 
-## v1.0.24 (January 15, 2017)
+## v1.0.25 (January 15, 2017)
 - Recovery build. .NET Standard project was removed due to build problem.
 
 ## v1.0.20 (January 15, 2017)
