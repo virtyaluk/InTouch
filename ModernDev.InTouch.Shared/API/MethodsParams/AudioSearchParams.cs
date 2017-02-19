@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// True - to correct for mistakes in the search query (e.g., if you enter Beetles, the system will search for Beatles).
         /// </summary>
-        [MethodParam(Name = "audo_complete")]
+        [MethodParam(Name = "auto_complete")]
         public bool AutoComplete { get; set; }
 
         /// <summary>

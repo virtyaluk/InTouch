@@ -36,8 +36,8 @@ namespace ModernDev.InTouch
         Alternative = 21,
         [EnumMember(Value = "8")]
         Dubstep = 8,
-        [EnumMember(Value = "9")]
-        JazzAndBlues = 9,
+        [EnumMember(Value = "1001")]
+        JazzAndBlues = 1001,
         [EnumMember(Value = "10")]
         DrumAndBass = 10,
         [EnumMember(Value = "11")]
