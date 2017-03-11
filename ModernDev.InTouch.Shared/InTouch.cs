@@ -23,7 +23,6 @@ using Newtonsoft.Json.Linq;
 using static ModernDev.InTouch.Helpers.Utils;
 
 [assembly: InternalsVisibleTo("ModernDev.InTouch.Tests")]
-
 namespace ModernDev.InTouch
 {
     /// <summary>
@@ -61,6 +60,11 @@ namespace ModernDev.InTouch
         /// The used API version.
         /// </summary>
         public readonly string APIVersion = "5.62";
+
+        /// <summary>
+        /// Service token used for calling open methods.
+        /// </summary>
+        public string ServiceToken { get; private set; }
 
         /// <summary>
         /// Determines the language for the data to be displayed on.
@@ -321,6 +325,54 @@ namespace ModernDev.InTouch
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Sets service token to given value.
+        /// </summary>
+        /// <param name="serviceToken">Service token.</param>
+        public void SetServiceToken(string serviceToken)
+        {
+            if (string.IsNullOrEmpty(serviceToken))
+            {
+                throw new ArgumentNullException(nameof(serviceToken));
+            }
+
+            ServiceToken = serviceToken;
+        }
+
+        /// <summary>
+        /// Used to perform Client Credentials Authorization.
+        /// </summary>
+        /// <param name="clientId">Application Id.</param>
+        /// <param name="clientSecret">Application secret key.</param>
+        /// <returns></returns>
+        /// <exception cref="InTouchException">Returns status of Client Credential Flow authorization.</exception>
+        public async Task<ClientCredentialsFlowStatus> GetClientCredentialsFlow(int? clientId = null,
+            string clientSecret = null)
+        {
+            try
+            {
+                string apiUrl =
+                        $"https://oauth.vk.com/access_token?client_id={(clientId ?? ClientId)}&client_secret={clientSecret ?? ClientSecret}&v={APIVersion}&grant_type=client_credentials",
+                    jsonResponse = await Get(apiUrl);
+                var jsonObj = JObject.Parse(jsonResponse);
+                object error = jsonObj["error"],
+                    errorDescription = jsonObj["error_description"],
+                    accessToken = jsonObj["access_token"];
+
+                if (accessToken != null)
+                {
+                    SetServiceToken(accessToken.ToString());
+                }
+
+                return new ClientCredentialsFlowStatus(error != null && errorDescription != null, error?.ToString(),
+                    errorDescription?.ToString(), accessToken?.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while getting client credential flow data.", ex);
+            }
+        }
 
         /// <summary>
         /// Checks whether the API session is alive.
@@ -728,12 +780,27 @@ namespace ModernDev.InTouch
             }
         }
 
-        private Dictionary<string, string> NormalizeRequestParams(Dictionary<string, string> reqParams = null,
-            bool isOpenMethod = false)
+        private async Task<string> Get(string url)
+        {
+            try
+            {
+                var response = await _apiClient.GetAsync(url);
+
+                response.EnsureSuccessStatusCode();
+
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while processing the GET request.", ex);
+            }
+        }
+
+        private Dictionary<string, string> NormalizeRequestParams(Dictionary<string, string> reqParams, bool isOpenMethod)
         {
             var apiParams = reqParams ?? new Dictionary<string, string>();
 
-            apiParams["access_token"] = Session?.AccessToken ?? "";
+            apiParams["access_token"] = Session?.AccessToken ?? ServiceToken ?? "";
             apiParams["v"] = $"{APIVersion}";
             apiParams["https"] = $"{(AlowHttpsLinks ? 1 : 0)}";
 
