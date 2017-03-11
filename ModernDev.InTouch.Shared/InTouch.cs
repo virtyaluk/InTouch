@@ -29,7 +29,7 @@ namespace ModernDev.InTouch
     /// <summary>
     /// Provides a base class for working with vk.com API.
     /// </summary>
-    public partial class InTouch : IDisposable
+    public class InTouch
     {
         #region Fields
         
@@ -42,7 +42,6 @@ namespace ModernDev.InTouch
         private Dictionary<string, string> _lastReqParams;
         private string _lastReqMethod;
         private readonly HttpMessageHandler _httpMessageHandler;
-        private bool _disposed;
 
         #endregion
 
@@ -61,7 +60,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// The used API version.
         /// </summary>
-        public const string APIVersion = "5.62";
+        public readonly string APIVersion = "5.62";
 
         /// <summary>
         /// Determines the language for the data to be displayed on.
@@ -562,16 +561,8 @@ namespace ModernDev.InTouch
         /// </summary>
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        ~InTouch()
-        {
-            Dispose(false);
+            _apiClient?.Dispose();
+            _fileClient?.Dispose();
         }
 
         /// <summary>
@@ -759,24 +750,6 @@ namespace ModernDev.InTouch
 
         private void OnAuthorizationFailed(ResponseError e) => AuthorizationFailed?.Invoke(this, e);
         private void OnCaptchaNeeded(ResponseError e) => CaptchaNeeded?.Invoke(this, e);
-
-        /// <summary>
-        /// Releases all resources used by the current instance of <see cref="InTouch"/>.
-        /// </summary>
-        /// <param name="disposing"></param>
-        protected virtual void Dispose(bool disposing)
-        {
-            if (_disposed)
-            {
-                if (disposing)
-                {
-                    _apiClient?.Dispose();
-                    _fileClient?.Dispose();
-                }
-
-                _disposed = true;
-            }
-        }
 
         #endregion
 
