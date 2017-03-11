@@ -29,10 +29,10 @@ namespace ModernDev.InTouch
     /// <summary>
     /// Provides a base class for working with vk.com API.
     /// </summary>
-    public class InTouch
+    public class InTouch : IDisposable
     {
         #region Fields
-        
+
         private HttpClient _apiClient;
         private HttpClient _fileClient;
         private readonly Uri _baseApiUri = new Uri("https://api.vk.com/");
@@ -309,7 +309,7 @@ namespace ModernDev.InTouch
         {
             SetApplicationSettings(clientId, clientSecret);
         }
-        
+
         internal InTouch(HttpMessageHandler httpMessageHandler, int clientId, string clientSecret,
             bool throwExceptionOnResponseError = false,
             bool includeRawResponse = false)
@@ -339,7 +339,7 @@ namespace ModernDev.InTouch
 
                 _dataLang = accountInfo.Data.Lang.ToString();
 
-                 return true;
+                return true;
             }
             catch
             {
@@ -445,7 +445,7 @@ namespace ModernDev.InTouch
         /// <param name="sessionDuration"><see cref="APISession.AccessToken"/> life time specified in seconds.</param>
         /// <exception cref="ArgumentNullException">Thrown when an <code>accessToken</code> is <code>null</code> or empty.</exception>
         /// <exception cref="ArgumentException">Thrown when an <code>userId</code> or a <code>sessionDuration</code> is less than or equal to zero.</exception>
-        public void SetSessionData(string accessToken, int userId, int sessionDuration = 20*60*60)
+        public void SetSessionData(string accessToken, int userId, int sessionDuration = 20 * 60 * 60)
         {
             if (string.IsNullOrEmpty(accessToken))
             {
@@ -489,7 +489,8 @@ namespace ModernDev.InTouch
             {
                 if (Session == null)
                 {
-                    throw new NullReferenceException("The session is not set. You need to authorize to get the new session.");
+                    throw new NullReferenceException(
+                        "The session is not set. You need to authorize to get the new session.");
                 }
 
                 if (Session.IsExpired)
@@ -639,7 +640,7 @@ namespace ModernDev.InTouch
 
                 return string.IsNullOrEmpty(path) ? jObj.ToObject<T>() : jObj.SelectToken(path).ToObject<T>();
             }
-            catch (Exception ex) when (ex.GetType() != typeof (InTouchResponseErrorException))
+            catch (Exception ex) when (ex.GetType() != typeof(InTouchResponseErrorException))
             {
                 throw new InTouchException("An exception has occurred while parsing upload server response", ex);
             }
@@ -702,8 +703,8 @@ namespace ModernDev.InTouch
                 }
             }
             catch (Exception ex)
-                when (ex.GetType() != typeof (InTouchException) &&
-                      ex.GetType() != typeof (InTouchResponseErrorException))
+                when (ex.GetType() != typeof(InTouchException) &&
+                      ex.GetType() != typeof(InTouchResponseErrorException))
             {
                 throw new InTouchException("An exception has occurred while parsing request response", ex);
             }
