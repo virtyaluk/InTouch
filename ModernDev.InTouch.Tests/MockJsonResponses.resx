@@ -610,4 +610,10 @@
   <data name="isMessagesFromGroupAllowed" xml:space="preserve">
     <value>{"response":{"is_allowed":1}}</value>
   </data>
+  <data name="getLinkStats" xml:space="preserve">
+    <value>{"response":{"key":"6drK78","stats":[{"timestamp":1489050000,"views":0},{"timestamp":1488963600,"views":1,"sex_age":[{"age_range":"&lt;18","female":0,"male":1}],"countries":[{"country_id":1,"views":1}],"cities":[{"city_id":2,"views":1}]},{"timestamp":1488877200,"views":4,"sex_age":[{"age_range":"21-24","female":0,"male":1}],"countries":[{"country_id":49,"views":1},{"country_id":3,"views":1},{"country_id":1,"views":1}],"cities":[{"city_id":244,"views":1},{"city_id":1201,"views":1},{"city_id":1,"views":1}]},{"timestamp":1488790800,"views":9,"sex_age":[{"age_range":"18-21","female":0,"male":1},{"age_range":"&lt;18","female":0,"male":1}],"countries":[{"country_id":1,"views":1},{"country_id":3,"views":1},{"country_id":49,"views":1},{"country_id":2,"views":1}],"cities":[{"city_id":1,"views":1},{"city_id":72,"views":1},{"city_id":282,"views":1},{"city_id":-630336,"views":1},{"city_id":-2635167,"views":1},{"city_id":223,"views":1},{"city_id":444,"views":1},{"city_id":42,"views":1}]}]}}</value>
+  </data>
+  <data name="getShortLink" xml:space="preserve">
+    <value>{"response":{"short_url": "https://vk.cc/1wHm8g"}}</value>
+  </data>
 </root>

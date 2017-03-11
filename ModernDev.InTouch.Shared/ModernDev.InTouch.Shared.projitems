@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)API\APISession.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\AuthorizationSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\ClientCredentialsFlowStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Exceptions\InTouchException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Exceptions\InTouchResponseErrorException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Extensions.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\HintsSectionTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Langs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LikesListFilterTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\LinkStatsInterval.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LinkStatuses.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\MainSections.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\MediaTypes.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\ChatPushSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Checkin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\City.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\LinkStats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\GroupCover.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Comments.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\CommunityCounters.cs" />

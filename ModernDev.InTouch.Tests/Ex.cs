@@ -52,7 +52,9 @@ namespace ModernDev.InTouch.Tests
                     mockHttp
                         .WhenAndRespond($"{cat}.checkLink", Responses.GetString("linkStatus"))
                         .WhenAndRespond($"{cat}.resolveScreenName", Responses.GetString("objectInfo"))
-                        .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"));
+                        .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"))
+                        .WhenAndRespond($"{cat}.getLinkStats", Responses.GetString("getLinkStats"))
+                        .WhenAndRespond($"{cat}.getShortLink", Responses.GetString("getShortLink"));
                     break;
 
                 case "gifts":
