@@ -107,6 +107,30 @@ namespace ModernDev.InTouch.Tests
         }
 
         [Test]
+        public async Task GetOwnerCoverPhotoUploadServer()
+        {
+            var resp = await _inTouch.Photos.GetOwnerCoverPhotoUploadServer(1);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            IsNotEmpty(resp.Data, "resp.Data");
+        }
+
+        [Test]
+        public async Task SaveOwnerCoverPhoto()
+        {
+            var resp = await _inTouch.Photos.SaveOwnerCoverPhoto("hash", "photo");
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            IsNotNull(resp.Data.Images, "resp.Data.Images != null");
+            IsNotEmpty(resp.Data.Images, "resp.Data.Images not empty");
+            That(resp.Data.Images[0].Width, Is.EqualTo(200));
+            That(resp.Data.Images[0].URL, Is.Not.Empty);
+            That(resp.Data.Images[0].Height, Is.EqualTo(50));
+        }
+
+        [Test]
         public async Task GetOwnerPhotoUploadServer()
         {
             var resp = await _inTouch.Photos.GetOwnerPhotoUploadServer();

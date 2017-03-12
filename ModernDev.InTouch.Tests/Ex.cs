@@ -379,7 +379,9 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.putTag", Responses.GetString("responseNum"))
                         .WhenAndRespond($"{cat}.removeTag", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getNewTags", Responses.GetString("photosItemsList"))
-                        .WhenAndRespond($"{cat}.getEditorStickers", Responses.GetString("editorStickers"));
+                        .WhenAndRespond($"{cat}.getEditorStickers", Responses.GetString("editorStickers"))
+                        .WhenAndRespond($"{cat}.getOwnerCoverPhotoUploadServer", Responses.GetString("uploadServer"))
+                        .WhenAndRespond($"{cat}.saveOwnerCoverPhoto", Responses.GetString("groupCover"));
                     break;
 
                 case "pages":

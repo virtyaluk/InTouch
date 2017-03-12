@@ -36,7 +36,7 @@ namespace ModernDev.InTouch
         /// Image width.
         /// </summary>
         [DataMember]
-        [JsonProperty("weight")]
+        [JsonProperty("width")]
         public int Width { get; set; }
 
         /// <summary>

@@ -715,6 +715,39 @@ namespace ModernDev.InTouch
             });
 
         /// <summary>
+        ///  Returns the server address for group cover photo upload.
+        /// </summary>
+        /// <param name="groupId">Group Id.</param>
+        /// <param name="cropX">Crop x1 coordinate.</param>
+        /// <param name="cropY">Crop y1 coordinate.</param>
+        /// <param name="cropX2">Crop x2 coordinate.</param>
+        /// <param name="cropY2">Crop y2 coordinate.</param>
+        /// <returns>Returns object including server upload url.</returns>
+        public async Task<Response<string>> GetOwnerCoverPhotoUploadServer(int groupId, int cropX = 0, int cropY = 0,
+            int cropX2 = 795, int cropY2 = 200)
+            => await Request<string>("getOwnerCoverPhotoUploadServer", new MethodParams
+            {
+                {"group_id", groupId},
+                {"crop_x", cropX},
+                {"crop_y", cropY},
+                {"crop_x2", cropX2},
+                {"crop_y2", cropY2}
+            }, false, "upload_url");
+
+        /// <summary>
+        /// Saves group cover photo.
+        /// </summary>
+        /// <param name="hash">Upload response "hash" value.</param>
+        /// <param name="photo">Upload response "photo" value.</param>
+        /// <returns>Returns object containing cover photo data.</returns>
+        public async Task<Response<GroupCover>> SaveOwnerCoverPhoto(string hash, string photo)
+            => await Request<GroupCover>("saveOwnerCoverPhoto", new MethodParams
+            {
+                {"hash", hash, true},
+                {"photo", photo, true}
+            });
+
+        /// <summary>
         /// Returns photo editor sticker IDs.
         /// </summary>
         /// <returns>Returns <see cref="EditorStickers"/> object with sticker IDs.</returns>
@@ -877,6 +910,54 @@ namespace ModernDev.InTouch
             catch (Exception ex)
             {
                 throw new InTouchException("An exception has occurred while uploading owner photo.", ex);
+            }
+        }
+
+        /// <summary>
+        /// Uploads new owner cover photo.
+        /// </summary>
+        /// <param name="photo">Photo data.</param>
+        /// <param name="fileName">Photo file name.</param>
+        /// <param name="groupId">Group Id.</param>
+        /// <param name="cropCoords">Top-left and bottom-right coordinates to crop the image e.g. [x1, y1, x2, y2].</param>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>photo</c> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a <c>fileName</c> is null.</exception>
+        /// <exception cref="InTouchException">Thrown when an exception has occurred while uploading the file.</exception>
+        /// <returns>Returns an <see cref="GroupCover"/> object.</returns>
+        public async Task<Response<GroupCover>> UploadOwnerCoverPhoto(byte[] photo, string fileName, int groupId,
+            int?[] cropCoords = null)
+        {
+            if (photo == null)
+            {
+                throw new ArgumentNullException(nameof(photo));
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
+            try
+            {
+                var uploadServerResp = await GetOwnerCoverPhotoUploadServer(groupId, cropCoords?[0] ?? 0,
+                    cropCoords?[1] ?? 0, cropCoords?[2] ?? 795, cropCoords?[3] ?? 200);
+
+                if (uploadServerResp.IsError && !API.ThrowExceptionOnResponseError)
+                {
+                    throw new InTouchResponseErrorException(uploadServerResp.Error.Message, uploadServerResp.Error);
+                }
+
+                var uplRespRawJson = await API.UploadFile(uploadServerResp.Data, new List<Tuple<string, byte[], string>>
+                {
+                    {"photo", photo, fileName}
+                });
+                var uplServerData = API.ParseUploadServerResponse<PhotoUploadResponse>(uplRespRawJson);
+
+                return await SaveOwnerCoverPhoto(uplServerData.Hash, uplServerData.Photo);
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while uploading owner cover photo.", ex);
             }
         }
 

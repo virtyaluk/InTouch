@@ -619,4 +619,7 @@
   <data name="checkToken" xml:space="preserve">
     <value>{"response":{"success":1,"user_id":1,"date":1489353144,"expire":1489353144}}</value>
   </data>
+  <data name="groupCover" xml:space="preserve">
+    <value>{"response":{"images":[{"url":"https://cs541604....d7e/NPSkgAQTyX4.jpg","width":200,"height":50},{"url":"https://cs541604....d7d/1IFvIjTUYLI.jpg","width":400,"height":101},{"url":"https://cs541604....d7a/iJL7biUq9qU.jpg","width":795,"height":200},{"url":"https://cs541604....d7c/P-glOjYdU9U.jpg","width":1080,"height":272},{"url":"https://cs541604....d7b/cZ70f6PTaBY.jpg","width":1590,"height":400}]}}</value>
+  </data>
 </root>

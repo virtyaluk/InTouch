@@ -469,6 +469,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;images&quot;:[{&quot;url&quot;:&quot;https://cs541604....d7e/NPSkgAQTyX4.jpg&quot;,&quot;width&quot;:200,&quot;height&quot;:50},{&quot;url&quot;:&quot;https://cs541604....d7d/1IFvIjTUYLI.jpg&quot;,&quot;width&quot;:400,&quot;height&quot;:101},{&quot;url&quot;:&quot;https://cs541604....d7a/iJL7biUq9qU.jpg&quot;,&quot;width&quot;:795,&quot;height&quot;:200},{&quot;url&quot;:&quot;https://cs541604....d7c/P-glOjYdU9U.jpg&quot;,&quot;width&quot;:1080,&quot;height&quot;:272},{&quot;url&quot;:&quot;https://cs541604....d7b/cZ70f6PTaBY.jpg&quot;,&quot;width&quot;:1590,&quot;height&quot;:400}]}}.
+        /// </summary>
+        internal static string groupCover {
+            get {
+                return ResourceManager.GetString("groupCover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;member&quot;:0,&quot;request&quot;:1}}.
         /// </summary>
         internal static string groupIsMember {
