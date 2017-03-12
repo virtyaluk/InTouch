@@ -512,6 +512,16 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.addToAlbum", Responses.GetString("responseTrue"));
                     break;
 
+                case "secure":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.setUserLevel", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.setCounter", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.sendSMSNotification", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.sendNotification", Responses.GetString("responseNumsList"))
+                        .WhenAndRespond($"{cat}.getAppBalance", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.checkToken", Responses.GetString("checkToken"));
+                    break;
+
                 default:
                     mockHttp
                         .WhenAndRespond("test", Responses.GetString("responseTrue"))

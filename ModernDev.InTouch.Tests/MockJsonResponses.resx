@@ -616,4 +616,7 @@
   <data name="getShortLink" xml:space="preserve">
     <value>{"response":{"short_url": "https://vk.cc/1wHm8g"}}</value>
   </data>
+  <data name="checkToken" xml:space="preserve">
+    <value>{"response":{"success":1,"user_id":1,"date":1489353144,"expire":1489353144}}</value>
+  </data>
 </root>

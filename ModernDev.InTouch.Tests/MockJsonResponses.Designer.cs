@@ -250,6 +250,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;success&quot;:1,&quot;user_id&quot;:1,&quot;date&quot;:1489353144,&quot;expire&quot;:1489353144}}.
+        /// </summary>
+        internal static string checkToken {
+            get {
+                return ResourceManager.GetString("checkToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:18,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Москва&quot;,&quot;important&quot;:1},{&quot;id&quot;:2,&quot;title&quot;:&quot;Санкт-Петербург&quot;,&quot;important&quot;:1},{&quot;id&quot;:10,&quot;title&quot;:&quot;Волгоград&quot;},{&quot;id&quot;:37,&quot;title&quot;:&quot;Владивосток&quot;},{&quot;id&quot;:153,&quot;title&quot;:&quot;Хабаровск&quot;}]}}.
         /// </summary>
         internal static string citiesItemsList {

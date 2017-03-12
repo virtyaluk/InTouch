@@ -238,6 +238,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public MarketMethods Market { get; private set; }
 
+        /// <summary>
+        /// Secure methods.
+        /// </summary>
+        public SecureMethods Secure { get; private set; }
+
         #endregion
 
         #region Events
@@ -294,6 +299,7 @@ namespace ModernDev.InTouch
             Stats = new StatsMethods(this);
             Search = new SearchMethods(this);
             Market = new MarketMethods(this);
+            Secure = new SecureMethods(this);
 
             JsonConvert.DefaultSettings = () => new JsonSerializerSettings
             {
@@ -800,7 +806,9 @@ namespace ModernDev.InTouch
         {
             var apiParams = reqParams ?? new Dictionary<string, string>();
 
-            apiParams["access_token"] = Session?.AccessToken ?? ServiceToken ?? "";
+            apiParams["access_token"] = isOpenMethod && !string.IsNullOrEmpty(ServiceToken)
+                ? ServiceToken
+                : Session?.AccessToken ?? ServiceToken;
             apiParams["v"] = $"{APIVersion}";
             apiParams["https"] = $"{(AlowHttpsLinks ? 1 : 0)}";
 

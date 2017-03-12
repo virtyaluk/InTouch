@@ -101,6 +101,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PlacesMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\PollsMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\SearchMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Methods\SecureMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StatsMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StatusMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Methods\StorageMethods.cs" />
@@ -352,6 +353,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Tag.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Tags.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\TitledItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\TokenStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Topic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\TopicsList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\University.cs" />
