@@ -37,7 +37,7 @@ namespace ModernDev.InTouch
         /// Cover image copies.
         /// </summary>
         [DataMember]
-        [JsonProperty("Images")]
+        [JsonProperty("images")]
         public List<CoverImage> Images { get; set; }
         #endregion
     }

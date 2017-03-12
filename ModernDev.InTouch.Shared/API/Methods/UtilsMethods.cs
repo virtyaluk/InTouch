@@ -57,6 +57,38 @@ namespace ModernDev.InTouch
         public async Task<Response<int>> GetServerTime()
             => await Request<int>("getServerTime", new MethodParams(), true);
 
+        /// <summary>
+        /// Allows to receive a link shortened via vk.cc.
+        /// </summary>
+        /// <param name="url">URL to be shortened.</param>
+        /// <returns>Returns an object containing shortened URL.</returns>
+        public async Task<Response<string>> GetShortLink(string url)
+            => await Request<string>("getShortLink", new MethodParams
+            {
+                {"url", url}
+            }, false, "short_url");
+
+        /// <summary>
+        /// Returns stats data for shortened link.
+        /// </summary>
+        /// <param name="key">Part of the link after "vk.cc/".</param>
+        /// <param name="interval">Interval.</param>
+        /// <param name="intervalsCount">Number of intervals to return.</param>
+        /// <param name="extended">True (default) — to return extended stats data (sex, age, geo). False — to return views number only. </param>
+        /// <returns>
+        /// Returns <see cref="LinkStats"/> object which contains <see cref="LinkStats.Key"/> field with key value and <see cref="LinkStats.Stats"/> list with the stats data.
+        /// Each object in stats contains <see cref="Stats.Timestamp"/> field with the start time, <see cref="StatsBase.Views"/> field with total views number, and stats lists: <see cref="SexAgeStats"/>, <see cref="CountryStats"/>, <see cref="CityStats"/>.
+        /// </returns>
+        public async Task<Response<LinkStats>> GetLinkStats(string key,
+            LinkStatsInterval interval = LinkStatsInterval.Day, int intervalsCount = 100, bool extended = true)
+            => await Request<LinkStats>("getLinkStats", new MethodParams
+            {
+                {"key", key},
+                {"interval", interval},
+                {"intervals_count", intervalsCount},
+                {"extended", extended}
+            });
+
         #endregion
     }
 }

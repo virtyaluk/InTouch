@@ -76,6 +76,7 @@
     <Compile Include="PlacesMethodsTests.cs" />
     <Compile Include="PollsMethodsTests.cs" />
     <Compile Include="SearchMethodsTests.cs" />
+    <Compile Include="SecureMethodsTest.cs" />
     <Compile Include="StatsMethodsTests.cs" />
     <Compile Include="StatusMethodsTests.cs" />
     <Compile Include="StorageMethodsTests.cs" />

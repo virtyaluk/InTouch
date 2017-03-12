@@ -250,6 +250,15 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;success&quot;:1,&quot;user_id&quot;:1,&quot;date&quot;:1489353144,&quot;expire&quot;:1489353144}}.
+        /// </summary>
+        internal static string checkToken {
+            get {
+                return ResourceManager.GetString("checkToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:18,&quot;items&quot;:[{&quot;id&quot;:1,&quot;title&quot;:&quot;Москва&quot;,&quot;important&quot;:1},{&quot;id&quot;:2,&quot;title&quot;:&quot;Санкт-Петербург&quot;,&quot;important&quot;:1},{&quot;id&quot;:10,&quot;title&quot;:&quot;Волгоград&quot;},{&quot;id&quot;:37,&quot;title&quot;:&quot;Владивосток&quot;},{&quot;id&quot;:153,&quot;title&quot;:&quot;Хабаровск&quot;}]}}.
         /// </summary>
         internal static string citiesItemsList {
@@ -415,6 +424,24 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;key&quot;:&quot;6drK78&quot;,&quot;stats&quot;:[{&quot;timestamp&quot;:1489050000,&quot;views&quot;:0},{&quot;timestamp&quot;:1488963600,&quot;views&quot;:1,&quot;sex_age&quot;:[{&quot;age_range&quot;:&quot;&lt;18&quot;,&quot;female&quot;:0,&quot;male&quot;:1}],&quot;countries&quot;:[{&quot;country_id&quot;:1,&quot;views&quot;:1}],&quot;cities&quot;:[{&quot;city_id&quot;:2,&quot;views&quot;:1}]},{&quot;timestamp&quot;:1488877200,&quot;views&quot;:4,&quot;sex_age&quot;:[{&quot;age_range&quot;:&quot;21-24&quot;,&quot;female&quot;:0,&quot;male&quot;:1}],&quot;countries&quot;:[{&quot;country_id&quot;:49,&quot;views&quot;:1},{&quot;country_id&quot;:3,&quot;views&quot;:1},{&quot;country_id&quot;:1,&quot;views&quot;:1}],&quot;cities&quot;:[{&quot;city_id&quot;:244,&quot;views&quot;:1},{&quot;city_id&quot;:1201,&quot;views&quot;:1},{&quot;city_id&quot;:1,&quot;views&quot;:1}]},{&quot;ti [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string getLinkStats {
+            get {
+                return ResourceManager.GetString("getLinkStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;short_url&quot;: &quot;https://vk.cc/1wHm8g&quot;}}.
+        /// </summary>
+        internal static string getShortLink {
+            get {
+                return ResourceManager.GetString("getShortLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:3,&quot;items&quot;:[{&quot;id&quot;:653008904,&quot;from_id&quot;:165146081,&quot;message&quot;:&quot;&quot;,&quot;date&quot;:1458403595,&quot;gift&quot;:{&quot;id&quot;:770,&quot;thumb_256&quot;:&quot;https://vk.com/images/gift/770/256.jpg&quot;,&quot;thumb_96&quot;:&quot;https://vk.com/images/gift/770/96.png&quot;,&quot;thumb_48&quot;:&quot;https://vk.com/images/gift/770/48.png&quot;},&quot;privacy&quot;:1,&quot;gift_hash&quot;:&quot;eOwGaCj1Rc6Itu7T*RdRaIXHIlol27m*cXSHlBbQk0fFvGK4W8yxcKT0c8AcMcYST9FoViFMJoPFY*SOX/t1GLHumPjtYCbbYcwA8lE4WO2sydjoVzs8nKGfZS8*HBNQU6z6CZgxct2qFCCA2iyLDmM4j9jpcbU3MpMwdC1EWcM-&quot;},{&quot;id&quot;:653006597,&quot;from_id&quot;:165146081,&quot;mes [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string giftsItemsList {
@@ -438,6 +465,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string groupAddLink {
             get {
                 return ResourceManager.GetString("groupAddLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;images&quot;:[{&quot;url&quot;:&quot;https://cs541604....d7e/NPSkgAQTyX4.jpg&quot;,&quot;width&quot;:200,&quot;height&quot;:50},{&quot;url&quot;:&quot;https://cs541604....d7d/1IFvIjTUYLI.jpg&quot;,&quot;width&quot;:400,&quot;height&quot;:101},{&quot;url&quot;:&quot;https://cs541604....d7a/iJL7biUq9qU.jpg&quot;,&quot;width&quot;:795,&quot;height&quot;:200},{&quot;url&quot;:&quot;https://cs541604....d7c/P-glOjYdU9U.jpg&quot;,&quot;width&quot;:1080,&quot;height&quot;:272},{&quot;url&quot;:&quot;https://cs541604....d7b/cZ70f6PTaBY.jpg&quot;,&quot;width&quot;:1590,&quot;height&quot;:400}]}}.
+        /// </summary>
+        internal static string groupCover {
+            get {
+                return ResourceManager.GetString("groupCover", resourceCulture);
             }
         }
         

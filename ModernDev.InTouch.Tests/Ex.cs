@@ -52,7 +52,9 @@ namespace ModernDev.InTouch.Tests
                     mockHttp
                         .WhenAndRespond($"{cat}.checkLink", Responses.GetString("linkStatus"))
                         .WhenAndRespond($"{cat}.resolveScreenName", Responses.GetString("objectInfo"))
-                        .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"));
+                        .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"))
+                        .WhenAndRespond($"{cat}.getLinkStats", Responses.GetString("getLinkStats"))
+                        .WhenAndRespond($"{cat}.getShortLink", Responses.GetString("getShortLink"));
                     break;
 
                 case "gifts":
@@ -377,7 +379,9 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.putTag", Responses.GetString("responseNum"))
                         .WhenAndRespond($"{cat}.removeTag", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.getNewTags", Responses.GetString("photosItemsList"))
-                        .WhenAndRespond($"{cat}.getEditorStickers", Responses.GetString("editorStickers"));
+                        .WhenAndRespond($"{cat}.getEditorStickers", Responses.GetString("editorStickers"))
+                        .WhenAndRespond($"{cat}.getOwnerCoverPhotoUploadServer", Responses.GetString("uploadServer"))
+                        .WhenAndRespond($"{cat}.saveOwnerCoverPhoto", Responses.GetString("groupCover"));
                     break;
 
                 case "pages":
@@ -508,6 +512,16 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.deleteAlbum", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.removeFromAlbum", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.addToAlbum", Responses.GetString("responseTrue"));
+                    break;
+
+                case "secure":
+                    mockHttp
+                        .WhenAndRespond($"{cat}.setUserLevel", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.setCounter", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.sendSMSNotification", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.sendNotification", Responses.GetString("responseNumsList"))
+                        .WhenAndRespond($"{cat}.getAppBalance", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.checkToken", Responses.GetString("checkToken"));
                     break;
 
                 default:

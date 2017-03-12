@@ -59,6 +59,29 @@ namespace ModernDev.InTouch.Tests
             IsTrue(resp.Data == 1460247613, "resp.Data == 1460247613");
         }
 
+        [Test]
+        public async Task GetShortLink()
+        {
+            var resp = await _inTouch.Utils.GetShortLink("http://modern-dev.com/");
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            IsTrue(resp.Data == "https://vk.cc/1wHm8g", "resp.Data == 'https://vk.cc/1wHm8g'");
+        }
+
+        [Test]
+        public async Task GetLinkStats()
+        {
+            var resp = await _inTouch.Utils.GetLinkStats("6drK78", LinkStatsInterval.Day, 4);
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            IsTrue(resp.Data.Key == "6drK78", "resp.Data.Key == '6drK78'");
+            IsNotEmpty(resp.Data.Stats, "resp.Data.Stats not empty");
+            IsTrue(resp.Data.Stats[0].Views == 0, "resp.Data.Stats[0].Views == 0");
+            IsTrue(resp.Data.Stats[1].SegAge[0].Male == 1, "resp.Data.Stats[1].SegAge[0].Male == 1");
+        }
+
         [OneTimeTearDown]
         public void TestTearDown()
         {

@@ -23,16 +23,15 @@ using Newtonsoft.Json.Linq;
 using static ModernDev.InTouch.Helpers.Utils;
 
 [assembly: InternalsVisibleTo("ModernDev.InTouch.Tests")]
-
 namespace ModernDev.InTouch
 {
     /// <summary>
     /// Provides a base class for working with vk.com API.
     /// </summary>
-    public partial class InTouch : IDisposable
+    public class InTouch : IDisposable
     {
         #region Fields
-        
+
         private HttpClient _apiClient;
         private HttpClient _fileClient;
         private readonly Uri _baseApiUri = new Uri("https://api.vk.com/");
@@ -42,7 +41,6 @@ namespace ModernDev.InTouch
         private Dictionary<string, string> _lastReqParams;
         private string _lastReqMethod;
         private readonly HttpMessageHandler _httpMessageHandler;
-        private bool _disposed;
 
         #endregion
 
@@ -61,7 +59,12 @@ namespace ModernDev.InTouch
         /// <summary>
         /// The used API version.
         /// </summary>
-        public const string APIVersion = "5.62";
+        public readonly string APIVersion = "5.62";
+
+        /// <summary>
+        /// Service token used for calling open methods.
+        /// </summary>
+        public string ServiceToken { get; private set; }
 
         /// <summary>
         /// Determines the language for the data to be displayed on.
@@ -235,6 +238,11 @@ namespace ModernDev.InTouch
         /// </summary>
         public MarketMethods Market { get; private set; }
 
+        /// <summary>
+        /// Secure methods.
+        /// </summary>
+        public SecureMethods Secure { get; private set; }
+
         #endregion
 
         #region Events
@@ -291,6 +299,7 @@ namespace ModernDev.InTouch
             Stats = new StatsMethods(this);
             Search = new SearchMethods(this);
             Market = new MarketMethods(this);
+            Secure = new SecureMethods(this);
 
             JsonConvert.DefaultSettings = () => new JsonSerializerSettings
             {
@@ -310,7 +319,7 @@ namespace ModernDev.InTouch
         {
             SetApplicationSettings(clientId, clientSecret);
         }
-        
+
         internal InTouch(HttpMessageHandler httpMessageHandler, int clientId, string clientSecret,
             bool throwExceptionOnResponseError = false,
             bool includeRawResponse = false)
@@ -322,6 +331,54 @@ namespace ModernDev.InTouch
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Sets service token to given value.
+        /// </summary>
+        /// <param name="serviceToken">Service token.</param>
+        public void SetServiceToken(string serviceToken)
+        {
+            if (string.IsNullOrEmpty(serviceToken))
+            {
+                throw new ArgumentNullException(nameof(serviceToken));
+            }
+
+            ServiceToken = serviceToken;
+        }
+
+        /// <summary>
+        /// Used to perform Client Credentials Authorization.
+        /// </summary>
+        /// <param name="clientId">Application Id.</param>
+        /// <param name="clientSecret">Application secret key.</param>
+        /// <returns></returns>
+        /// <exception cref="InTouchException">Returns status of Client Credential Flow authorization.</exception>
+        public async Task<ClientCredentialsFlowStatus> GetClientCredentialsFlow(int? clientId = null,
+            string clientSecret = null)
+        {
+            try
+            {
+                string apiUrl =
+                        $"https://oauth.vk.com/access_token?client_id={(clientId ?? ClientId)}&client_secret={clientSecret ?? ClientSecret}&v={APIVersion}&grant_type=client_credentials",
+                    jsonResponse = await Get(apiUrl);
+                var jsonObj = JObject.Parse(jsonResponse);
+                object error = jsonObj["error"],
+                    errorDescription = jsonObj["error_description"],
+                    accessToken = jsonObj["access_token"];
+
+                if (accessToken != null)
+                {
+                    SetServiceToken(accessToken.ToString());
+                }
+
+                return new ClientCredentialsFlowStatus(error != null && errorDescription != null, error?.ToString(),
+                    errorDescription?.ToString(), accessToken?.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while getting client credential flow data.", ex);
+            }
+        }
 
         /// <summary>
         /// Checks whether the API session is alive.
@@ -340,7 +397,7 @@ namespace ModernDev.InTouch
 
                 _dataLang = accountInfo.Data.Lang.ToString();
 
-                 return true;
+                return true;
             }
             catch
             {
@@ -446,7 +503,7 @@ namespace ModernDev.InTouch
         /// <param name="sessionDuration"><see cref="APISession.AccessToken"/> life time specified in seconds.</param>
         /// <exception cref="ArgumentNullException">Thrown when an <code>accessToken</code> is <code>null</code> or empty.</exception>
         /// <exception cref="ArgumentException">Thrown when an <code>userId</code> or a <code>sessionDuration</code> is less than or equal to zero.</exception>
-        public void SetSessionData(string accessToken, int userId, int sessionDuration = 20*60*60)
+        public void SetSessionData(string accessToken, int userId, int sessionDuration = 20 * 60 * 60)
         {
             if (string.IsNullOrEmpty(accessToken))
             {
@@ -490,7 +547,8 @@ namespace ModernDev.InTouch
             {
                 if (Session == null)
                 {
-                    throw new NullReferenceException("The session is not set. You need to authorize to get the new session.");
+                    throw new NullReferenceException(
+                        "The session is not set. You need to authorize to get the new session.");
                 }
 
                 if (Session.IsExpired)
@@ -562,16 +620,8 @@ namespace ModernDev.InTouch
         /// </summary>
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        ~InTouch()
-        {
-            Dispose(false);
+            _apiClient?.Dispose();
+            _fileClient?.Dispose();
         }
 
         /// <summary>
@@ -648,7 +698,7 @@ namespace ModernDev.InTouch
 
                 return string.IsNullOrEmpty(path) ? jObj.ToObject<T>() : jObj.SelectToken(path).ToObject<T>();
             }
-            catch (Exception ex) when (ex.GetType() != typeof (InTouchResponseErrorException))
+            catch (Exception ex) when (ex.GetType() != typeof(InTouchResponseErrorException))
             {
                 throw new InTouchException("An exception has occurred while parsing upload server response", ex);
             }
@@ -711,8 +761,8 @@ namespace ModernDev.InTouch
                 }
             }
             catch (Exception ex)
-                when (ex.GetType() != typeof (InTouchException) &&
-                      ex.GetType() != typeof (InTouchResponseErrorException))
+                when (ex.GetType() != typeof(InTouchException) &&
+                      ex.GetType() != typeof(InTouchResponseErrorException))
             {
                 throw new InTouchException("An exception has occurred while parsing request response", ex);
             }
@@ -736,12 +786,29 @@ namespace ModernDev.InTouch
             }
         }
 
-        private Dictionary<string, string> NormalizeRequestParams(Dictionary<string, string> reqParams = null,
-            bool isOpenMethod = false)
+        private async Task<string> Get(string url)
+        {
+            try
+            {
+                var response = await _apiClient.GetAsync(url);
+
+                response.EnsureSuccessStatusCode();
+
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new InTouchException("An exception has occurred while processing the GET request.", ex);
+            }
+        }
+
+        private Dictionary<string, string> NormalizeRequestParams(Dictionary<string, string> reqParams, bool isOpenMethod)
         {
             var apiParams = reqParams ?? new Dictionary<string, string>();
 
-            apiParams["access_token"] = Session?.AccessToken ?? "";
+            apiParams["access_token"] = isOpenMethod && !string.IsNullOrEmpty(ServiceToken)
+                ? ServiceToken
+                : Session?.AccessToken ?? ServiceToken;
             apiParams["v"] = $"{APIVersion}";
             apiParams["https"] = $"{(AlowHttpsLinks ? 1 : 0)}";
 
@@ -759,24 +826,6 @@ namespace ModernDev.InTouch
 
         private void OnAuthorizationFailed(ResponseError e) => AuthorizationFailed?.Invoke(this, e);
         private void OnCaptchaNeeded(ResponseError e) => CaptchaNeeded?.Invoke(this, e);
-
-        /// <summary>
-        /// Releases all resources used by the current instance of <see cref="InTouch"/>.
-        /// </summary>
-        /// <param name="disposing"></param>
-        protected virtual void Dispose(bool disposing)
-        {
-            if (_disposed)
-            {
-                if (disposing)
-                {
-                    _apiClient?.Dispose();
-                    _fileClient?.Dispose();
-                }
-
-                _disposed = true;
-            }
-        }
 
         #endregion
 
