@@ -145,6 +145,26 @@ void SetSessionData(string accessToken, int userId, int sessionDuration = 20*60*
 
 After successful authorization, you can make API requests. There're a couple of methods not requiring authorization, though.
 
+#### Community Token
+
+A community token allows working with API on behalf of a group, event or public page. It can be used to answer the community messages.
+
+**InTouch** offers **`GetClientCredentialsFlow`** method to get community token:
+
+```csharp
+async Task<ClientCredentialsFlowStatus> GetClientCredentialsFlow(int? clientId = null, string clientSecret = null);
+```
+
+In case of omitting *`clientId`* and *`clientSecret`* arguments, **InTouch** would try to use *`ClientId`* and *`ClientSecret`* properties on main class instance.
+
+In case you already have *community token*, you can set it on main class instance manually using **`SetServiceToken`** method:
+
+```csharp
+void SetServiceToken(string serviceToken)
+```
+
+and later access using *`ServiceToken`* property.
+
 ### API Requests
 
 All the methods are grouped by corresponding categories as they were presented in the [:link:official documentation](https://new.vk.com/dev/methods). So, for example, if you want to return a list of posts on a user's wall using [:link:wall.get](https://new.vk.com/dev/wall.get) method, you need to call **Get** method of **Wall** object on the main instance of **InTouch** class. Like so:
@@ -376,7 +396,7 @@ await client.Photos.UploadOwnerPhoto(newPhoto, "profile.jpg");
 
 ## :green_book: Platform Support
 
-**InTouch** is compiled for .NET 4.5, as well a Portable Class Library (Profile 111) supporting:
+**InTouch** is compiled for *.NET 4.5*, *Portable Class Library* (Profile 111) and *.NET Standard 1.1*:
  - .NET 4.5
  - .NET Standard 1.1
  - ASP.NET Core 1.0
