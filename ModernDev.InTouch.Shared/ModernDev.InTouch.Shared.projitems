@@ -73,6 +73,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\VideoSaveParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\VideoSearchParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallAddCommentParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallAdsStealthParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallEditAdsStealthParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallEditParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallGetCommentsParam.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallGetParams.cs" />
@@ -212,6 +214,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Poll.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Post.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\PostedPhoto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\PostViews.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Product.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Sticker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Attachments\Video.cs" />
@@ -347,6 +350,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\SearchHintItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Section.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ServerInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ShortenedLink.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Store.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Street.cs" />

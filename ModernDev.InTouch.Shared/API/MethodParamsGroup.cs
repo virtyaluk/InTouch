@@ -26,7 +26,7 @@ namespace ModernDev.InTouch
         /// Iterates over all non-nullable class properties and adds them to the <see cref="MethodParamsGroup"/> collection.
         /// </summary>
         /// <returns>A <see cref="MethodParamsGroup"/> instance containing all the non-nullable properties of the current class.</returns>
-        public MethodParams GetParams()
+        private MethodParams GetParams()
         {
             var mp = new MethodParams();
 

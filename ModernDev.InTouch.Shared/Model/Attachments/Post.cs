@@ -181,6 +181,12 @@ namespace ModernDev.InTouch
         [JsonProperty("is_pinned")]
         public bool IsPinned { get; set; }
 
+        /// <summary>
+        /// An information about post views.
+        /// </summary>
+        [DataMember, JsonProperty("views")]
+        public PostViews Views { get; set; }
+
         #region Extra properties
 
         [DataMember]

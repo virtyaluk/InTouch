@@ -294,6 +294,24 @@ namespace ModernDev.InTouch
                 {"reason", (int) reason }
             });
 
+        /// <summary>
+        /// Allows to create hidden post which will not be shown on the community's wall and can be used for creating an ad with type "Community post".
+        /// Hidden posts creation is available for communities only; user should be community's editor, moderator or administrator.
+        /// </summary>
+        /// <param name="methodParams">A <see cref="WallAdsStealthParams"/> object with the params.</param>
+        /// <returns>Returns the Id of the created post.</returns>
+        public async Task<Response<int>> PostAdsStealth(WallAdsStealthParams methodParams)
+            => await Request<int>("postAdsStealth", methodParams);
+
+        /// <summary>
+        /// Allows to edit hidden post.
+        /// Hidden posts creation is available for communities only; user should be community's editor, moderator or administrator.
+        /// </summary>
+        /// <param name="methodParams">A <see cref="WallEditAdsStealthParams"/> object with the params.</param>
+        /// <returns>Returns 1.</returns>
+        public async Task<Response<bool>> EditAdsStealth(WallEditAdsStealthParams methodParams)
+            => await Request<bool>("editAdsStealth", methodParams);
+
         #endregion
     }
 }

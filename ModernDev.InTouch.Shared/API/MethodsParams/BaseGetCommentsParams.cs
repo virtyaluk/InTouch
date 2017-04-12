@@ -10,6 +10,10 @@
  * Licensed under the GPLv3 license.
  */
 
+using System.Collections.Generic;
+using System.Linq;
+using static ModernDev.InTouch.Helpers.Utils;
+
 namespace ModernDev.InTouch
 {
     public abstract class BaseGetCommentsParams : MethodParamsGroup
@@ -55,5 +59,22 @@ namespace ModernDev.InTouch
         /// </summary>
         [MethodParam(Name = "extended")]
         public bool Extended { get; set; }
+
+        private List<string> _fields;
+
+        /// <summary>
+        /// The list of additional fields for the profiles and groups that need to be returned. The list can accept <see cref="UserProfileFields"/>, <see cref="GroupProfileFields"/> and regular string objects.
+        /// </summary>
+        [MethodParam(Name = "fields")]
+        public List<object> Fields
+        {
+            get { return _fields?.Cast<object>().ToList(); }
+            set
+            {
+                _fields = value?.Where(
+                    el => el != null && (el is UserProfileFields || el is GroupProfileFields || el is string))
+                    .Select(el => el is string ? (string)el : ToEnumString(el)).ToList();
+            }
+        }
     }
 }

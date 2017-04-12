@@ -54,7 +54,9 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.resolveScreenName", Responses.GetString("objectInfo"))
                         .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"))
                         .WhenAndRespond($"{cat}.getLinkStats", Responses.GetString("getLinkStats"))
-                        .WhenAndRespond($"{cat}.getShortLink", Responses.GetString("getShortLink"));
+                        .WhenAndRespond($"{cat}.getShortLink", Responses.GetString("getShortLink"))
+                        .WhenAndRespond($"{cat}.getLastShortenedLinks", Responses.GetString("shortenedLinksList"))
+                        .WhenAndRespond($"{cat}.deleteFromLastShortened", Responses.GetString("responseTrue"));
                     break;
 
                 case "gifts":
@@ -274,7 +276,9 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.deleteComment", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.restoreComment", Responses.GetString("responseTrue"))
                         .WhenAndRespond($"{cat}.reportPost", Responses.GetString("responseTrue"))
-                        .WhenAndRespond($"{cat}.reportComment", Responses.GetString("responseTrue"));
+                        .WhenAndRespond($"{cat}.reportComment", Responses.GetString("responseTrue"))
+                        .WhenAndRespond($"{cat}.postAdsStealth", Responses.GetString("responseNum"))
+                        .WhenAndRespond($"{cat}.editAdsStealth", Responses.GetString("responseTrue"));
                     break;
 
                 case "video":
