@@ -140,5 +140,11 @@ namespace ModernDev.InTouch.API
         /// </summary>
         [EnumMember(Value = "")]
         None = 0,
+
+        /// <summary>
+        /// Possibility to make API requests without HTTPS.
+        /// </summary>
+        [EnumMember(Value = "nohttps")]
+        NoHTTPS = 0
     }
 }

@@ -73,6 +73,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\VideoSaveParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\VideoSearchParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallAddCommentParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallAdsStealthParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallEditAdsStealthParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallEditParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallGetCommentsParam.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\MethodsParams\WallGetParams.cs" />

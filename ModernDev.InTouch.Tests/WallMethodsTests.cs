@@ -251,6 +251,29 @@ namespace ModernDev.InTouch.Tests
             IsTrue(resp.Data, "resp.Data");
         }
 
+        [Test]
+        public async Task PostAdsStealth()
+        {
+            var resp = await _inTouch.Wall.PostAdsStealth(new WallAdsStealthParams {OwnerId = 1, Message = "test"});
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data == 481516, "resp.Data == 481516");
+        }
+
+        [Test]
+        public async Task EditAdsStealth()
+        {
+            var resp = await _inTouch.Wall.EditAdsStealth(new WallEditAdsStealthParams
+            {
+                OwnerId = 1,
+                Message = "test",
+                PostId = 2
+            });
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
+        }
+
         [OneTimeTearDown]
         public void TestTearDown()
         {
