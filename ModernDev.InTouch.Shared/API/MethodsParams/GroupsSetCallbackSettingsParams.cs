@@ -118,5 +118,11 @@ namespace ModernDev.InTouch
         /// </summary>
         [MethodParam(Name = "group_leave")]
         public bool GroupLeave { get; set; }
+
+        /// <summary>
+        /// epost from the community
+        /// </summary>
+        [MethodParam(Name = "wall_repost")]
+        public bool WallRepost { get; set; }
     }
 }

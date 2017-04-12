@@ -148,5 +148,11 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("wall_post_new")]
         public bool WallPostNew { get; set; }
+
+        /// <summary>
+        /// Repost from the community.
+        /// </summary>
+        [DataMember, JsonProperty("wall_repost")]
+        public bool WallRepost { get; set; }
     }
 }
