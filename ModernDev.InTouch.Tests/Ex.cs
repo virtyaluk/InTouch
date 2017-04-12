@@ -54,7 +54,9 @@ namespace ModernDev.InTouch.Tests
                         .WhenAndRespond($"{cat}.resolveScreenName", Responses.GetString("objectInfo"))
                         .WhenAndRespond($"{cat}.getServerTime", Responses.GetString("serverTime"))
                         .WhenAndRespond($"{cat}.getLinkStats", Responses.GetString("getLinkStats"))
-                        .WhenAndRespond($"{cat}.getShortLink", Responses.GetString("getShortLink"));
+                        .WhenAndRespond($"{cat}.getShortLink", Responses.GetString("getShortLink"))
+                        .WhenAndRespond($"{cat}.getLastShortenedLinks", Responses.GetString("shortenedLinksList"))
+                        .WhenAndRespond($"{cat}.deleteFromLastShortened", Responses.GetString("responseTrue"));
                     break;
 
                 case "gifts":

@@ -433,7 +433,7 @@ namespace ModernDev.InTouch.Tests {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;short_url&quot;: &quot;https://vk.cc/1wHm8g&quot;}}.
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;short_url&quot;:&quot;https://vk.cc/6veEbc&quot;,&quot;url&quot;:&quot;http://google.ru&quot;,&quot;key&quot;:&quot;6veEbc&quot;,&quot;access_key&quot;:&quot;04ac6800fde7225188&quot;}}.
         /// </summary>
         internal static string getShortLink {
             get {
@@ -987,6 +987,15 @@ namespace ModernDev.InTouch.Tests {
         internal static string setProfileInfo {
             get {
                 return ResourceManager.GetString("setProfileInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;response&quot;:{&quot;count&quot;:2,&quot;items&quot;:[{&quot;timestamp&quot;:1492004202,&quot;url&quot;:&quot;http://google.ru&quot;,&quot;short_url&quot;:&quot;https://vk.cc/6veEbc&quot;,&quot;key&quot;:&quot;6veEbc&quot;,&quot;views&quot;:0,&quot;access_key&quot;:&quot;04ac6800fde7225188&quot;},{&quot;timestamp&quot;:1489273722,&quot;url&quot;:&quot;https://yandex.ru&quot;,&quot;short_url&quot;:&quot;https://vk.cc/1wHm8g&quot;,&quot;key&quot;:&quot;1wHm8g&quot;,&quot;views&quot;:142}]}}.
+        /// </summary>
+        internal static string shortenedLinksList {
+            get {
+                return ResourceManager.GetString("shortenedLinksList", resourceCulture);
             }
         }
         

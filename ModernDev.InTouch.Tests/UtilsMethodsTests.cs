@@ -13,6 +13,7 @@
 using System.Threading.Tasks;
 using NUnit.Framework;
 using static NUnit.Framework.Assert;
+using static NUnit.Framework.Is;
 
 namespace ModernDev.InTouch.Tests
 {
@@ -66,7 +67,9 @@ namespace ModernDev.InTouch.Tests
 
             IsFalse(resp.IsError, "resp.IsError");
             IsNotNull(resp.Data, "resp.Data != null");
-            IsTrue(resp.Data == "https://vk.cc/1wHm8g", "resp.Data == 'https://vk.cc/1wHm8g'");
+            That(resp.Data.AccessKey, EqualTo("04ac6800fde7225188"));
+            That(resp.Data.Key, EqualTo("6veEbc"));
+            That(resp.Data.ShortURL, EqualTo("https://vk.cc/6veEbc"));
         }
 
         [Test]
@@ -80,6 +83,31 @@ namespace ModernDev.InTouch.Tests
             IsNotEmpty(resp.Data.Stats, "resp.Data.Stats not empty");
             IsTrue(resp.Data.Stats[0].Views == 0, "resp.Data.Stats[0].Views == 0");
             IsTrue(resp.Data.Stats[1].SegAge[0].Male == 1, "resp.Data.Stats[1].SegAge[0].Male == 1");
+        }
+
+        [Test]
+        public async Task GetLastShortenedLinks()
+        {
+            var resp = await _inTouch.Utils.GetLastShortenedLinks();
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsNotNull(resp.Data, "resp.Data != null");
+            IsNotEmpty(resp.Data.Items, "resp.Data.Items not empty");
+            That(resp.Data.Count, EqualTo(2));
+            IsNotNull(resp.Data.Items[0], "resp.Data.Items[0] != null");
+            That(resp.Data.Items[0].Views, EqualTo(0));
+            IsNotNull(resp.Data.Items[0].Date, "resp.Data.Items[0].Date != null");
+            That(resp.Data.Items[0].Key, EqualTo("6veEbc"));
+            That(resp.Data.Items[0].AccessKey, EqualTo("04ac6800fde7225188"));
+        }
+
+        [Test]
+        public async Task DeleteFromLastShortened()
+        {
+            var resp = await _inTouch.Utils.DeleteFromLastShortened("6veEbc");
+
+            IsFalse(resp.IsError, "resp.IsError");
+            IsTrue(resp.Data, "resp.Data");
         }
 
         [OneTimeTearDown]
