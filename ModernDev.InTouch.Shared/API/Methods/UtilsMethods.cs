@@ -34,10 +34,10 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Checks whether a link is blocked in VK.
         /// </summary>
-        /// <param name="link">Link to check</param>
+        /// <param name="url">Link to check</param>
         /// <returns>Returns a <see cref="LinkStatus"/> object.</returns>
         public async Task<Response<LinkStatus>> CheckLink(string link)
-            => await Request<LinkStatus>("checkLink", new MethodParams {{"link", link, true}}, true);
+            => await Request<LinkStatus>("checkLink", new MethodParams {{"url", link, true}}, true);
 
         /// <summary>
         /// Detects a type of object (e.g., user, community, application) and its ID by screen name.
