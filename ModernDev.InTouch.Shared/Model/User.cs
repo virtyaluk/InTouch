@@ -446,6 +446,20 @@ namespace ModernDev.InTouch
         public string Quotes { get; set; }
 
         /// <summary>
+        /// Is there a user in the bookmarks of the current user: true - is, false - no.
+        /// </summary>
+        [DataMember]
+[JsonProperty("is_favorite")]
+public bool IsFavorite { get; set; }
+
+        /// <summary>
+        /// Whether the user is a friend of the current user: true - yes, false - no.
+        /// </summary>
+        [DataMember]
+        [JsonProperty("is_friend")]
+        public bool IsFriend { get; set; }
+
+        /// <summary>
         /// Can post on the wall: true – allowed, false — not allowed.
         /// </summary>
         [DataMember]
