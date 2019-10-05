@@ -25,7 +25,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// Views number.
         /// </summary>
-        [DataMember, JsonProperty("views")]
+        [DataMember, JsonProperty("count")]
         public int? Count { get; set; }
     }
 }
