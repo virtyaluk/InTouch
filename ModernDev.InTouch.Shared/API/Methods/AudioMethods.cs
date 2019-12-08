@@ -192,6 +192,7 @@ namespace ModernDev.InTouch
         /// <param name="count">Number of albums to return.</param>
         /// <param name="offset">Offset needed to return a specific subset of albums.</param>
         /// <returns>Returns a <see cref="List{T}"/> of <see cref="AudioAlbum"/> objects.</returns>
+        [Obsolete]
         public async Task<Response<ItemsList<AudioAlbum>>> GetAlbums(int? ownerId = null, int count = 50, int offset = 0)
             => await Request<ItemsList<AudioAlbum>>("getAlbums", new MethodParams
             {
@@ -206,6 +207,7 @@ namespace ModernDev.InTouch
         /// <param name="title">Album title.</param>
         /// <param name="groupId">Community ID (if the album will be created in a community).</param>
         /// <returns>Returns the ID of the created album.</returns>
+        [Obsolete]
         public async Task<Response<int>> AddAlbum(string title, int? groupId = null)
             => await Request<int>("addAlbum", new MethodParams
             {
@@ -220,6 +222,7 @@ namespace ModernDev.InTouch
         /// <param name="title">New album title.</param>
         /// <param name="groupId">ID of the community where the album is located.</param>
         /// <returns>If successfully executed, returns True.</returns>
+        [Obsolete]
         public async Task<Response<bool>> EditAlbum(int albumId, string title, int? groupId = null)
             => await Request<bool>("editAlbum", new MethodParams
             {
@@ -234,6 +237,7 @@ namespace ModernDev.InTouch
         /// <param name="albumId">Album ID.</param>
         /// <param name="groupId">ID of the community where the album is located.</param>
         /// <returns>If successfully executed, returns True.</returns>
+        [Obsolete]
         public async Task<Response<bool>> DeleteAlbum(int albumId, int? groupId = null)
             => await Request<bool>("deleteAlbum", new MethodParams
             {
@@ -248,6 +252,7 @@ namespace ModernDev.InTouch
         /// <param name="albumId">ID of the album to which the audio files will be moved.</param>
         /// <param name="groupId">ID of the community where the audio files are located. By default, current user ID. </param>
         /// <returns>If successfully executed, returns True.</returns>
+        [Obsolete]
         public async Task<Response<bool>> MoveToAlbum(List<int> audioIds, int? albumId = null, int? groupId = null)
             => await Request<bool>("moveToAlbum", new MethodParams
             {

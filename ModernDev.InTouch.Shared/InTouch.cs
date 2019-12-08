@@ -59,7 +59,7 @@ namespace ModernDev.InTouch
         /// <summary>
         /// The used API version.
         /// </summary>
-        public readonly string APIVersion = "5.64";
+        public readonly string APIVersion = "5.65";
 
         /// <summary>
         /// Service token used for calling open methods.

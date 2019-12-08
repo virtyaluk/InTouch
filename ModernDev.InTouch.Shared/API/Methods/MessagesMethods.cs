@@ -231,14 +231,16 @@ namespace ModernDev.InTouch
         /// Returns data required for connection to a Long Poll server.
         /// With Long Poll connection, you can immediately know about incoming messages and other events.
         /// </summary>
-        /// <param name="useSSL">True - to use SSL. </param>
-        /// <param name="usePTS">True — to return the pts field, needed for the <see cref="GetLongPollHistory"/> method. </param>
+        /// <param name="needPTS">True — to return the pts field, needed for the <see cref="GetLongPollHistory"/> method. </param>
+        /// <param name="groupId">Group ID (for community messages with a user access token). </param>
+        /// <param name="lpVersion">Long Poll version. </param>
         /// <returns>Returns a <see cref="LongPollServerData"/> object. With such data you can connect to an instant message server to immediately receive incoming messages and other events.</returns>
-        public async Task<Response<LongPollServerData>> GetLongPollServer(bool useSSL = false, bool usePTS = false)
+        public async Task<Response<LongPollServerData>> GetLongPollServer(bool needPTS = false, int? groupId = null, int lpVersion = 0)
             => await Request<LongPollServerData>("getLongPollServer", new MethodParams
             {
-                {"use_ssl", useSSL},
-                {"use_pts", usePTS}
+                {"need_pts", needPTS},
+                {"group_id", groupId},
+                {"lp_version", lpVersion}
             });
 
         /// <summary>

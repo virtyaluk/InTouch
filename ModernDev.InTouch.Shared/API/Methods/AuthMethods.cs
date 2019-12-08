@@ -88,10 +88,14 @@ namespace ModernDev.InTouch
         /// </remarks>
         /// </summary>
         /// <param name="phone">User phone number.</param>
+        /// <param name="lastName">User last name.</param>
         /// <returns>In case of success the method returns an <see cref="AuthStatus"/> object.</returns>
-        public async Task<Response<AuthStatus>> Restore(string phone)
-            => await Request<AuthStatus>("restore", new MethodParams {{"phone", phone, true}}, true);
-
+        public async Task<Response<AuthStatus>> Restore(string phone, string lastName)
+            => await Request<AuthStatus>("restore", new MethodParams
+            {
+                {"phone", phone, true},
+                {"last_name", lastName, true}
+            }, true);
         #endregion
     }
 }

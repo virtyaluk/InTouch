@@ -65,7 +65,7 @@ namespace ModernDev.InTouch.Tests
         [Test]
         public async Task Restore()
         {
-            var resp = await _inTouch.Auth.Restore("01987555555");
+            var resp = await _inTouch.Auth.Restore("01987555555", "Gomez");
 
             IsFalse(resp.IsError, "resp.IsError");
             IsNotNull(resp.Data, "resp.Data != null");
