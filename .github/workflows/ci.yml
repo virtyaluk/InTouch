@@ -4,13 +4,13 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
+      uses: actions/checkout@v1
       name: Checkout Code
-    - name: Setup MSBuild Path
+      name: Setup MSBuild Path
       uses: warrenbuckley/Setup-MSBuild@v1
-    - name: Setup NuGet
+      name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
-    - name: Restore NuGet Packages
+      name: Restore NuGet Packages
       run: nuget restore ModernDev.InTouch.sln
-    - name: StartBuild
+      name: StartBuild
       run: msbuild ModernDev.InTouch.sln /p:Configuration=Release
