@@ -1,16 +1,20 @@
 name: CI
+
 on: [push, pull_request]
+
 jobs:
   build:
+
     runs-on: windows-latest
+
     steps:
-    - uses: actions/checkout@v1
-      name: Checkout Code
+    - name: Checkout Code
+    - uses: actions/checkout@v2
     - name: Setup MSBuild Path
       uses: microsoft/setup-msbuild@v1.0.0
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
     - name: Restore NuGet Packages
       run: nuget restore ModernDev.InTouch.sln
-    - name: Build .NET Project
+    - name: Build
       run: msbuild ModernDev.InTouch.sln /p:Configuration=Release
