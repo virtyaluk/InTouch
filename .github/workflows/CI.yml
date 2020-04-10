@@ -12,5 +12,5 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
     - name: Restore NuGet Packages
       run: nuget restore ModernDev.InTouch.sln
-    - name: Start Build
+    - name: Build .NET Project
       run: msbuild ModernDev.InTouch.sln /p:Configuration=Release
