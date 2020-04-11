@@ -50,5 +50,19 @@ namespace ModernDev.InTouch
         [DataMember]
         [JsonProperty("message")]
         public Message Message { get; set; }
+
+        /// <summary>
+        /// Is the dialog marked as important (for community dialogs)
+        /// </summary>
+        [DataMember]
+        [JsonProperty("important")]
+        public bool IsImportant { get; set; }
+
+        /// <summary>
+        /// Is the dialog marked as unanswered (for community dialogs)
+        /// </summary>
+        [DataMember]
+        [JsonProperty("unanswered")]
+        public bool IsUnanswered { get; set; }
     }
 }
